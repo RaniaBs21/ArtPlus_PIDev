@@ -15,23 +15,20 @@ import java.util.Date;
  */
 public class Post {
     private int Id_Post;
-    private String Type_Post;
     private String Description_Post;
     private Date Date_Post;
     private Time Heure_Post;
     private String Img_Post;
 
-    public Post(int Id_Post, String Type_Post, String Description_Post, Date Date_Post, Time Heure_Post, String Img_Post) {
+    public Post(int Id_Post, String Description_Post, Date Date_Post, Time Heure_Post, String Img_Post) {
         this.Id_Post = Id_Post;
-        this.Type_Post = Type_Post;
         this.Description_Post = Description_Post;
         this.Date_Post = Date_Post;
         this.Heure_Post = Heure_Post;
         this.Img_Post = Img_Post;
     }
 
-    public Post(String Type_Post, String Description_Post, Date Date_Post, Time Heure_Post, String Img_Post) {
-        this.Type_Post = Type_Post;
+    public Post( String Description_Post, Date Date_Post, Time Heure_Post, String Img_Post) {
         this.Description_Post = Description_Post;
         this.Date_Post = Date_Post;
         this.Heure_Post = Heure_Post;
@@ -41,15 +38,13 @@ public class Post {
     public Post() {
     }
 
-    public Post(String Type_Post, String Description_Post, String Img_Post) {
-        this.Type_Post = Type_Post;
+    public Post(String Description_Post, String Img_Post) {
         this.Description_Post = Description_Post;
         this.Img_Post = Img_Post;
     }
 
-    public Post(int Id_Post, String Type_Post, String Description_Post, String Img_Post) {
+    public Post(int Id_Post, String Description_Post, String Img_Post) {
         this.Id_Post = Id_Post;
-        this.Type_Post = Type_Post;
         this.Description_Post = Description_Post;
         this.Img_Post = Img_Post;
     }
@@ -62,13 +57,6 @@ public class Post {
         this.Id_Post = Id_Post;
     }
 
-    public String getType_Post() {
-        return Type_Post;
-    }
-
-    public void setType_Post(String Type_Post) {
-        this.Type_Post = Type_Post;
-    }
 
     public String getDescription_Post() {
         return Description_Post;
@@ -104,7 +92,7 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Post{" + "Id_Post=" + Id_Post + ", Type_Post=" + Type_Post + ", Description_Post=" + Description_Post + ", Date_Post=" + Date_Post + ", Heure_Post=" + Heure_Post + ", Img_Post=" + Img_Post + '}';
+        return "Post{" + "Id_Post=" + Id_Post + ", Description_Post=" + Description_Post + ", Date_Post=" + Date_Post + ", Heure_Post=" + Heure_Post + ", Img_Post=" + Img_Post + '}';
     }
     
     
