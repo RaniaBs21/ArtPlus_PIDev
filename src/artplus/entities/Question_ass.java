@@ -10,23 +10,25 @@ package artplus.entities;
  * @author akrem
  */
 public class Question_ass {
-    private int Id_Q_Ass,Num_Q_Ass;
-    private String Type_Q_Ass;
+    private int Id_Q_Ass;
+    private String Type_Q_Ass,Description_Q_Ass;
 
-    public Question_ass(int Id_Q_Ass, int Num_Q_Ass, String Type_Q_Ass) {
+    public Question_ass(int Id_Q_Ass, String Type_Q_Ass, String Description_Q_Ass) {
         this.Id_Q_Ass = Id_Q_Ass;
-        this.Num_Q_Ass = Num_Q_Ass;
         this.Type_Q_Ass = Type_Q_Ass;
+        this.Description_Q_Ass = Description_Q_Ass;
     }
 
-    public Question_ass(int Num_Q_Ass, String Type_Q_Ass) {
-        this.Num_Q_Ass = Num_Q_Ass;
+    public Question_ass(String Type_Q_Ass, String Description_Q_Ass) {
         this.Type_Q_Ass = Type_Q_Ass;
+        this.Description_Q_Ass = Description_Q_Ass;
     }
 
     public Question_ass(int Id_Q_Ass) {
         this.Id_Q_Ass = Id_Q_Ass;
     }
+
+   
     
     public Question_ass(){
     
@@ -40,12 +42,12 @@ public class Question_ass {
         this.Id_Q_Ass = Id_Q_Ass;
     }
 
-    public int getNum_Q_Ass() {
-        return Num_Q_Ass;
+    public String getDescription_Q_Ass() {
+        return Description_Q_Ass;
     }
 
-    public void setNum_Q_Ass(int Num_Q_Ass) {
-        this.Num_Q_Ass = Num_Q_Ass;
+    public void setDescription_Q_Ass(String Num_Q_Ass) {
+        this.Description_Q_Ass = Description_Q_Ass;
     }
 
     public String getType_Q_Ass() {
@@ -58,7 +60,7 @@ public class Question_ass {
 
     @Override
     public String toString() {
-        return "Question_ass{" + "Id_Q_Ass=" + Id_Q_Ass + ", Num_Q_Ass=" + Num_Q_Ass + ", Type_Q_Ass=" + Type_Q_Ass + '}';
+        return "Question_ass{" + "Id_Q_Ass=" + Id_Q_Ass + ", Description_Q_Ass=" + Description_Q_Ass + ", Type_Q_Ass=" + Type_Q_Ass + '}';
     }
 
 

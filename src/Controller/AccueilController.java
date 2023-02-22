@@ -33,11 +33,11 @@ public class AccueilController implements Initializable {
     private AnchorPane rootLayout;
     private Stage primaryStage;
     @FXML
+    private Button btn_querep;
+
+    @FXML
     private Button btn_rec;
-    @FXML
-    private Button btn_rep;
-    @FXML
-    private Button btn_que;
+
 
 
     @Override
@@ -56,9 +56,9 @@ public class AccueilController implements Initializable {
             }
         });
 
-        btn_rep.setOnAction(event -> {
+        btn_querep.setOnAction(event -> {
             try {
-                Parent page2 = FXMLLoader.load(getClass().getResource("/view/FXMLReponse.fxml"));
+                Parent page2 = FXMLLoader.load(getClass().getResource("/view/FXMLQuestionReponse.fxml"));
                 Scene scene = new Scene(page2);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
@@ -68,18 +68,6 @@ public class AccueilController implements Initializable {
             }
         });
         
-        btn_que.setOnAction(event -> {
-                    try {
-                Parent page3 = FXMLLoader.load(getClass().getResource("/view/FXMLQuestion.fxml"));
-                Scene scene = new Scene(page3);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
     }
-
 }
 

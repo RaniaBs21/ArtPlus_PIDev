@@ -12,8 +12,7 @@
             <Font name="Franklin Gothic Medium Cond" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="btn_rec" layoutX="245.0" layoutY="74.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Reclamation" />
-      <Button fx:id="btn_rep" layoutX="244.0" layoutY="173.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Reponse" />
-      <Button fx:id="btn_que" layoutX="244.0" layoutY="288.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Question" />
+      <Button fx:id="btn_rec" layoutX="245.0" layoutY="102.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Reclamation" />
+      <Button fx:id="btn_querep" layoutX="232.0" layoutY="223.0" mnemonicParsing="false" text="Question/Reponse" />
    </children>
 </AnchorPane>

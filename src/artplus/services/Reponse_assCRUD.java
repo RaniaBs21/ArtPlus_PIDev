@@ -25,7 +25,7 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
     
     public void ajouterreponse(){
         try {
-            String requete = "INSERT INTO Reponse_ass(Type_Rep_Ass,Num_Rep_Ass,Description_Rep_Ass)"
+            String requete = "INSERT INTO Reponse_ass(Type_Rep_Ass,Que_Rep_Ass,Description_Rep_Ass)"
                     + "VALUES ('solution,'1','description reponse')";
             
             Statement ste = cnx.createStatement();
@@ -40,11 +40,11 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
      public void ajouterreponse2(Reponse_ass a){
     try {
        
-            String requete2 = "INSERT INTO Reponse_ass (Type_Rep_Ass,Num_Rep_Ass,Description_Rep_Ass)"
+            String requete2 = "INSERT INTO Reponse_ass (Type_Rep_Ass,Que_Rep_Ass,Description_Rep_Ass)"
                     +" VALUES (?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1,a.getType_Rep_Ass());
-            pst.setInt(2,a.getNum_Rep_Ass());
+            pst.setString(2,a.getQue_Rep_Ass());
             pst.setString(3,a.getDescription_Rep_Ass());
 
          
@@ -57,7 +57,7 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
 }
      public void modifierreponse(Reponse_ass a) {
         try {
-            String req = "UPDATE Reponse_ass SET Type_Rep_Ass = '" + a.getType_Rep_Ass() + "', Num_Rep_Ass = '" + a.getNum_Rep_Ass() + "' WHERE Id_Q_Ass = " + a.getId_Rep_Ass();
+            String req = "UPDATE Reponse_ass SET Type_Rep_Ass = '" + a.getType_Rep_Ass() + "', Que_Rep_Ass = '" + a.getQue_Rep_Ass() + "' WHERE Id_Q_Ass = " + a.getId_Rep_Ass();
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("reponse updated !");
@@ -89,7 +89,7 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
                 Reponse_ass a = new Reponse_ass();
                 a.setId_Rep_Ass(rs.getInt(1));
                 a.setType_Rep_Ass(rs.getString("Type_Rep_Ass"));
-                a.setNum_Rep_Ass(rs.getInt(3));
+                a.setQue_Rep_Ass(rs.getString("Que_Rep_Ass"));
                 a.setDescription_Rep_Ass(rs.getString("Description_Rep_Ass"));
                 
 

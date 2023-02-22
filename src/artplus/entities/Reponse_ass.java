@@ -10,26 +10,27 @@ package artplus.entities;
  * @author akrem
  */
 public class Reponse_ass {
- private int Id_Rep_Ass,Num_Rep_Ass;
- private String Type_Rep_Ass,Description_Rep_Ass;
+ private int Id_Rep_Ass;
+ private String Type_Rep_Ass,Description_Rep_Ass,Que_Rep_Ass;
 
-    public Reponse_ass(int Id_Rep_Ass, int Num_Rep_Ass, String Type_Rep_Ass, String Description_Rep_Ass) {
+    public Reponse_ass(int Id_Rep_Ass, String Type_Rep_Ass, String Description_Rep_Ass, String Que_Rep_Ass) {
         this.Id_Rep_Ass = Id_Rep_Ass;
-        this.Num_Rep_Ass = Num_Rep_Ass;
         this.Type_Rep_Ass = Type_Rep_Ass;
         this.Description_Rep_Ass = Description_Rep_Ass;
+        this.Que_Rep_Ass = Que_Rep_Ass;
     }
 
-    public Reponse_ass(int Num_Rep_Ass, String Type_Rep_Ass, String Description_Rep_Ass) {
-        this.Num_Rep_Ass = Num_Rep_Ass;
+    public Reponse_ass(String Type_Rep_Ass, String Description_Rep_Ass, String Que_Rep_Ass) {
         this.Type_Rep_Ass = Type_Rep_Ass;
         this.Description_Rep_Ass = Description_Rep_Ass;
+        this.Que_Rep_Ass = Que_Rep_Ass;
     }
 
     public Reponse_ass(int Id_Rep_Ass) {
         this.Id_Rep_Ass = Id_Rep_Ass;
     }
-    
+
+
      public Reponse_ass(){
     
     }
@@ -42,12 +43,12 @@ public class Reponse_ass {
         this.Id_Rep_Ass = Id_Rep_Ass;
     }
 
-    public int getNum_Rep_Ass() {
-        return Num_Rep_Ass;
+    public String getQue_Rep_Ass() {
+        return Que_Rep_Ass;
     }
 
-    public void setNum_Rep_Ass(int Num_Rep_Ass) {
-        this.Num_Rep_Ass = Num_Rep_Ass;
+    public void setQue_Rep_Ass(String Que_Rep_Ass) {
+        this.Que_Rep_Ass = Que_Rep_Ass;
     }
 
     public String getType_Rep_Ass() {
@@ -68,7 +69,7 @@ public class Reponse_ass {
 
     @Override
     public String toString() {
-        return "Reponse_ass{" + "Id_Rep_Ass=" + Id_Rep_Ass + ", Num_Rep_Ass=" + Num_Rep_Ass + ", Type_Rep_Ass=" + Type_Rep_Ass + ", Description_Rep_Ass=" + Description_Rep_Ass + '}';
+        return "Reponse_ass{" + "Id_Rep_Ass=" + Id_Rep_Ass + ", Que_Rep_Ass=" + Que_Rep_Ass + ", Type_Rep_Ass=" + Type_Rep_Ass + ", Description_Rep_Ass=" + Description_Rep_Ass + '}';
     }
 
 
