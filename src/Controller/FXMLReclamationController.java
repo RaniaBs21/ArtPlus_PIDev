@@ -46,8 +46,7 @@ import javax.swing.JOptionPane;
 public class FXMLReclamationController implements Initializable {
 
 
-    @FXML
-    private TextField txtNum_Rec;
+ 
     @FXML
     private TextField txtType_Rec;
     @FXML
@@ -55,7 +54,7 @@ public class FXMLReclamationController implements Initializable {
     @FXML
     private TableView<Reclamation> table;
     @FXML
-    private TableColumn<Reclamation, Integer> numcolmn;
+    private TableColumn<Reclamation, Integer> idcolmn;
     @FXML
     private TableColumn<Reclamation, String> typecolmn;
     @FXML
@@ -72,7 +71,7 @@ public class FXMLReclamationController implements Initializable {
    
  
     
-Connection con;
+Connection cnx;
     PreparedStatement pst;
     int myIndex;
     int id;
@@ -83,7 +82,7 @@ Connection con;
     {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/artplus","root","");
+            cnx = DriverManager.getConnection("jdbc:mysql://localhost/artplus","root","");
         } catch (ClassNotFoundException ex) {
           
         } catch (SQLException ex) {
@@ -102,13 +101,13 @@ Connection con;
     @FXML
     private void add(ActionEvent event) {
          ReclamationCRUD rec = new ReclamationCRUD();
-        rec.ajouterreclamation2(new Reclamation(Integer.parseInt(txtNum_Rec.getText()),txtDescription_Rec.getText(),txtType_Rec.getText() ));
+        rec.ajouterreclamation2(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
     }
 
     @FXML
     private void update(ActionEvent event) {
         ReclamationCRUD rec = new ReclamationCRUD();
-        rec.modifierreclamation(new Reclamation(Integer.parseInt(txtNum_Rec.getText()),txtDescription_Rec.getText(),txtType_Rec.getText() ));
+        rec.modifierreclamation(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
     }
 
     @FXML

@@ -24,8 +24,8 @@ public class ReclamationCRUD implements InterfaceReclamation {
     
     public void ajouterreclamation(){
         try {
-            String requete = "INSERT INTO reclamation(Num_Rec,Type_Rec,Description_Rec)"
-                    + "VALUES ('1','type produit','reclamation d'un produit')";
+            String requete = "INSERT INTO reclamation(Type_Rec,Description_Rec)"
+                    + "VALUES ('type produit','reclamation d'un produit')";
             
             Statement ste = cnx.createStatement();
             ste.executeUpdate(requete);
@@ -39,12 +39,11 @@ public class ReclamationCRUD implements InterfaceReclamation {
      public void ajouterreclamation2(Reclamation r){
     try {
        
-            String requete2 = "INSERT INTO reclamation (Num_Rec,Type_Rec,Description_Rec)"
-                    +" VALUES (?,?,?)";
+            String requete2 = "INSERT INTO reclamation (Type_Rec,Description_Rec)"
+                    +" VALUES (?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
-            pst.setString(2,r.getType_Rec());
-            pst.setString(3,r.getDescription_Rec());
-            pst.setInt(1,r.getNum_Rec());
+            pst.setString(1,r.getType_Rec());
+            pst.setString(2,r.getDescription_Rec());
 
          
             pst.executeUpdate();
@@ -56,7 +55,7 @@ public class ReclamationCRUD implements InterfaceReclamation {
 }
      public void modifierreclamation(Reclamation r) {
         try {
-            String req = "UPDATE reclamation SET Type_Rec = '" + r.getType_Rec() + "', Num_Q_Ass = '" + r.getNum_Rec() + "' WHERE Id_Q_Ass = " + r.getId_Rec();
+            String req = "UPDATE reclamation SET Type_Rec = '" + r.getType_Rec() + "', WHERE Id_Q_Ass = " + r.getId_Rec();
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("reclamation updated !");
@@ -89,7 +88,6 @@ public class ReclamationCRUD implements InterfaceReclamation {
                 r.setId_Rec(rs.getInt(1));
                 r.setType_Rec(rs.getString("Type_Rec"));
                 r.setDescription_Rec(rs.getString("Description_Rec"));
-                r.setNum_Rec(rs.getInt(4));
                 
 
                 myList.add(r);   
