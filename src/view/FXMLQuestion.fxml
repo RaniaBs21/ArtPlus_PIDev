@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="775.0" style="-fx-background-color: #7ddcff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLQuestionController">
+   <children>
+      <Label layoutX="276.0" layoutY="14.0" text="Question" textFill="#ff7700">
+         <font>
+            <Font name="Franklin Gothic Medium Cond" size="32.0" />
+         </font>
+      </Label>
+      <Pane layoutX="14.0" layoutY="84.0" prefHeight="174.0" prefWidth="298.0" style="-fx-background-color: orange; -fx-background-color: ;">
+         <children>
+            <Label layoutX="29.0" layoutY="55.0" text="Num_Q_Ass" textFill="WHITE" />
+            <Label layoutX="29.0" layoutY="91.0" text="Type_Q_Ass" textFill="WHITE" />
+            <TextField fx:id="txtNum_Q_Ass" layoutX="123.0" layoutY="51.0" prefHeight="25.0" prefWidth="142.0" />
+            <TextField fx:id="txtType_Q_Ass" layoutX="123.0" layoutY="87.0" prefHeight="25.0" prefWidth="142.0" />
+         </children>
+      </Pane>
+      <TableView fx:id="table" layoutX="351.0" layoutY="84.0" prefHeight="286.0" prefWidth="327.0" style="-fx-background-color: orange;">
+        <columns>
+          <TableColumn fx:id="numcolmn" prefWidth="167.99996948242188" text="Num_Q_Ass" />
+            <TableColumn fx:id="typecolmn" prefWidth="158.39996337890625" text="Type_Q_Ass" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnajouter" layoutX="14.0" layoutY="279.0" mnemonicParsing="false" onAction="#add" text="Ajouter" textFill="#ff7700" />
+      <Button fx:id="btnmodifier" layoutX="132.0" layoutY="279.0" mnemonicParsing="false" onAction="#update" text="Modifier" textFill="#ff7700" />
+      <Button fx:id="btnsupprimer" layoutX="240.0" layoutY="279.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" textFill="#ff7700" />
+   </children>
+</AnchorPane>
