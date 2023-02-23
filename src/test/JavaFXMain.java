@@ -16,31 +16,31 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
  *
- * @author akrem
+ * @author DELL
  */
 public class JavaFXMain extends Application {
-
-    private Stage primaryStage;
-    private Parent parentPage;
-   
+    private Stage stage;
+    private Parent parent;
+    
+    
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Accueil");
-        
-        parentPage = FXMLLoader.load(getClass().getResource("/view/Accueil.fxml"));
-        Scene scene = new Scene(parentPage);
-        this.primaryStage.setScene(scene);
-        this.primaryStage.show();
-
+    public void start(Stage primaryStage) throws Exception {
+        this.stage= new Stage();
+        parent=FXMLLoader.load(getClass().getResource("/view/page1.fxml"));
+        Scene scene=new Scene(parent);
+        stage.setScene(scene);
+        stage.show();    
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    public static void main(String[] args){
         launch(args);
     }
     

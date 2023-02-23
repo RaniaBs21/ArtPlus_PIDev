@@ -30,44 +30,44 @@ public class AccueilController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    private AnchorPane rootLayout;
-    private Stage primaryStage;
     @FXML
     private Button btn_querep;
 
     @FXML
     private Button btn_rec;
-
-
-
-    @Override
+        
+        @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        btn_rec.setOnAction(event -> {
-
-            try {
-                Parent page1 = FXMLLoader.load(getClass().getResource("/view/FXMLReclamation.fxml"));
-                Scene scene = new Scene(page1);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        btn_rec.setOnAction( event->{
+           try{
+               Parent parent2=FXMLLoader
+                       .load(getClass().getResource("/view/FXMLReclamation.fxml"));
+               Scene scene=btn_rec.getScene();
+             scene.setRoot(parent2);
+           }catch (IOException ex) {
+               Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            
+           }
         });
-
-        btn_querep.setOnAction(event -> {
-            try {
-                Parent page2 = FXMLLoader.load(getClass().getResource("/view/FXMLQuestionReponse.fxml"));
-                Scene scene = new Scene(page2);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                btn_querep.setOnAction( event->{
+           try{
+               Parent parent2=FXMLLoader
+                       .load(getClass().getResource("/view/FXMLQuestionReponse.fxml"));
+               Scene scene=btn_querep.getScene();
+             scene.setRoot(parent2);
+           }catch (IOException ex) {
+               Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            
+           }
         });
-        
-    }
+    }    
+    
+
+
+   
 }
+        
+
+    
+
 

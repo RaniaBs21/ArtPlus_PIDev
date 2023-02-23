@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="699.0" style="-fx-background-color: #7ddcff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLReclamationController">
+<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="699.0" style="-fx-background-color: #0b315b;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLReclamationController">
    <children>
       <Label layoutX="262.0" layoutY="14.0" text="Reclamation" textFill="#ff7700">
          <font>
@@ -18,8 +18,8 @@
       </Label>
       <Pane layoutX="14.0" layoutY="84.0" prefHeight="174.0" prefWidth="298.0" style="-fx-background-color: orange;">
          <children>
-            <Label layoutX="29.0" layoutY="45.0" text="Type" textFill="WHITE" />
-            <Label layoutX="29.0" layoutY="100.0" text="Description" textFill="WHITE" />
+            <Label layoutX="29.0" layoutY="45.0" text="Type" />
+            <Label layoutX="29.0" layoutY="100.0" text="Description" />
             <TextField fx:id="txtType_Rec" layoutX="137.0" layoutY="41.0" prefHeight="25.0" prefWidth="135.0" />
             <TextField fx:id="txtDescription_Rec" layoutX="137.0" layoutY="96.0" prefHeight="25.0" prefWidth="135.0" />
          </children>
@@ -31,8 +31,8 @@
             <TableColumn prefWidth="176.00001831054686" text="Description" />
          </columns>
       </TableView>
-      <Button fx:id="btnajouter" layoutX="14.0" layoutY="279.0" mnemonicParsing="false" onAction="#add" text="Ajouter" textFill="#ff7700" />
-      <Button fx:id="btnmodifier" layoutX="132.0" layoutY="279.0" mnemonicParsing="false" onAction="#update" text="Modifier" textFill="#ff7700" />
-      <Button fx:id="btnsupprimer" layoutX="240.0" layoutY="279.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" textFill="#ff7700" />
+      <Button fx:id="btnajouter" layoutX="14.0" layoutY="279.0" mnemonicParsing="false" onAction="#add" text="Ajouter" />
+      <Button fx:id="btnmodifier" layoutX="132.0" layoutY="279.0" mnemonicParsing="false" onAction="#update" text="Modifier" />
+      <Button fx:id="btnsupprimer" layoutX="240.0" layoutY="279.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" />
    </children>
 </AnchorPane>

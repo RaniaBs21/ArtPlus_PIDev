@@ -57,7 +57,7 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
 }
      public void modifierreponse(Reponse_ass a) {
         try {
-            String req = "UPDATE Reponse_ass SET Type_Rep_Ass = '" + a.getType_Rep_Ass() + "', Que_Rep_Ass = '" + a.getQue_Rep_Ass() + "' WHERE Id_Q_Ass = " + a.getId_Rep_Ass();
+            String req = "UPDATE Reponse_ass SET Type_Rep_Ass = '" + a.getType_Rep_Ass() + "', Que_Rep_Ass = '" + a.getQue_Rep_Ass() + "' WHERE Id_Rep_Ass = " + a.getId_Rep_Ass();
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("reponse updated !");

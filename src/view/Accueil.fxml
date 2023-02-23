@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #7ddcff;" styleClass="background" stylesheets="@JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AccueilController">
+<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="715.0" style="-fx-background-color: #0b315b;" styleClass="background" stylesheets="@JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AccueilController">
    <children>
-      <Label layoutX="203.0" layoutY="14.0" prefHeight="36.0" prefWidth="288.0" text="Interface Assistance" textFill="ORANGE">
+      <Label layoutX="272.0" layoutY="14.0" prefHeight="36.0" prefWidth="188.0" text="Interface Assistance" textFill="ORANGE">
          <font>
             <Font name="Franklin Gothic Medium Cond" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="btn_rec" layoutX="245.0" layoutY="102.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Reclamation" />
-      <Button fx:id="btn_querep" layoutX="232.0" layoutY="223.0" mnemonicParsing="false" text="Question/Reponse" />
+      <Button fx:id="btn_rec" layoutX="302.0" layoutY="103.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Reclamation" />
+      <Button fx:id="btn_querep" layoutX="289.0" layoutY="220.0" mnemonicParsing="false" text="Question/Reponse" />
    </children>
 </AnchorPane>

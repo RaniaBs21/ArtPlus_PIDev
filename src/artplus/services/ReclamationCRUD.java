@@ -55,7 +55,7 @@ public class ReclamationCRUD implements InterfaceReclamation {
 }
      public void modifierreclamation(Reclamation r) {
         try {
-            String req = "UPDATE reclamation SET Type_Rec = '" + r.getType_Rec() + "', WHERE Id_Q_Ass = " + r.getId_Rec();
+            String req = "UPDATE reclamation SET Type_Rec = '" + r.getType_Rec() + "', WHERE Id_Rec = " + r.getId_Rec();
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("reclamation updated !");
