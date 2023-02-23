@@ -12,24 +12,25 @@ import java.sql.Timestamp;
  * @author rahma
  */
 public class Participation {
-        private int id_part;
-    private Utilisateur id_user;
-    private Evenement id_ev;
+
+    private int id_part;
+    private Utilisateur utilisateur;
+    private Evenement evenement;
     private Timestamp date_participation;
 
     public Participation() {
     }
 
-    public Participation(int id_part, Utilisateur id_user, Evenement id_ev, Timestamp date_participation) {
+    public Participation(int id_part, Utilisateur utilisateur, Evenement evenement, Timestamp date_participation) {
         this.id_part = id_part;
-        this.id_user = id_user;
-        this.id_ev = id_ev;
+        this.utilisateur = utilisateur;
+        this.evenement = evenement;
         this.date_participation = date_participation;
     }
 
-    public Participation(Utilisateur id_user, Evenement id_ev, Timestamp date_participation) {
-        this.id_user = id_user;
-        this.id_ev = id_ev;
+    public Participation(Utilisateur utilisateur, Evenement evenement, Timestamp date_participation) {
+        this.utilisateur = utilisateur;
+        this.evenement = evenement;
         this.date_participation = date_participation;
     }
 
@@ -41,23 +42,22 @@ public class Participation {
         this.id_part = id_part;
     }
 
-    public Utilisateur getId_user() {
-        return id_user;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
-    public void setId_user(Utilisateur id_user) {
-        this.id_user = id_user;
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 
-    public Evenement getId_ev() {
-        return id_ev;
+    public Evenement getEvenement() {
+        return evenement;
     }
 
-    public void setId_ev(Evenement id_ev) {
-        this.id_ev = id_ev;
+    public void setEvenement(Evenement evenement) {
+        this.evenement = evenement;
     }
 
-   
     public Timestamp getDate_participation() {
         return date_participation;
     }
@@ -66,8 +66,9 @@ public class Participation {
         this.date_participation = date_participation;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return "Participation{" + "id_part=" + id_part + ", utilisateur=" + utilisateur + ", evenement=" + evenement + ", date_participation=" + date_participation + '}';
+    }
 
-    
 }

@@ -101,5 +101,6 @@ public class Guide {
         return "Guide{" + "id_guide=" + id_guide + ", nom_guide=" + nom_guide + ", prenom_guide=" + prenom_guide + ", password_gd=" + password_gd + ", email_gd=" + email_gd + ", adresse_gd=" + adresse_gd + ", num_tel=" + num_tel + '}';
     }
     
+ 
     
 }
