@@ -7,6 +7,7 @@ package artplus.services;
 
 import artplus.entities.Commentaire;
 import artplus.utils.MyConnection;
+import static artplus.utils.MyConnection.instance;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -21,6 +24,7 @@ import java.util.List;
  */
 public class CommentaireServices implements InterfaceCommentaireServices{
     
+  private static CommentaireServices instance;    
 Connection  cnx;
     
     public CommentaireServices(){
@@ -31,8 +35,8 @@ Connection  cnx;
     @Override
     public void ajouterCommentaire(){
         try {
-            String requete = "INSERT INTO commentaire(Description_Com,Nbre_Com,Date_Com)"
-                    + "VALUES ('statut',5,'2023-02-13')";
+            String requete = "INSERT INTO commentaire(Description_Com,Date_Com)"
+                    + "VALUES ('statut','2023-02-13')";
             Statement ste = cnx.createStatement(); //ste va executer la requette
             ste.executeUpdate(requete);
             System.out.println("commentaire ajouté avec succès ");
@@ -44,12 +48,11 @@ Connection  cnx;
     @Override
      public void ajouterCommentaire2(Commentaire c){
          try {
-            String requete2 = "INSERT INTO commentaire (Description_Com,Nbre_Com,Date_Com)"
-                    +" VALUES (?,?,?)";
+            String requete2 = "INSERT INTO commentaire (Description_Com,Date_Com)"
+                    +" VALUES (?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1,c.getDescription_Com());
-            pst.setInt(2,c.getNbre_Com());
-            pst.setDate(3, java.sql.Date.valueOf(java.time.LocalDate.now()));
+            pst.setDate(2, java.sql.Date.valueOf(java.time.LocalDate.now()));
          
             pst.executeUpdate();
             System.out.println("votre commentaire est ajoutée");
@@ -92,8 +95,8 @@ Connection  cnx;
     }
       
      @Override
-     public List<Commentaire> afficherCommentaire(){
-            List<Commentaire> myList= new ArrayList<>();
+     public ObservableList<Commentaire> afficherCommentaire(){
+            ObservableList<Commentaire> myList=FXCollections.observableArrayList();
         try {
             
             String requete3 = "SELECT * FROM commentaire";
@@ -103,8 +106,7 @@ Connection  cnx;
                 Commentaire c = new Commentaire();
                 c.setId_Com(rs.getInt(1));
                 c.setDescription_Com(rs.getString("Description_Com"));
-                c.setNbre_Com(rs.getInt(3));
-                c.setDate_Com(rs.getDate(4));
+                c.setDate_Com(rs.getDate(3));
 
                 myList.add(c);   
             }
@@ -115,7 +117,13 @@ Connection  cnx;
         }
          return myList;
      }
-    
+     
+     
+    public static CommentaireServices getInstance(){
+        if(instance==null) 
+            instance=new CommentaireServices();
+        return instance;
+    }
     
 }
 

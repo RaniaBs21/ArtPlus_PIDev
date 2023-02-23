@@ -35,7 +35,7 @@ public class ArtPlus {
 //************* CRUD Commentaire****************** 
     
         //CommentaireServices crd = new CommentaireServices();
-        //Commentaire c = new Commentaire("rania",5);
+        //Commentaire c = new Commentaire("rania");
         //crd.ajouterCommentaire();
         //crd.ajouterCommentaire2(c);
         /* Commentaire c = new Commentaire(1,"commentaire");
