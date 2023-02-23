@@ -16,10 +16,10 @@
       </Label>
       <Pane layoutX="14.0" layoutY="84.0" prefHeight="415.0" prefWidth="298.0" style="-fx-background-color: orange; -fx-background-color: ;">
          <children>
-            <Label layoutX="11.0" layoutY="51.0" text="Description" />
-            <Label layoutX="11.0" layoutY="251.0" text="Type" />
-            <TextField fx:id="txtDescription_Q_Ass" layoutX="123.0" layoutY="51.0" prefHeight="199.0" prefWidth="142.0" />
-            <TextField fx:id="txtType_Q_Ass" layoutX="123.0" layoutY="259.0" prefHeight="25.0" prefWidth="142.0" />
+            <Label layoutX="12.0" layoutY="51.0" prefHeight="47.0" prefWidth="127.0" text="Description&#10;de question :" />
+            <Label layoutX="11.0" layoutY="251.0" text="Type de&#10;question :" />
+            <TextField fx:id="txtDescription_Q_Ass" alignment="TOP_LEFT" layoutX="123.0" layoutY="51.0" prefHeight="199.0" prefWidth="142.0" />
+            <TextField fx:id="txtType_Q_Ass" alignment="TOP_LEFT" layoutX="123.0" layoutY="259.0" prefHeight="25.0" prefWidth="142.0" />
          </children>
       </Pane>
       <Button fx:id="btnajouterQ" layoutX="14.0" layoutY="509.0" mnemonicParsing="false" onAction="#addq" text="Ajouter" />
@@ -27,15 +27,12 @@
       <Button fx:id="btnsupprimerQ" layoutX="240.0" layoutY="509.0" mnemonicParsing="false" onAction="#deleteq" text="Supprimer" />
       <Pane layoutX="417.0" layoutY="84.0" prefHeight="415.0" prefWidth="298.0" style="-fx-background-color: orange;">
          <children>
-            <Label layoutX="2.0" layoutY="39.0" prefHeight="17.0" prefWidth="138.0" text="Question correspondante">
-               <font>
-                  <Font size="11.0" />
-               </font></Label>
-            <Label layoutX="4.0" layoutY="113.0" text="Type" />
-            <Label layoutX="4.0" layoutY="158.0" text="Description" />
+            <Label layoutX="4.0" layoutY="30.0" prefHeight="47.0" prefWidth="138.0" text="Question &#10;correspondante :" />
+            <Label layoutX="4.0" layoutY="113.0" text="Type de question :" />
+            <Label layoutX="4.0" layoutY="158.0" text="Description de&#10;question :" />
             <TextField fx:id="txtQue_Rep_Ass" layoutX="146.0" layoutY="39.0" prefHeight="75.0" prefWidth="138.0" />
             <TextField fx:id="txtType_Rep_Ass" layoutX="146.0" layoutY="121.0" prefHeight="25.0" prefWidth="138.0" />
-            <TextField fx:id="txtDescription_Rep_Ass" layoutX="146.0" layoutY="158.0" prefHeight="240.0" prefWidth="138.0" />
+            <TextField fx:id="txtDescription_Rep_Ass" alignment="TOP_LEFT" layoutX="146.0" layoutY="158.0" prefHeight="240.0" prefWidth="138.0" />
          </children>
       </Pane>
       <Button fx:id="btnajouterR" layoutX="417.0" layoutY="509.0" mnemonicParsing="false" onAction="#addr" text="Ajouter" />
