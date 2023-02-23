@@ -6,8 +6,11 @@
 package artplus.tests;
 
 import artplus.entities.Evenement;
+import artplus.entities.Participation;
 import artplus.services.EvenementService;
 import artplus.services.GuideService;
+import artplus.services.ParticipationService;
+import artplus.services.UtilisateurService;
 import artplus.utils.MyConnection;
 
 /**
@@ -15,11 +18,12 @@ import artplus.utils.MyConnection;
  * @author rahma
  */
 public class ArtPlus {
+
     public static void main(String[] args) {
         MyConnection mc = MyConnection.getInstance();
-        
+
         EvenementService evs = new EvenementService();
-        GuideService gS = new GuideService(); 
+        GuideService gS = new GuideService();
         Evenement e = new Evenement("tessssssst",
                 "Culture",
                 "Vous puvez visiter la musée de bardo, avec notre guide professionnel, le 13-03-2023 à 10:00",
@@ -41,23 +45,22 @@ public class ArtPlus {
                 "La musée de bardo",
                 java.sql.Timestamp.valueOf("2023-03-13 10:00:00"),
                 25, gS.findOneById(4));
-        evs.ajouterEvenement(e);
+        /*evs.ajouterEvenement(e);
         evs.modifierEvenement(e2);
         evs.supprimerEvenement(5);
         //*** pour afficher la liste des evenements
-        System.out.println(evs.afficherEvenements());
-         
-        
-        
-        
-      //  ParticipationService partserv = new ParticipationService();
-       // Participation part = new Participation(1, 7, java.sql.Timestamp.from(java.time.Instant.now()));
-     //   partserv.ajouterParticipation(part);
-     //   Participation part2 = new Participation(3,2, 5, java.sql.Timestamp.from(java.time.Instant.now()));
+        System.out.println(evs.afficherEvenements());*/
 
-       // partserv.modifierParticipation(part2);
-        //partserv.supprimerParticipation(3);
+        ParticipationService partserv = new ParticipationService();
 
+        UtilisateurService us = new UtilisateurService();
+
+        Participation part;
+        part = new Participation(us.findOneById(1), evs.findOneById(4), java.sql.Timestamp.from(java.time.Instant.now()));
+        partserv.ajouterParticipation(part);
+        Participation part2 = new Participation(3,us.findOneById(1), evs.findOneById(4), java.sql.Timestamp.from(java.time.Instant.now()));
+        partserv.modifierParticipation(part2);
+        partserv.supprimerParticipation(3);
     }
-    
+
 }

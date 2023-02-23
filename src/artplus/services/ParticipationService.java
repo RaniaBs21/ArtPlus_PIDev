@@ -19,8 +19,9 @@ import java.util.List;
  *
  * @author rahma
  */
-public class ParticipationService implements InterfaceParticipation<Participation>{
-        Connection cnx;
+public class ParticipationService implements InterfaceParticipation<Participation> {
+
+    Connection cnx;
 
     public ParticipationService() {
         cnx = MyConnection.getInstance().getCnx();
@@ -72,7 +73,7 @@ public class ParticipationService implements InterfaceParticipation<Participatio
     @Override
     public void modifierParticipation(Participation p) {
         try {
-            String reqModif = "UPDATE `participation` SET `Id_Ut` = '" + p.getUtilisateur().getId_ut()+ "', `id_ev` = '" + p.getEvenement().getId_ev()+ "', `date_participation` = '" + p.getDate_participation() + "' WHERE `participation`.`id_part` = " + p.getId_part();
+            String reqModif = "UPDATE `participation` SET `Id_Ut` = '" + p.getUtilisateur().getId_ut() + "', `id_ev` = '" + p.getEvenement().getId_ev() + "', `date_participation` = '" + p.getDate_participation() + "' WHERE `participation`.`id_part` = " + p.getId_part();
             Statement st = cnx.createStatement();
             st.executeUpdate(reqModif);
             System.out.println("participation updated !");
@@ -92,5 +93,5 @@ public class ParticipationService implements InterfaceParticipation<Participatio
             System.out.println(ex.getMessage());
         }
     }
-    
+
 }
