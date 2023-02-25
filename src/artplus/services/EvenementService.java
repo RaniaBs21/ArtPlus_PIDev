@@ -113,6 +113,9 @@ public class EvenementService implements InterfaceEvenement<Evenement> {
                 ev.setAdresse_ev(rs.getString("adresse_ev"));
                 ev.setDateTime_ev(rs.getTimestamp("date_ev"));
                 ev.setNbre_place(rs.getInt("nbre_places"));
+                GuideService gS = new GuideService();
+                gS.findOneById(rs.getInt("id_g")).getId_guide();
+                
 
             }
         } catch (SQLException ex) {

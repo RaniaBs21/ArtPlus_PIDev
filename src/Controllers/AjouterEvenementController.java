@@ -5,9 +5,14 @@
  */
 package Controllers;
 
+import artplus.entities.Evenement;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -16,12 +21,31 @@ import javafx.fxml.Initializable;
  */
 public class AjouterEvenementController implements Initializable {
 
+    @FXML
+    private Button ajouter;
+    @FXML
+    private TextField nbplaces;
+    @FXML
+    private TextField titre;
+    @FXML
+    private TextField img;
+    @FXML
+    private TextField description;
+    @FXML
+    private TextField categorie;
+    @FXML
+    private TextField addresse;
+    @FXML
+    private TextField date;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         // TODO
-    }    
-    
+       
+    }
+
 }

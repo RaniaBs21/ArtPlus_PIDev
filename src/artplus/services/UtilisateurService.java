@@ -16,7 +16,8 @@ import java.sql.Statement;
  *
  * @author rahma
  */
-public class UtilisateurService implements InterfaceUtilisateur{
+public class UtilisateurService implements InterfaceUtilisateur {
+
     Connection cnx;
 
     public UtilisateurService() {
@@ -45,5 +46,5 @@ public class UtilisateurService implements InterfaceUtilisateur{
         }
         return utilisateur;
     }
-    
+
 }

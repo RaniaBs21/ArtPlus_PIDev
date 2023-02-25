@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjouterEvenementController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="Controllers.AjouterEvenementController">
     <children>
         <AnchorPane id="AnchorPane" layoutX="20.0" layoutY="20.0" prefHeight="567.0" prefWidth="791.0">
             <children>
@@ -91,7 +91,7 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
-                <TextField layoutX="311.0" layoutY="450.0" prefHeight="25.0" prefWidth="150.0" />
+                <TextField fx:id="nbplaces" layoutX="311.0" layoutY="450.0" prefHeight="25.0" prefWidth="177.0" promptText="Nombre de places disponibles" />
             </children>
         </AnchorPane>
         <Label layoutX="245.0" layoutY="203.0" text="Titre">
@@ -114,17 +114,17 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <TextField layoutX="330.0" layoutY="199.0" prefHeight="25.0" prefWidth="150.0" />
-        <TextField layoutX="330.0" layoutY="347.0" prefHeight="25.0" prefWidth="150.0" />
-        <TextField layoutX="330.0" layoutY="273.0" prefHeight="53.0" prefWidth="150.0" />
+        <TextField fx:id="titre" layoutX="330.0" layoutY="199.0" prefHeight="25.0" prefWidth="177.0" promptText="Nom de l'évenement" />
+        <TextField fx:id="img" layoutX="330.0" layoutY="347.0" prefHeight="25.0" prefWidth="177.0" promptText="Image" />
+        <TextField fx:id="description" layoutX="330.0" layoutY="273.0" prefHeight="53.0" prefWidth="177.0" promptText="Déscription" />
         <Text fill="#282727" layoutX="335.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-        <TextField layoutX="330.0" layoutY="240.0" prefHeight="25.0" prefWidth="150.0" />
+        <TextField fx:id="categorie" layoutX="330.0" layoutY="240.0" prefHeight="25.0" prefWidth="177.0" promptText="Catégorie" />
         <Label layoutX="242.0" layoutY="386.0" text="Adresse">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <TextField layoutX="331.0" layoutY="385.0" prefHeight="25.0" prefWidth="150.0" />
-        <TextField layoutX="331.0" layoutY="424.0" prefHeight="25.0" prefWidth="150.0" />
+        <TextField fx:id="addresse" layoutX="331.0" layoutY="385.0" prefHeight="25.0" prefWidth="177.0" promptText="L'emplacement de l'évenement" />
+        <TextField fx:id="date" layoutX="331.0" layoutY="424.0" prefHeight="25.0" prefWidth="177.0" promptText="Date" />
     </children>   
 </AnchorPane>

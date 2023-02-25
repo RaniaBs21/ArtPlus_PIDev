@@ -16,8 +16,9 @@ import java.sql.Statement;
  *
  * @author rahma
  */
-public class GuideService implements InterfaceGuide{
-Connection cnx;
+public class GuideService implements InterfaceGuide {
+
+    Connection cnx;
 
     public GuideService() {
         cnx = MyConnection.getInstance().getCnx();
@@ -46,5 +47,5 @@ Connection cnx;
         return guide;
 
     }
-    
+
 }
