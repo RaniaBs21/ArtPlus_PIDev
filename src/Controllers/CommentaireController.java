@@ -33,6 +33,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -62,11 +63,9 @@ public class CommentaireController implements Initializable {
     @FXML
     private Button btnAdd;
     @FXML
-    private TableColumn<Commentaire, Integer> IdCol;
+    private TableColumn<?,?> IdCol;
     @FXML
-    private TableColumn<Commentaire, String> contenuCol;
-    @FXML
-    private TableColumn<Commentaire, Date> dateCol;
+    private TableColumn<?,?> contenuCol;
     @FXML
     private Button btnUpdate;
     @FXML
@@ -77,6 +76,10 @@ public class CommentaireController implements Initializable {
     
     int myIndex;
     int id;
+    @FXML
+    private Button affCom;
+    @FXML
+    private TableColumn<?,?> dateCol;
     /**
      * Initializes the controller class.
      */
@@ -110,18 +113,9 @@ public class CommentaireController implements Initializable {
             alert.show();
             txtDescription.setText("");
         
-            table();
             
         });
     }    
-
-    
-    private void table(){
-        CommentaireServices c = new CommentaireServices();
-        ObservableList<Commentaire> myList=FXCollections.observableArrayList();
-        System.out.println(c.afficherCommentaire());
-
-    }  
 
     @FXML
     private void Update(ActionEvent event) {
@@ -136,10 +130,13 @@ public class CommentaireController implements Initializable {
             txtDescription.setText("");
         
     }
-
+/* ************** suppression ******************* */
     @FXML
     private void Delete(ActionEvent event) {
+        int Id_Com =Integer.parseInt(btnDelete.getText());
         CommentaireServices c  = new CommentaireServices();
+        c.supprimerCom(Id_Com);
+        /*CommentaireServices c  = new CommentaireServices();
          c.supprimerCom(id);
          
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -147,10 +144,26 @@ public class CommentaireController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("commentaire supprimé avec succés!");
             alert.show();
-            txtDescription.setText("");
+            txtDescription.setText("");*/
         
     }
+    
+/* ************** affichage *********** */
+    
+    @FXML
+    private void afficherCom(ActionEvent event) {
+       CommentaireServices c = new CommentaireServices();
+       List<Commentaire> myList= c.afficherCommentaire();
+        
+       IdCol.setCellValueFactory(new PropertyValueFactory("Id_Com"));
+       contenuCol.setCellValueFactory(new PropertyValueFactory("Description_Com"));
+       dateCol.setCellValueFactory(new PropertyValueFactory("Date_Com"));
 
+       ObservableList<Commentaire> observablecommentaire = FXCollections.observableArrayList(myList);
+       tableCom.setItems(observablecommentaire);
+    }
+
+    
     
     
 }

@@ -11,8 +11,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="490.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CommentaireController">
-    <ListView layoutX="-6.0" prefHeight="58.0" prefWidth="804.0" />
+<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CommentaireController">
+    <ListView layoutY="-1.0" prefHeight="58.0" prefWidth="884.0" />
    <Text fill="#eb9e05" layoutX="33.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus" />
    <ImageView fitHeight="49.0" fitWidth="47.0" layoutX="28.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
       <image>
@@ -44,24 +44,29 @@
          <Font size="15.0" />
       </font>
    </Button>
-   <Button fx:id="btnAnn" layoutX="344.0" layoutY="340.0" mnemonicParsing="false" style="-fx-background-color: #ffd230;" text="Annuler">
+   <Button fx:id="btnAnn" layoutX="11.0" layoutY="493.0" mnemonicParsing="false" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="&lt;">
       <font>
-         <Font size="15.0" />
+         <Font size="13.0" />
       </font>
    </Button>
-   <TableView fx:id="tableCom" layoutX="462.0" layoutY="102.0" prefHeight="200.0" prefWidth="304.0">
+   <TableView fx:id="tableCom" layoutX="462.0" layoutY="102.0" prefHeight="280.0" prefWidth="400.0">
      <columns>
        <TableColumn fx:id="IdCol" prefWidth="75.0" text="ID" />
-       <TableColumn fx:id="contenuCol" prefWidth="75.0" text="Contenu" />
-         <TableColumn fx:id="dateCol" prefWidth="152.79998779296875" text="date commentaire" />
+       <TableColumn fx:id="contenuCol" prefWidth="170.39996337890625" text="Contenu" />
+         <TableColumn fx:id="dateCol" prefWidth="153.5999755859375" text="Date " />
      </columns>
    </TableView>
-   <Button fx:id="btnUpdate" layoutX="126.0" layoutY="340.0" mnemonicParsing="false" onAction="#Update" style="-fx-background-color: #ffd230;" text="Modifier">
+   <Button fx:id="btnUpdate" layoutX="243.0" layoutY="340.0" mnemonicParsing="false" onAction="#Update" style="-fx-background-color: #ffd230;" text="Modifier">
       <font>
          <Font size="15.0" />
       </font>
    </Button>
-   <Button fx:id="btnDelete" layoutX="230.0" layoutY="340.0" mnemonicParsing="false" onAction="#Delete" style="-fx-background-color: #ffd230;" text="Supprimer">
+   <Button fx:id="btnDelete" layoutX="339.0" layoutY="340.0" mnemonicParsing="false" onAction="#Delete" style="-fx-background-color: #ffd230;" text="Supprimer">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Button>
+   <Button fx:id="affCom" layoutX="138.0" layoutY="340.0" mnemonicParsing="false" onAction="#afficherCom" style="-fx-background-color: #ffd230;" text="Afficher">
       <font>
          <Font size="15.0" />
       </font>

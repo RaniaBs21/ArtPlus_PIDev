@@ -49,6 +49,9 @@ public class Post {
         this.Img_Post = Img_Post;
     }
 
+    public Post(String Description_Post) {
+          this.Description_Post = Description_Post;    }
+
     public int getId_Post() {
         return Id_Post;
     }

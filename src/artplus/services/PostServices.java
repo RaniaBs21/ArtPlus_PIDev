@@ -7,6 +7,7 @@ package artplus.services;
 
 import artplus.entities.Post;
 import artplus.utils.MyConnection;
+import static artplus.utils.MyConnection.instance;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +22,7 @@ import java.util.List;
  */
 public class PostServices implements InterfacePostServices {
     Connection  cnx;
+     private static PostServices instance;   
     
     public  PostServices(){
         cnx = MyConnection.getInstance().getConx();
@@ -113,5 +115,9 @@ public class PostServices implements InterfacePostServices {
          return myList;
        
     }
-    
+    public static PostServices getInstance(){
+        if(instance==null) 
+            instance=new PostServices();
+        return instance;
+    }
 }

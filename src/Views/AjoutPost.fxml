@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,18 +41,18 @@
          <Font size="36.0" />
       </font>
    </Text>
-   <TextArea layoutX="54.0" layoutY="155.0" prefHeight="162.0" prefWidth="311.0" />
+   <TextArea fx:id="txtPost" layoutX="54.0" layoutY="155.0" prefHeight="162.0" prefWidth="311.0" />
    <Text fill="#0b166e" layoutX="60.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Decrivez votre statut">
       <font>
          <Font size="18.0" />
       </font>
    </Text>
-   <Button fx:id="btnGal" layoutX="252.0" layoutY="334.0" mnemonicParsing="false" style="-fx-background-color: #ffd230;" text="       Photo" textFill="#1536c9">
+   <Button fx:id="btnGal" layoutX="267.0" layoutY="334.0" mnemonicParsing="false" onAction="#SelectFile" style="-fx-background-color: #ffd230;" text="       Photo" textFill="#1536c9">
       <font>
          <Font size="16.0" />
       </font>
    </Button>
-   <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="259.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="274.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../Media/1375106.png" />
       </image>
@@ -61,5 +62,6 @@
          <Font size="21.0" />
       </font>
    </Button>
+   <TextField fx:id="photoPath" layoutX="55.0" layoutY="334.0" prefHeight="37.0" prefWidth="198.0" />
   
 </AnchorPane>

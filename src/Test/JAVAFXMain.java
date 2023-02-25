@@ -23,8 +23,8 @@ public class JAVAFXMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.stage= new Stage();
-       // parent=FXMLLoader.load(getClass().getResource("/views/FillActualite.fxml"));
-        parent=FXMLLoader.load(getClass().getResource("/views/Commentaire.fxml"));
+       parent=FXMLLoader.load(getClass().getResource("/views/FillActualite.fxml"));
+        //parent=FXMLLoader.load(getClass().getResource("/views/Commentaire.fxml"));
         Scene scene=new Scene(parent);
         stage.setScene(scene);
         stage.show();    
