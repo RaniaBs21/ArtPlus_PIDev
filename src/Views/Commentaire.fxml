@@ -25,12 +25,12 @@
       </image>
    </ImageView>
      <Button fx:id="Acc" layoutX="104.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
-   <Button fx:id="FAcc" layoutX="167.0" layoutY="17.0" mnemonicParsing="false" onAction="#afficherPost" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
-   <Button fx:id="Ev" layoutX="259.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
-   <Button fx:id="Crs" layoutX="344.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
-   <Button fx:id="Prod" layoutX="402.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
-   <Button fx:id="Qz" layoutX="479.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
-   <Button fx:id="Ass" layoutX="541.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
+   <Button fx:id="FAcc" layoutX="187.0" layoutY="16.0" mnemonicParsing="false" onAction="#afficherPost" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
+   <Button fx:id="Ev" layoutX="289.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
+   <Button fx:id="Crs" layoutX="400.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
+   <Button fx:id="Prod" layoutX="491.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
+   <Button fx:id="Qz" layoutX="579.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
+   <Button fx:id="Ass" layoutX="641.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
    
    <ListView layoutX="27.0" layoutY="102.0" opacity="0.81" prefHeight="300.0" prefWidth="410.0" style="-fx-background-color: #d5dcfe; -fx-background-radius: 10;" />
    <TextArea fx:id="txtDescription" layoutX="66.0" layoutY="149.0" prefHeight="163.0" prefWidth="327.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" />

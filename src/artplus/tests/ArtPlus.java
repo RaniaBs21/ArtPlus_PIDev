@@ -14,12 +14,16 @@ import artplus.services.PostServices;
 import artplus.utils.MyConnection;
 import java.util.List;
 
+
 /**
  *
  * @author DELL
  */
 public class ArtPlus {
     public static void main(String[] args) {
+        
+    
+
       MyConnection mc = MyConnection.getInstance();
       
 //************* CRUD Post****************** //

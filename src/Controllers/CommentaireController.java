@@ -167,6 +167,8 @@ public class CommentaireController implements Initializable {
        tableCom.setItems(observablecommentaire);
     }
 
+   
+
     
     
     

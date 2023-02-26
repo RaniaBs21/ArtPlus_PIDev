@@ -7,6 +7,8 @@ package Controllers;
 
 import artplus.entities.Post;
 import artplus.services.PostServices;
+import java.awt.Image;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -56,9 +58,8 @@ public class FillActualiteController implements Initializable {
     private Button btn_post;
     @FXML
     private Button btnCom;
-    private VBox vBox;
-    @FXML
-    private TableView<Post> tablePost;
+    
+ 
     @FXML
     private TableColumn<?, ?> IdPost;
     @FXML
@@ -69,6 +70,12 @@ public class FillActualiteController implements Initializable {
     private TableColumn<?, ?> HeurePost;
     @FXML
     private TableColumn<?, ?> ImgPost;
+    @FXML
+    private Button btnLike;
+    
+    private int likeCount = 0;
+    @FXML
+    private TableView<Post> TablePost;
 
     /**
      * Initializes the controller class.
@@ -109,9 +116,41 @@ public class FillActualiteController implements Initializable {
             
            }
         });
+//        btnLike.setOnAction(event -> {
+//            if (btnLike.getText().equals("J'aime")) {
+//                likeCount++;
+//                btnLike.setText("Je n'aime plus");
+//                btnLike.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;");
+//            } else {
+//                likeCount--;
+//                btnLike.setText("J'aime");
+//                btnLike.setStyle("");
+//            }
+//        });
+
        
         
-    }    
+    } 
+
+ 
+
+//    @FXML
+//    private void afficherPost(ActionEvent event) {
+//       PostServices p = new PostServices();
+//       List<Post> myList= p.afficherPost();
+//        
+//       IdPost.setCellValueFactory(new PropertyValueFactory("Id_Post"));
+//       DescPost.setCellValueFactory(new PropertyValueFactory("Description_Post"));
+//       DatePost.setCellValueFactory(new PropertyValueFactory("Date_Post"));
+//       HeurePost.setCellValueFactory(new PropertyValueFactory("Heure_Post"));
+//       ImgPost.setCellValueFactory(new PropertyValueFactory("Img_Post"));
+//
+//       ObservableList<Post> observablepost = FXCollections.observableArrayList(myList);
+//       tablePost.setItems(observablepost);
+//    
+//
+//    }
+//    
 
     @FXML
     private void afficherPost(ActionEvent event) {
@@ -123,18 +162,14 @@ public class FillActualiteController implements Initializable {
        DatePost.setCellValueFactory(new PropertyValueFactory("Date_Post"));
        HeurePost.setCellValueFactory(new PropertyValueFactory("Heure_Post"));
        ImgPost.setCellValueFactory(new PropertyValueFactory("Img_Post"));
-
-       ObservableList<Post> observablepost = FXCollections.observableArrayList(myList);
-       tablePost.setItems(observablepost);
-    
-
+       
+       ObservableList<Post> observablecommentaire = FXCollections.observableArrayList(myList);
+       TablePost.setItems(observablecommentaire);
     }
-    
-    
+} 
        
 
        
        
     
    
-}

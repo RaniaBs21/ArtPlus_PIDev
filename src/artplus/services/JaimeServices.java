@@ -44,8 +44,8 @@ public class JaimeServices implements InterfaceJaimeServices{
     @Override
      public void ajouterJaime2(Jaime j){
          try {
-            String requete2 = "INSERT INTO jaime (Nbre_J)"
-                    +" VALUES (?)";
+           // String requete2 = "INSERT INTO jaime (Nbre_J)" +" VALUES (?)";
+            String requete2 = "INSERT INTO jaime " +" VALUES (?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setInt(1,j.getNbre_J());
            

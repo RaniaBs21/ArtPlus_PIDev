@@ -19,6 +19,8 @@ public class Post {
     private Date Date_Post;
     private Time Heure_Post;
     private String Img_Post;
+    private int Id_Com;
+    private int Id_Ut;
 
     public Post(int Id_Post, String Description_Post, Date Date_Post, Time Heure_Post, String Img_Post) {
         this.Id_Post = Id_Post;
