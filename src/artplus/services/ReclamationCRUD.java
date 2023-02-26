@@ -64,12 +64,14 @@ public class ReclamationCRUD implements InterfaceReclamation {
         }
     }
                    
-        public void supprimerreclamation(int Id_Rec) {
+
+        public void supprimerreclamation(Reclamation r) {
+        String req = "DELETE FROM Reclamation WHERE Type_Rec=?";
         try {
-            String req = "DELETE FROM reclamation WHERE Id_Rec = " + Id_Rec;
-            Statement ste = cnx.createStatement();
-            ste.executeUpdate(req);
-            System.out.println("reclamation deleted !");
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setString(1, r.getType_Rec());
+            pst.executeUpdate();
+            System.out.println("Reclamation supprimée !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -77,28 +79,21 @@ public class ReclamationCRUD implements InterfaceReclamation {
 
     
     public List<Reclamation> afficherreclamation(){
-        List<Reclamation> myList= new ArrayList<>();
-        try {
-            
-            String requete3 = "SELECT * FROM reclamation";
-            Statement ste = cnx.createStatement();
-            ResultSet rs = ste.executeQuery(requete3);
-            while (rs.next()){
-                Reclamation r = new Reclamation();
-                r.setId_Rec(rs.getInt(1));
-                r.setType_Rec(rs.getString("Type_Rec"));
-                r.setDescription_Rec(rs.getString("Description_Rec"));
-                
+    List<Reclamation> list = new ArrayList<>();
 
-                myList.add(r);   
+        String req = "SELECT * FROM Reclamation";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            ResultSet result = pst.executeQuery();
+            while(result.next()) {
+                list.add(new Reclamation(result.getInt("Id_Rec"), result.getString("Type_Rec"), result.getString("Description_Rec")));
             }
-            
+            System.out.println("Reclamation récupéré");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
         }
-        catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-         return myList;
-       
+
+        return list;
     }
     
 }

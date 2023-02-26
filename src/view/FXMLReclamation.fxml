@@ -24,15 +24,16 @@
             <TextField fx:id="txtDescription_Rec" layoutX="159.0" layoutY="96.0" prefHeight="191.0" prefWidth="113.0" />
          </children>
       </Pane>
-      <TableView fx:id="table" layoutX="351.0" layoutY="84.0" prefHeight="286.0" prefWidth="327.0" style="-fx-background-color: orange;">
+      <TableView fx:id="tablereclamation" layoutX="351.0" layoutY="84.0" prefHeight="286.0" prefWidth="327.0" style="-fx-background-color: orange;">
          <columns>
-            <TableColumn prefWidth="75.0" text="Id" />
-            <TableColumn prefWidth="75.0" text="Type" />
-            <TableColumn prefWidth="176.00001831054686" text="Description" />
+            <TableColumn fx:id="idcolomn" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="typecolomn" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="descriptioncolomn" prefWidth="176.00001831054686" text="Description" />
          </columns>
       </TableView>
       <Button fx:id="btnajouter" layoutX="14.0" layoutY="398.0" mnemonicParsing="false" onAction="#add" text="Ajouter" />
       <Button fx:id="btnmodifier" layoutX="132.0" layoutY="398.0" mnemonicParsing="false" onAction="#update" text="Modifier" />
       <Button fx:id="btnsupprimer" layoutX="240.0" layoutY="398.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" />
+      <Button fx:id="btnback" layoutX="16.0" layoutY="21.0" mnemonicParsing="false" onAction="#goBack" text="go back" />
    </children>
 </AnchorPane>

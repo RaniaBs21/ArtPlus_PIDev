@@ -13,6 +13,7 @@ import artplus.entities.Question_ass;
 import artplus.entities.Reponse_ass;
 import artplus.services.Question_assCRUD;
 import artplus.services.Reponse_assCRUD;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +26,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -47,6 +50,10 @@ Connection con;
     PreparedStatement pst;
     int myIndex;
     int id;
+    
+        @FXML
+    private Button btnback;
+        
     @FXML
     private Button btnajouterQ;
 
@@ -244,6 +251,12 @@ else
            alert.setContentText("champ vide");
            alert.show();
 }
+    }
+         @FXML
+    private void goBack(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/page1.fxml"));
+        Parent root = loader.load();
+         btnback.getScene().setRoot(root);
     }
     }
     

@@ -35,6 +35,10 @@ public class Reclamation {
     public Reclamation(int i) { 
         this.Id_Rec = i;
     }
+
+    public Reclamation(String Type_Rec) {
+        this.Type_Rec = Type_Rec;
+    }
     public int getId_Rec() {
         return Id_Rec;
     }

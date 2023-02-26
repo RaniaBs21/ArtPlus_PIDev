@@ -15,6 +15,6 @@ public interface InterfaceReclamation {
    public void ajouterreclamation();
    public void ajouterreclamation2 (Reclamation r);
    public void modifierreclamation(Reclamation r);
-   public void supprimerreclamation(int id);
+   public void supprimerreclamation(Reclamation r);
    public List<Reclamation> afficherreclamation(); 
 }
