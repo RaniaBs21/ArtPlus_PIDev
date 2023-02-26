@@ -101,6 +101,7 @@ Connection cnx;
     @FXML
     private void add(ActionEvent event) {
          ReclamationCRUD rec = new ReclamationCRUD();
+        if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
         rec.ajouterreclamation2(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Reclamation");
@@ -108,10 +109,20 @@ Connection cnx;
             alert.setContentText("Reclamation ajouté avec succés!");
             alert.show();
     }
+        else
+              {
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+           alert.setTitle("erreur");
+           alert.setHeaderText(null);
+           alert.setContentText("champ vide");
+           alert.show();
+              }
+    }
 
     @FXML
     private void update(ActionEvent event) {
-        ReclamationCRUD rec = new ReclamationCRUD();
+            ReclamationCRUD rec = new ReclamationCRUD();
+        if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
         rec.modifierreclamation(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Reclamation");
@@ -119,16 +130,35 @@ Connection cnx;
             alert.setContentText("Reclamation modifié avec succés!");
             alert.show();
     }
-
+        else
+              {
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+           alert.setTitle("erreur");
+           alert.setHeaderText(null);
+           alert.setContentText("champ vide");
+           alert.show();
+              }
+    }
+    
     @FXML
     private void delete(ActionEvent event) {
-         ReclamationCRUD rec = new ReclamationCRUD();
+            ReclamationCRUD rec = new ReclamationCRUD();
+        if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
          rec.supprimerreclamation(id);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("question");
+            alert.setTitle("Reclamation");
             alert.setHeaderText(null);
             alert.setContentText("Reclamation supprimé avec succés!");
             alert.show();
+    }
+        else
+              {
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+           alert.setTitle("erreur");
+           alert.setHeaderText(null);
+           alert.setContentText("champ vide");
+           alert.show();
+              }
     }
     
 }
