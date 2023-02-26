@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -120,6 +121,11 @@ Connection con;
     private void addq(ActionEvent event) {
          Question_assCRUD q = new Question_assCRUD();
         q.ajouterquestion2(new Question_ass(txtDescription_Q_Ass.getText(),txtType_Q_Ass.getText() ));
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("question");
+            alert.setHeaderText(null);
+            alert.setContentText("question ajouté avec succés!");
+            alert.show();
     }
     
 
@@ -127,30 +133,55 @@ Connection con;
     private void updateq(ActionEvent event) {
       Question_assCRUD q = new Question_assCRUD();
       q.modifierquestion(new Question_ass(txtDescription_Q_Ass.getText(),txtType_Q_Ass.getText() ));
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("question");
+            alert.setHeaderText(null);
+            alert.setContentText("question modifié avec succés!");
+            alert.show();
     }
 
     @FXML
     private void deleteq(ActionEvent event) {
          Question_assCRUD q = new Question_assCRUD();
          q.supprimerquestion(id);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("question");
+            alert.setHeaderText(null);
+            alert.setContentText("question supprimé avec succés!");
+            alert.show();
     }
 
     @FXML
     private void addr(ActionEvent event) {
         Reponse_assCRUD repa = new Reponse_assCRUD();
         repa.ajouterreponse2(new Reponse_ass(txtQue_Rep_Ass.getText(),txtDescription_Rep_Ass.getText(),txtType_Rep_Ass.getText() ));
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("reponse");
+            alert.setHeaderText(null);
+            alert.setContentText("reponse supprimé avec succés!");
+            alert.show();
     }
 
     @FXML
     private void updater(ActionEvent event) {
         Reponse_assCRUD repa = new Reponse_assCRUD();
         repa.modifierreponse(new Reponse_ass(txtQue_Rep_Ass.getText(),txtDescription_Rep_Ass.getText(),txtType_Rep_Ass.getText() ));
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("reponse");
+            alert.setHeaderText(null);
+            alert.setContentText("reponse supprimé avec succés!");
+            alert.show();
     }
 
     @FXML
     private void deleter(ActionEvent event) {
          Reponse_assCRUD repa = new Reponse_assCRUD();
          repa.supprimerreponse(id);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("reponse");
+            alert.setHeaderText(null);
+            alert.setContentText("reponse supprimé avec succés!");
+            alert.show();
     }
     
 }

@@ -102,18 +102,33 @@ Connection cnx;
     private void add(ActionEvent event) {
          ReclamationCRUD rec = new ReclamationCRUD();
         rec.ajouterreclamation2(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Reclamation");
+            alert.setHeaderText(null);
+            alert.setContentText("Reclamation ajouté avec succés!");
+            alert.show();
     }
 
     @FXML
     private void update(ActionEvent event) {
         ReclamationCRUD rec = new ReclamationCRUD();
         rec.modifierreclamation(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Reclamation");
+            alert.setHeaderText(null);
+            alert.setContentText("Reclamation modifié avec succés!");
+            alert.show();
     }
 
     @FXML
     private void delete(ActionEvent event) {
          ReclamationCRUD rec = new ReclamationCRUD();
          rec.supprimerreclamation(id);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("question");
+            alert.setHeaderText(null);
+            alert.setContentText("Reclamation supprimé avec succés!");
+            alert.show();
     }
     
 }
