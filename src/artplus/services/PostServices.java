@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -90,7 +92,8 @@ public class PostServices implements InterfacePostServices {
 
     @Override
     public List<Post> afficherPost(){
-        List<Post> myList= new ArrayList<>();
+        //List<Post> myList= new ArrayList<>();
+        ObservableList<Post> myList=FXCollections.observableArrayList();
         try {
             
             String requete3 = "SELECT * FROM post";

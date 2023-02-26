@@ -80,6 +80,10 @@ public class CommentaireController implements Initializable {
     private Button affCom;
     @FXML
     private TableColumn<?,?> dateCol;
+    @FXML
+    private TextArea idSupp;
+    @FXML
+    private TextArea idModif;
     /**
      * Initializes the controller class.
      */
@@ -116,36 +120,36 @@ public class CommentaireController implements Initializable {
             
         });
     }    
-
+/* ************** modification ******************* */
     @FXML
     private void Update(ActionEvent event) {
-          CommentaireServices c = new  CommentaireServices();
-          c.modifierCommentaire(new Commentaire(txtDescription.getText()));
-          
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        
+        int Id_Com =Integer.parseInt(idModif.getText()) ;
+        String Description_Com = txtDescription.getText();
+        CommentaireServices cs = new  CommentaireServices();
+        Commentaire c= new Commentaire(Id_Com,Description_Com);
+        cs.modifierCommentaire(c);
+        
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("commentaire modifié avec succés!");
             alert.show();
-            txtDescription.setText("");
+          
         
     }
 /* ************** suppression ******************* */
     @FXML
     private void Delete(ActionEvent event) {
-        int Id_Com =Integer.parseInt(btnDelete.getText());
+        int Id_Com =Integer.parseInt(idSupp.getText());
         CommentaireServices c  = new CommentaireServices();
-        c.supprimerCom(Id_Com);
-        /*CommentaireServices c  = new CommentaireServices();
-         c.supprimerCom(id);
-         
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        c.supprimerCom(Id_Com); 
+        
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("commentaire supprimé avec succés!");
             alert.show();
-            txtDescription.setText("");*/
-        
     }
     
 /* ************** affichage *********** */

@@ -67,8 +67,11 @@ Connection  cnx;
      
    @Override
     public void modifierCommentaire(Commentaire c) {
+       
         try {
-            String req = "UPDATE commentaire SET Description_Com = ? WHERE Id_Com = "+c.getId_Com();
+            
+            
+           String req = "UPDATE commentaire SET Description_Com = ? WHERE Id_Com = "+c.getId_Com();
 
             PreparedStatement pst = cnx.prepareStatement(req);
 
@@ -84,11 +87,21 @@ Connection  cnx;
    
     @Override
       public void supprimerCom(int Id_Com) {
+          String req1 = "SELECT * FROM `commentaire` WHERE Id_Com = ?";
+          String req2 = "DELETE FROM `commentaire` WHERE Id_Com = ?";
         try {
-            String req = "DELETE FROM commentaire WHERE Id_Com = " + Id_Com;
-            Statement ste = cnx.createStatement();
-            ste.executeUpdate(req);
-            System.out.println("Comment deleted !");
+            PreparedStatement pst1= cnx.prepareStatement(req1);
+            pst1.setInt(1, Id_Com);
+            ResultSet rs= pst1.executeQuery();
+            
+            if (rs.next()){
+                PreparedStatement pst2= cnx.prepareStatement(req2);
+                pst2.setInt(1, Id_Com);
+                pst2.executeUpdate();
+                System.out.println("Comment deleted !");
+            }else{
+                System.out.println("Comment not existed !");
+            }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

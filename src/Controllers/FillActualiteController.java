@@ -5,17 +5,31 @@
  */
 package Controllers;
 
+import artplus.entities.Post;
+import artplus.services.PostServices;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -42,6 +56,19 @@ public class FillActualiteController implements Initializable {
     private Button btn_post;
     @FXML
     private Button btnCom;
+    private VBox vBox;
+    @FXML
+    private TableView<Post> tablePost;
+    @FXML
+    private TableColumn<?, ?> IdPost;
+    @FXML
+    private TableColumn<?, ?> DescPost;
+    @FXML
+    private TableColumn<?, ?> DatePost;
+    @FXML
+    private TableColumn<?, ?> HeurePost;
+    @FXML
+    private TableColumn<?, ?> ImgPost;
 
     /**
      * Initializes the controller class.
@@ -85,5 +112,29 @@ public class FillActualiteController implements Initializable {
        
         
     }    
+
+    @FXML
+    private void afficherPost(ActionEvent event) {
+       PostServices p = new PostServices();
+       List<Post> myList= p.afficherPost();
+        
+       IdPost.setCellValueFactory(new PropertyValueFactory("Id_Post"));
+       DescPost.setCellValueFactory(new PropertyValueFactory("Description_Post"));
+       DatePost.setCellValueFactory(new PropertyValueFactory("Date_Post"));
+       HeurePost.setCellValueFactory(new PropertyValueFactory("Heure_Post"));
+       ImgPost.setCellValueFactory(new PropertyValueFactory("Img_Post"));
+
+       ObservableList<Post> observablepost = FXCollections.observableArrayList(myList);
+       tablePost.setItems(observablepost);
     
+
+    }
+    
+    
+       
+
+       
+       
+    
+   
 }

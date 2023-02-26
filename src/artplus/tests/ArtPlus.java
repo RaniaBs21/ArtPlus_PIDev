@@ -23,14 +23,14 @@ public class ArtPlus {
       MyConnection mc = MyConnection.getInstance();
       
 //************* CRUD Post****************** //
-        //PostServices ps = new PostServices();
+        PostServices ps = new PostServices();
         //Post p = new Post("img","img","Img");
         //ps.ajouterPost();
         //ps.ajouterPost2(p);
          /*Post p = new Post(1,"img","img","Img");
         ps.modifierPost(p);*/
         //ps.supprimerPost(2);
-        //System.out.println(ps.afficherPost());
+        System.out.println(ps.afficherPost());
     
 //************* CRUD Commentaire****************** 
     
