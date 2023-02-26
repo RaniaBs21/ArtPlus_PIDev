@@ -28,8 +28,8 @@
       <Pane layoutX="417.0" layoutY="84.0" prefHeight="415.0" prefWidth="298.0" style="-fx-background-color: orange;">
          <children>
             <Label layoutX="4.0" layoutY="30.0" prefHeight="47.0" prefWidth="138.0" text="Question &#10;correspondante :" />
-            <Label layoutX="4.0" layoutY="113.0" text="Type de question :" />
-            <Label layoutX="4.0" layoutY="158.0" text="Description de&#10;question :" />
+            <Label layoutX="4.0" layoutY="113.0" text="Type de reponse :" />
+            <Label layoutX="4.0" layoutY="158.0" text="Description de&#10;reponse :" />
             <TextField fx:id="txtQue_Rep_Ass" layoutX="146.0" layoutY="39.0" prefHeight="75.0" prefWidth="138.0" />
             <TextField fx:id="txtType_Rep_Ass" layoutX="146.0" layoutY="121.0" prefHeight="25.0" prefWidth="138.0" />
             <TextField fx:id="txtDescription_Rep_Ass" alignment="TOP_LEFT" layoutX="146.0" layoutY="158.0" prefHeight="240.0" prefWidth="138.0" />
