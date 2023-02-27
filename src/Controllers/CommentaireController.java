@@ -29,6 +29,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -89,9 +90,17 @@ public class CommentaireController implements Initializable {
     private TextField txtSearch;
     @FXML
     private Button btnSearch;
-    /**
-     * Initializes the controller class.
-     */
+    private Label labelcommentaire;
+    @FXML
+    private Label labelid;
+    @FXML
+    private Label labelDesc;
+    @FXML
+    private Label labeldate;
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -170,6 +179,21 @@ public class CommentaireController implements Initializable {
 
        ObservableList<Commentaire> observablecommentaire = FXCollections.observableArrayList(myList);
        tableCom.setItems(observablecommentaire);
+    }
+
+    @FXML
+    private void search(ActionEvent event) {
+       Date Date_Com=Date.valueOf(txtSearch.getText());
+        CommentaireServices css=new CommentaireServices();
+        Commentaire c = css.searchCommentbyDate(Date_Com);
+        if ( c != null){
+          labelid.setText("Id_Com"+c.getId_Com());
+          labelDesc.setText("Description_Com :" +c.getDescription_Com());
+          labeldate.setText("Date_Com :" +c.getDate_Com());
+        }
+        else{
+            labelcommentaire.setText(("commentaire n'a pas trouvé"));
+        } 
     }
 
     

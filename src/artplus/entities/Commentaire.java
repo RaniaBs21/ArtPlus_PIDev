@@ -37,6 +37,10 @@ public class Commentaire {
         this.Description_Com = Description_Com;
     }
 
+    public Commentaire(Date Date_Com) {
+        this.Date_Com = Date_Com;
+    }
+
     public Commentaire() {
     }
     

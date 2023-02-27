@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -20,7 +21,7 @@
          <Image url="@../Media/logo.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="740.0" layoutY="307.0" opacity="0.62" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="740.0" layoutY="345.0" opacity="0.62" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../Media/Capture-removebg-preview%20(4).png" />
       </image>
@@ -33,14 +34,14 @@
    <Button fx:id="Qz" layoutX="579.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
    <Button fx:id="Ass" layoutX="641.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
    
-   <ListView layoutX="27.0" layoutY="129.0" opacity="0.81" prefHeight="338.0" prefWidth="410.0" style="-fx-background-color: #d5dcfe; -fx-background-radius: 10;" />
-   <TextArea fx:id="txtDescription" layoutX="53.0" layoutY="179.0" prefHeight="190.0" prefWidth="334.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" />
-   <Text fill="#0b166e" layoutX="58.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Un Commentaire">
+   <ListView layoutX="15.0" layoutY="168.0" opacity="0.81" prefHeight="338.0" prefWidth="410.0" style="-fx-background-color: #d5dcfe; -fx-background-radius: 10;" />
+   <TextArea fx:id="txtDescription" layoutX="53.0" layoutY="226.0" prefHeight="190.0" prefWidth="334.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" />
+   <Text fill="#0b166e" layoutX="58.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Un Commentaire">
       <font>
          <Font size="18.0" />
       </font>
    </Text>
-   <Button fx:id="btnAdd" layoutX="41.0" layoutY="404.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Publier">
+   <Button fx:id="btnAdd" layoutX="41.0" layoutY="461.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Publier">
       <font>
          <Font size="15.0" />
       </font>
@@ -50,31 +51,34 @@
          <Font size="15.0" />
       </font>
    </Button>
-   <TableView fx:id="tableCom" layoutX="458.0" layoutY="144.0" prefHeight="280.0" prefWidth="400.0">
+   <TableView fx:id="tableCom" layoutX="458.0" layoutY="176.0" prefHeight="280.0" prefWidth="400.0">
      <columns>
        <TableColumn fx:id="IdCol" prefWidth="75.0" text="ID" />
        <TableColumn fx:id="contenuCol" prefWidth="170.39996337890625" text="Contenu" />
          <TableColumn fx:id="dateCol" prefWidth="153.5999755859375" text="Date " />
      </columns>
    </TableView>
-   <Button fx:id="btnUpdate" layoutX="263.0" layoutY="403.0" mnemonicParsing="false" onAction="#Update" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Modifier">
+   <Button fx:id="btnUpdate" layoutX="263.0" layoutY="462.0" mnemonicParsing="false" onAction="#Update" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Modifier">
       <font>
          <Font size="15.0" />
       </font>
    </Button>
-   <Button fx:id="btnDelete" layoutX="524.0" layoutY="429.0" mnemonicParsing="false" onAction="#Delete" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Supprimer">
+   <Button fx:id="btnDelete" layoutX="524.0" layoutY="473.0" mnemonicParsing="false" onAction="#Delete" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Supprimer">
       <font>
          <Font size="15.0" />
       </font>
    </Button>
-   <Button fx:id="affCom" layoutX="122.0" layoutY="404.0" mnemonicParsing="false" onAction="#afficherCom" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Afficher">
+   <Button fx:id="affCom" layoutX="122.0" layoutY="461.0" mnemonicParsing="false" onAction="#afficherCom" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Afficher">
       <font>
          <Font size="15.0" />
       </font>
    </Button>
-   <TextArea fx:id="idModif" layoutX="217.0" layoutY="400.0" prefHeight="39.0" prefWidth="37.0" style="-fx-border-color: #d5dcfee; -fx-border-radius: 20;" />
-   <TextArea fx:id="idSupp" layoutX="480.0" layoutY="427.0" prefHeight="31.0" prefWidth="37.0" />
+   <TextArea fx:id="idModif" layoutX="217.0" layoutY="458.0" prefHeight="39.0" prefWidth="37.0" style="-fx-border-color: #d5dcfee; -fx-border-radius: 20;" />
+   <TextArea fx:id="idSupp" layoutX="480.0" layoutY="469.0" prefHeight="31.0" prefWidth="37.0" />
    <TextField fx:id="txtSearch" layoutX="172.0" layoutY="75.0" prefHeight="26.0" prefWidth="308.0" style="-fx-background-radius: 10;" />
-   <Button fx:id="btnSearch" layoutX="486.0" layoutY="75.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: #d5dcfe;" text="Rechercher" />
+   <Button fx:id="btnSearch" layoutX="486.0" layoutY="75.0" mnemonicParsing="false" onAction="#search" style="-fx-background-radius: 10; -fx-background-color: #d5dcfe;" text="Rechercher" />
+   <Label fx:id="labelid" layoutX="176.0" layoutY="105.0" prefHeight="18.0" prefWidth="302.0" />
+   <Label fx:id="labeldate" layoutX="172.0" layoutY="141.0" prefHeight="18.0" prefWidth="302.0" />
+   <Label fx:id="labelDesc" layoutX="175.0" layoutY="123.0" prefHeight="18.0" prefWidth="302.0" />
    
 </AnchorPane>

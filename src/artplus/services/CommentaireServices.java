@@ -6,9 +6,11 @@
 package artplus.services;
 
 import artplus.entities.Commentaire;
+import artplus.entities.Post;
 import artplus.utils.MyConnection;
 import static artplus.utils.MyConnection.instance;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -140,6 +142,25 @@ Connection  cnx;
         return instance;
     }
     
-   
+   public Commentaire searchCommentbyDate(Date Date_Com ){
+        String req="SELECT * FROM commentaire WHERE Date_Com=?";
+        PreparedStatement ps ;
+        ResultSet rs ;
+        Commentaire c = null ;
+        try{
+            ps=cnx.prepareStatement(req);
+            ps.setDate(1, Date_Com);
+            rs=ps.executeQuery();
+            if(rs.next()){
+                c = new Commentaire(rs.getInt("Id_Com"),rs.getString("Description_Com"),rs.getDate("Date_Com"));
+            }
+            
+        }
+       catch(SQLException ex) {
+            System.out.println("Commentaire n'est pas trouvé");
+           
+       } 
+        return c ;
+    }
 }
 
