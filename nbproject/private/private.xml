@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/Post.java</file>
             <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Test/JAVAFXMain.java</file>
             <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/tests/ArtPlus.java</file>
             <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/CommentaireServices.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/InterfaceCommentaireServices.java</file>
             <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/FillActualiteController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/AjoutPostController.java</file>
             <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/CommentaireController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/PostServices.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/FillActualite.fxml</file>
         </group>
     </open-files>
 </project-private>

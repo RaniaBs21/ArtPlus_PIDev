@@ -12,7 +12,13 @@ import artplus.services.CommentaireServices;
 import artplus.services.JaimeServices;
 import artplus.services.PostServices;
 import artplus.utils.MyConnection;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+//import com.google.maps.GeoApiContext;
+//import com.google.maps.GeocodingApi;
+//import com.google.maps.model.GeocodingResult;
 
 
 /**
@@ -21,20 +27,19 @@ import java.util.List;
  */
 public class ArtPlus {
     public static void main(String[] args) {
+       
         
-    
-
       MyConnection mc = MyConnection.getInstance();
       
 //************* CRUD Post****************** //
-        PostServices ps = new PostServices();
+        //PostServices ps = new PostServices();
         //Post p = new Post("img","img","Img");
         //ps.ajouterPost();
         //ps.ajouterPost2(p);
          /*Post p = new Post(1,"img","img","Img");
         ps.modifierPost(p);*/
         //ps.supprimerPost(2);
-        System.out.println(ps.afficherPost());
+        //System.out.println(ps.afficherPost());
     
 //************* CRUD Commentaire****************** 
     

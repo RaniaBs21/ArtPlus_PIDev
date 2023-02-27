@@ -33,6 +33,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -84,6 +85,10 @@ public class CommentaireController implements Initializable {
     private TextArea idSupp;
     @FXML
     private TextArea idModif;
+    @FXML
+    private TextField txtSearch;
+    @FXML
+    private Button btnSearch;
     /**
      * Initializes the controller class.
      */
@@ -166,6 +171,10 @@ public class CommentaireController implements Initializable {
        ObservableList<Commentaire> observablecommentaire = FXCollections.observableArrayList(myList);
        tableCom.setItems(observablecommentaire);
     }
+
+    
+
+    
 
    
 

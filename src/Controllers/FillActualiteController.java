@@ -127,30 +127,8 @@ public class FillActualiteController implements Initializable {
 //                btnLike.setStyle("");
 //            }
 //        });
-
-       
-        
-    } 
-
  
-
-//    @FXML
-//    private void afficherPost(ActionEvent event) {
-//       PostServices p = new PostServices();
-//       List<Post> myList= p.afficherPost();
-//        
-//       IdPost.setCellValueFactory(new PropertyValueFactory("Id_Post"));
-//       DescPost.setCellValueFactory(new PropertyValueFactory("Description_Post"));
-//       DatePost.setCellValueFactory(new PropertyValueFactory("Date_Post"));
-//       HeurePost.setCellValueFactory(new PropertyValueFactory("Heure_Post"));
-//       ImgPost.setCellValueFactory(new PropertyValueFactory("Img_Post"));
-//
-//       ObservableList<Post> observablepost = FXCollections.observableArrayList(myList);
-//       tablePost.setItems(observablepost);
-//    
-//
-//    }
-//    
+    } 
 
     @FXML
     private void afficherPost(ActionEvent event) {
