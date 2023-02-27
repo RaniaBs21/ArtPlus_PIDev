@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" cache="true" prefHeight="435.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjoutCoursController">
+  <ListView layoutX="-6.0" prefHeight="33.0" prefWidth="763.0" />
+   <Text fill="#eb9e05" layoutX="23.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
+      <font>
+         <Font name="System Bold" size="13.0" />
+      </font>
+   </Text>
+   <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="716.0" layoutY="3.0">
+      <image>
+         <Image url="@../images/327064585_3412782662295061_2792793093980053014_n-removebg-preview%20(1).png" />
+      </image>
+   </ImageView>
+   <Text fill="#e1ad2a" layoutX="105.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouveau cours !" wrappingWidth="233.0810546875" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="336.0">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Text>
+   <Label layoutX="26.0" layoutY="88.0" text="Titre" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="610.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="23.0" layoutY="124.0" text="Sous categorie" AnchorPane.leftAnchor="23.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="25.0" layoutY="156.0" text="Niveau" AnchorPane.leftAnchor="25.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="32.0" layoutY="237.0" text="Description" AnchorPane.leftAnchor="32.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="26.0" layoutY="192.0" text="Fichier" AnchorPane.leftAnchor="26.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <TextField fx:id="title" layoutX="111.0" layoutY="84.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.rightAnchor="535.0" />
+   <TextField fx:id="fichierc" layoutX="115.0" layoutY="188.0" prefHeight="17.0" prefWidth="80.0" />
+   <TextField fx:id="desc" layoutX="114.0" layoutY="219.0" prefHeight="53.0" prefWidth="150.0" />
+  
+   <Button fx:id="ajouter" layoutX="119.0" layoutY="295.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Ajouter" textFill="#3260dd" />
+   <Text fill="#f82710" layoutX="657.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Text>
+   <Text fill="#282727" layoutX="315.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+   <Text fill="#282727" layoutX="317.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+   <Button fx:id="evenement11" layoutX="97.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
+   <Button fx:id="evenement1" layoutX="161.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
+   <Button fx:id="evenement" layoutX="257.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
+   <Button fx:id="evenement12" layoutX="337.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
+   <Button fx:id="evenement13" layoutX="392.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
+   <Button fx:id="evenement131" layoutX="469.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
+   <Button fx:id="evenement1311" layoutX="531.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
+   <TextField fx:id="sccours" layoutX="114.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" />
+   <TextField fx:id="levelc" layoutX="114.0" layoutY="152.0" prefHeight="25.0" prefWidth="150.0" />
+   <Button fx:id="selectFileButton" layoutX="193.0" layoutY="188.0" mnemonicParsing="false" onAction="#selectFile" prefHeight="25.0" prefWidth="71.0" text="Selectionner ficher" />
+   <Button fx:id="deposer" layoutX="196.0" layoutY="295.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="65.0" text="deposer" textFill="#3260dd" />
+   <Button cancelButton="true" layoutX="699.0" layoutY="365.0" mnemonicParsing="false" onAction="#afficherCours" prefHeight="27.0" prefWidth="65.0" text="Afficher" textFill="#b57816" />
+   <Text fill="#e1ad2a" layoutX="392.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste de cours">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Text>
+   <Button fx:id="supprimerc" layoutX="193.0" layoutY="334.0" mnemonicParsing="false" onAction="#supprimerCours" text="Supprimer" textFill="#3260dd" />
+   <Button fx:id="modifierc" layoutX="62.0" layoutY="334.0" mnemonicParsing="false" onAction="#modifierCours" prefHeight="25.0" prefWidth="71.0" text="Modifier" textFill="#3260dd" />
+   <TextField fx:id="idsuppc" layoutX="139.0" layoutY="334.0" onAction="#supprimerCours" prefHeight="25.0" prefWidth="54.0" />
+   <TextField fx:id="idmodifc" layoutX="14.0" layoutY="334.0" prefHeight="25.0" prefWidth="54.0" />
+   <TableView fx:id="tablecours" layoutX="273.0" layoutY="78.0" prefHeight="287.0" prefWidth="492.0">
+     <columns>
+       <TableColumn fx:id="id" prefWidth="44.0" text="ID" />
+       <TableColumn fx:id="titre" prefWidth="61.0" text="Titre" />
+         <TableColumn fx:id="sous_c" prefWidth="89.0" text="Sous_categorie" />
+         <TableColumn fx:id="niveau" prefWidth="72.0" text="Niveau" />
+         <TableColumn fx:id="fichier" text="Fichier" />
+         <TableColumn fx:id="description" prefWidth="69.0" text="Description" />
+         <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+     </columns>
+   </TableView>
+   <Button layoutX="678.0" layoutY="41.0" mnemonicParsing="false" onAction="#chercherCours" text="Rechercher" />
+   <TextField fx:id="txtidcours" layoutX="531.0" layoutY="41.0" />
+   <Label fx:id="labelcours" layoutX="344.0" layoutY="375.0" prefHeight="33.0" prefWidth="262.0" />   
+</AnchorPane>

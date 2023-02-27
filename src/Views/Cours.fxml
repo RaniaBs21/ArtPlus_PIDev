@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CoursController">
+   <children>
+      <ListView layoutX="-10.0" layoutY="-2.0" prefHeight="32.0" prefWidth="681.0" />
+      <Text fill="#eb9e05" layoutX="21.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#0b315b" layoutX="98.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acceuil" />
+      <Text fill="#0b315b" layoutX="165.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fil d'actualité" />
+      <Text fill="#0b315b" layoutX="259.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenements" />
+      <Text fill="#0b315b" layoutX="354.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cours" />
+      <Text fill="#0b315b" layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produits" />
+      <Text fill="#0b315b" layoutX="478.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quiz" />
+      <Text fill="#0b315b" layoutX="531.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assistances" />
+      <Separator layoutX="35.0" layoutY="115.0" prefHeight="0.0" prefWidth="551.0" />
+      <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="633.0" layoutY="1.0">
+         <image>
+            <Image url="@../images/327064585_3412782662295061_2792793093980053014_n-removebg-preview%20(1).png" />
+         </image>
+      </ImageView>
+      <Text layoutX="121.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Art de la scène" wrappingWidth="156.169921875">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Text>
+      <Text layoutX="48.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C'est un ours introductive sur l'art de la scène en presentant plusieurs notions de base très importants avant d'avancer dans les cours prochains " wrappingWidth="468.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="74.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Art" wrappingWidth="63.720703125">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="15.0" fitWidth="16.0" layoutX="98.0" layoutY="41.0">
+         <image>
+            <Image url="@../images/130884.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="15.0" fitWidth="16.0" layoutX="192.0" layoutY="43.0">
+         <image>
+            <Image url="@../images/130884.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="43.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INTRODUCTION GENERALE" wrappingWidth="198.357421875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="211.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="97.0" fitWidth="80.0" layoutX="58.0" layoutY="179.0">
+         <image>
+            <Image url="@../images/pdf.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="55.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="crée le 19-02-2023" wrappingWidth="173.169921875">
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

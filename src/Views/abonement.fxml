@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="prix" prefHeight="400.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AbonementController">
+   <children>
+      <Label layoutX="116.0" layoutY="106.0" />
+      <Label layoutX="39.0" layoutY="106.0" text="FORMATION" textFill="#e1ad2a" AnchorPane.bottomAnchor="277.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="523.0" AnchorPane.topAnchor="106.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Text layoutX="35.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue à notre monde !" wrappingWidth="179.1044921875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Label layoutX="44.0" layoutY="163.0" text="NIVEAU" textFill="#e1ad2a">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Text fill="#301d7c" layoutX="63.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S'inscrire" wrappingWidth="99.404296875" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="524.595703125">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <TextField layoutX="41.0" layoutY="264.0" prefHeight="25.0" prefWidth="150.0" text="Passer au paiement" />
+      <ImageView fitHeight="19.0" fitWidth="23.0" layoutX="159.0" layoutY="267.0">
+         <image>
+            <Image url="@../images/109617.png" />
+         </image>
+      </ImageView>
+      <ScrollBar layoutX="657.0" layoutY="130.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="23.0" AnchorPane.leftAnchor="657.0" AnchorPane.rightAnchor="0.0" />
+      <ListView layoutX="-1.0" prefHeight="32.0" prefWidth="680.0" />
+      <Button fx:id="annuler" layoutX="43.0" layoutY="301.0" mnemonicParsing="false" text="Annuler" textFill="#3260dd" />
+      <Text fill="#eb9e05" layoutX="20.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="642.0" layoutY="2.0">
+         <image>
+            <Image url="@../images/327064585_3412782662295061_2792793093980053014_n-removebg-preview%20(1).png" />
+         </image>
+      </ImageView>
+      <Button fx:id="evenement11" layoutX="98.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
+      <Button fx:id="evenement1" layoutX="168.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
+      <Button fx:id="evenement" layoutX="263.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
+      <Button fx:id="evenement12" layoutX="346.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
+      <Button fx:id="evenement13" layoutX="403.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
+      <Button fx:id="evenement131" layoutX="473.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
+      <Button fx:id="evenement1311" layoutX="530.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
+      <Label layoutX="45.0" layoutY="213.0" text="PRIX" textFill="#e1ad2a">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="niveau" layoutX="38.0" layoutY="180.0" prefHeight="25.0" prefWidth="150.0" />
+      <Button fx:id="ajouteradmin" layoutX="122.0" layoutY="301.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Ajouter" textFill="#3260dd" />
+      <ComboBox fx:id="categorieCombo" layoutX="41.0" layoutY="340.0" prefWidth="150.0" />
+      <TableView fx:id="tableabon" layoutX="246.0" layoutY="63.0" prefHeight="239.0" prefWidth="394.0">
+        <columns>
+          <TableColumn fx:id="Id_abon" prefWidth="75.0" text="Id_abon" />
+          <TableColumn fx:id="Id_user" prefWidth="75.0" text="level" />
+            <TableColumn fx:id="Id_levels" prefWidth="75.0" text="cours" />
+            <TableColumn fx:id="prix_abonn" prefWidth="75.0" text="prix_abon" />
+            <TableColumn fx:id="date_abon" prefWidth="75.0" text="date_abon" />
+        </columns>
+      </TableView>
+      <Button fx:id="afficheabon" layoutX="571.0" layoutY="301.0" mnemonicParsing="false" onAction="#afficherAbon" prefHeight="29.0" prefWidth="71.0" text="Afficher" textFill="#ae8d06" />
+      <Button fx:id="supprimer" layoutX="437.0" layoutY="327.0" mnemonicParsing="false" onAction="#supprimerAbon" text="Supprimer" textFill="#3260dd" />
+      <TextField fx:id="idsupp" layoutX="389.0" layoutY="327.0" prefHeight="25.0" prefWidth="54.0" />
+      <Button layoutX="308.0" layoutY="327.0" mnemonicParsing="false" onAction="#modifierAbon" prefHeight="19.0" prefWidth="71.0" text="Modifier" textFill="#3260dd" />
+      <TextField fx:id="idmodif" layoutX="254.0" layoutY="327.0" prefHeight="25.0" prefWidth="54.0" />
+      <TextField fx:id="coursab" layoutX="38.0" layoutY="130.0" />
+      <TextField fx:id="price" layoutX="42.0" layoutY="230.0" />
+
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
