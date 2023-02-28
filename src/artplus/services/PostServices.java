@@ -5,10 +5,12 @@
  */
 package artplus.services;
 
+import artplus.entities.Commentaire;
 import artplus.entities.Post;
 import artplus.utils.MyConnection;
 import static artplus.utils.MyConnection.instance;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -118,6 +120,28 @@ public class PostServices implements InterfacePostServices {
          return myList;
        
     }
+    
+    public Post searchPostbyDate(Date Date_Post ){
+        String req="SELECT * FROM post WHERE Date_Post=?";
+        PreparedStatement ps ;
+        ResultSet rs ;
+        Post p = null ;
+        try{
+            ps=cnx.prepareStatement(req);
+            ps.setDate(1, Date_Post);
+            rs=ps.executeQuery();
+            if(rs.next()){
+                p = new Post(rs.getInt("Id_Post"),rs.getString("Description_Post"),rs.getDate("Date_Post"),rs.getTime("Heure_Post"),rs.getString("Img_Post"));
+            }
+            
+        }
+       catch(SQLException ex) {
+            System.out.println("post  n'est pas trouvé");
+           
+       } 
+        return p ;
+    }
+    
     public static PostServices getInstance(){
         if(instance==null) 
             instance=new PostServices();

@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/Post.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Test/JAVAFXMain.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/CommentaireServices.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/FillActualiteController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/CommentaireController.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/PostServices.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/Commentaire.fxml</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/FillActualite.fxml</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/Map.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/JaimeServices.java</file>
+        </group>
     </open-files>
 </project-private>

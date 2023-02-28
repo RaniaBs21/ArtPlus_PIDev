@@ -32,7 +32,7 @@ public class JaimeServices implements InterfaceJaimeServices{
     public void ajouterJaime(){
         try {
             String requete = "INSERT INTO jaime(Nbre_J)"
-                    + "VALUES (5)";
+                    + "VALUES (1)";
             Statement ste = cnx.createStatement(); //ste va executer la requette
             ste.executeUpdate(requete);
             System.out.println("j'aime ajouté avec succès ");

@@ -6,13 +6,21 @@
 package Controllers;
 
 import artplus.entities.Post;
+import artplus.services.JaimeServices;
 import artplus.services.PostServices;
+import java.io.ByteArrayInputStream;
 //import java.awt.Image;
 //import java.awt.Insets;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -40,6 +48,9 @@ import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.scene.web.WebView;
 
 
 /**
@@ -77,12 +88,25 @@ public class FillActualiteController implements Initializable {
     private TextField searchtxt;
     @FXML
     private Button searchbtn;
+    private Label labelpost;
+    Connection  cnx;
     @FXML
-    private ScrollPane scrollPane;
-
-    /**
-     * Initializes the controller class.
-     */
+    private ImageView imageLog;
+    @FXML
+    private Text DPost;
+    @FXML
+    private Button btnMaps;
+    @FXML
+    private Label labelid;
+    @FXML
+    private Label labelDesc;
+    @FXML
+    private Label labeldate;
+    @FXML
+    private Label labelHR;
+    @FXML
+    private Label labelimg;
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 //        VBox postVBox = afficherPostVBox();
@@ -111,38 +135,45 @@ public class FillActualiteController implements Initializable {
             
            }
         });
-//        btnLike.setOnAction(event -> {
-//            if (btnLike.getText().equals("J'aime")) {
-//                likeCount++;
-//                btnLike.setText("Je n'aime plus");
-//                btnLike.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;");
-//            } else {
-//                likeCount--;
-//                btnLike.setText("J'aime");
-//                btnLike.setStyle("");
-//            }
-//        });
+        
+        btnLike.setOnAction(event -> {
+            
+            if (btnLike.getText().equals("J'aime")) {
+                likeCount++;
+                 
+                btnLike.setText("Je n'aime plus");
+               btnLike.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;");
+            } else {
+                likeCount--;
+                btnLike.setText("J'aime");
+                btnLike.setStyle("");
+            }
+        });
 
         
 
  
     } 
+      @FXML
+    private void searchPost(ActionEvent event) {
+        Date Date_Post=Date.valueOf(searchtxt.getText());
+        PostServices css=new PostServices();
+        Post p = css.searchPostbyDate(Date_Post);
+        if ( p != null){
+          labelid.setText("Id_Post"+p.getId_Post());
+          labelDesc.setText("Description_Post :" +p.getDescription_Post());
+          labeldate.setText("Date_Post :" +p.getDate_Post());
+          labelHR.setText("Heure_Post :" +p.getHeure_Post());
+          labelimg.setText("Img_Post :" +p.getImg_Post());
+        }
+        else{
+            labelpost.setText(("commentaire n'a pas trouvé"));
+        } 
+    }
 
-//    private void afficherPost(ActionEvent event) {
-//       PostServices p = new PostServices();
-//       List<Post> myList= p.afficherPost();
-//       
-//      IdPost.setCellValueFactory(new PropertyValueFactory("Id_Post"));
-//       DescPost.setCellValueFactory(new PropertyValueFactory("Description_Post"));       
-//       DatePost.setCellValueFactory(new PropertyValueFactory("Date_Post"));
-//      HeurePost.setCellValueFactory(new PropertyValueFactory("Heure_Post"));
-//       ImgPost.setCellValueFactory(new PropertyValueFactory("Img_Post"));
-//       
-//       ObservableList<Post> observablecommentaire = FXCollections.observableArrayList(myList);
-//       TablePost.setItems(observablecommentaire);
-//    }
-    
-  /*  public VBox afficherPostVBox() {
+
+
+  /* public VBox afficherPostVBox() {
         PostServices pcd = new PostServices();
         List <Post> myList = pcd.afficherPost();
 
@@ -187,7 +218,11 @@ public class FillActualiteController implements Initializable {
         return statusHBox;
     }
 */
-   
+
+
+
+  
+ 
 } 
        
 
