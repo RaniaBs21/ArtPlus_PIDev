@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  *
@@ -122,6 +123,33 @@ public class EvenementService implements InterfaceEvenement<Evenement> {
             System.out.println(ex.getMessage());
         }
         return ev;
+    }
+    public Evenement searchEvenementbyCategorie(String cat ){
+        String req="SELECT * FROM evenement WHERE categorie_ev=?";
+        PreparedStatement ps ;
+        ResultSet rs ;
+        Evenement e = null ;
+        try{
+            ps=cnx.prepareStatement(req);
+            ps.setString(1, cat );
+            rs=ps.executeQuery();
+            if(rs.next()){
+                e = new Evenement();
+                e.setId_ev(rs.getInt(1));
+                e.setTitre_ev(rs.getString("titre_ev"));
+                e.setDescription_ev(rs.getString("description_ev"));
+                e.setImage_ev(rs.getString("image_ev"));
+                e.setAdresse_ev(rs.getString("adresse_ev"));
+                e.setDateTime_ev(rs.getTimestamp("date_ev"));
+                e.setNbre_place(rs.getInt("nbre_places"));                        
+            }
+            
+        }
+       catch(SQLException ex) {
+            System.out.println("Evenement n'est pas trouvé");
+           
+       } 
+        return e ;
     }
 
 }

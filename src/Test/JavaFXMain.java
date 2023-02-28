@@ -29,8 +29,10 @@ public class JavaFXMain extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.stage = new Stage();
-        parent = FXMLLoader.load(getClass().getResource("/Views/EvenementGuide.fxml"));
+        //parent = FXMLLoader.load(getClass().getResource("/Views/EvenementGuide.fxml"));
        // parent = FXMLLoader.load(getClass().getResource("/Views/Evenement.fxml"));
+        //parent = FXMLLoader.load(getClass().getResource("/Views/EvenementAccueil.fxml"));
+       parent = FXMLLoader.load(getClass().getResource("/Views/EvenementAccueilGuide.fxml"));
         Scene scene = new Scene(parent);
         primaryStage.setScene(scene);
         primaryStage.show();

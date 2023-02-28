@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="Controllers.AjouterEvenementController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjouterEvenementController">
     <children>
         <AnchorPane id="AnchorPane" layoutX="20.0" layoutY="20.0" prefHeight="567.0" prefWidth="791.0">
             <children>
@@ -92,6 +93,7 @@
                     </font>
                 </Label>
                 <TextField fx:id="nbplaces" layoutX="311.0" layoutY="450.0" prefHeight="25.0" prefWidth="177.0" promptText="Nombre de places disponibles" />
+            <Icon content="HELP_OUTLINE" layoutX="500.0" layoutY="328.0" />
             </children>
         </AnchorPane>
         <Label layoutX="245.0" layoutY="203.0" text="Titre">
