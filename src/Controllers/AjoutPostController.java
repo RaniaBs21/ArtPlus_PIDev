@@ -8,11 +8,17 @@ package Controllers;
 import artplus.entities.Post;
 import artplus.services.PostServices;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -48,6 +54,8 @@ public class AjoutPostController implements Initializable {
     private TextField photoPath;
     @FXML
     private TextArea txtPost;
+    @FXML
+    private Button idAcc;
 
     /**
      * Initializes the controller class.
@@ -62,6 +70,8 @@ public class AjoutPostController implements Initializable {
             PostServices cs = PostServices.getInstance();
             cs.ajouterPost2(p);
         
+            
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
@@ -70,6 +80,17 @@ public class AjoutPostController implements Initializable {
             txtPost.setText("");
             photoPath.setText("");
             
+        });
+          idAcc.setOnAction( event->{
+           try{
+               Parent parent2=FXMLLoader
+                       .load(getClass().getResource("/views/FillActualite.fxml"));
+               Scene scene=idAcc.getScene();
+             scene.setRoot(parent2);
+           }catch (IOException ex) {
+               Logger.getLogger(CommentaireController.class.getName()).log(Level.SEVERE, null, ex);
+            
+           }
         });
     }    
 

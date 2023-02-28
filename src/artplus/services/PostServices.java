@@ -121,6 +121,7 @@ public class PostServices implements InterfacePostServices {
        
     }
     
+    
     public Post searchPostbyDate(Date Date_Post ){
         String req="SELECT * FROM post WHERE Date_Post=?";
         PreparedStatement ps ;

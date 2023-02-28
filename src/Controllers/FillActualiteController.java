@@ -91,10 +91,6 @@ public class FillActualiteController implements Initializable {
     private Label labelpost;
     Connection  cnx;
     @FXML
-    private ImageView imageLog;
-    @FXML
-    private Text DPost;
-    @FXML
     private Button btnMaps;
     @FXML
     private Label labelid;
@@ -106,11 +102,13 @@ public class FillActualiteController implements Initializable {
     private Label labelHR;
     @FXML
     private Label labelimg;
+    @FXML
+    private ScrollPane scrollPane;
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        VBox postVBox = afficherPostVBox();
-//        scrollPane.setContent(postVBox);
+        //VBox postVBox = afficherPostVBox();
+        //scrollPane.setContent(postVBox);
         
         btn_post.setOnAction( event->{
            try{
@@ -149,6 +147,7 @@ public class FillActualiteController implements Initializable {
                 btnLike.setStyle("");
             }
         });
+       
 
         
 

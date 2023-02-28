@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CommentaireController">
+<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CommentaireController">
     <ListView layoutY="-1.0" prefHeight="58.0" prefWidth="895.0" />
    <Text fill="#eb9e05" layoutX="33.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus" />
    <ImageView fitHeight="49.0" fitWidth="47.0" layoutX="28.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">

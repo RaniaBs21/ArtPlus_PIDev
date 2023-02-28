@@ -12,6 +12,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import static java.sql.JDBCType.NULL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -159,11 +160,14 @@ public class CommentaireController implements Initializable {
         CommentaireServices c  = new CommentaireServices();
         c.supprimerCom(Id_Com); 
         
-         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("commentaire supprimé avec succés!");
             alert.show();
+        
+        
     }
     
 /* ************** affichage *********** */
