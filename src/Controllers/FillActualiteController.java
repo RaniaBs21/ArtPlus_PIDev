@@ -91,8 +91,6 @@ public class FillActualiteController implements Initializable {
     private Label labelpost;
     Connection  cnx;
     @FXML
-    private Button btnMaps;
-    @FXML
     private Label labelid;
     @FXML
     private Label labelDesc;
@@ -172,7 +170,7 @@ public class FillActualiteController implements Initializable {
 
 
 
-  /* public VBox afficherPostVBox() {
+   public VBox afficherPostVBox() {
         PostServices pcd = new PostServices();
         List <Post> myList = pcd.afficherPost();
 
@@ -216,7 +214,7 @@ public class FillActualiteController implements Initializable {
 
         return statusHBox;
     }
-*/
+
 
 
 

@@ -56,7 +56,8 @@ public class AjoutPostController implements Initializable {
     private TextArea txtPost;
     @FXML
     private Button idAcc;
-
+ 
+    private File file;
     /**
      * Initializes the controller class.
      */
@@ -66,7 +67,8 @@ public class AjoutPostController implements Initializable {
         
          btnPub.setOnAction(event -> {
             
-            Post p = new Post(txtPost.getText(),photoPath.getText());
+           // Post p = new Post(txtPost.getText(),photoPath.getText());
+           Post p = new Post(txtPost.getText(),"http://localhost/Img/"+file.getName());
             PostServices cs = PostServices.getInstance();
             cs.ajouterPost2(p);
         
@@ -78,7 +80,7 @@ public class AjoutPostController implements Initializable {
             alert.setContentText("Post insérée avec succés!");
             alert.show();
             txtPost.setText("");
-            photoPath.setText("");
+            //photoPath.setText("");
             
         });
           idAcc.setOnAction( event->{

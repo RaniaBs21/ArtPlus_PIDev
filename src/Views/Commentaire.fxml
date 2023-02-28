@@ -58,12 +58,12 @@
          <TableColumn fx:id="dateCol" prefWidth="153.5999755859375" text="Date " />
      </columns>
    </TableView>
-   <Button fx:id="btnUpdate" layoutX="263.0" layoutY="462.0" mnemonicParsing="false" onAction="#Update" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Modifier">
+   <Button fx:id="btnUpdate" layoutX="267.0" layoutY="462.0" mnemonicParsing="false" onAction="#Update" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Modifier">
       <font>
          <Font size="15.0" />
       </font>
    </Button>
-   <Button fx:id="btnDelete" layoutX="524.0" layoutY="473.0" mnemonicParsing="false" onAction="#Delete" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Supprimer">
+   <Button fx:id="btnDelete" layoutX="530.0" layoutY="473.0" mnemonicParsing="false" onAction="#Delete" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #ffd230; -fx-background-radius: 10;" text="Supprimer">
       <font>
          <Font size="15.0" />
       </font>
