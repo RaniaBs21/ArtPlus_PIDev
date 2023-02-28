@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Controllers/AccueilController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Controllers/AjoutCoursController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/CoursServices.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/AbonnementServices.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/Abonement.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Controllers/YoutubeController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Controllers/AbonuserController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Views/abonuser.fxml</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Test/JavaFXMain.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Views/Accueil.fxml</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Views/ajoutCours.fxml</file>
         </group>
     </open-files>
 </project-private>

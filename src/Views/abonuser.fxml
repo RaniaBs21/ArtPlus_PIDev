@@ -43,9 +43,9 @@
          </image>
       </ImageView>
       <ScrollBar layoutX="657.0" layoutY="130.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="23.0" AnchorPane.leftAnchor="657.0" AnchorPane.rightAnchor="0.0" />
-      <ListView layoutX="-1.0" prefHeight="32.0" prefWidth="680.0" />
+      <ListView layoutX="-1.0" prefHeight="49.0" prefWidth="680.0" />
       <Button fx:id="annuler" layoutX="274.0" layoutY="338.0" mnemonicParsing="false" text="Annuler" textFill="#3260dd" />
-      <Text fill="#eb9e05" layoutX="20.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
+      <Text fill="#eb9e05" layoutX="16.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -55,13 +55,13 @@
             <Image url="@../images/327064585_3412782662295061_2792793093980053014_n-removebg-preview%20(1).png" />
          </image>
       </ImageView>
-      <Button fx:id="evenement11" layoutX="98.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
-      <Button fx:id="evenement1" layoutX="168.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
-      <Button fx:id="evenement" layoutX="263.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
-      <Button fx:id="evenement12" layoutX="346.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
-      <Button fx:id="evenement13" layoutX="403.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
-      <Button fx:id="evenement131" layoutX="473.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
-      <Button fx:id="evenement1311" layoutX="530.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
+      <Button fx:id="evenement11" layoutX="104.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
+      <Button fx:id="evenement1" layoutX="168.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
+      <Button fx:id="evenement" layoutX="263.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
+      <Button fx:id="evenement12" layoutX="346.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
+      <Button fx:id="evenement13" layoutX="403.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
+      <Button fx:id="evenement131" layoutX="473.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
+      <Button fx:id="evenement1311" layoutX="530.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
       <Label layoutX="266.0" layoutY="248.0" text="PRIX" textFill="#e1ad2a">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -69,10 +69,15 @@
       </Label>
       <TextField fx:id="Id_level" layoutX="265.0" layoutY="218.0" prefHeight="25.0" prefWidth="150.0" />
       <TextField fx:id="prix_abon" layoutX="264.0" layoutY="273.0" prefHeight="25.0" prefWidth="150.0" />
-      <Button fx:id="valider" layoutX="349.0" layoutY="338.0" mnemonicParsing="false" onAction="#setabontitre" prefHeight="25.0" prefWidth="60.0" text="Valider" textFill="#3260dd" />
-      <ComboBox fx:id="courscombo" layoutX="50.0" layoutY="58.0" prefWidth="150.0" />
+      <Button fx:id="valider" layoutX="349.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Valider" textFill="#3260dd" />
+      <ComboBox fx:id="courscombo" layoutX="93.0" layoutY="155.0" prefWidth="150.0" />
       <TextField fx:id="Id_user" layoutX="265.0" layoutY="155.0" prefHeight="25.0" prefWidth="150.0" />
-      <ComboBox fx:id="levelcombo" layoutX="50.0" layoutY="94.0" prefWidth="150.0" />
+      <ComboBox fx:id="levelcombo" layoutX="93.0" layoutY="218.0" prefWidth="150.0" />
+      <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="20.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Media/331797442_499253822422302_4013332237400074576_n%20(1).png" />
+         </image>
+      </ImageView>
    </children>
    <opaqueInsets>
       <Insets />

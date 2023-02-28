@@ -177,9 +177,8 @@ public class AbonuserController implements Initializable {
         
        
     }
-    
-     /*@FXML
-        private void setabontitre(ActionEvent event ){
+ /*   @FXML
+   public void setabontitre(ActionEvent event ){
             if(Id_user.getText().isEmpty()){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("PAS ENCORE");
@@ -187,8 +186,8 @@ public class AbonuserController implements Initializable {
             alert.showAndWait();
             
             
-        }*/
+        }
         
-    }
+    }*/
 
 }
