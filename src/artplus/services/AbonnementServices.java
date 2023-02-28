@@ -68,7 +68,6 @@ public class AbonnementServices implements InterfaceAbonement {
         }
     }
 
-    
     public List<Abonement> afficherAbonement() {
         List<Abonement> myList = new ArrayList<>();
         try {
@@ -95,21 +94,17 @@ public class AbonnementServices implements InterfaceAbonement {
 
     public void supprimerAbonement(int Id_abon) {
 
-        String req = "DELETE FROM abonnement WHERE Id_abon = " + Id_abon;
-        String req2 = "SELECT FROM abonnement WHERE Id_abon = " + Id_abon;
         try {
-            PreparedStatement pst = cnx.prepareStatement(req2);
-            pst.setInt(1, Id_abon);
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                PreparedStatement pst2 = cnx.prepareStatement(req);
-                pst2.setInt(1, Id_abon);
-                pst2.executeUpdate(req);
-                System.out.println("Abonnement  est supprimé !");
-            } else {
-                System.out.println("identifiant introuvable");
 
-            }
+            String req = "DELETE FROM abonnement WHERE Id_abon = " + Id_abon;
+
+            Statement pst2 = cnx.createStatement();
+
+            pst2.executeUpdate(req);
+            System.out.println("Abonnement  est supprimé !");
+
+            System.out.println("identifiant introuvable");
+
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -133,4 +128,3 @@ public class AbonnementServices implements InterfaceAbonement {
     }
 
 }
-

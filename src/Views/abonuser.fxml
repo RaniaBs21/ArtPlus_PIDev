@@ -69,7 +69,7 @@
       </Label>
       <TextField fx:id="Id_level" layoutX="265.0" layoutY="218.0" prefHeight="25.0" prefWidth="150.0" />
       <TextField fx:id="prix_abon" layoutX="264.0" layoutY="273.0" prefHeight="25.0" prefWidth="150.0" />
-      <Button fx:id="valider" layoutX="349.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Valider" textFill="#3260dd" />
+      <Button fx:id="valider" layoutX="349.0" layoutY="338.0" mnemonicParsing="false" onAction="#setabontitre" prefHeight="25.0" prefWidth="60.0" text="Valider" textFill="#3260dd" />
       <ComboBox fx:id="courscombo" layoutX="50.0" layoutY="58.0" prefWidth="150.0" />
       <TextField fx:id="Id_user" layoutX="265.0" layoutY="155.0" prefHeight="25.0" prefWidth="150.0" />
       <ComboBox fx:id="levelcombo" layoutX="50.0" layoutY="94.0" prefWidth="150.0" />

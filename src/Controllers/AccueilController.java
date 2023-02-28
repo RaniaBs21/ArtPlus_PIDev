@@ -81,6 +81,12 @@ public class AccueilController implements Initializable {
     private TextField txtidcourses;
     @FXML
     private Label textlabel;
+    @FXML
+    private Button decouvrir1;
+    @FXML
+    private Button decouvrir2;
+    @FXML
+    private Button decouvrir3;
    
     
     public void getCtegories() {
@@ -221,6 +227,54 @@ public class AccueilController implements Initializable {
                         .load(getClass().getResource("/Views/Assistance.fxml"));
                
                 Scene scene= ass.getScene();
+                scene.setRoot(parent2);
+               
+
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+         
+         
+         
+          decouvrir1.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/Views/abonuser.fxml"));
+               
+                Scene scene= decouvrir1.getScene();
+                scene.setRoot(parent2);
+               
+
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+          
+          
+          
+            decouvrir2.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/Views/abonuser.fxml"));
+               
+                Scene scene= decouvrir2.getScene();
+                scene.setRoot(parent2);
+               
+
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+            
+            
+             
+            decouvrir3.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/Views/abonuser.fxml"));
+               
+                Scene scene= decouvrir3.getScene();
                 scene.setRoot(parent2);
                
 

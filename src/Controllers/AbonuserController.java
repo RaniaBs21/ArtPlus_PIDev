@@ -45,6 +45,7 @@ import javafx.util.StringConverter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  * FXML Controller class
@@ -173,6 +174,21 @@ public class AbonuserController implements Initializable {
             Id_level.setText("");
             prix_abon.setText("");
         });
-
+        
+       
     }
+    
+     /*@FXML
+        private void setabontitre(ActionEvent event ){
+            if(Id_user.getText().isEmpty()){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("PAS ENCORE");
+            alert.setHeaderText("Veuillez spécifier le cours voulu");
+            alert.showAndWait();
+            
+            
+        }*/
+        
+    }
+
 }
