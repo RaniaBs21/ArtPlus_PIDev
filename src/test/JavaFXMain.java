@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author DELL
+ * @author AKREM
  */
 public class JavaFXMain extends Application {
     private Stage stage;

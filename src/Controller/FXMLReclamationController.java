@@ -5,6 +5,7 @@
  */
 package Controller;
 
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -47,6 +48,13 @@ import javax.swing.JOptionPane;
  */
 public class FXMLReclamationController implements Initializable {
 
+    
+    @FXML
+    private Button searchbtn;
+
+    @FXML
+    private TextField searchtxt;
+    
     @FXML
     private Button btnback;
  
@@ -67,7 +75,19 @@ public class FXMLReclamationController implements Initializable {
 
     @FXML
     private TableView<Reclamation> tablereclamation;
+   
+    
+@FXML
+    private Label labelDesc;
 
+    @FXML
+    private Label labelType;
+
+    @FXML
+    private Label labelid;
+        @FXML
+    private Label resultLabel;
+    
     @FXML
     private TextField txtDescription_Rec;
 
@@ -112,9 +132,9 @@ Connection cnx;
         typecolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Type_Rec"));
         descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Description_Rec"));
         affichertable();
-        
+
     }    
- 
+
     @FXML
     private void add(ActionEvent event) {
          ReclamationCRUD rec = new ReclamationCRUD();
@@ -135,6 +155,7 @@ Connection cnx;
            alert.show();
               }
         affichertable();
+
     }
 
     @FXML
@@ -191,10 +212,53 @@ Connection cnx;
         tablereclamation.getColumns().addAll(idcolomn, typecolomn, descriptioncolomn);
         tablereclamation.setItems(FXCollections.observableList(rec));
     }
+    
+
      @FXML
     private void goBack(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/page1.fxml"));
         Parent root = loader.load();
          btnback.getScene().setRoot(root);
     }
+     public void searchRec(ActionEvent event) {
+    // Get the search text from a TextField named searchField
+    String searchText = searchtxt.getText();
+    
+    // Call the searchRec method to search for Reclamation objects with the specified Type_Rec value
+    Reclamation result = searchRec(searchText);
+    
+    // Display the search result in a Label named resultLabel
+    if (result != null) {
+        resultLabel.setText(result.toString());
+    } else {
+        resultLabel.setText("No matching reclamation found.");
+    }
 }
+
+public Reclamation searchRec(String type) {
+    // String sql = "SELECT * FROM reclamations WHERE type_rec = ?";
+    // PreparedStatement stmt = connection.prepareStatement(sql);
+    // stmt.setString(1, type);
+    // ResultSet rs = stmt.executeQuery();
+    // if (rs.next()) {
+    //     Reclamation rec = new Reclamation();
+    //     rec.setId(rs.getInt("Id_Rec"));
+    //     rec.setType_Rec(rs.getString("Type_Rec"));
+    //     rec.setDescription(rs.getString("Description_Rec"));
+    //     return rec;
+    // } else {
+    //     return null;
+    // }
+    
+    // For this example, assume that there is a hardcoded Reclamation object with the specified Type_Rec value
+    Reclamation rec = new Reclamation("type1", "description1");
+    if (type.equals(rec.getType_Rec())) {
+        return rec;
+    } else {
+        return null;
+    }
+}
+
+    }
+
+
