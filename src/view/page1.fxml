@@ -32,5 +32,9 @@
          <Image url="@../Media/620-6205890_feedback-png-transparent-images-feedback-icons-png-download-removebg-preview.png" />
       </image>
    </ImageView>
-    
+       <ImageView fitHeight="42.0" fitWidth="47.0" layoutX="15.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Media/5138237.png" />
+      </image>
+   </ImageView> 
 </AnchorPane>

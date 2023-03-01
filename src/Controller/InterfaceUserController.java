@@ -13,28 +13,17 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author akrem
  */
-public class AccueilController implements Initializable {
+public class InterfaceUserController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
-    @FXML
-    private Button btn_querep;
-
-    @FXML
-    private Button btn_rec;
     @FXML
     private Button Acc;
     @FXML
@@ -49,31 +38,39 @@ public class AccueilController implements Initializable {
     private Button Qz;
     @FXML
     private Button btn_ass;
-        @FXML
-    private Button btn_ut;
-        
-        @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    @FXML
+    private Button btn_rec;
+    @FXML
+    private Button btn_querep;
 
-                btn_ut.setOnAction( event->{
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+                btn_rec.setOnAction( event->{
            try{
                Parent parent2=FXMLLoader
-                       .load(getClass().getResource("/view/Interface_utilisateur.fxml"));
-               Scene scene=btn_ut.getScene();
+                       .load(getClass().getResource("/view/FXMLReclamation.fxml"));
+               Scene scene=btn_rec.getScene();
              scene.setRoot(parent2);
            }catch (IOException ex) {
                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
             
            }
         });
+                btn_querep.setOnAction( event->{
+           try{
+               Parent parent2=FXMLLoader
+                       .load(getClass().getResource("/view/FXMLQuestionReponse.fxml"));
+               Scene scene=btn_querep.getScene();
+             scene.setRoot(parent2);
+           }catch (IOException ex) {
+               Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            
+           }
+        });
+        // TODO
     }    
     
-
-
-   
 }
-        
-
-    
-
-
