@@ -143,6 +143,25 @@ public class PostServices implements InterfacePostServices {
         return p ;
     }
     
+    @Override
+    public Post findOneById(int id) {
+        Post post = null;
+        try {
+            String req3 = "SELECT * FROM post WHERE Id_Post = " + id;
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req3);
+            while (rs.next()) {
+                post = new Post();
+                post.setId_Post(rs.getInt(1));
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return post;
+    }
+    
+    
     public static PostServices getInstance(){
         if(instance==null) 
             instance=new PostServices();

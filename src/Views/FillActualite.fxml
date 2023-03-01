@@ -11,8 +11,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FillActualiteController">
-     <ListView layoutX="-6.0" prefHeight="58.0" prefWidth="847.0" />
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FillActualiteController">
+     <ListView layoutX="-6.0" prefHeight="58.0" prefWidth="800.0" />
       <Text fill="#eb9e05" layoutX="17.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus" />
    <ImageView fitHeight="42.0" fitWidth="47.0" layoutX="15.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
       <image>
@@ -40,12 +40,12 @@
   
   
   
-   <Button fx:id="btnLike" layoutX="45.0" layoutY="484.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #ffd230;" text="     J'aime" textFill="#0b315b">
+   <Button fx:id="btnLike" layoutX="45.0" layoutY="469.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #ffd230;" text="     J'aime" textFill="#0b315b">
         <font>
             <Font size="15.0" />
         </font>
    </Button>
-    <Button fx:id="btnCom" layoutX="167.0" layoutY="485.0" mnemonicParsing="false" style="-fx-background-color: #ffd230;" text="        Commenter" textFill="#0b315b">
+    <Button fx:id="btnCom" layoutX="167.0" layoutY="468.0" mnemonicParsing="false" style="-fx-background-color: #ffd230;" text="        Commenter" textFill="#0b315b">
         <font>
             <Font size="15.0" />
         </font>
@@ -60,12 +60,12 @@
          <Image url="@../Media/620-6205890_feedback-png-transparent-images-feedback-icons-png-download-removebg-preview.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="44.0" fitWidth="31.0" layoutX="46.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="44.0" fitWidth="31.0" layoutX="46.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../Media/aime.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="174.0" layoutY="485.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="174.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../Media/comm.png" />
       </image>

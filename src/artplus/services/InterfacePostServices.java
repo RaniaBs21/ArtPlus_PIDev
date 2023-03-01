@@ -18,5 +18,6 @@ public interface InterfacePostServices {
     public void modifierPost(Post p);
     public void supprimerPost(int Id_Post);
     public List<Post> afficherPost();
+    public Post findOneById(int id);
     
 }
