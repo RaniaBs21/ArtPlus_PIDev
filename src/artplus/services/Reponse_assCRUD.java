@@ -66,12 +66,13 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
         }
     }
                    
-        public void supprimerreponse(int Id_Rep_Ass) {
+        public void supprimerreponse(Reponse_ass a) {
+        String req = "DELETE FROM Reponse_ass WHERE Type_Rep_Ass=?";
         try {
-            String req = "DELETE FROM Reponse_ass WHERE Id_Rep_Ass = " + Id_Rep_Ass;
-            Statement ste = cnx.createStatement();
-            ste.executeUpdate(req);
-            System.out.println("reponse deleted !");
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setString(1, a.getType_Rep_Ass());
+            pst.executeUpdate();
+            System.out.println("Reclamation supprimée !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

@@ -14,6 +14,6 @@ public interface InterfaceQuestion_ass  {
     public void ajouterquestion();
     public void ajouterquestion2 (Question_ass q);
     public void modifierquestion(Question_ass q);
-    public void supprimerquestion(int id);
+    public void supprimerquestion(Question_ass q);
     public List<Question_ass> afficherquestion();
 }

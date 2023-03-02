@@ -64,12 +64,13 @@ public class Question_assCRUD  implements InterfaceQuestion_ass {
         }
     }
                    
-        public void supprimerquestion(int Id_Q_Ass) {
+        public void supprimerquestion(Question_ass q) {
+        String req = "DELETE FROM Question_ass WHERE Type_Q_Ass=?";
         try {
-            String req = "DELETE FROM Question_ass WHERE Id_Q_Ass = " + Id_Q_Ass;
-            Statement ste = cnx.createStatement();
-            ste.executeUpdate(req);
-            System.out.println("question deleted !");
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setString(1, q.getType_Q_Ass());
+            pst.executeUpdate();
+            System.out.println("Questin supprimée !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

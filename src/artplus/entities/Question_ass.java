@@ -24,16 +24,18 @@ public class Question_ass {
         this.Description_Q_Ass = Description_Q_Ass;
     }
 
-    public Question_ass(int Id_Q_Ass) {
-        this.Id_Q_Ass = Id_Q_Ass;
-    }
+
+
+
 
    
     
     public Question_ass(){
     
     }
-
+    public Question_ass(String Type_Q_Ass) {
+        this.Type_Q_Ass = Type_Q_Ass;
+    }
     public int getId_Q_Ass() {
         return Id_Q_Ass;
     }
@@ -60,8 +62,10 @@ public class Question_ass {
 
     @Override
     public String toString() {
-        return "Question_ass{" + "Id_Q_Ass=" + Id_Q_Ass + ", Description_Q_Ass=" + Description_Q_Ass + ", Type_Q_Ass=" + Type_Q_Ass + '}';
+        return "Question_ass{" + "Id_Q_Ass=" + Id_Q_Ass + ", Type_Q_Ass=" + Type_Q_Ass + ", Description_Q_Ass=" + Description_Q_Ass + '}';
     }
+
+
 
 
     }

@@ -26,9 +26,11 @@ public class Reponse_ass {
         this.Que_Rep_Ass = Que_Rep_Ass;
     }
 
-    public Reponse_ass(int Id_Rep_Ass) {
-        this.Id_Rep_Ass = Id_Rep_Ass;
+    public Reponse_ass(String Type_Rep_Ass) {
+        this.Type_Rep_Ass = Type_Rep_Ass;
     }
+
+  
 
 
      public Reponse_ass(){

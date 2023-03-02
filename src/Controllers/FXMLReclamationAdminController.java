@@ -48,7 +48,7 @@ import javax.swing.JOptionPane;
  */
 public class FXMLReclamationAdminController implements Initializable {
 
-    
+
     @FXML
     private Button searchbtn;
 
@@ -75,7 +75,7 @@ public class FXMLReclamationAdminController implements Initializable {
 
     @FXML
     private TableView<Reclamation> tablereclamation;
-   
+
     
 @FXML
     private Label labelDesc;
@@ -97,7 +97,8 @@ public class FXMLReclamationAdminController implements Initializable {
     @FXML
     private TableColumn<Reclamation, String> typecolomn;
 
-    
+        @FXML
+    private TextField txtId_Rec;
 
    
  
@@ -133,16 +134,13 @@ Connection cnx;
         descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Description_Rec"));
         affichertable();
         
-
     }    
-
-    
-    
+ 
     @FXML
     private void add(ActionEvent event) {
          ReclamationCRUD rec = new ReclamationCRUD();
         if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
-        rec.ajouterreclamation2(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
+        rec.ajouterreclamation2(new Reclamation(txtType_Rec.getText(),txtDescription_Rec.getText() ));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Reclamation");
             alert.setHeaderText(null);
@@ -158,14 +156,13 @@ Connection cnx;
            alert.show();
               }
         affichertable();
-
     }
 
     @FXML
     private void update(ActionEvent event) {
             ReclamationCRUD rec = new ReclamationCRUD();
         if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
-        rec.modifierreclamation(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
+        rec.modifierreclamation(new Reclamation(txtType_Rec.getText(),txtDescription_Rec.getText() ));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Reclamation");
             alert.setHeaderText(null);
@@ -215,11 +212,10 @@ Connection cnx;
         tablereclamation.getColumns().addAll(idcolomn, typecolomn, descriptioncolomn);
         tablereclamation.setItems(FXCollections.observableList(rec));
     }
-    
 
      @FXML
     private void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/page1.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Interface_admin.fxml"));
         Parent root = loader.load();
          btnback.getScene().setRoot(root);
     }
@@ -254,7 +250,7 @@ public Reclamation searchRec(String type) {
     // }
     
     // For this example, assume that there is a hardcoded Reclamation object with the specified Type_Rec value
-    Reclamation rec = new Reclamation("type1", "description1");
+    Reclamation rec = new Reclamation("error", "error consultation");
     if (type.equals(rec.getType_Rec())) {
         return rec;
     } else {
@@ -263,6 +259,7 @@ public Reclamation searchRec(String type) {
     
     
 }
+
 
 
     }

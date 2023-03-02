@@ -14,6 +14,6 @@ public interface InterfaceReponse_ass {
     public void ajouterreponse();
     public void ajouterreponse2 (Reponse_ass a);
     public void modifierreponse(Reponse_ass a);
-    public void supprimerreponse(int id);
+    public void supprimerreponse(Reponse_ass a);
     public List<Reponse_ass> afficherreponse();
 }

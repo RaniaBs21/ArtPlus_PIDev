@@ -121,7 +121,7 @@ Connection cnx;
     private void add(ActionEvent event) {
          ReclamationCRUD rec = new ReclamationCRUD();
         if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
-        rec.ajouterreclamation2(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
+        rec.ajouterreclamation2(new Reclamation(txtType_Rec.getText(),txtDescription_Rec.getText() ));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Reclamation");
             alert.setHeaderText(null);
@@ -143,7 +143,7 @@ Connection cnx;
     private void update(ActionEvent event) {
             ReclamationCRUD rec = new ReclamationCRUD();
         if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
-        rec.modifierreclamation(new Reclamation(txtDescription_Rec.getText(),txtType_Rec.getText() ));
+        rec.modifierreclamation(new Reclamation(txtType_Rec.getText(),txtDescription_Rec.getText() ));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Reclamation");
             alert.setHeaderText(null);

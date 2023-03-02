@@ -13,17 +13,17 @@ public class Reclamation {
 
     
     private int Id_Rec;
-    private String Description_Rec,Type_Rec;
+    private String Type_Rec,Description_Rec;
 
-    public Reclamation(int Id_Rec, String Description_Rec, String Type_Rec) {
+    public Reclamation(int Id_Rec,String Type_Rec, String Description_Rec) {
         this.Id_Rec = Id_Rec;
-        this.Description_Rec = Description_Rec;
         this.Type_Rec = Type_Rec;
+        this.Description_Rec = Description_Rec;
     }
 
     public Reclamation(String Type_Rec, String Description_Rec) {
-        this.Description_Rec = Description_Rec;
         this.Type_Rec = Type_Rec;
+        this.Description_Rec = Description_Rec;
     }
 
  
@@ -67,8 +67,9 @@ public class Reclamation {
 
     @Override
     public String toString() {
-        return "Reclamation{" + "Id_Rec=" + Id_Rec + ", Description_Rec=" + Description_Rec + ", Type_Rec=" + Type_Rec + '}';
+        return "Reclamation{" + "Id_Rec=" + Id_Rec + ", Type_Rec=" + Type_Rec + ", Description_Rec=" + Description_Rec + '}';
     }
+
 
     
     }

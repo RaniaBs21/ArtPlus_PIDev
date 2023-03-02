@@ -109,27 +109,12 @@ Connection con;
         // TODO
     }    
 
-    private void add(ActionEvent event) {
-        Question_assCRUD q = new Question_assCRUD();
-        q.ajouterquestion2(new Question_ass(txtDescription_Q_Ass.getText(),txtType_Q_Ass.getText() ));
-    }
-
-    private void update(ActionEvent event) {
-      Question_assCRUD q = new Question_assCRUD();
-        q.modifierquestion(new Question_ass(txtDescription_Q_Ass.getText(),txtType_Q_Ass.getText() ));
-    }
-
-    private void delete(ActionEvent event) {
-    Question_assCRUD q = new Question_assCRUD();
-         q.supprimerquestion(id);
-    }
-
     @FXML
     private void addq(ActionEvent event) {
-                 Question_assCRUD q = new Question_assCRUD();
+         Question_assCRUD q = new Question_assCRUD();
         if (txtDescription_Q_Ass.getText().trim().length() > 0 || txtType_Q_Ass.getText().trim().length() > 0 )
 {
-        q.ajouterquestion2(new Question_ass(txtDescription_Q_Ass.getText(),txtType_Q_Ass.getText() ));
+        q.ajouterquestion2(new Question_ass(txtType_Q_Ass.getText(),txtDescription_Q_Ass.getText() ));
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("question");
             alert.setHeaderText(null);
@@ -153,7 +138,7 @@ else
       Question_assCRUD q = new Question_assCRUD();
               if (txtDescription_Q_Ass.getText().trim().length() > 0 || txtType_Q_Ass.getText().trim().length() > 0 )
               {
-      q.modifierquestion(new Question_ass(txtDescription_Q_Ass.getText(),txtType_Q_Ass.getText() ));
+      q.modifierquestion(new Question_ass(txtType_Q_Ass.getText(),txtDescription_Q_Ass.getText() ));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("question");
             alert.setHeaderText(null);
@@ -174,7 +159,7 @@ else
          Question_assCRUD q = new Question_assCRUD();
                if (txtDescription_Q_Ass.getText().trim().length() > 0 || txtType_Q_Ass.getText().trim().length() > 0 )
               {
-         q.supprimerquestion(id);
+         q.supprimerquestion(new Question_ass(txtType_Q_Ass.getText()));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("question");
             alert.setHeaderText(null);
@@ -191,67 +176,7 @@ else
               }
     }
 
-    @FXML
-    private void addr(ActionEvent event) {
-        Reponse_assCRUD repa = new Reponse_assCRUD();
-        if (txtQue_Rep_Ass.getText().trim().length() > 0 || txtDescription_Rep_Ass.getText().trim().length() > 0 || txtType_Rep_Ass.getText().trim().length() > 0 ) {
-            repa.ajouterreponse2(new Reponse_ass(txtQue_Rep_Ass.getText(),txtDescription_Rep_Ass.getText(),txtType_Rep_Ass.getText() ));
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("reponse");
-            alert.setHeaderText(null);
-            alert.setContentText("reponse ajouté avec succés!");
-            alert.show();
-    }
-else
-{
-               Alert alert = new Alert(Alert.AlertType.INFORMATION);
-           alert.setTitle("erreur");
-           alert.setHeaderText(null);
-           alert.setContentText("champ vide");
-           alert.show();
-}
-    }
-    @FXML
-    private void updater(ActionEvent event) {
-         Reponse_assCRUD repa = new Reponse_assCRUD();
-        if (txtQue_Rep_Ass.getText().trim().length() > 0 || txtDescription_Rep_Ass.getText().trim().length() > 0 || txtType_Rep_Ass.getText().trim().length() > 0 ) {
-            repa.modifierreponse(new Reponse_ass(txtQue_Rep_Ass.getText(),txtDescription_Rep_Ass.getText(),txtType_Rep_Ass.getText() ));
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("reponse");
-            alert.setHeaderText(null);
-            alert.setContentText("reponse modifié avec succés!");
-            alert.show();
-    }
-else
-{
-               Alert alert = new Alert(Alert.AlertType.INFORMATION);
-           alert.setTitle("erreur");
-           alert.setHeaderText(null);
-           alert.setContentText("champ vide");
-           alert.show();
-}
-    }
 
-    @FXML
-    private void deleter(ActionEvent event) {
-         Reponse_assCRUD repa = new Reponse_assCRUD();
-        if (txtQue_Rep_Ass.getText().trim().length() > 0 || txtDescription_Rep_Ass.getText().trim().length() > 0 || txtType_Rep_Ass.getText().trim().length() > 0 ) {
-          repa.supprimerreponse(id);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("reponse");
-            alert.setHeaderText(null);
-            alert.setContentText("reponse supprimé avec succés!");
-            alert.show();
-    }
-else
-{
-           Alert alert = new Alert(Alert.AlertType.INFORMATION);
-           alert.setTitle("erreur");
-           alert.setHeaderText(null);
-           alert.setContentText("champ vide");
-           alert.show();
-}
-    }
          @FXML
     private void goBack(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Interface_utilisateur.fxml"));
