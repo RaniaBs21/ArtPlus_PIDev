@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="715.0" style="-fx-background-color: #0b315b;" styleClass="background" stylesheets="@JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AccueilController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="5.0" prefHeight="850.0" prefWidth="1800.0">
+      <AnchorPane id="AnchorPane" layoutX="5.0" prefHeight="850.0" prefWidth="1800.0" style="-fx-background-color: #d5dcfe;">
          <children>
             <ListView layoutX="-11.0" layoutY="-17.0" prefHeight="74.0" prefWidth="1994.0" />
             <Text fill="#eb9e05" layoutX="17.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus" />
@@ -37,7 +37,7 @@
                   <Image url="@../Media/620-6205890_feedback-png-transparent-images-feedback-icons-png-download-removebg-preview.png" />
                </image>
             </ImageView>
-            <Label layoutX="806.0" layoutY="101.0" prefHeight="82.0" prefWidth="439.0" text="Interface Assistance" textFill="ORANGE">
+            <Label layoutX="806.0" layoutY="101.0" prefHeight="82.0" prefWidth="439.0" text="Interface Assistance" textFill="#eb9e05">
                <font>
                   <Font name="Franklin Gothic Medium Cond" size="48.0" />
                </font>

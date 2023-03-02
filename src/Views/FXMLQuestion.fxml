@@ -11,14 +11,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="850.0" prefWidth="1800.0" style="-fx-background-color: #0b315b;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLQuestionController">
+<AnchorPane id="AnchorPane" prefHeight="850.0" prefWidth="1800.0" style="-fx-background-color: #d5dcfe;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLQuestionController">
    <children>
-      <Label layoutX="952.0" layoutY="115.0" text="Question" textFill="#ff7700">
+      <Label layoutX="952.0" layoutY="115.0" text="Question" textFill="#eb9e05">
          <font>
             <Font name="Franklin Gothic Medium Cond" size="48.0" />
          </font>
       </Label>
-      <Pane layoutX="772.0" layoutY="198.0" prefHeight="758.0" prefWidth="547.0" style="-fx-background-color: orange; -fx-background-color: ;">
+      <Pane layoutX="772.0" layoutY="198.0" prefHeight="758.0" prefWidth="547.0" style="-fx-background-color: #eb9e05; -fx-background-color: ;">
          <children>
             <Label layoutX="13.0" layoutY="59.0" prefHeight="47.0" prefWidth="188.0" text="Description de question :" />
             <Label layoutX="13.0" layoutY="14.0" text="Type de&#10;question :" />
