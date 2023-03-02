@@ -5,12 +5,15 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -35,26 +38,7 @@
             <Font name="System Bold" size="15.0" />
         </font>
     </Text>
-    <ImageView fx:id="txt3" fitHeight="106.0" fitWidth="171.0" layoutX="459.0" layoutY="173.0">
-        <image>
-            <Image url="@../Media/culture-of-rajasthan_1.jpg" />
-        </image>
-    </ImageView>
-    <ImageView fitHeight="106.0" fitWidth="162.0" layoutX="50.0" layoutY="173.0">
-        <image>
-            <Image url="@../Media/12439.jpg" />
-        </image>
-    </ImageView>
     <Text layoutX="90.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-    <Text fx:id="txt1" fill="#2c3e86" layoutX="64.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Art de la scène : Cours pour débutant" wrappingWidth="118.0" />
-    <Text fill="#2c3e86" layoutX="271.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Formation complète sur les differents cultures" wrappingWidth="118.0" />
-    <Text fill="#2c3e86" layoutX="465.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Débuter et apprendre l'art visuel" wrappingWidth="118.0" />
-    <ScrollBar layoutX="660.0" layoutY="142.0" orientation="VERTICAL" />
-    <ImageView fitHeight="106.0" fitWidth="162.0" layoutX="253.0" layoutY="173.0">
-        <image>
-            <Image url="@../Media/Attributs_de_la_peinture,_de_la_sculpture_et_de_l'architecture_-_Anne_Vallayer-Coster.jpg" />
-        </image>
-    </ImageView>
     <ImageView fx:id="txt31" fitHeight="25.0" fitWidth="24.0" layoutX="636.0" layoutY="214.0">
         <image>
             <Image url="@../images/130884.png" />
@@ -82,8 +66,21 @@
    <Button layoutX="142.0" layoutY="51.0" mnemonicParsing="false" onAction="#chercherCours" prefHeight="25.0" prefWidth="80.0" text="Rechercher" />
    <TextField fx:id="txtidcourses" layoutX="31.0" layoutY="51.0" prefHeight="25.0" prefWidth="118.0" promptText="Rechercher un cours" />
    <Label fx:id="textlabel" layoutX="46.0" layoutY="80.0" prefHeight="32.0" prefWidth="162.0" />
-   <Button fx:id="decouvrir1" layoutX="115.0" layoutY="331.0" mnemonicParsing="false" text="Découvrir" textFill="#dd7410" />
-   <Button fx:id="decouvrir2" layoutX="342.0" layoutY="331.0" mnemonicParsing="false" text="Découvrir" textFill="#dd7410" />
-   <Button fx:id="decouvrir3" layoutX="564.0" layoutY="331.0" mnemonicParsing="false" text="Découvrir" textFill="#dd7410" />
+   <ScrollPane layoutX="-1.0" layoutY="148.0" prefHeight="253.0" prefWidth="674.0">
+      <content>
+         <GridPane fx:id="gird_pane" prefHeight="252.0" prefWidth="659.0">
+           <columnConstraints>
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           </columnConstraints>
+           <rowConstraints>
+             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           </rowConstraints>
+         </GridPane>
+      </content>
+   </ScrollPane>
     
 </AnchorPane>

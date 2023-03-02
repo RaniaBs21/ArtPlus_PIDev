@@ -237,7 +237,7 @@ public class AccueilController implements Initializable {
          
          
          
-          decouvrir1.setOnAction(event->{
+          /* decouvrir1.setOnAction(event->{
             try {
                 Parent parent2=FXMLLoader
                         .load(getClass().getResource("/Views/abonuser.fxml"));
@@ -249,11 +249,11 @@ public class AccueilController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        });
+        }); */
           
           
           
-            decouvrir2.setOnAction(event->{
+/*            decouvrir2.setOnAction(event->{
             try {
                 Parent parent2=FXMLLoader
                         .load(getClass().getResource("/Views/abonuser.fxml"));

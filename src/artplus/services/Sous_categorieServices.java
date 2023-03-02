@@ -90,6 +90,23 @@ public class Sous_categorieServices implements InterfaceSous_categorie {
        
     }
     
+    public Sous_categorie get_sous_categorie_by_id(int id) {
+        PreparedStatement  pst;
+        Sous_categorie sous_categorie=new Sous_categorie(); 
+        try {
+            String req ="select * from sous_categorie where ID_sc="+id+"";
+            pst = cnx.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) { 
+                 sous_categorie.setId_sc(rs.getInt(1));
+                 sous_categorie.setNom_sc(rs.getString(2));
+             }           
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return sous_categorie;
+    }
+    
     
                
         public void supprimerSous_categorie(int Id_sc) {

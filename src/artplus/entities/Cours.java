@@ -14,14 +14,14 @@ import java.sql.Date;
 public class Cours {
    private int Id_c ;
    private String  Titre_c ;
-   private String   Sous_categorie ;
+   private Sous_categorie   Sous_categorie ;
     private int  Niveau_c ;
-    private String   Fichier_c ;
+    private byte[]   Fichier_c ;
    private String   Description_c ;
     private Date date_c;
    // private Sous_categorie Id_sc ;
 
-    public Cours(int Id_c, String Titre_c, String Sous_categorie, int Niveau_c, String Fichier_c, String Description_c, Date date_c) {
+    public Cours(int Id_c, String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c, Date date_c) {
         this.Id_c = Id_c;
         this.Titre_c = Titre_c;
         this.Sous_categorie = Sous_categorie;
@@ -31,7 +31,7 @@ public class Cours {
         this.date_c = date_c;
     }
 
-    public Cours(String Titre_c, String Sous_categorie, int Niveau_c, String Fichier_c, String Description_c, Date date_c) {
+    public Cours(String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c, Date date_c) {
         this.Titre_c = Titre_c;
         this.Sous_categorie = Sous_categorie;
         this.Niveau_c = Niveau_c;
@@ -40,7 +40,7 @@ public class Cours {
         this.date_c = date_c;
     }
 
-    public Cours(String Titre_c, String Sous_categorie, int Niveau_c, String Fichier_c, String Description_c) {
+    public Cours(String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c) {
         this.Titre_c = Titre_c;
         this.Sous_categorie = Sous_categorie;
         this.Niveau_c = Niveau_c;
@@ -48,7 +48,7 @@ public class Cours {
         this.Description_c = Description_c;
     }
 
-    public Cours(int Id_c, String Titre_c, String Sous_categorie, int Niveau_c, String Fichier_c, String Description_c) {
+    public Cours(int Id_c, String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c) {
         this.Id_c = Id_c;
         this.Titre_c = Titre_c;
         this.Sous_categorie = Sous_categorie;
@@ -82,11 +82,11 @@ public class Cours {
         this.Titre_c = Titre_c;
     }
 
-    public String getSous_categorie() {
+    public Sous_categorie getSous_categorie() {
         return Sous_categorie;
     }
 
-    public void setSous_categorie(String Sous_categorie) {
+    public void setSous_categorie(Sous_categorie Sous_categorie) {
         this.Sous_categorie = Sous_categorie;
     }
 
@@ -98,11 +98,11 @@ public class Cours {
         this.Niveau_c = Niveau_c;
     }
 
-    public String getFichier_c() {
+    public byte[] getFichier_c() {
         return Fichier_c;
     }
 
-    public void setFichier_c(String Fichier_c) {
+    public void setFichier_c(byte[] Fichier_c) {
         this.Fichier_c = Fichier_c;
     }
 

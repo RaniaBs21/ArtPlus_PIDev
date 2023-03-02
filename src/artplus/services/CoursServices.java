@@ -54,10 +54,11 @@ public class CoursServices implements InterfaceCours {
             String requete2 = "INSERT INTO cours(Titre_c,Sous_categorie,Niveau_c,Fichier_c,Description_c,date_c)"
                     + " VALUES (?,?,?,?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
-            pst.setString(1, c.getTitre_c());
-            pst.setString(2, c.getSous_categorie());
+            pst.setString(1, c.getTitre_c()); 
+            System.out.println("sous cat id "+c.getSous_categorie().getId_sc());
+            pst.setInt(2, c.getSous_categorie().getId_sc());
             pst.setInt(3, c.getNiveau_c());
-            pst.setString(4, c.getFichier_c());
+            pst.setBytes(4, c.getFichier_c());
             pst.setString(5, c.getDescription_c());
             pst.setDate(6, java.sql.Date.valueOf(java.time.LocalDate.now()));
 
@@ -65,22 +66,38 @@ public class CoursServices implements InterfaceCours {
             System.out.println(" le cours est ajoutée");
 
         } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
             System.out.println("le cours n'est pas ajoutée");
         }
     }
     
-
+    public void update_cours(Cours cours) {
+            String req = "UPDATE cours SET Titre_c = ? , Sous_categorie = ? , Niveau_c = ? , Fichier_c = ? , Description_c = ? ,  where Id_c = ?";
+            PreparedStatement  pst;
+            try {
+                    pst = cnx.prepareStatement(req); 
+                    pst.setString(1, cours.getTitre_c());
+                    pst.setInt(2, cours.getSous_categorie().getId_sc());
+                    pst.setInt(3, cours.getNiveau_c());
+                    pst.setBytes(4, cours.getFichier_c());
+                    pst.setString(5, cours.getDescription_c());
+                    pst.setInt(6, cours.getId_c());
+                    pst.executeUpdate(); 
+                    System.out.println(" cours modifié !");
+            } catch (SQLException e) {
+                    System.err.println(e.getMessage());
+            }
+        }
     public void modifierCours(Cours c) {
         try {
            
             String reqtemp = "UPDATE cours SET Titre_c = ?, Sous_categorie = ?, Niveau_c=?, Fichier_c =?, Description_c = ? WHERE Id_c ="+c.getId_c(); 
            PreparedStatement pst = cnx.prepareStatement(reqtemp);
-           pst.setString(1, c.getTitre_c());
-            pst.setString(2, c.getSous_categorie());
+            pst.setString(1, c.getTitre_c());
+            pst.setInt(2, c.getSous_categorie().getId_sc());
             pst.setInt(3, c.getNiveau_c());
-            pst.setString(4, c.getFichier_c());
+            pst.setBytes(4, c.getFichier_c());
             pst.setString(5, c.getDescription_c());
-            
             pst.executeUpdate();
             System.out.println(" cours modifié !");
           
@@ -100,9 +117,9 @@ public class CoursServices implements InterfaceCours {
                 Cours c = new Cours();
                 c.setId_c(rs.getInt(1));
                 c.setTitre_c(rs.getString("Titre_c"));
-                c.setSous_categorie(rs.getString("Sous_categorie"));
+                c.setSous_categorie( new Sous_categorieServices().get_sous_categorie_by_id(rs.getInt("Sous_categorie"))); // obeject search 
                 c.setNiveau_c(rs.getInt("Niveau_c"));
-                c.setFichier_c(rs.getString("Fichier_c"));
+                c.setFichier_c(rs.getBytes("Fichier_c"));
                 c.setDescription_c(rs.getString("Description_c"));
                 c.setDate_c(rs.getDate(7));
                 myList.add(c);
@@ -135,8 +152,8 @@ public class CoursServices implements InterfaceCours {
             ps.setInt(1, id);
             rs=ps.executeQuery();
             if(rs.next()){
-                c = new Cours(rs.getInt("Id_c"),rs.getString("Titre_c"),rs.getString ("Sous_categorie"),rs.getInt("Niveau_c"),rs.getString("Fichier_c"),rs.getString("Description_c"),rs.getDate("date_c"));
-            }
+                c = new Cours(rs.getInt("Id_c"),rs.getString("Titre_c"),new Sous_categorieServices().get_sous_categorie_by_id(rs.getInt("Sous_categorie")),rs.getInt("Niveau_c"),rs.getBytes("Fichier_c"),rs.getString("Description_c"),rs.getDate("date_c"));
+            } /// obejct sous categorie
             
         }
        catch(SQLException ex) {
@@ -158,8 +175,9 @@ public class CoursServices implements InterfaceCours {
             ps.setString(1, name);
             rs=ps.executeQuery();
             if(rs.next()){
-                c = new Cours(rs.getInt("Id_c"),rs.getString("Titre_c"),rs.getString ("Sous_categorie"),rs.getInt("Niveau_c"),rs.getString("Fichier_c"),rs.getString("Description_c"),rs.getDate("date_c"));
+                c = new Cours(rs.getInt("Id_c"),rs.getString("Titre_c"),new Sous_categorieServices().get_sous_categorie_by_id(rs.getInt("Sous_categorie")),rs.getInt("Niveau_c"),rs.getBytes("Fichier_c"),rs.getString("Description_c"),rs.getDate("date_c"));
             }
+            /// obejct sous categorie
             
         }
        catch(SQLException ex) {
