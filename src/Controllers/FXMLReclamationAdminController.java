@@ -71,9 +71,6 @@ public class FXMLReclamationAdminController implements Initializable {
     private TableColumn<Reclamation, String> descriptioncolomn;
 
     @FXML
-    private TableColumn<Reclamation, Integer> idcolomn;
-
-    @FXML
     private TableView<Reclamation> tablereclamation;
 
     
@@ -97,8 +94,7 @@ public class FXMLReclamationAdminController implements Initializable {
     @FXML
     private TableColumn<Reclamation, String> typecolomn;
 
-        @FXML
-    private TextField txtId_Rec;
+
 
    
  
@@ -129,7 +125,6 @@ Connection cnx;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         Connect();
-        idcolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, Integer>("Id_Rec"));
         typecolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Type_Rec"));
         descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Description_Rec"));
         affichertable();
@@ -206,10 +201,9 @@ Connection cnx;
   ReclamationCRUD r = new ReclamationCRUD();
         List<Reclamation> rec = r.afficherreclamation();
         tablereclamation.getColumns().clear();
-        idcolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, Integer>("Id_Rec"));
         typecolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Type_Rec"));
         descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Description_Rec"));
-        tablereclamation.getColumns().addAll(idcolomn, typecolomn, descriptioncolomn);
+        tablereclamation.getColumns().addAll( typecolomn, descriptioncolomn);
         tablereclamation.setItems(FXCollections.observableList(rec));
     }
 

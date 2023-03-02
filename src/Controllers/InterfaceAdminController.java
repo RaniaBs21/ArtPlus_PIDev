@@ -62,10 +62,17 @@ public class InterfaceAdminController implements Initializable {
             
            }
         });
+                                    btnback.setOnAction( event->{
+           try{
+               Parent parent2=FXMLLoader
+                       .load(getClass().getResource("/Views/Accueil.fxml"));
+               Scene scene=btnback.getScene();
+             scene.setRoot(parent2);
+           }catch (IOException ex) {
+               Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            
+           }
+        });      
     }    
-       private void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Interface_utilisateur.fxml"));
-        Parent root = loader.load();
-         btnback.getScene().setRoot(root);
-    }
+
 }

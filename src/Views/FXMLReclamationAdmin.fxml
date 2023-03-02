@@ -32,9 +32,9 @@
             <Button fx:id="btnsupprimer" layoutX="191.0" layoutY="391.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" />
          </children>
       </Pane>
-      <Button fx:id="searchbtn" layoutX="1618.0" layoutY="694.0" mnemonicParsing="false" onAction="#searchRec" text="rechercher" />
-      <TextField fx:id="searchtxt" layoutX="1304.0" layoutY="699.0" prefHeight="26.0" prefWidth="217.0" />
-      <Label fx:id="resultLabel" layoutX="1396.0" layoutY="758.0" text="Resultat" textFill="WHITE" />
+      <Button fx:id="searchbtn" layoutX="1405.0" layoutY="567.0" mnemonicParsing="false" onAction="#searchRec" text="rechercher" />
+      <TextField fx:id="searchtxt" layoutX="1095.0" layoutY="566.0" prefHeight="26.0" prefWidth="217.0" />
+      <Label fx:id="resultLabel" layoutX="1160.0" layoutY="605.0" text="Resultat" textFill="WHITE" />
       <ListView layoutX="9.0" layoutY="3.0" prefHeight="74.0" prefWidth="2169.0" />
       <ListView blendMode="SCREEN" layoutX="9.0" layoutY="77.0" prefHeight="1005.0" prefWidth="202.0" />
       <ImageView fitHeight="42.0" fitWidth="47.0" layoutX="35.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
@@ -52,11 +52,10 @@
       <Button fx:id="btnback" layoutX="29.0" layoutY="88.0" mnemonicParsing="false" onAction="#goBack" text="go back" />
       <Button fx:id="btn_querep" layoutX="26.0" layoutY="200.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="172.0" style="-fx-background-color: white;" text="Question/Reponse" textFill="#0b315b" />
       <Button fx:id="btn_recuser" layoutX="18.0" layoutY="120.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="188.0" style="-fx-background-color: white;" text="Reclamation" textFill="#0b315b" />
-      <TableView fx:id="tablereclamation" layoutX="1491.0" layoutY="233.0" prefHeight="317.0" prefWidth="418.0">
+      <TableView fx:id="tablereclamation" layoutX="1095.0" layoutY="226.0" prefHeight="317.0" prefWidth="418.0" style="-fx-background-color: orange;">
         <columns>
-          <TableColumn fx:id="idcolomn" prefWidth="75.0" text="C1" />
-          <TableColumn fx:id="typecolomn" prefWidth="75.0" text="C2" />
-            <TableColumn fx:id="descriptioncolomn" prefWidth="267.200048828125" text="Column X" />
+          <TableColumn fx:id="typecolomn" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="descriptioncolomn" prefWidth="342.4" text="Description" />
         </columns>
       </TableView>
    </children>

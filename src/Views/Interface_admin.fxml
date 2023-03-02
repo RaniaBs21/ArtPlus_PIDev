@@ -51,7 +51,7 @@
                   <Image url="@../Media/admin.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnback" layoutX="17.0" layoutY="70.0" mnemonicParsing="false" onAction="#goBack" text="go back" />
+            <Button fx:id="btnback" layoutX="17.0" layoutY="70.0" mnemonicParsing="false" text="go back" />
          </children>
       </AnchorPane>
    </children>
