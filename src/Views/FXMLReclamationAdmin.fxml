@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="699.0" style="-fx-background-color: #0b315b;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLReclamationController">
+<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="699.0" style="-fx-background-color: #0b315b;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLReclamationAdminController">
    <children>
       <Label layoutX="262.0" layoutY="14.0" text="Reclamation" textFill="#ff7700">
          <font>

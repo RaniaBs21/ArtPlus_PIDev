@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="715.0" style="-fx-background-color: #0b315b;" styleClass="background" stylesheets="@JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AccueilController">
+<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="715.0" style="-fx-background-color: #0b315b;" styleClass="background" stylesheets="@JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AccueilController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="5.0" prefHeight="664.0" prefWidth="827.0">
+      <AnchorPane id="AnchorPane" layoutX="5.0" prefHeight="850.0" prefWidth="1800.0">
          <children>
-            <ListView layoutX="-11.0" layoutY="-17.0" prefHeight="74.0" prefWidth="850.0" />
+            <ListView layoutX="-11.0" layoutY="-17.0" prefHeight="74.0" prefWidth="1994.0" />
             <Text fill="#eb9e05" layoutX="17.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus" />
             <ImageView fitHeight="42.0" fitWidth="47.0" layoutX="15.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -37,18 +37,19 @@
                   <Image url="@../Media/620-6205890_feedback-png-transparent-images-feedback-icons-png-download-removebg-preview.png" />
                </image>
             </ImageView>
-            <Label layoutX="393.0" layoutY="92.0" prefHeight="36.0" prefWidth="188.0" text="Interface Assistance" textFill="ORANGE">
+            <Label layoutX="806.0" layoutY="101.0" prefHeight="82.0" prefWidth="439.0" text="Interface Assistance" textFill="ORANGE">
                <font>
-                  <Font name="Franklin Gothic Medium Cond" size="25.0" />
+                  <Font name="Franklin Gothic Medium Cond" size="48.0" />
                </font>
             </Label>
-            <ListView blendMode="SCREEN" layoutX="-11.0" layoutY="57.0" prefHeight="612.0" prefWidth="201.0" />
+            <ListView blendMode="SCREEN" layoutX="-11.0" layoutY="57.0" prefHeight="976.0" prefWidth="202.0" />
             <Button fx:id="btn_ut" layoutX="-11.0" layoutY="175.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="172.0" style="-fx-background-color: white;" text="Interface utilisateur" textFill="#0b315b" />
-            <ImageView fitHeight="303.0" fitWidth="410.0" layoutX="327.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="714.0" fitWidth="835.0" layoutX="631.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Media/5138237.jpg" />
                </image>
             </ImageView>
+            <Button fx:id="btn_ad" layoutX="-3.0" layoutY="254.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="182.0" style="-fx-background-color: white;" text="Interface administrateur" textFill="#0b315b" />
          </children>
       </AnchorPane>
    </children>

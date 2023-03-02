@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package Controllers;
 
 
 import java.net.URL;
@@ -46,7 +46,7 @@ import javax.swing.JOptionPane;
  *
  * @author akrem
  */
-public class FXMLReclamationController implements Initializable {
+public class FXMLReclamationAdminController implements Initializable {
 
     
     @FXML
@@ -132,9 +132,12 @@ Connection cnx;
         typecolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Type_Rec"));
         descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Description_Rec"));
         affichertable();
+        
 
     }    
 
+    
+    
     @FXML
     private void add(ActionEvent event) {
          ReclamationCRUD rec = new ReclamationCRUD();
@@ -216,7 +219,7 @@ Connection cnx;
 
      @FXML
     private void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/page1.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/page1.fxml"));
         Parent root = loader.load();
          btnback.getScene().setRoot(root);
     }
@@ -257,7 +260,10 @@ public Reclamation searchRec(String type) {
     } else {
         return null;
     }
+    
+    
 }
+
 
     }
 

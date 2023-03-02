@@ -7,8 +7,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.page1Controller">
-     <ListView layoutX="-6.0" prefHeight="58.0" prefWidth="786.0" />
+<AnchorPane id="AnchorPane" prefHeight="850.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.page1Controller">
+     <ListView layoutX="-6.0" prefHeight="58.0" prefWidth="1985.0" />
       <Text fill="#eb9e05" layoutX="17.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus" />
    <ImageView fitHeight="42.0" fitWidth="47.0" layoutX="15.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
       <image>

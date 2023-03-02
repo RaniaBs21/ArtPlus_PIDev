@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -68,7 +68,7 @@ public class page1Controller implements Initializable {
         btn_ass.setOnAction( event->{
            try{
                Parent parent2=FXMLLoader
-                       .load(getClass().getResource("/view/Accueil.fxml"));
+                       .load(getClass().getResource("/Views/Accueil.fxml"));
                Scene scene=btn_ass.getScene();
              scene.setRoot(parent2);
            }catch (IOException ex) {

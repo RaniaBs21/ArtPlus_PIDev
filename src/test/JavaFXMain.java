@@ -35,7 +35,7 @@ public class JavaFXMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.stage= new Stage();
-        parent=FXMLLoader.load(getClass().getResource("/view/page1.fxml"));
+        parent=FXMLLoader.load(getClass().getResource("/Views/page1.fxml"));
         Scene scene=new Scene(parent);
         stage.setScene(scene);
         stage.show();    

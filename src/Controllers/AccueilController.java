@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,8 +30,7 @@ public class AccueilController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @FXML
-    private Button btn_querep;
+ 
 
     @FXML
     private Button btn_rec;
@@ -52,14 +51,29 @@ public class AccueilController implements Initializable {
         @FXML
     private Button btn_ut;
         
+                @FXML
+    private Button btn_ad;
+        
         @Override
     public void initialize(URL url, ResourceBundle rb) {
 
                 btn_ut.setOnAction( event->{
            try{
                Parent parent2=FXMLLoader
-                       .load(getClass().getResource("/view/Interface_utilisateur.fxml"));
+                       .load(getClass().getResource("/Views/Interface_utilisateur.fxml"));
                Scene scene=btn_ut.getScene();
+             scene.setRoot(parent2);
+           }catch (IOException ex) {
+               Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            
+           }
+        });
+                
+                       btn_ad.setOnAction( event->{
+           try{
+               Parent parent2=FXMLLoader
+                       .load(getClass().getResource("/Views/Interface_admin.fxml"));
+               Scene scene=btn_ad.getScene();
              scene.setRoot(parent2);
            }catch (IOException ex) {
                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);

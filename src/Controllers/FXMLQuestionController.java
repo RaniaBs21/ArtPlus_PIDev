@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +40,7 @@ import javafx.scene.control.TextField;
  *
  * @author akrem
  */
-public class FXMLQuestionReponseController implements Initializable {
+public class FXMLQuestionController implements Initializable {
 
  
     
@@ -133,7 +133,7 @@ Connection con;
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("question");
             alert.setHeaderText(null);
-            alert.setContentText("question ajouté avec succés!");
+            alert.setContentText("question ajouté avec succés! nous vous envoyons par courrier la réponse à cette question");
             alert.show();
 }
 else
@@ -141,7 +141,7 @@ else
            Alert alert = new Alert(Alert.AlertType.INFORMATION);
            alert.setTitle("erreur");
            alert.setHeaderText(null);
-           alert.setContentText("error lors de saisie du champ(");
+           alert.setContentText("champ vide");
            alert.show();
 }
 
@@ -157,7 +157,7 @@ else
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("question");
             alert.setHeaderText(null);
-            alert.setContentText("question modifié avec succés!");
+            alert.setContentText("question modifié avec succés! nous vous envoyons par courrier la réponse à cette question");
             alert.show();
     }
 else
@@ -254,7 +254,7 @@ else
     }
          @FXML
     private void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/page1.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Interface_utilisateur.fxml"));
         Parent root = loader.load();
          btnback.getScene().setRoot(root);
     }
