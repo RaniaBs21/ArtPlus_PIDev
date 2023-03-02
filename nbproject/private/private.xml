@@ -5,16 +5,9 @@
         <group>
             <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Test/JAVAFXMain.java</file>
             <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/tests/ArtPlus.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/CommentaireServices.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/AdminServices.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/InterfaceAdminServices.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/Commentaire.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/InterfaceCommentaireServices.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/CommentaireController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/PostServices.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/Admin.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/InterfacePostServices.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/Map.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/AjoutPost.fxml</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/Commentaire.fxml</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/FillActualite.fxml</file>
         </group>
     </open-files>
 </project-private>
