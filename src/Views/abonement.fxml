@@ -74,7 +74,6 @@
       <ComboBox fx:id="categorieCombo" layoutX="41.0" layoutY="340.0" prefWidth="150.0" />
       <TableView fx:id="tableabon" layoutX="246.0" layoutY="63.0" prefHeight="239.0" prefWidth="394.0">
         <columns>
-          <TableColumn fx:id="Id_abon" prefWidth="75.0" text="Id_abon" />
           <TableColumn fx:id="Id_user" prefWidth="75.0" text="level" />
             <TableColumn fx:id="Id_levels" prefWidth="75.0" text="cours" />
             <TableColumn fx:id="prix_abonn" prefWidth="75.0" text="prix_abon" />

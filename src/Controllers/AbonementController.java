@@ -170,7 +170,7 @@ public class AbonementController implements Initializable {
        AbonnementServices ab = new AbonnementServices();
        List<Abonement> myList= ab.afficherAbonement();
         
-      Id_abon.setCellValueFactory(new PropertyValueFactory("Id_abon"));
+
       Id_user.setCellValueFactory(new PropertyValueFactory("level"));
       Id_levels.setCellValueFactory(new PropertyValueFactory("cours"));
       prix_abonn.setCellValueFactory(new PropertyValueFactory("prix_abon"));

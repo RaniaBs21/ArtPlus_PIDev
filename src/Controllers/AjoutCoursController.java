@@ -217,7 +217,7 @@ public class AjoutCoursController implements Initializable {
     private void afficherCours(ActionEvent event) {
         CoursServices cs = new CoursServices();
         List<Cours> myList = cs.afficherCours();
-        id.setCellValueFactory(new PropertyValueFactory("Id_c"));
+
         titre.setCellValueFactory(new PropertyValueFactory("Titre_c"));
         sous_c.setCellValueFactory(new PropertyValueFactory("Sous_categorie"));
         niveau.setCellValueFactory(new PropertyValueFactory("Niveau_c"));
