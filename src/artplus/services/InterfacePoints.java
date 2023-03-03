@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package artplus.tests;
+package artplus.services;
 
 /**
  *
- * @author DELL
+ * @author nour
+ * @param <Points>
  */
-public class ArtPlus {
-    
+public interface InterfacePoints <Points>{
+  
+    public void ajouterpoints(Points p );
+   
 }
