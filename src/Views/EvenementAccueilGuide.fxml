@@ -17,7 +17,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.EvenementAccueilGuideController">
    <children>
-      <ListView layoutX="4.0" layoutY="-8.0" prefHeight="62.0" prefWidth="699.0" style="-fx-background-color: #ebebeb;">
+      <ListView layoutX="4.0" layoutY="-8.0" prefHeight="62.0" prefWidth="766.0" style="-fx-background-color: #ebebeb;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -60,7 +60,7 @@
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
       </Text>
-      <Separator layoutX="-14.0" layoutY="44.0" prefHeight="14.0" prefWidth="715.0" />
+      <Separator layoutX="-14.0" layoutY="44.0" prefHeight="14.0" prefWidth="784.0" />
       <ImageView fitHeight="54.0" fitWidth="117.0" layoutX="32.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/logo.png" />
@@ -71,7 +71,7 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="2.0" layoutY="51.0" prefHeight="365.0" prefWidth="703.0">
+      <AnchorPane layoutX="2.0" layoutY="56.0" prefHeight="595.0" prefWidth="766.0">
          <children>
             <Text fill="#fd8f52" layoutX="50.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechercher" wrappingWidth="116.376953125">
                <font>
@@ -115,20 +115,20 @@
             </Label>
             <TextField fx:id="txt_addresse" layoutX="307.0" layoutY="153.0" prefHeight="25.0" prefWidth="177.0" promptText="L'emplacement de l'évenement" />
             <TextField fx:id="txt_date" layoutX="73.0" layoutY="189.0" prefHeight="25.0" prefWidth="177.0" promptText="Date" />
-            <TableView fx:id="tableEv" layoutX="18.0" layoutY="224.0" prefHeight="88.0" prefWidth="680.0" style="-fx-background-color: transparent;">
+            <TableView fx:id="tableEv" layoutX="6.0" layoutY="235.0" prefHeight="225.0" prefWidth="756.0" style="-fx-background-color: transparent;">
               <columns>
                 <TableColumn fx:id="titre" prefWidth="109.0" text="Titre" />
                 <TableColumn fx:id="categorie" prefWidth="113.0" text="Catégorie" />
-                  <TableColumn fx:id="description" prefWidth="139.0" text="Description" />
-                  <TableColumn fx:id="adresse" prefWidth="109.0" text="Adresse" />
-                  <TableColumn fx:id="date" prefWidth="94.0" text="Date" />
-                  <TableColumn fx:id="nbplaces" prefWidth="112.0" text="Nombre places" />
+                  <TableColumn fx:id="description" prefWidth="154.0" text="Description" />
+                  <TableColumn fx:id="adresse" prefWidth="141.0" text="Adresse" />
+                  <TableColumn fx:id="date" prefWidth="128.0" text="Date" />
+                  <TableColumn fx:id="nbplaces" prefWidth="120.0" text="Nombre places" />
               </columns>
             </TableView>
-            <ImageView fx:id="imgEv" fitHeight="150.0" fitWidth="200.0" layoutX="489.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="ajouter" layoutX="227.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#ajouter" style="-fx-background-color: #4d80ff;" text="Ajouter" textFill="#ffb04f" />
-            <Button fx:id="supprimer" layoutX="297.0" layoutY="326.0" mnemonicParsing="false" onMouseClicked="#supprimer" style="-fx-background-color: #4d80ff;" text="Supprimer" textFill="#ffb04f" />
-            <Button fx:id="modifier" layoutX="382.0" layoutY="326.0" mnemonicParsing="false" onMouseClicked="#modifier" style="-fx-background-color: #4d80ff;" text="Modifier" textFill="#ffb04f" />
+            <ImageView fx:id="imgEv" fitHeight="150.0" fitWidth="248.0" layoutX="489.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="ajouter" layoutX="263.0" layoutY="515.0" mnemonicParsing="false" onMouseClicked="#ajouter" style="-fx-background-color: #4d80ff;" text="Ajouter" textFill="#ffb04f" />
+            <Button fx:id="supprimer" layoutX="333.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#supprimer" style="-fx-background-color: #4d80ff;" text="Supprimer" textFill="#ffb04f" />
+            <Button fx:id="modifier" layoutX="418.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#modifier" style="-fx-background-color: #4d80ff;" text="Modifier" textFill="#ffb04f" />
             <ImageView fx:id="iconImport" fitHeight="17.0" fitWidth="26.0" layoutX="228.0" layoutY="157.0" onMouseClicked="#ImporterImg" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/import.png" />

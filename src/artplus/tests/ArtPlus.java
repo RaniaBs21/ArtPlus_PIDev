@@ -22,7 +22,7 @@ import artplus.utils.MyConnection;
 public class ArtPlus {
 
     public static void main(String[] args) {
-
+/*
         MyConnection mc = MyConnection.getInstance();
          
         //Evenement
@@ -56,7 +56,7 @@ public class ArtPlus {
         // pour afficher la liste des evenements
         //System.out.println(evs.afficherEvenements());
          
- /*
+ 
         ParticipationService partserv = new ParticipationService();
 
         UtilisateurService us =new UtilisateurService();
@@ -73,9 +73,9 @@ public class ArtPlus {
         partserv.supprimerParticipation(3);
         System.out.println(partserv.afficherParticipation());
 
-        MyConnection mc = MyConnection.getInstance();
+        //MyConnection mc = MyConnection.getInstance();
          */
- /*
+ 
         EvenementService evs = new EvenementService();
         GuideService gS = new GuideService();
         UtilisateurService uS = new UtilisateurService();
@@ -102,7 +102,9 @@ public class ArtPlus {
         
         //partserv.ajouterParticipation(p);
         //partserv.modifierParticipation(p2);
-        //partserv.supprimerParticipation(3);*/
+        //partserv.supprimerParticipation(3);
+        System.out.println(partserv.afficherParticipation());
+
 
     }
 

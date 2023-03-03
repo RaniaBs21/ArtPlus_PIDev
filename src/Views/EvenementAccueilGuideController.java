@@ -23,6 +23,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -125,12 +126,12 @@ public class EvenementAccueilGuideController implements Initializable {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        titre.setCellValueFactory(new PropertyValueFactory<Evenement, String>("titre_ev"));
-        categorie.setCellValueFactory(new PropertyValueFactory<Evenement, String>("categorie_ev"));
-        description.setCellValueFactory(new PropertyValueFactory<Evenement, String>("description_ev"));
-        adresse.setCellValueFactory(new PropertyValueFactory<Evenement, String>("adresse_ev"));
-        date.setCellValueFactory(new PropertyValueFactory<Evenement, Timestamp>("date_ev"));
-        nbplaces.setCellValueFactory(new PropertyValueFactory<Evenement, Integer>("nbre_places"));
+        titre.setCellValueFactory(new PropertyValueFactory<>("titre_ev"));
+        categorie.setCellValueFactory(new PropertyValueFactory<>("categorie_ev"));
+        description.setCellValueFactory(new PropertyValueFactory<>("description_ev"));
+        adresse.setCellValueFactory(new PropertyValueFactory<>("adresse_ev"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date_ev"));
+        nbplaces.setCellValueFactory(new PropertyValueFactory<>("nbre_places"));
         tableEv.setItems(listEv);
 
     }
@@ -197,7 +198,7 @@ public class EvenementAccueilGuideController implements Initializable {
 
     @FXML
     private void RechEV() {
-/*
+        /*
         String categorie = String.valueOf(rechercher.getText());
         EvenementService evS = new EvenementService();
         Evenement ev = evS.searchEvenementbyCategorie(categorie);
@@ -212,7 +213,22 @@ public class EvenementAccueilGuideController implements Initializable {
         } else {
             labelpost.setText(("commentaire n'a pas trouvé"));
         }
-*/
+         *//*
+        Evenement ev = new Evenement();
+        ev.setNom(rechercher.getText().toString().toLowerCase());
+        if (!control.ControleNOM(ev)) {
+            alertRechere.setText("Nom invalide");
+        }
+        users.clear();
+        List<USER> listemps = control.getUnEmployenom(u);
+        if (listemps != null) {
+            if (!listemps.isEmpty()) {
+                for (int i = 0; i < listemps.size(); i++) {
+                    users.add(listemps.get(i));
+                }
+            }
+            Tableau.setItems(users);
+        }*/
     }
 
     @Override
@@ -302,7 +318,7 @@ public class EvenementAccueilGuideController implements Initializable {
         int nbreP = Integer.parseInt(txt_nbplaces.getText());
         File img = new File(txt_img.getText());
         //String sql = "update evenement titre_ev =?,categorie_ev=?,description_ev=?,adresse_ev=?,image_ev=?,date_ev=?,nbre_places=? WHERE titre_ev= '" + rechercher.getText() + "'";
-        String sql = "UPDATE `evenement` SET `titre_ev`=?,`categorie_ev`=?',`description_ev`=?,`image_ev`=?,`adresse_ev`=?,`date_ev`=?,`nbre_places`=? WHERE id_ev = " + idE ;
+        String sql = "UPDATE `evenement` SET `titre_ev`=?,`categorie_ev`=?',`description_ev`=?,`image_ev`=?,`adresse_ev`=?,`date_ev`=?,`nbre_places`=? WHERE id_ev = " + idE;
         try {
             PreparedStatement st = cnx.prepareStatement(sql);
             st.setString(1, titre);
@@ -315,7 +331,8 @@ public class EvenementAccueilGuideController implements Initializable {
             st.setInt(7, nbreP);
             st.executeUpdate();
             afficherEvenements();
-
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement Modifié avec succées", javafx.scene.control.ButtonType.OK);
+            alert.showAndWait();
             txt_titre.setText("");
             txt_categorie.setText("");
             txt_description.setText("");
@@ -323,8 +340,7 @@ public class EvenementAccueilGuideController implements Initializable {
             txt_date.setText("");
             txt_nbplaces.setText("");
             imgEv.setImage(null);
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement Modifié avec succées", javafx.scene.control.ButtonType.OK);
-            alert.showAndWait();
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
