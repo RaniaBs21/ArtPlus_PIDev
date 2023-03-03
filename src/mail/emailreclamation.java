@@ -14,10 +14,10 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
  
-public class email {
+public class emailreclamation {
 private String username = "akremcherif472@gmail.com";
 private String password = "xspoulpvrpvfzjtj";
-public void envoyer() {
+public void envoyerreclamation() {
 Properties props = new Properties();
 props.put("mail.smtp.auth", "true");
 props.put("mail.smtp.starttls.enable","true");
@@ -37,11 +37,11 @@ InternetAddress.parse("mohamedakrem.cherif@esprit.tn"));
 message.setSubject("Reclamation");
 message.setText("Bonjour, votre reclamation est validé");
 Transport.send(message);
-System.out.println("Reclamation_envoye");
+System.out.println("Reclamation_envoyé");
 } catch (MessagingException e) {
 throw new RuntimeException(e);
 } }
 public static void main(String[] args) {
-email test = new email();
-test.envoyer();
+emailreclamation test1 = new emailreclamation();
+test1.envoyerreclamation();
 } }
