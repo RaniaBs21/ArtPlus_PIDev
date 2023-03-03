@@ -62,6 +62,17 @@ public class InterfaceAdminController implements Initializable {
             
            }
         });
+           btn_rep.setOnAction( event->{
+           try{
+               Parent parent2=FXMLLoader
+                       .load(getClass().getResource("/Views/FXMLReponse.fxml"));
+               Scene scene=btn_rep.getScene();
+             scene.setRoot(parent2);
+           }catch (IOException ex) {
+               Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            
+           }
+        });
                                     btnback.setOnAction( event->{
            try{
                Parent parent2=FXMLLoader

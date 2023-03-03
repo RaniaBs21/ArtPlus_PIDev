@@ -40,11 +40,11 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
      public void ajouterreponse2(Reponse_ass a){
     try {
        
-            String requete2 = "INSERT INTO Reponse_ass (Type_Rep_Ass,Que_Rep_Ass,Description_Rep_Ass)"
+            String requete2 = "INSERT INTO Reponse_ass (Que_Rep_Ass,Type_Rep_Ass,Description_Rep_Ass)"
                     +" VALUES (?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
-            pst.setString(1,a.getType_Rep_Ass());
-            pst.setString(2,a.getQue_Rep_Ass());
+            pst.setString(2,a.getType_Rep_Ass());
+            pst.setString(1,a.getQue_Rep_Ass());
             pst.setString(3,a.getDescription_Rep_Ass());
 
          

@@ -93,7 +93,8 @@ public class FXMLReclamationAdminController implements Initializable {
 
     @FXML
     private TableColumn<Reclamation, String> typecolomn;
-
+    @FXML
+    private Button recenv;
 
 
    
@@ -254,7 +255,14 @@ public Reclamation searchRec(String type) {
     
 }
 
-
+    @FXML
+    void envoyerreclamation(ActionEvent event) {
+  Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Reclamation");
+            alert.setHeaderText(null);
+            alert.setContentText("Validation de la reclamation avec succés!");
+            alert.show();
+    }
 
     }
 
