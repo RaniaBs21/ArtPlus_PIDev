@@ -53,17 +53,20 @@ public class ReclamationCRUD implements InterfaceReclamation {
             System.err.println(ex.getMessage());
         }
 }
-     public void modifierreclamation(Reclamation r) {
+         
+    public void modifierreclamation(Reclamation r) {
+        String req = "UPDATE  reclamation SET Type_Rec=?, Description_Rec=? WHERE Id_Rec=?";
         try {
-            String req = "UPDATE reclamation SET Type_Rec = '" + r.getType_Rec() + "', WHERE Id_Rec = " + r.getId_Rec();
-            Statement ste = cnx.createStatement();
-            ste.executeUpdate(req);
-            System.out.println("reclamation updated !");
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(3, r.getId_Rec());
+            pst.setString(1, r.getType_Rec());
+            pst.setString(2, r.getDescription_Rec());
+            pst.executeUpdate();
+            System.out.println("reclamation modifiée !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    }
-                   
+    }         
 
         public void supprimerreclamation(Reclamation r) {
         String req = "DELETE FROM Reclamation WHERE Type_Rec=?";
@@ -94,6 +97,30 @@ public class ReclamationCRUD implements InterfaceReclamation {
         }
 
         return list;
+        
+        
     }
+    
+    public List<Reclamation> afficherSearchReclamation(String key) {
+        List<Reclamation> list = new ArrayList<>();
+
+        String req = "SELECT * from Reclamation where Reclamation.Type_Rec LIKE ?";
+
+        try {
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setString(1, key + "%");
+        ResultSet result = pst.executeQuery();
+        while (result.next()) {
+            list.add(new Reclamation(result.getInt("Id_Rec"), result.getString("Type_Rec"), result.getString("Description_Rec")));
+        }
+        System.out.println("reclamation recherche récupérées !");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+
+    return list;
+    }
+
+
     
 }

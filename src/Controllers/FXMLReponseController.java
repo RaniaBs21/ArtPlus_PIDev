@@ -69,6 +69,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.JOptionPane;
+import mail.emailreclamation;
+import mail.emailreponse;
 
 /**
  * FXML Controller class
@@ -118,8 +120,6 @@ Connection con;
     @FXML
     private Button btn_recuser;
 
-    @FXML
-    private Button btnajouterR;
 
     @FXML
     private Button btnback;
@@ -180,7 +180,6 @@ Connection con;
 
 
 
-     @FXML
    public void addr(ActionEvent event) {
         Reponse_assCRUD repa = new Reponse_assCRUD();
         if (txtQue_Rep_Ass.getText().trim().length() > 0 || txtDescription_Rep_Ass.getText().trim().length() > 0 || txtType_Rep_Ass.getText().trim().length() > 0 ) {
@@ -247,14 +246,7 @@ else
         affichertable();
     }
     
-        @FXML
-    void envoyerreponse(ActionEvent event) {
-  Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Reponse");
-            alert.setHeaderText(null);
-            alert.setContentText("Le reponse a été envoyé au client avec succés!");
-            alert.show();
-    }
+
          @FXML
     private void goBack(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Interface_admin.fxml"));
@@ -273,7 +265,17 @@ else
         tablereponse.setItems(FXCollections.observableList(rep));
     }
     
-
+@FXML
+private void handleSendEmailButtonAction(ActionEvent event) {
+    emailreponse email = new emailreponse();
+    email.envoyerreponse();
+    // display a message to the user indicating that the email has been sent
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Reponse");
+    alert.setHeaderText(null);
+    alert.setContentText("Le reponse a été envoyé au client avec succés!");
+    alert.showAndWait();
+}
     
     
 
