@@ -65,6 +65,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert.AlertType;
@@ -152,6 +153,14 @@ Connection cnx;
     @FXML
     private TableColumn<Reponse_ass, String> typecolomn;
 
+    @FXML
+    private Button searchbtn;
+
+    @FXML
+    private TextField searchtxt;
+    
+    private ObservableList<Reponse_ass> reponseList;
+
  
 
      public void Connect()
@@ -177,10 +186,42 @@ Connection cnx;
         typecolomn.setCellValueFactory(new PropertyValueFactory<Reponse_ass, String>("Type_Rep_Ass"));
         Descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reponse_ass, String>("Description_Rep_Ass"));
         affichertable();
+    reponseList = FXCollections.observableArrayList(tablereponse.getItems());
     }    
 
     
     
+        @FXML
+private void searchReclamation(ActionEvent event) {
+    // Get the search text and convert it to lowercase
+    String searchText = searchtxt.getText().toLowerCase();
+
+    // Create a filtered list for the search results
+    FilteredList<Reponse_ass> filteredList = new FilteredList<>(reponseList);
+
+    // Loop through each item in the table view and add it to the filtered list if it matches the search text
+    filteredList.setPredicate(Reponse_ass -> {
+        String quesrep = Reponse_ass.getQue_Rep_Ass().toLowerCase();
+         String typeRep = Reponse_ass.getType_Rep_Ass().toLowerCase();
+        String descriptionRep = Reponse_ass.getDescription_Rep_Ass().toLowerCase();
+        return typeRep.contains(searchText) || quesrep.contains(searchText) || descriptionRep.contains(searchText) ;
+    });
+
+    // Create a new table view to display the filtered data
+    TableView<Reponse_ass> filteredTableView = new TableView<>();
+    TableColumn<Reponse_ass, String> filteredquesrepColumn = new TableColumn<>("quesrep");
+    filteredquesrepColumn.setCellValueFactory(new PropertyValueFactory<>("Que_Rep_Ass"));
+    TableColumn<Reponse_ass, String> filteredtypeRepColumn = new TableColumn<>("typeRep");
+    filteredtypeRepColumn.setCellValueFactory(new PropertyValueFactory<>("Type_Rep_Ass"));
+    TableColumn<Reponse_ass, String> filtereddescriptionRepColumn = new TableColumn<>("descriptionRep");
+    filtereddescriptionRepColumn.setCellValueFactory(new PropertyValueFactory<>("Description_Rec"));
+    filteredTableView.getColumns().addAll(filteredquesrepColumn, filteredtypeRepColumn,filtereddescriptionRepColumn );
+    filteredTableView.setItems(filteredList);
+
+    // Set the table view to display the filtered data
+    tablereponse.setItems(filteredList);
+    tablereponse.refresh();
+}
 @FXML
 private void modifierReponse(ActionEvent event) {
     Reponse_ass a = tablereponse.getSelectionModel().getSelectedItem();

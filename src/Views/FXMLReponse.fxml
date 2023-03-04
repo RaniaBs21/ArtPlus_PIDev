@@ -49,12 +49,14 @@
       <Button fx:id="btnback" layoutX="39.0" layoutY="98.0" mnemonicParsing="false" onAction="#goBack" text="go back" />
       <Button fx:id="btn_querep" layoutX="1.0" layoutY="210.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="242.0" style="-fx-background-color: white;" text="Gestion des Question/Reponse" textFill="#0b315b" />
       <Button fx:id="btn_recuser" layoutX="7.0" layoutY="130.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="188.0" style="-fx-background-color: white;" text="Gestion des reclamations" textFill="#0b315b" />
-      <TableView fx:id="tablereponse" layoutX="1195.0" layoutY="200.0" prefHeight="620.0" prefWidth="520.0" style="-fx-background-color: #eb9e05;">
+      <TableView fx:id="tablereponse" layoutX="1195.0" layoutY="200.0" prefHeight="546.0" prefWidth="520.0" style="-fx-background-color: #eb9e05;">
         <columns>
           <TableColumn fx:id="idcolomn" prefWidth="180.0" text="Question" />
           <TableColumn fx:id="typecolomn" prefWidth="76.7999267578125" text="Type" />
             <TableColumn fx:id="Descriptioncolomn" prefWidth="263.2000732421875" text="Description" />
         </columns>
       </TableView>
+      <TextField fx:id="searchtxt" layoutX="1195.0" layoutY="767.0" prefHeight="26.0" prefWidth="360.0" />
+      <Button fx:id="searchbtn" layoutX="1586.0" layoutY="767.0" onAction="#searchReclamation" prefHeight="26.0" prefWidth="129.0" text="Search" />
    </children>
 </AnchorPane>
