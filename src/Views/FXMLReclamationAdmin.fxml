@@ -30,8 +30,7 @@
             <Button fx:id="recenv" layoutX="29.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleSendEmailButtonAction" prefHeight="25.0" prefWidth="113.0" text="Envoyer mail" />
          </children>
       </Pane>
-      <TextField fx:id="searchtxt" layoutX="1100.0" layoutY="708.0" prefHeight="26.0" prefWidth="217.0" />
-      <Label fx:id="resultLabel" layoutX="1166.0" layoutY="749.0" text="Resultat" />
+      <TextField fx:id="searchtxt" layoutX="1089.0" layoutY="629.0" prefHeight="26.0" prefWidth="217.0" />
       <ListView layoutX="9.0" layoutY="3.0" prefHeight="74.0" prefWidth="2169.0" />
       <ListView blendMode="SCREEN" layoutX="9.0" layoutY="77.0" prefHeight="1006.0" prefWidth="253.0" />
       <ImageView fitHeight="42.0" fitWidth="47.0" layoutX="35.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
@@ -55,6 +54,6 @@
           <TableColumn fx:id="descriptioncolomn" prefWidth="361.6" text="description" />
         </columns>
       </TableView>
-      <Button fx:id="searchbtn" layoutX="1349.0" layoutY="708.0" onAction="#searchReclamation" text="Search" />
+      <Button fx:id="searchbtn" layoutX="1333.0" layoutY="629.0" onAction="#searchReclamation" text="Search" />
    </children>
 </AnchorPane>

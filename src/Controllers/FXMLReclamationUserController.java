@@ -41,6 +41,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -76,7 +77,11 @@ public class FXMLReclamationUserController implements Initializable {
     private Button btnquerep;
 
 
-   
+       @FXML
+    private Button searchbtn;
+
+    @FXML
+    private TextField searchtxt;
     
 
     
@@ -87,8 +92,16 @@ public class FXMLReclamationUserController implements Initializable {
     private TextField txtType_Rec;
 
 
-    
+    @FXML
+    private TableColumn<Reclamation, String> descriptioncolomn;
 
+    @FXML
+    private TableView<Reclamation> tablereclamation;
+    
+    
+    @FXML
+    private TableColumn<Reclamation, String> typecolomn;
+private ObservableList<Reclamation> reclamationList;
    
  
     
@@ -118,9 +131,87 @@ Connection cnx;
     public void initialize(URL url, ResourceBundle rb) {
 
         Connect();
+        typecolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Type_Rec"));
+        descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Description_Rec"));
+        affichertable();
+     reclamationList = FXCollections.observableArrayList(tablereclamation.getItems());
+    btnmodifier.setOnAction(this::handleModifierButtonClick);
+
+    }   
+    
+    
+    
+    public void modifierreclamation(Reclamation r) {
+    String req = "UPDATE  reclamation SET Type_Rec=?, Description_Rec=? WHERE Id_Rec=?";
+    try {
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setInt(3, r.getId_Rec());
+        pst.setString(1, r.getType_Rec());
+        pst.setString(2, r.getDescription_Rec());
+        pst.executeUpdate();
+        System.out.println("reclamation modifiée !");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
 
 
-    }    
+@FXML
+private void handleModifierButtonClick(ActionEvent event) {
+    Reclamation selectedReclamation = tablereclamation.getSelectionModel().getSelectedItem();
+    if (selectedReclamation != null) {
+        // Get the updated reclamation information from the text fields
+        String typeRec = txtType_Rec.getText();
+        String descriptionRec = txtDescription_Rec.getText();
+        Reclamation updatedReclamation = new Reclamation(selectedReclamation.getId_Rec(), typeRec, descriptionRec);
+
+        // Update the reclamation in the database
+        modifierreclamation(updatedReclamation);
+
+        // Refresh the table view to show the updated data
+        affichertable();
+    } else {
+        // Display an error message if no reclamation is selected
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez sélectionner une réclamation à modifier.");
+        alert.showAndWait();
+    }
+}
+
+    @FXML
+private void searchReclamation(ActionEvent event) {
+    // Get the search text and convert it to lowercase
+    String searchText = searchtxt.getText().toLowerCase();
+
+    // Create a filtered list for the search results
+    FilteredList<Reclamation> filteredList = new FilteredList<>(reclamationList);
+
+    // Loop through each item in the table view and add it to the filtered list if it matches the search text
+    filteredList.setPredicate(reclamation -> {
+        String typeRec = reclamation.getType_Rec().toLowerCase();
+        String descriptionRec = reclamation.getDescription_Rec().toLowerCase();
+        return typeRec.contains(searchText) || descriptionRec.contains(searchText);
+    });
+
+    // Create a new table view to display the filtered data
+    TableView<Reclamation> filteredTableView = new TableView<>();
+    TableColumn<Reclamation, String> filteredTypeColumn = new TableColumn<>("Type");
+    filteredTypeColumn.setCellValueFactory(new PropertyValueFactory<>("Type_Rec"));
+    TableColumn<Reclamation, String> filteredDescriptionColumn = new TableColumn<>("Description");
+    filteredDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("Description_Rec"));
+    filteredTableView.getColumns().addAll(filteredTypeColumn, filteredDescriptionColumn);
+    filteredTableView.setItems(filteredList);
+
+    // Set the table view to display the filtered data
+    tablereclamation.setItems(filteredList);
+    tablereclamation.refresh();
+}
+    
+    
+    
+    
 @FXML
    private void add(ActionEvent event) {
     // Create a new PDF document
@@ -152,6 +243,8 @@ Connection cnx;
     } catch (FileNotFoundException | DocumentException e) {
         e.printStackTrace();
     }
+            affichertable();
+
 }
 
 
@@ -174,6 +267,8 @@ Connection cnx;
            alert.setContentText("champ vide");
            alert.show();
               }
+                affichertable();
+
 
     }
     
@@ -196,10 +291,20 @@ Connection cnx;
            alert.setContentText("champ vide");
            alert.show();
               }
+                affichertable();
+
  
     }
     
-
+    public void affichertable(){
+  ReclamationCRUD r = new ReclamationCRUD();
+        List<Reclamation> rec = r.afficherreclamation();
+        tablereclamation.getColumns().clear();
+        typecolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Type_Rec"));
+        descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Description_Rec"));
+        tablereclamation.getColumns().addAll( typecolomn, descriptioncolomn);
+        tablereclamation.setItems(FXCollections.observableList(rec));
+    }
 
      @FXML
     private void goBack(ActionEvent event) throws IOException {

@@ -23,8 +23,7 @@
             <Label layoutX="13.0" layoutY="59.0" prefHeight="47.0" prefWidth="188.0" text="Description de question :" />
             <Label layoutX="13.0" layoutY="14.0" text="Type de&#10;question :" />
             <TextField fx:id="txtType_Q_Ass" alignment="TOP_LEFT" layoutX="103.0" layoutY="19.0" prefHeight="35.0" prefWidth="413.0" promptText="type" />
-            <Button fx:id="btnsupprimerQ" layoutX="399.0" layoutY="715.0" mnemonicParsing="false" onAction="#deleteq" prefHeight="26.0" prefWidth="116.0" text="Supprimer" />
-            <Button fx:id="btnmodifierQ" layoutX="214.0" layoutY="719.0" mnemonicParsing="false" onAction="#updateq" prefHeight="25.0" prefWidth="110.0" text="Modifier" />
+            <Button fx:id="btnsupprimerQ" layoutX="169.0" layoutY="716.0" mnemonicParsing="false" onAction="#deleteq" prefHeight="26.0" prefWidth="116.0" text="Supprimer" />
             <TextField fx:id="txtDescription_Q_Ass" alignment="TOP_LEFT" layoutX="13.0" layoutY="113.0" prefHeight="591.0" prefWidth="501.0" promptText="Description" />
             <Button fx:id="btnajouterQ" layoutX="16.0" layoutY="717.0" mnemonicParsing="false" onAction="#addq" prefHeight="25.0" prefWidth="120.0" text="Ajouter" />
          </children>
