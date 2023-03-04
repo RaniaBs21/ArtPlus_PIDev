@@ -3,8 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Controllers/AjoutCoursController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Controllers/CoursController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/Transaction.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/KeyValuePair.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Test/JavaFXMain.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Views/Accueil.fxml</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/user.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/Carte.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Controllers/AccueilController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Controllers/PaiementController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/CategorieServices.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/services/Sous_categorieServices.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/Controllers/AbonuserController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/ArtPlus_PIDev/src/artplus/entities/Sous_categorie.java</file>
         </group>
     </open-files>
 </project-private>

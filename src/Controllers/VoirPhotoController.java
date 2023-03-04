@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author ahmed
+ * @author Admin
  */
 public class VoirPhotoController implements Initializable {
 
@@ -28,7 +28,7 @@ public class VoirPhotoController implements Initializable {
     Stage stage;
 
     /**
-     * Initializes the controller class.
+     * Initializes they controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
