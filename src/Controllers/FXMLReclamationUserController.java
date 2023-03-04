@@ -5,7 +5,10 @@
  */
 package Controllers;
 
-
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,6 +35,8 @@ import javafx.scene.control.TableRow;
 import artplus.entities.Reclamation;
 import artplus.services.ReclamationCRUD;
 import artplus.utils.MyConnection;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -116,28 +121,39 @@ Connection cnx;
 
 
     }    
+@FXML
+   private void add(ActionEvent event) {
+    // Create a new PDF document
+    Document document = new Document();
 
-    @FXML
-    private void add(ActionEvent event) {
-         ReclamationCRUD rec = new ReclamationCRUD();
-        if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
+    try {
+        
+        ReclamationCRUD rec = new ReclamationCRUD();
         rec.ajouterreclamation2(new Reclamation(txtType_Rec.getText(),txtDescription_Rec.getText() ));
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Reclamation");
-            alert.setHeaderText(null);
-            alert.setContentText("Reclamation ajouté avec succés!");
-            alert.show();
-    }
-        else
-              {
-           Alert alert = new Alert(Alert.AlertType.INFORMATION);
-           alert.setTitle("erreur");
-           alert.setHeaderText(null);
-           alert.setContentText("champ vide");
-           alert.show();
-              }
+        // Create a PdfWriter object to write the document to a file or stream
+        PdfWriter.getInstance(document, new FileOutputStream("reclamation.pdf"));
 
+        // Open the document
+        document.open();
+
+        // Add the type and description of the reclamation to the document
+        document.add(new Paragraph("Type: " + txtType_Rec.getText()));
+        document.add(new Paragraph("Description: " + txtDescription_Rec.getText()));
+
+        // Close the document
+        document.close();
+
+        // Display a success message to the user
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Reclamation");
+        alert.setHeaderText(null);
+        alert.setContentText("Reclamation ajouté avec succés et un PDF a été généré!");
+        alert.show();
+    } catch (FileNotFoundException | DocumentException e) {
+        e.printStackTrace();
     }
+}
+
 
     @FXML
     private void update(ActionEvent event) {
@@ -191,6 +207,7 @@ Connection cnx;
         Parent root = loader.load();
          btnback.getScene().setRoot(root);
     }
+    
     
 
 }
