@@ -143,11 +143,47 @@ private ObservableList<Reclamation> reclamationList;
         descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Description_Rec"));
         affichertable();
      reclamationList = FXCollections.observableArrayList(tablereclamation.getItems());
+    btnmodifier.setOnAction(this::handleModifierButtonClick);
 
     }    
+public void modifierreclamation(Reclamation r) {
+    String req = "UPDATE  reclamation SET Type_Rec=?, Description_Rec=? WHERE Id_Rec=?";
+    try {
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setInt(3, r.getId_Rec());
+        pst.setString(1, r.getType_Rec());
+        pst.setString(2, r.getDescription_Rec());
+        pst.executeUpdate();
+        System.out.println("reclamation modifiée !");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
 
 
+@FXML
+private void handleModifierButtonClick(ActionEvent event) {
+    Reclamation selectedReclamation = tablereclamation.getSelectionModel().getSelectedItem();
+    if (selectedReclamation != null) {
+        // Get the updated reclamation information from the text fields
+        String typeRec = txtType_Rec.getText();
+        String descriptionRec = txtDescription_Rec.getText();
+        Reclamation updatedReclamation = new Reclamation(selectedReclamation.getId_Rec(), typeRec, descriptionRec);
 
+        // Update the reclamation in the database
+        modifierreclamation(updatedReclamation);
+
+        // Refresh the table view to show the updated data
+        affichertable();
+    } else {
+        // Display an error message if no reclamation is selected
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez sélectionner une réclamation à modifier.");
+        alert.showAndWait();
+    }
+}
 
     @FXML
 private void searchReclamation(ActionEvent event) {

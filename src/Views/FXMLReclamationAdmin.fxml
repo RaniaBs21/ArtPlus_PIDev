@@ -24,8 +24,8 @@
             <Label layoutX="14.0" layoutY="45.0" text="Type de reclamation :" />
             <Label layoutX="14.0" layoutY="105.0" text="Description de reclamation :" />
             <TextField fx:id="txtType_Rec" layoutX="159.0" layoutY="41.0" prefHeight="25.0" prefWidth="259.0" />
-            <TextField fx:id="txtDescription_Rec" layoutX="14.0" layoutY="135.0" prefHeight="300.0" prefWidth="403.0" />
-            <Button fx:id="btnmodifier" layoutX="159.0" layoutY="464.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="Modifier" />
+            <TextField fx:id="txtDescription_Rec" alignment="TOP_LEFT" layoutX="14.0" layoutY="135.0" prefHeight="300.0" prefWidth="403.0" />
+            <Button fx:id="btnmodifier" layoutX="159.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleModifierButtonClick" prefHeight="26.0" prefWidth="104.0" text="Modifier" />
             <Button fx:id="btnsupprimer" layoutX="303.0" layoutY="463.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="113.0" text="Supprimer" />
             <Button fx:id="recenv" layoutX="29.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleSendEmailButtonAction" prefHeight="25.0" prefWidth="113.0" text="Envoyer mail" />
          </children>
