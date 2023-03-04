@@ -84,7 +84,7 @@ public class FXMLReponseController implements Initializable {
     
     
    
-Connection con;
+Connection cnx;
     PreparedStatement pst;
     int myIndex;
     int id;
@@ -158,7 +158,7 @@ Connection con;
     {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/artplus","root","");
+            cnx = DriverManager.getConnection("jdbc:mysql://localhost/artplus","root","");
         } catch (ClassNotFoundException ex) {
           
         } catch (SQLException ex) {
@@ -179,7 +179,33 @@ Connection con;
         affichertable();
     }    
 
-
+    
+    
+@FXML
+private void modifierReponse(ActionEvent event) {
+    Reponse_ass a = tablereponse.getSelectionModel().getSelectedItem();
+    if (a == null) {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Attention");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez sélectionner une réponse à modifier");
+        alert.showAndWait();
+        return;
+    }
+    String req = "UPDATE Reponse_ass SET Que_Rep_Ass=?, Type_Rep_Ass=?, Description_Rep_Ass=? WHERE Id_Rep_Ass=?";
+    try {
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setString(1, txtQue_Rep_Ass.getText());
+        pst.setString(2, txtType_Rep_Ass.getText());
+        pst.setString(3, txtDescription_Rep_Ass.getText());
+        pst.setInt(4, a.getId_Rep_Ass());
+        pst.executeUpdate();
+        System.out.println("Réponse modifiée !");
+        affichertable();
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
 
    public void addr(ActionEvent event) {
         Reponse_assCRUD repa = new Reponse_assCRUD();

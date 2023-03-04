@@ -55,16 +55,20 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
             System.err.println(ex.getMessage());
         }
 }
-     public void modifierreponse(Reponse_ass a) {
+ public void modifierreponse(Reponse_ass a) {
+        String req = "UPDATE  Reponse_ass SET Que_Rep_Ass=? Type_Rep_Ass=?, Description_Rep_Ass=? WHERE Id_Rep_Ass=?";
         try {
-            String req = "UPDATE Reponse_ass SET Type_Rep_Ass = '" + a.getType_Rep_Ass() + "', Que_Rep_Ass = '" + a.getQue_Rep_Ass() + "' WHERE Id_Rep_Ass = " + a.getId_Rep_Ass();
-            Statement ste = cnx.createStatement();
-            ste.executeUpdate(req);
-            System.out.println("reponse updated !");
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setString(3, a.getDescription_Rep_Ass());
+            pst.setString(1, a.getQue_Rep_Ass());
+            pst.setString(2, a.getType_Rep_Ass());
+            pst.setInt(4, a.getId_Rep_Ass());
+            pst.executeUpdate();
+            System.out.println("reponse modifiée !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    }
+    }       
                    
         public void supprimerreponse(Reponse_ass a) {
         String req = "DELETE FROM Reponse_ass WHERE Type_Rep_Ass=?";

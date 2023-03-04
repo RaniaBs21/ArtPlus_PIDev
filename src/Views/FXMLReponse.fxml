@@ -22,7 +22,7 @@
             <TextField fx:id="txtQue_Rep_Ass" layoutX="146.0" layoutY="39.0" prefHeight="75.0" prefWidth="267.0" />
             <TextField fx:id="txtType_Rep_Ass" layoutX="146.0" layoutY="121.0" prefHeight="25.0" prefWidth="267.0" />
             <TextField fx:id="txtDescription_Rep_Ass" alignment="TOP_LEFT" layoutX="11.0" layoutY="182.0" prefHeight="381.0" prefWidth="405.0" />
-            <Button fx:id="btnmodifierR" layoutX="161.0" layoutY="579.0" mnemonicParsing="false" onAction="#updater" prefHeight="25.0" prefWidth="106.0" text="Modifier" />
+            <Button fx:id="btnmodifierR" layoutX="161.0" layoutY="579.0" mnemonicParsing="false" onAction="#modifierReponse" prefHeight="25.0" prefWidth="106.0" text="Modifier" />
             <Button fx:id="repbtn" layoutX="9.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleSendEmail" prefHeight="25.0" prefWidth="117.0" text="envoyer mail" />
             <Button fx:id="btnsupprimerR" layoutX="317.0" layoutY="579.0" mnemonicParsing="false" onAction="#deleter" prefHeight="25.0" prefWidth="94.0" text="Supprimer" />
          </children>
