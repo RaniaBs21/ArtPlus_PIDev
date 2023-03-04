@@ -10,6 +10,8 @@ package artplus.entities;
  * @author nour
  */
 public class Reponse_User {
+
+   
     int id;
     int id_user;
     int id_quest;

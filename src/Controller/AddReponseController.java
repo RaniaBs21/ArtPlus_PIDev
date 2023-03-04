@@ -6,8 +6,8 @@
 package Controller;
 
 import artplus.entities.Question;
-import artplus.entities.Reponse;
-import artplus.services.Reponse_QuizCRUD;
+import artplus.entities.Quiz;
+import artplus.services.QuizCRUD;
 import artplus.utils.MyConnection;
 import java.io.IOException;
 
@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -30,7 +31,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -43,10 +46,13 @@ import javafx.stage.Stage;
  * @author nour
  */
 public class AddReponseController implements Initializable {
+    Quiz quiz =new Quiz();
 
     PreparedStatement st;
     ResultSet result;
     Connection cnx;
+    int Myindex;
+    int id_quiz;
 
     @FXML
     private TextField option1;
@@ -62,21 +68,20 @@ public class AddReponseController implements Initializable {
     private Button addNextQuestion;
     @FXML
 
-    private TableView<Reponse> tabView;
+    private TableView<Quiz> tabView;
     @FXML
-    private TableColumn<Reponse, String> id_question;
+    private TableColumn<Quiz, String> id_question;
     @FXML
-    private TableColumn<Reponse, String> id_option1;
+    private TableColumn<Quiz, String> id_option1;
     @FXML
-    private TableColumn<Reponse, String> id_option2;
+    private TableColumn<Quiz, String> id_option2;
     @FXML
-    private TableColumn<Reponse, String> id_option3;
+    private TableColumn<Quiz, String> id_option3;
     @FXML
-    private TableColumn<Reponse, String> id_option4;
-    private TableColumn<Reponse, Integer> id_repCl;
+    private TableColumn<Quiz, String> id_option4;
+
     @FXML
-    private TableColumn<Reponse, String> reponse_correctetxt;
-    private TableColumn<Reponse, String> id_quiz;
+    private TableColumn<Quiz, String> reponse_correctetxt;
 
     @FXML
     private Button btnupdate;
@@ -91,11 +96,13 @@ public class AddReponseController implements Initializable {
     private TextField txt_quiz;
 
     Question q = new Question();
-    Reponse r = new Reponse();
+    Quiz r = new Quiz();
 
     private int id_rep;
     @FXML
     private TableColumn<?, ?> titre;
+    @FXML
+    private TextField id_quizs;
 
     /**
      * Initializes the controller class.
@@ -106,49 +113,78 @@ public class AddReponseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cnx = MyConnection.getInstance().getCnx();
-        afficherReponse();
+        afficherQuiz();
+        QuizShowData();
+     
+       
+        
+
     }
 
-    public ObservableList<Reponse> afficherReponse() {
-        ObservableList<Reponse> data = FXCollections.observableArrayList();
+    public ObservableList<Quiz> afficherQuiz() {
+        ObservableList<Quiz> data = FXCollections.observableArrayList();
 
-        String sql = "select * from reponse_quiz";
+        String sql = "select * from quiz";
         try {
             st = cnx.prepareStatement(sql);
             result = st.executeQuery();
-            Reponse repdata;
+            Quiz repdata;
 
             while (result.next()) {
-                repdata = new Reponse(result.getString("option1"), result.getString("option2"), result.getString("option3"), result.getString("option4"), result.getString("reponse_correcte"));
+                repdata = new Quiz(result.getString("titre"), result.getString("question"), result.getString("option1"), result.getString("option2"), result.getString("option3"), result.getString("option4"), result.getString("reponse_correcte"));
                 data.addAll(repdata);
             }
 
         } catch (SQLException e) {
 
         }
+
+        tabView.setRowFactory(tv -> {
+            TableRow<Quiz> myrow = new TableRow<>();
+            myrow.setOnMouseClicked(event
+                    -> {
+                if (event.getClickCount() == 1 && (!myrow.isEmpty())) {
+
+                    Myindex = tabView.getSelectionModel().getSelectedIndex();
+                    txt_quiz.setText(tabView.getItems().get(Myindex).getTitre());
+                    question.setText(tabView.getItems().get(Myindex).getQuestion());
+                    option1.setText(tabView.getItems().get(Myindex).getOption1());
+                    option2.setText(tabView.getItems().get(Myindex).getOption2());
+                    option3.setText(tabView.getItems().get(Myindex).getOption3());
+                    option4.setText(tabView.getItems().get(Myindex).getOption4());
+                    reponse_correctecase.setText(tabView.getItems().get(Myindex).getReponse_correcte());
+
+                }
+            }
+            );
+            return myrow;
+
+        }
+        );
         return data;
     }
 
-    private ObservableList<Reponse> dataReponse;
+    private ObservableList<Quiz> dataQuiz;
 
-    public void ReponseShowData() {
-        dataReponse = afficherReponse();
-        id_quiz.setCellValueFactory(new PropertyValueFactory<>("id_quiz"));
-        id_question.setCellValueFactory(new PropertyValueFactory<>("id_quest"));
+    public void QuizShowData() {
+        dataQuiz = afficherQuiz();
+        titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        id_question.setCellValueFactory(new PropertyValueFactory<>("question"));
         id_option1.setCellValueFactory(new PropertyValueFactory<>("option1"));
         id_option2.setCellValueFactory(new PropertyValueFactory<>("option2"));
         id_option3.setCellValueFactory(new PropertyValueFactory<>("option3"));
         id_option4.setCellValueFactory(new PropertyValueFactory<>("option4"));
         reponse_correctetxt.setCellValueFactory(new PropertyValueFactory<>("reponse_correcte"));
-        tabView.setItems(dataReponse);
+        tabView.setItems(dataQuiz);
     }
 
     public void reponseSelectedData() {
-        Reponse repdata = tabView.getSelectionModel().getSelectedItem();
+        Quiz repdata = tabView.getSelectionModel().getSelectedItem();
         int num = tabView.getSelectionModel().getSelectedIndex();
         if ((num - 1) < -1) {
             return;
         }
+        txt_quiz.setText(String.valueOf(repdata.getTitre()));
         question.setText(String.valueOf(repdata.getQuestion()));
         option1.setText(String.valueOf(repdata.getOption1()));
         option2.setText(String.valueOf(repdata.getOption2()));
@@ -160,7 +196,7 @@ public class AddReponseController implements Initializable {
 
     @FXML
     private void addNextQuestion(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/AddReponseFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/AddQuizFXML.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -170,45 +206,69 @@ public class AddReponseController implements Initializable {
 
     @FXML
 
-    private void update(ActionEvent event) {
-        Reponse reponse = tabView.getSelectionModel().getSelectedItem();
-        if (reponse != null) {
-            String titre = id_quiz.getText();
-           
-            String option1 = id_option1.getText();
-            String option2 = id_option2.getText();
-            String option3 = id_option3.getText();
-            String option4 = id_option4.getText();
-            String questions = question.getText();
-            String reponse_correcte = reponse_correctecase.getText();
-
-            String reqModif = "UPDATE reponse_quiz SET id_quiz = '" + r.getQuiz().getId_quiz() + "', id_quest = '" + r.getQuestion().getId_quest() + "', option1 = '" + r.getOption1() + "', option2 = '" + r.getOption2() + "', option3 = '" + r.getOption3() + "', option4 = '" + r.getOption4() + "', reponse_correcte = '" + r.getReponse_correcte() + "' WHERE reponse_quiz.`id_rep` = " + r.getId_rep();
-            try {
-
-                st.executeUpdate(reqModif);
-                System.out.println("participation updated !");
-
-                question.setText("");
+   private void update(ActionEvent event) {
+       
+   try {
+       
+        if (titre.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error message");
+            alert.setContentText("Veuillez entrer tous les champs");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setContentText("Voulez-vous confirmer la modification : " + titre.getText() + "?");
+            Optional<ButtonType> option = alert.showAndWait();
+            
+            if (option.get().equals(ButtonType.OK)) {
                 
-                id_option1.setText("");
-                id_option2.setText("");
-                id_option3.setText("");
-                id_option4.setText("");
-                reponse_correctecase.setText("");
-
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Reponse Modifié avec succées", javafx.scene.control.ButtonType.OK);
+                  
+                String reqModif = "UPDATE quiz SET titre=?, question=?, option1=?, option2=?, option3=?, option4=?, reponse_correcte=? WHERE id_quiz = ?";
+                st = cnx.prepareStatement(reqModif);
+               
+                st.setString(1, titre.getText());
+                st.setString(2, id_question.getText());
+                st.setString(3, id_option1.getText());
+                st.setString(4, id_option2.getText());
+                st.setString(5, id_option3.getText());
+                st.setString(6, id_option4.getText());
+                st.setString(7, reponse_correctetxt.getText());
+                st.setInt(8, id_quiz);
+               
+                 st.executeUpdate();
+                
+                QuizShowData();
+                Quizclearbtn();
+                
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("");
+                alert.setContentText(null);
+                alert.setContentText("Quiz modifié");
                 alert.showAndWait();
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
+
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error message");
+                alert.setContentText(null);
+                alert.setContentText("Annulé");
+                alert.showAndWait();
             }
         }
+            
+
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+
     }
+}
+
 
     @FXML
-    private void ajouter(ActionEvent event) throws SQLException {
-        Connection cnx2;
-        String insertdata = "INSERT into reponse_quiz(id_quiz,option1,option2,option3,option4,reponse_correcte,id_quest)VALUES(?,?,?,?,?,?,?);";
-        cnx2 = MyConnection.getInstance().getCnx();
+    private void ajouter(ActionEvent event) {
+
+        String insertdata = "INSERT into quiz (titre,question,option1,option2,option3,option4,reponse_correcte)VALUES(?,?,?,?,?,?,?);";
+        cnx = MyConnection.getInstance().getCnx();
         try {
             if (txt_quiz.getText().isEmpty() || question.getText().isEmpty() || option1.getText().isEmpty() || option2.getText().isEmpty() || option3.getText().isEmpty() || option4.getText().isEmpty() || reponse_correctecase.getText().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -217,7 +277,7 @@ public class AddReponseController implements Initializable {
                 alert.showAndWait();
             } else {
                 String checkData = "select titre from quiz where titre = " + txt_quiz.getText();
-                PreparedStatement ps = cnx2.prepareStatement(checkData);
+                PreparedStatement ps = cnx.prepareStatement(checkData);
                 if (result.next()) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error message");
@@ -234,78 +294,71 @@ public class AddReponseController implements Initializable {
                     st.setString(6, option4.getText());
                     st.setString(7, reponse_correctecase.getText());
                     st.executeUpdate();
-                    ReponseShowData();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Confirmation");
+                    alert.setContentText("Quiz Ajouté avec suucées");
+                    alert.showAndWait();
+                    QuizShowData();
+                    Quizclearbtn();
                 }
             }
 
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
         }
 
     }
 
     @FXML
-    private void tabEvent(MouseEvent event) {
-
-        Reponse reponse = tabView.getSelectionModel().getSelectedItem();
-        String sql = "SELECT id_quiz, id_quest, option1, option2, option3, option4, reponse_correcte\n"
-                + "FROM reponse_quiz\n"
-                + "WHERE id_quiz = '\" + r.getQuiz().getId_quiz() + \"'\n"
-                + "AND id_quest = '\" + r.getQuestion().getId_quest() + \"'\n"
-                + "AND option1 = '\" + r.getOption1()+ \"'\n"
-                + "AND option2 = '\" + r.getOption2()+  \"'\n"
-                + "AND option3 = '\" + r.getOption3()+ \"'\n"
-                + "AND option4 = '\" + r.getOption4()+ \"'\n"
-                + "AND reponse_correcte = '\" + r.getReponse_correcte()+\"'\n"
-                + "AND id_rep = \" + r.getId_rep();";
+   private void delete(ActionEvent event) {
+  
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("");
+    alert.setContentText("Voulez-vous vraiment supprimer cette ligne ?");
+    Optional<ButtonType> option = alert.showAndWait();
+    
+    if (option.get().equals(ButtonType.OK)) {
+        // Obtenir l'objet Quiz correspondant à la ligne sélectionnée
+       Quiz repdata = tabView.getSelectionModel().getSelectedItem();
+        
         try {
-            st = cnx.prepareStatement(sql);
-            result = st.executeQuery();
-            while (result.next()) {
-                id_option1.setText(result.getString("option1"));
-                id_option1.setText(result.getString("option1"));
-                id_option2.setText(result.getString("option2"));
-                id_option3.setText(result.getString("option3"));
-                id_option4.setText(result.getString("option4"));
-                question.setText(result.getString("question"));
-                reponse_correctecase.setText(String.valueOf("reponse_correcte"));
-                id_option1.setText(result.getString("option1"));
-
-            }
-        } catch (SQLException e) {
+            // Construire la requête SQL DELETE correspondante
+            String reqDelete = "DELETE FROM quiz WHERE id_quiz = ?";
+            st = cnx.prepareStatement(reqDelete);
+            st.setInt(1, repdata.getId_quiz());
+           
+            st.executeUpdate();
+            tabView.getItems().remove(quiz);
+            // Afficher un message de confirmation
+            Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+            alert2.setTitle("Message");
+            alert2.setContentText("La ligne a été supprimée avec succès");
+            alert2.showAndWait();
+            
+            // Mettre à jour l'affichage de la table
+            
+            tabView.refresh();
+            QuizShowData();
+             
         }
-
-        try {
-            String sq12 = "select id_quiz,id_quest,option1,option2,option3,option4,  from reponse_question, quiz, question_quiz where reponse_quiz.quiz.=quiz.id_quiz where reponse_quiz.question_quiz=question_quiz.id_questegion type where id_rep='" + id_repCl.getText() + ":";
-            st = cnx.prepareStatement(sq12);
-            st.setInt(1, reponse.getId_quiz());
-            st.setInt(2, reponse.getId_quest());
-            result = st.executeQuery();
-            while (result.next()) {
-                int id_rep = result.getInt("Question");
-                result = st.executeQuery();
-                id_option1.setText(result.getString("option1"));
-                id_option2.setText(result.getString("option1"));
-                id_option3.setText(result.getString("option1"));
-                id_option4.setText(result.getString("option1"));
-                question.setText(result.getString("question"));
-                reponse_correctecase.setText(result.getString("reponse"));
-
-            }
-        } catch (SQLException e) {
-        }
-    }
-
-    @FXML
-    private void delete(ActionEvent event) {
-
-        try {
-            String req = "DELETE FROM reponse_quiz WHERE id_rep = " + id_rep;
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
-            System.out.println("Reponse supprimé avec succès!");
-        } catch (SQLException ex) {
+        
+        
+        catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+}
+
+        
+    
+
+    public void Quizclearbtn() {
+        txt_quiz.setText("");
+        question.setText("");
+        option1.setText("");
+        option2.setText("");
+        option3.setText("");
+        option4.setText("");
+        reponse_correctecase.setText("");
+
     }
 }

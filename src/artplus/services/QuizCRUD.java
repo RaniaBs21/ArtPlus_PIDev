@@ -26,7 +26,7 @@ public class QuizCRUD {
         cnx = MyConnection.getInstance().getCnx();
         try {
 
-            String requete1 = "INSERT INTO quiz  (titre) VALUES ('" + q.getTitre() + "'); ";
+            String requete1 = "INSERT INTO quiz  (titre,option1,option2,option3,option4,question,reponse_corrcte) VALUES ('" + q.getTitre() + "','" + q.getOption1()+ "','" + q.getOption2()+ "','" + q.getOption3()+ "','" + q.getOption4()+ "','" + q.getQuestion()+ "','" + q.getReponse_correcte()+ "'); ";
             Statement st = cnx.createStatement();
 
             st.executeUpdate(requete1);
@@ -46,13 +46,19 @@ public class QuizCRUD {
         cnx = MyConnection.getInstance().getCnx();
         try {
 
-            String requete7 = " update quiz set titre = ? WHERE id_quest =?; " ;
+            String requete7 = " update quiz set titre,option1,option2,option3,option4,question,reponse_correcte = ? WHERE id_quest =?; " ;
 
             PreparedStatement preparedStmt =cnx.prepareStatement(requete7);
 
 
             preparedStmt.setString(1, q.getTitre());
             preparedStmt.setInt(2, q.getId_quiz());
+            preparedStmt.setString(3, q.getOption1());
+            preparedStmt.setString(4, q.getOption2());
+            preparedStmt.setString(5, q.getOption3());
+            preparedStmt.setString(6, q.getOption4());
+            preparedStmt.setString(7, q.getQuestion());
+            preparedStmt.setString(8, q.getReponse_correcte());
             preparedStmt.execute();
 
             {
@@ -93,6 +99,13 @@ public class QuizCRUD {
                 Quiz quiz = new Quiz();
                 quiz.setId_quiz(rs.getInt(1));
                 quiz.setTitre(rs.getString(2));
+                quiz.setOption1(rs.getString(3));
+                quiz.setOption2(rs.getString(4));
+                quiz.setOption3(rs.getString(5));
+                quiz.setOption4(rs.getString(6));
+                quiz.setQuestion(rs.getString(7));
+                quiz.setReponse_correcte(rs.getString(7));
+                
                 
 
                 listQuiz.add(quiz);

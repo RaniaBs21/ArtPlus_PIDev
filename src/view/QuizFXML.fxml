@@ -83,6 +83,11 @@
                <Image url="@../Values/splash.png" />
             </image>
          </ImageView>
+         <Label fx:id="timerLabel" layoutX="483.0" layoutY="358.0" prefHeight="36.0" prefWidth="128.0" textFill="#f50101">
+            <font>
+               <Font name="System Bold" size="17.0" />
+            </font>
+         </Label>
    </children>
 </AnchorPane>
    <CubicCurve controlX1="-19.0" controlX2="250.0" controlY1="-126.0" controlY2="39.0" endX="150.0" fill="#d7b9f8" layoutX="163.0" layoutY="582.0" startX="-154.0" startY="19.0" stroke="#9695e1" />

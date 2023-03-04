@@ -1,5 +1,14 @@
-package Controlleur;
+package Controller;
 
+import artplus.entities.Points;
+import artplus.entities.Reponse_User;
+import artplus.services.PointsCrud;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -9,62 +18,51 @@ import javafx.scene.control.Label;
 
 public class ResultFXMLController {
 
-@FXML
-private Label remark;
-@FXML
-private Label marks;
-private Label markstext;
-@FXML
-private Label correcttext;
-private Label wrongtext;
 
-// Ajouter une variable pour stocker le score
-private int score;
     @FXML
-    private Button playagain;
+    public Label remark, marks, markstext, correcttext, wrongtext;
+
     @FXML
-    private Button retourhome;
+    public ProgressIndicator correct_progress, wrong_progress;
 
+    int correct;
+    int wrong;
 
-public void initialize(URL url, ResourceBundle rb) {
-    
-}
+    @FXML
+    private void initialize() {
+        correct = QuizController.correct;
+        wrong = QuizController.wrong;
+        
 
-public void displayScore(int totalQuestions, int correctAnswers) {
-    // Calculer le score en pourcentage
-    score = (int) ((correctAnswers / (double) totalQuestions) * 100.0);
+        correcttext.setText("Correct Answers : " + correct);
+        wrongtext.setText("Incorrect Answers : " + String.valueOf(QuizController.wrong));
 
-    // Afficher le score
-    marks.setText(Integer.toString(score));
-    markstext.setText("Score");
+        marks.setText(correct + "/10");
+        float correctf = (float) correct/10;
+        correct_progress.setProgress(correctf);
 
-    // Afficher le texte en fonction du score
-    if (score >= 80) {
-        remark.setText("Excellent travail!");
-    } else if (score >= 60) {
-        remark.setText("Bon travail!");
-    } else {
-        remark.setText("Peut mieux faire.");
+        float wrongf = (float) wrong/10;
+        wrong_progress.setProgress(wrongf);
+
+    PointsCrud p=new PointsCrud();
+        Points pt=new Points();
+        p.enregistrerPointsUtilisateur(pt);
+        markstext.setText(correct + " Marks Scored");
+
+        if (correct<2) {
+            remark.setText("Oh no..! You have failed the quiz. It seems that you need to improve your general knowledge. Practice daily! Check your results here.");
+        } else if (correct>=2 && correct<5) {
+            remark.setText("Oops..! You have scored less marks. It seems like you need to improve your general knowledge. Check your results here.");
+        } else if (correct>=5 && correct<=7) {
+            remark.setText("Good. A bit more improvement might help you to get better results. Practice is the key to success. Check your results here.");
+        } else if (correct==8 || correct==9) {
+            remark.setText("Congratulations! Its your hardwork and determination which helped you to score good marks. Check you results here.");
+        } else if (correct==10) {
+            remark.setText("Congratulations! You have passed the quiz with full marks because of your hardwork and dedication towards studies. Keep it up! Check your results here.");
+        }
+      
+        
+
     }
-    
-    correcttext.setText("Correctes : " + correctAnswers);
-    wrongtext.setText("Incorrectes : " + (totalQuestions - correctAnswers));
+  
 }
-
-/**
- * Récupère le score du quiz.
- * @return le score du quiz
- */
-public int getScore() {
-    return score;
-}
-
-    @FXML
-    private void PlayAgain(ActionEvent event) {
-    }
-
-    @FXML
-    private void RetourHome(ActionEvent event) {
-    }
-}
-
