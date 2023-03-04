@@ -3,24 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/utils/MyConnection.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/gestiontopic.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/AjoutPost.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/GestioncommentairebackController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/gestioncommentaireback.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/GestionpostController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/GestioncommentaireController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/GestionsujetbackController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Test/JAVAFXMain.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/artplus/tests/ArtPlus.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/GestiontopicController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/gestiontopicback.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/gestionsujetback.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/gestionpost.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Controllers/GestiontopicbackController.java</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/Commentaire.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/gestioncommentaire.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/GitHub/ArtPlus_PIDev/src/Views/FillActualite.fxml</file>
+            <file>file:/D:/GitHub/ArtPlus_PIDev/src/artplus/services/ServiceCommentaireIMP.java</file>
         </group>
     </open-files>
 </project-private>
