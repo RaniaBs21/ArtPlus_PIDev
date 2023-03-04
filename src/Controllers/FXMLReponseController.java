@@ -67,6 +67,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.JOptionPane;
 import mail.emailreclamation;
@@ -265,20 +266,23 @@ else
         tablereponse.setItems(FXCollections.observableList(rep));
     }
     
-@FXML
-private void handleSendEmailButtonAction(ActionEvent event) {
-    emailreponse email = new emailreponse();
-    email.envoyerreponse();
-    // display a message to the user indicating that the email has been sent
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle("Reponse");
-    alert.setHeaderText(null);
-    alert.setContentText("Le reponse a été envoyé au client avec succés!");
-    alert.showAndWait();
+    @FXML
+    private void handleSendEmail(ActionEvent event) {
+    String description = txtDescription_Rep_Ass.getText();
+    String type = txtType_Rep_Ass.getText();
+    String question = txtQue_Rep_Ass.getText();
+        emailreponse email = new emailreponse();
+        email.envoyerreponse(description,type,question);
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Reponse envoyé");
+        alert.setHeaderText(null);
+        alert.setContentText("Le reponse a été envoyé avec succés");
+        alert.showAndWait();
+    }
+    
 }
     
-    
 
-    }
+    
     
 
