@@ -9,6 +9,7 @@ import artplus.entities.Cours;
 import artplus.entities.KeyValuePair;
 import artplus.entities.Sous_categorie;
 import artplus.services.CoursServices;
+import artplus.services.LevelServices;
 import artplus.services.Sous_categorieServices;
 import artplus.utils.MyConnection;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -51,6 +52,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
@@ -58,6 +60,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.converter.FloatStringConverter;
 
 /**
  * FXML Controller class
@@ -88,11 +91,6 @@ public class AjoutCoursController implements Initializable {
 
     String selectedFilePath;
     
-    private TextField Titre_c;
-    private TextField Description_c;
-    private TextField Sous_categorie;
-    private TextField Niveau_c;
-    private TextField Fichier_c;
     @FXML
     private TableView<Cours> tablecours;
     @FXML
@@ -114,7 +112,6 @@ public class AjoutCoursController implements Initializable {
     private TextField title;
     @FXML
     private ChoiceBox<KeyValuePair> sccours;
-    @FXML
     private TextField levelc;
     @FXML
     private TextField fichierc;
@@ -135,9 +132,13 @@ public class AjoutCoursController implements Initializable {
      ObservableList<Cours> obsreservationlist=FXCollections.observableArrayList(); 
      List<KeyValuePair> sc_list = new ArrayList<>();
      private BooleanProperty form_valid= new SimpleBooleanProperty(true);
-     private boolean titre_check,description_check,level_check,ficher_check,sc_check=false; 
+     private boolean titre_check,description_check,ficher_check,sc_check,level_check=false; 
      private boolean addMode=true;
      private int id_cours_update ;
+    @FXML
+    private TextField prix_field;
+    @FXML
+    private ChoiceBox<KeyValuePair> level_field;
     
     
      
@@ -150,26 +151,10 @@ public class AjoutCoursController implements Initializable {
         get_cours();
         loadData();
         get_sous_categories();
+        get_levels(); 
         fichierc.setDisable(true);
-        levelc.addEventFilter(KeyEvent.KEY_TYPED, event -> {
-            if (!isPositiveInteger(event.getCharacter())) {
-                event.consume(); // Prevent non-positive integer characters from being entered
-            }
-        });
-        levelc.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.length() < 1) {
-                levelc.setStyle("-fx-border-color: red");
-                level_check=false; 
-            } else {
-                levelc.setStyle(null); // reset border color if length is greater than or equal to minLength
-                level_check=true;
-            }
-            if (newValue.length() > 0 && newValue.charAt(0) == ' ') {
-                levelc.setText(newValue.trim());
-            }
-            form_valid.set(!check_form());
-            System.out.println("form valid :" +form_valid);
-        });
+        format_price_field_to_positive_float(prix_field);
+        
         title.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.length() < 5) {
                 title.setStyle("-fx-border-color: red");
@@ -236,7 +221,7 @@ public class AjoutCoursController implements Initializable {
                     byte[] imageBytes = new byte[inputStream.available()];
                     inputStream.read(imageBytes);
                     inputStream.close();
-                    c1 = new Cours(title.getText(), new Sous_categorieServices().get_sous_categorie_by_id(sccours.getValue().getKey()), Integer.parseInt(levelc.getText()), imageBytes, desc.getText());
+                    c1 = new Cours(title.getText(), new Sous_categorieServices().get_sous_categorie_by_id(sccours.getValue().getKey()), Integer.parseInt(level_field.getValue().getValue()), imageBytes, desc.getText());
                     pd.ajouterCours2(c1);
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
@@ -248,7 +233,8 @@ public class AjoutCoursController implements Initializable {
                 }
             }else{ 
                 try {
-                    c1 = new Cours(id_cours_update,title.getText(), new Sous_categorieServices().get_sous_categorie_by_id(sccours.getValue().getKey()), Integer.parseInt(levelc.getText()), selectedFile_update, desc.getText());
+                    c1 = new Cours(id_cours_update,title.getText(), new Sous_categorieServices().get_sous_categorie_by_id(sccours.getValue().getKey()), Integer.parseInt(level_field.getValue().getValue()),
+                                   selectedFile_update, desc.getText(),Float.parseFloat(prix_field.getText()));
                     System.out.println("sc data  "+sccours.getValue().getKey() +" "+sccours.getValue().getValue() +" cours id "+c1.getId_c());
                     pd.modifierCours(c1);
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -300,7 +286,6 @@ public class AjoutCoursController implements Initializable {
         obsreservationlist.clear();
         tablecours.getItems().clear();
         cours_services.afficherCours().forEach((cours)->{
-            System.out.println("cours "+ cours);
             obsreservationlist.add(cours);
         });
     }
@@ -311,7 +296,14 @@ public class AjoutCoursController implements Initializable {
             
         }); 
         sccours.getItems().addAll(sc_list); 
-        
+    }
+    public void get_levels(){ 
+        level_field.getItems().clear();
+        List<KeyValuePair> lv_list=new ArrayList<>();
+        new LevelServices().afficherLevel().forEach((scat)->{ 
+            lv_list.add(new KeyValuePair(scat.getId_level(),scat.getNom_level())); 
+        }); 
+        level_field.getItems().addAll(lv_list); 
     }
     
      public void loadData(){  
@@ -341,55 +333,8 @@ public class AjoutCoursController implements Initializable {
              Date date= data.getValue().getDate_c();
              ObservableValue<Date> obs=new SimpleObjectProperty<>(date);
              return obs;
-         });     
+         });
         
-        Callback<TableColumn<Cours, String>, TableCell<Cours, String>> cellFoctoryPhoto;
-        cellFoctoryPhoto = (TableColumn<Cours, String> param) -> {
-            // make cell containing buttons
-            final TableCell<Cours, String> cell = new TableCell<Cours, String>() {
-                @Override
-                public void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    
-                    //that cell created only on non-empty rows
-                    if (empty) {
-                        setGraphic(null);
-                        setText(null);
-                    } else {
-                        Cours cours=(Cours) this.getTableRow().getItem();
-                        Button button = new Button();
-                        if(cours!=null){  
-                                button.setText("Voir photo");
-                                //Button fucntions 
-                                button.setOnMouseClicked((event) -> {
-                                   
-                                    try {
-                                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/VoirPhoto.fxml"));
-                                                Parent root = loader.load();
-                                                Scene scene = new Scene(root); 
-                                                Stage stage = new Stage();
-                                                stage.setScene(scene);
-                                                VoirPhotoController voir_photo_controller=loader.getController(); 
-                                                voir_photo_controller.setReclamation(cours);
-                                                voir_photo_controller.setStage(stage);
-                                                voir_photo_controller.setImage_view();
-                                                stage.show();
-                                    } catch (IOException ex) {
-                                           // Logger.getLogger(AjouterRéservationChambreController.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
-                                    
-                                });
-                                HBox managebtn = new HBox(button);
-                                managebtn.setStyle("-fx-alignment:center");
-                                HBox.setMargin(button,new Insets(2, 2, 0, 0));
-                                setGraphic(managebtn);
-                                
-                            }
-                        }
-                    }
-            };
-            return cell;
-        };
         Callback<TableColumn<Cours, String>, TableCell<Cours, String>> cellFoctoryAction;
         cellFoctoryAction = (TableColumn<Cours, String> param) -> {
             // make cell containing buttons
@@ -426,7 +371,7 @@ public class AjoutCoursController implements Initializable {
                                         cours_services.supprimerCours(cours.getId_c());
                                         get_cours(); 
                                         loadData();
-                                        
+                                        clear_form();
                                     }
                                 });
                                
@@ -438,7 +383,10 @@ public class AjoutCoursController implements Initializable {
                                         .filter(keyValue -> keyValue.getKey() == cours.getSous_categorie().getId_sc())
                                         .findFirst()
                                         .ifPresent(sccours::setValue);
-                                    levelc.setText(cours.getNiveau_c()+"");
+                                    level_field.getItems().stream()
+                                        .filter(keyValue -> keyValue.getKey() == cours.getSous_categorie().getId_sc())
+                                        .findFirst()
+                                        .ifPresent(level_field::setValue);
                                     desc.setText(cours.getDescription_c());
                                     fichierc.setText("photo");
                                     selectedFile_update=cours.getFichier_c();
@@ -457,6 +405,54 @@ public class AjoutCoursController implements Initializable {
            
             return cell;
         };
+        
+        
+        
+        Callback<TableColumn<Cours, String>, TableCell<Cours, String>> cellFoctoryPhoto;
+        cellFoctoryPhoto = (TableColumn<Cours, String> param) -> {
+            // make cell containing buttons
+            final TableCell<Cours, String> cell = new TableCell<Cours, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    
+                    //that cell created only on non-empty rows
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+                    } else {
+                        Cours cours=(Cours) this.getTableRow().getItem();
+                        Button button = new Button(); 
+                        if(cours!=null){ 
+                                button.setText("Voir photo");
+                                //Button fucntions 
+                                button.setOnMouseClicked((event) -> {
+                                    try {
+                                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/VoirPhoto.fxml"));
+                                                Parent root = loader.load();
+                                                Scene scene = new Scene(root); 
+                                                Stage stage = new Stage();
+                                                stage.setScene(scene);
+                                                VoirPhotoController voir_photo_controller=loader.getController(); 
+                                                voir_photo_controller.setReclamation(cours);
+                                                voir_photo_controller.setStage(stage);
+                                                voir_photo_controller.setImage_view();
+                                                stage.show();
+                                    } catch (IOException ex) {
+                                           // Logger.getLogger(AjouterRéservationChambreController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                });
+                                HBox managebtn = new HBox(button);
+                                managebtn.setStyle("-fx-alignment:center");
+                                HBox.setMargin(button,new Insets(2, 2, 0, 0));
+                                setGraphic(managebtn);
+                        }
+                        }
+                    }
+            };
+            return cell;
+        };
+        
         fichier.setCellFactory(cellFoctoryPhoto);
         editcol.setCellFactory(cellFoctoryAction);
         tablecours.setItems(obsreservationlist);
@@ -481,7 +477,39 @@ public class AjoutCoursController implements Initializable {
          selectedFile=null;
      }
     
-   
+   public void format_price_field_to_positive_float(TextField field){ 
+        FloatStringConverter floatConverter = new FloatStringConverter() {
+            @Override
+            public Float fromString(String value) {
+                // Throw a NumberFormatException if the input string contains non-numeric characters
+                if (value != null && !value.matches("\\d*\\.?\\d+")) {
+                    throw new NumberFormatException("Input string is not a valid float number");
+                }
+                return super.fromString(value);
+            }
+        };
+        
+        // Create a TextFormatter that uses the custom FloatStringConverter and a custom UnaryOperator that filters out negative numbers and enforces a minimum value of 1
+        TextFormatter<Float> positiveFloatTextFormatter = new TextFormatter<>(floatConverter, 1.0f, change -> {
+            if (change.getControlNewText().isEmpty()) {
+                return change;
+            }
+
+            try {
+                float value = Float.parseFloat(change.getControlNewText());
+                if (value >= 1) {
+                    return change;
+                }
+            } catch (NumberFormatException e) {
+                // Allow the change to be rejected by returning the original change
+            }
+
+            return null;
+        });
+
+        // Set the TextFormatter on the TextField
+        field.setTextFormatter(positiveFloatTextFormatter);
+    }
     
     
     
@@ -541,7 +569,6 @@ public class AjoutCoursController implements Initializable {
         } 
         
     }*/
-     
 
     @FXML
     private void vider_button(ActionEvent event) {

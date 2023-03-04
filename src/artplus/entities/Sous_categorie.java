@@ -8,11 +8,12 @@ package artplus.entities;
 public class Sous_categorie {
     private int Id_sc ;
     private String Nom_sc ;
-    private Categorie_cours Id_categorie ;
+    private Categorie_cours categorie ;
 
-    public Sous_categorie(int Id_sc, String Nom_sc) {
+    public Sous_categorie(int Id_sc, String Nom_sc,Categorie_cours categorie) {
         this.Id_sc = Id_sc;
         this.Nom_sc = Nom_sc;
+        this.categorie=categorie;
     }
 
     public Sous_categorie(String Nom_sc) {
@@ -40,10 +41,20 @@ public class Sous_categorie {
     public void setNom_sc(String Nom_sc) {
         this.Nom_sc = Nom_sc;
     }
-    
+
+    public Categorie_cours getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie_cours categorie) {
+        this.categorie = categorie;
+    }
+
     @Override
     public String toString() {
-        return "Sous_categorie{" + "Id_sc=" + Id_sc + ", Nom_sc=" + Nom_sc + '}';
+        return "Sous_categorie{" + "Id_sc=" + Id_sc + ", Nom_sc=" + Nom_sc + ", categorie=" + categorie + '}';
     }
+    
+    
     
 }
