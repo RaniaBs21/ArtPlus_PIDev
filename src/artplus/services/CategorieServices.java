@@ -69,7 +69,6 @@ public class CategorieServices implements InterfaceCategorie {
     public List<Categorie_cours> afficherCategorie() {
         List<Categorie_cours> myList = new ArrayList<>();
         try {
-
             String requete3 = "SELECT * FROM categorie_cours";
             Statement ste = cnx.createStatement();
             ResultSet rs = ste.executeQuery(requete3);
@@ -84,6 +83,22 @@ public class CategorieServices implements InterfaceCategorie {
             System.out.println("liste n'est pas affichée");
         }
         return myList;
+
+    }
+    public Categorie_cours get_categorie_by_id(int id) {
+        Categorie_cours cat=new Categorie_cours(); 
+        try {
+            String requete3 = "SELECT * FROM categorie_cours where id_cat = "+id;
+            Statement ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(requete3);
+            while (rs.next()) {
+                cat.setId_cat(rs.getInt(1));
+                cat.setNom_cat(rs.getString("Nom_cat"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("liste n'est pas affichée");
+        }
+        return cat;
 
     }
 

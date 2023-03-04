@@ -79,7 +79,7 @@ public class Sous_categorieServices implements InterfaceSous_categorie {
                 Sous_categorie scat = new Sous_categorie();
                 scat.setId_sc(rs.getInt(1));
                 scat.setNom_sc(rs.getString("Nom_sc"));
-              
+                scat.setCategorie(new CategorieServices().get_categorie_by_id(rs.getInt("id_categorie")));
                 myList.add(scat);   
             } 
         }
@@ -100,6 +100,8 @@ public class Sous_categorieServices implements InterfaceSous_categorie {
             while (rs.next()) { 
                  sous_categorie.setId_sc(rs.getInt(1));
                  sous_categorie.setNom_sc(rs.getString(2));
+                 sous_categorie.setCategorie(new CategorieServices().get_categorie_by_id(rs.getInt(3))); //
+                 
              }           
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
