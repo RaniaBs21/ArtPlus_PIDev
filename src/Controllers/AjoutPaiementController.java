@@ -46,7 +46,7 @@ import javafx.util.Callback;
 /**
  * FXML Controller class
  *
- * @author alaaz
+ * @author Admin
  */
 public class AjoutPaiementController implements Initializable {
     
