@@ -142,12 +142,13 @@ private ObservableList<Reclamation> reclamationList;
         typecolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Type_Rec"));
         descriptioncolomn.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("Description_Rec"));
         affichertable();
-
      reclamationList = FXCollections.observableArrayList(tablereclamation.getItems());
 
     }    
-    
-    
+
+
+
+
     @FXML
 private void searchReclamation(ActionEvent event) {
     // Get the search text and convert it to lowercase
@@ -197,27 +198,7 @@ private void searchReclamation(ActionEvent event) {
         affichertable();
     }
 
-    @FXML
-    private void update(ActionEvent event) {
-            ReclamationCRUD rec = new ReclamationCRUD();
-        if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
-        rec.modifierreclamation(new Reclamation(txtType_Rec.getText(),txtDescription_Rec.getText() ));
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Reclamation");
-            alert.setHeaderText(null);
-            alert.setContentText("Reclamation modifié avec succés!");
-            alert.show();
-    }
-        else
-              {
-           Alert alert = new Alert(Alert.AlertType.INFORMATION);
-           alert.setTitle("erreur");
-           alert.setHeaderText(null);
-           alert.setContentText("champ vide");
-           alert.show();
-              }
-        affichertable();
-    }
+  
     
     @FXML
     private void delete(ActionEvent event) {
@@ -260,9 +241,14 @@ private void searchReclamation(ActionEvent event) {
    
 @FXML
 private void handleSendEmailButtonAction(ActionEvent event) {
+    String description = txtDescription_Rec.getText();
+    String type = txtType_Rec.getText();
+
+    // Create an email object and send the email
     emailreclamation email = new emailreclamation();
-    email.envoyerreclamation();
-    // display a message to the user indicating that the email has been sent
+    email.envoyerreclamation(description, type);
+
+    // Display a message to the user indicating that the email has been sent
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Reclamation");
     alert.setHeaderText(null);
