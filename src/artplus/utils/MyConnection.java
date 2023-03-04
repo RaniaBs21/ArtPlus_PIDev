@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author DELL
+ * @author Admin
  */
 public class MyConnection {
     public String url="jdbc:mysql://localhost:3306/artplus";

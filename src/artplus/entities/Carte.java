@@ -7,7 +7,7 @@ package artplus.entities;
 
 /**
  *
- * @author alaaz
+ * @author Admin
  */
 public class Carte { 
     private String number; 

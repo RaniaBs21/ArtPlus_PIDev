@@ -7,7 +7,7 @@ package artplus.entities;
 
 /**
  *
- * @author alaaz
+ * @author Admin
  */
 public class KeyValuePair {
    private final int key;

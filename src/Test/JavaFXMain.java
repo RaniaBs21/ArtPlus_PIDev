@@ -8,6 +8,7 @@ package Test;
 
 import java.io.IOException;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 //import static javafx.application.Application.launch;
 //import javafx.event.ActionEvent;
 //import javafx.event.EventHandler;
@@ -22,7 +23,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author wiemhjiri
+ * @author Admin
  */
 public class JavaFXMain extends Application {
     
@@ -36,16 +37,13 @@ public class JavaFXMain extends Application {
     public void start(Stage primaryStage) throws IOException {
        this.stage1=new Stage();
       parent=FXMLLoader.load(getClass().getResource("/Views/Accueil.fxml"));
-     //parent=FXMLLoader.load(getClass().getResource("/Views/abonuser.fxml"));
-      //parent=FXMLLoader.load(getClass().getResource("/Views/abonement.fxml"));
-        //parent=FXMLLoader.load(getClass().getResource("/Views/ajoutCours.fxml"));
+    
+      // parent=FXMLLoader.load(getClass().getResource("/Views/ajoutCours.fxml"));
+        
          Scene scene=new Scene(parent);
+        stage1.setResizable(false);
         stage1.setScene(scene);
         stage1.show();
-        
-     
-
-      
     }
 
     public static void main(String[] args) {

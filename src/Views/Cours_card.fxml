@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
-    
-    
+<AnchorPane id="AnchorPane" prefHeight="259.0" prefWidth="267.0" style="-fx-background-color: d5dcfe;" stylesheets="@../Assets/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CoursCardController">
+   <children>
+      <ImageView fx:id="cours_image" fitHeight="184.0" fitWidth="267.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="cous_name_label" layoutX="20.0" layoutY="188.0" prefHeight="17.0" prefWidth="231.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="Impact" size="13.0" />
+         </font></Label>
+      <Button id="confirmer_button" fx:id="decouvrir_button" layoutX="46.0" layoutY="220.0" mnemonicParsing="false" onAction="#discover" prefHeight="23.0" prefWidth="65.0" stylesheets="@../Assets/Styles.css" text="Découvrir" />
+      <Button id="details_button" fx:id="subscribe_button" layoutX="145.0" layoutY="219.0" mnemonicParsing="false" onAction="#subscribe" prefHeight="25.0" prefWidth="76.0" text="S'abonner" />
+   </children>
 </AnchorPane>

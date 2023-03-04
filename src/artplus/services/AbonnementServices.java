@@ -35,31 +35,17 @@ public class AbonnementServices implements InterfaceAbonement {
         return instance;
     }
 
-    public void ajouterAbonement() {
-        try {
-            String requete = "INSERT INTO abonnement(level,cours,prix_abon,date_abon)"
-                    + "VALUES ('level 1','theatre',800,'2023-02-16')";
 
-            Statement ste = cnx.createStatement();
-            ste.executeUpdate(requete);
-            System.out.println("Abonnement ajouté avec succès ");
-        } catch (SQLException ex) {
-            System.err.println("Abonnement  n'est pas ajouté ");
-
-        }
-    }
-
-    public void ajouterAbonment2(Abonement ab) {
+    public void ajoutAbonement(Abonement ab) {
         try {
 
-            String requete2 = "INSERT INTO abonnement(level,cours,prix_abon,date_abon)"
+            String requete2 = "INSERT INTO abonnement(date_abon,id_cours,id_transaction,user)"
                     + " VALUES (?,?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
-            pst.setString(1, ab.getLevel());
-            pst.setString(2, ab.getCours());
-            pst.setInt(3, ab.getPrix_abon());
-            pst.setDate(4, java.sql.Date.valueOf(java.time.LocalDate.now()));
-
+            pst.setDate(1, java.sql.Date.valueOf(java.time.LocalDate.now()));
+            pst.setInt(2, ab.getCours().getId_c());
+            pst.setInt(3, ab.getTransaction().getId());
+            pst.setString(4, ab.getUser());
             pst.executeUpdate();
             System.out.println(" Abonnement  est ajoutée");
 
@@ -78,11 +64,10 @@ public class AbonnementServices implements InterfaceAbonement {
             while (rs.next()) {
                 Abonement ab = new Abonement();
                 ab.setId_abon(rs.getInt(1));
-                ab.setLevel(rs.getString("level"));
-
-                ab.setCours(rs.getString("cours"));
-                ab.setPrix_abon(rs.getInt("prix_abon"));
-                ab.setDate_abon(rs.getDate(5));
+                ab.setDate_abon(rs.getDate(2));
+                ab.setCours(new CoursServices().get_cours_by_id(rs.getInt(3)));
+                ab.setTransaction(new ServiceTransactionIMP().get_transaction_by_id(rs.getInt(4)));
+                ab.setUser(rs.getString(5));
                 myList.add(ab);
             }
         } catch (SQLException ex) {
@@ -110,21 +95,22 @@ public class AbonnementServices implements InterfaceAbonement {
         }
     }
 
-    public void modifierAbon(Abonement ab) {
-        try {
-
-            String reqtemp = "UPDATE abonnement SET level = ?, cours = ?, prix_abon=?  WHERE Id_abon =" + ab.getId_abon();
-            PreparedStatement pst = cnx.prepareStatement(reqtemp);
-            pst.setString(1, ab.getLevel());
-            pst.setString(2, ab.getCours());
-            pst.setInt(3, ab.getPrix_abon());
-
-            pst.executeUpdate();
-            System.out.println("abonnement modifié !");
-
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+   
+    @Override
+    public void ajouterAbonment2(Abonement ab) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void modifierAbon(Abonement ab) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void ajouterAbonement() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 
 }

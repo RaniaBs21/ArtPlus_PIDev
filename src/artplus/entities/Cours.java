@@ -18,17 +18,19 @@ public class Cours {
     private int  Niveau_c ;
     private byte[]   Fichier_c ;
    private String   Description_c ;
-    private Date date_c;
+    private Date date_c; 
+    private float prix; 
    // private Sous_categorie Id_sc ;
 
-    public Cours(int Id_c, String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c, Date date_c) {
+    public Cours(int Id_c, String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c, Date date_c,float prix) {
         this.Id_c = Id_c;
         this.Titre_c = Titre_c;
         this.Sous_categorie = Sous_categorie;
         this.Niveau_c = Niveau_c;
         this.Fichier_c = Fichier_c;
         this.Description_c = Description_c;
-        this.date_c = date_c;
+        this.date_c = date_c; 
+        this.prix=prix;
     }
 
     public Cours(String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c, Date date_c) {
@@ -40,21 +42,23 @@ public class Cours {
         this.date_c = date_c;
     }
 
-    public Cours(String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c) {
+    public Cours(String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c,float prix) {
         this.Titre_c = Titre_c;
         this.Sous_categorie = Sous_categorie;
         this.Niveau_c = Niveau_c;
         this.Fichier_c = Fichier_c;
         this.Description_c = Description_c;
+        this.prix=prix;
     }
 
-    public Cours(int Id_c, String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c) {
+    public Cours(int Id_c, String Titre_c, Sous_categorie Sous_categorie, int Niveau_c, byte[] Fichier_c, String Description_c,float prix) {
         this.Id_c = Id_c;
         this.Titre_c = Titre_c;
         this.Sous_categorie = Sous_categorie;
         this.Niveau_c = Niveau_c;
         this.Fichier_c = Fichier_c;
         this.Description_c = Description_c;
+        this.prix=prix;
     }
 
     public Cours() {
@@ -120,16 +124,24 @@ public class Cours {
 
     public void setDate_c(Date date_c) {
         this.date_c = date_c;
+    } 
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
     }
 
     @Override
     public String toString() {
-        return "Cours{" + "Id_c=" + Id_c + ", Titre_c=" + Titre_c + ", Sous_categorie=" + Sous_categorie + ", Niveau_c=" + Niveau_c + ", Fichier_c=" + Fichier_c + ", Description_c=" + Description_c + ", date_c=" + date_c + '}';
+        return "Cours{" + "Id_c=" + Id_c + ", Titre_c=" + Titre_c + ", Sous_categorie=" + Sous_categorie + ", Niveau_c=" + Niveau_c + ", Fichier_c=" + Fichier_c + ", Description_c=" + Description_c + ", date_c=" + date_c + ", prix=" + prix + '}';
     }
 
-    public Object getNom_c() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
+
+   
     
 }
 

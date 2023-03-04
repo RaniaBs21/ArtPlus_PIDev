@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -16,12 +15,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="401.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AccueilController">
+<AnchorPane id="AnchorPane" prefHeight="401.0" prefWidth="811.0" style="-fx-background-color: F8F5E4;" stylesheets="@../Assets/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AccueilController">
     <ListView layoutX="-6.0" prefHeight="48.0" prefWidth="817.0" />
     <Text fill="#0b315b" layoutX="461.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-    <Text cache="true" cacheHint="SCALE_AND_ROTATE" fill="#e1ad2a" fontSmoothingType="LCD" layoutX="297.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La formation est l'escence de tout succès" textAlignment="CENTER" wrappingWidth="253.7236328125">
+    <Text cache="true" cacheHint="SCALE_AND_ROTATE" fill="#e1ad2a" fontSmoothingType="LCD" layoutX="297.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La formation est l'escence de tout succès" textAlignment="CENTER" wrappingWidth="253.7236328125">
         <font>
-            <Font name="Arial Rounded MT Bold" size="18.0" />
+            <Font name="Ink Free" size="18.0" />
         </font>
     </Text>
     <Text fill="#eb9e05" layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
@@ -31,7 +30,7 @@
     </Text>
     <Accordion layoutX="161.0" layoutY="200.0" />
     <Accordion layoutX="127.0" layoutY="192.0" />
-    <Text fill="#464543" layoutX="51.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Une large sélection de cours">
+    <Text fill="#464543" layoutX="28.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Une large sélection de cours">
         <font>
             <Font name="System Bold" size="15.0" />
         </font>
@@ -59,11 +58,10 @@
     <Button fx:id="prod" layoutX="487.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
     <Button fx:id="quiz" layoutX="548.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
     <Button fx:id="ass" layoutX="594.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
-    <ComboBox fx:id="cat_choice" layoutX="654.0" layoutY="58.0" prefWidth="150.0" promptText="Nos categories" />
+    <ComboBox id="confirmer_button" fx:id="cat_choice" layoutX="648.0" layoutY="57.0" prefWidth="150.0" promptText="Nos categories" />
    <Separator layoutX="50.0" layoutY="145.0" prefHeight="0.0" prefWidth="381.0" />
-   <Button fx:id="course_search_button" layoutX="156.0" layoutY="57.0" mnemonicParsing="false" onAction="#search_course" prefHeight="25.0" prefWidth="80.0" text="Rechercher" />
-   <TextField fx:id="course_search_field" layoutX="23.0" layoutY="57.0" prefHeight="25.0" prefWidth="140.0" promptText="Rechercher un cours" />
-   <Label fx:id="textlabel" layoutX="46.0" layoutY="80.0" prefHeight="32.0" prefWidth="162.0" />
+   <Button id="details_button" fx:id="course_search_button" layoutX="160.0" layoutY="57.0" mnemonicParsing="false" onAction="#search_course" prefHeight="25.0" prefWidth="80.0" text="Rechercher" />
+   <TextField fx:id="course_search_field" layoutX="23.0" layoutY="57.0" prefHeight="25.0" prefWidth="139.0" promptText="Rechercher un cours" />
    <ScrollPane fx:id="scroll_pane" layoutX="-1.0" layoutY="148.0" prefHeight="253.0" prefWidth="811.0">
       <content>
          <GridPane fx:id="grid_pane" prefWidth="810.0">

@@ -14,47 +14,20 @@ import java.sql.Date;
 public class Abonement {
 
     private int Id_abon ;
-     //private int Id_user ;
-   // private Level Id_level ;
-    private String level ;
-    private String cours ;
-  //private String formation ;
-    private int prix_abon ;
-    private Date date_abon ;
+    private Date date_abon ; 
+    private Cours cours;
+    private Transaction transaction;
+    private String user;
 
 
-    //private Utilisateur Id_user ;
-    public Abonement(int Id_abon, String level, String cours, int prix_abon, Date date_abon) {
+    public Abonement(int Id_abon, Date date_abon, Cours cours,Transaction transaction,String user) {
         this.Id_abon = Id_abon;
-        this.level = level;
-        this.cours = cours;
-        this.prix_abon = prix_abon;
-        this.date_abon = date_abon;
-    }
-
-    public Abonement(String level, String cours, Date date_abon) {
-        this.level = level;
         this.cours = cours;
         this.date_abon = date_abon;
+        this.transaction=transaction;
+        this.user=user;
     }
 
-    public Abonement(String level, String cours, int prix_abon) {
-        this.level = level;
-        this.cours = cours;
-        this.prix_abon = prix_abon;
-    }
-
-    public Abonement(int Id_abon, String level, String cours, int prix_abon) {
-        this.Id_abon = Id_abon;
-        this.level = level;
-        this.cours = cours;
-        this.prix_abon = prix_abon;
-    }
-
-    public Abonement(String level, String cours) {
-        this.level = level;
-        this.cours = cours;
-    }
 
     public Abonement() {
     }
@@ -67,30 +40,6 @@ public class Abonement {
         this.Id_abon = Id_abon;
     }
 
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public String getCours() {
-        return cours;
-    }
-
-    public void setCours(String cours) {
-        this.cours = cours;
-    }
-
-    public int getPrix_abon() {
-        return prix_abon;
-    }
-
-    public void setPrix_abon(int prix_abon) {
-        this.prix_abon = prix_abon;
-    }
-
     public Date getDate_abon() {
         return date_abon;
     }
@@ -99,9 +48,39 @@ public class Abonement {
         this.date_abon = date_abon;
     }
 
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
+    public Cours getCours() {
+        return cours;
+    }
+
+    public void setCours(Cours cours) {
+        this.cours = cours;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
-        return "Abonement{" + "Id_abon=" + Id_abon + ", level=" + level + ", cours=" + cours + ", prix_abon=" + prix_abon + ", date_abon=" + date_abon + '}';
+        return "Abonement{" + "Id_abon=" + Id_abon + ", date_abon=" + date_abon + ", cours=" + cours + ", transaction=" + transaction + ", user=" + user + '}';
     }
+
+    
+
+    
+
+    
   
 }

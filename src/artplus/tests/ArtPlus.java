@@ -5,45 +5,22 @@
  */
 package artplus.tests;
 
+import artplus.services.CoursServices;
+import artplus.utils.MyConnection;
+
 /**
  *
- * @author DELL
+ * @author Admin
  */
 public class ArtPlus {
     public static void main(String[] args) {
-      //MyConnection mc = MyConnection.getInstance();
+     MyConnection mc = MyConnection.getInstance();
+     CoursServices cs=new CoursServices();
+     System.out.println(""+cs.get_cours_by_categorie(2));
+     
       
-//************* CRUD Post****************** //
-        //PostServices ps = new PostServices();
-        //Post p = new Post("img","img","Img");
-        //ps.ajouterPost();
-        //ps.ajouterPost2(p);
-         /*Post p = new Post(1,"img","img","Img");
-        ps.modifierPost(p);*/
-        //ps.supprimerPost(2);
-        //System.out.println(ps.afficherPost());
-    
-//************* CRUD Commentaire****************** 
-    
-        //CommentaireServices crd = new CommentaireServices();
-        //Commentaire c = new Commentaire("rania");
-        //crd.ajouterCommentaire();
-        //crd.ajouterCommentaire2(c);
-        /* Commentaire c = new Commentaire(1,"commentaire");
-        crd.modifierCommentaire(c);*/
-        //crd.supprimerCom(2);;
-        //System.out.println(crd.afficherCommentaire());
-      
-   
-//************* CRUD jaime ******************      
-        //JaimeServices jrd = new JaimeServices();
-        //Jaime j = new Jaime(5);
-        //jrd.ajouterJaime();
-        //jrd.ajouterJaime2(j);
-         /*Jaime j = new Jaime(1,10);
-        jrd.modifierJaime(j);*/
-        //jrd.supprimerJaime(2);;
-        //System.out.println(jrd.afficherJaime());
+
+        
     }
 }
 

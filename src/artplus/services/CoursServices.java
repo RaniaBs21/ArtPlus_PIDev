@@ -51,8 +51,8 @@ public class CoursServices implements InterfaceCours {
     public void ajouterCours2(Cours c) {
         try {
 
-            String requete2 = "INSERT INTO cours(Titre_c,Sous_categorie,Niveau_c,Fichier_c,Description_c,date_c)"
-                    + " VALUES (?,?,?,?,?,?)";
+            String requete2 = "INSERT INTO cours(Titre_c,Sous_categorie,Niveau_c,Fichier_c,Description_c,date_c,prix)"
+                    + " VALUES (?,?,?,?,?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1, c.getTitre_c()); 
             System.out.println("sous cat id "+c.getSous_categorie().getId_sc());
@@ -61,6 +61,7 @@ public class CoursServices implements InterfaceCours {
             pst.setBytes(4, c.getFichier_c());
             pst.setString(5, c.getDescription_c());
             pst.setDate(6, java.sql.Date.valueOf(java.time.LocalDate.now()));
+            pst.setFloat(7, c.getPrix());
 
             pst.executeUpdate();
             System.out.println(" le cours est ajoutée");
@@ -72,7 +73,7 @@ public class CoursServices implements InterfaceCours {
     }
     
     public void update_cours(Cours cours) {
-            String req = "UPDATE cours SET Titre_c = ? , Sous_categorie = ? , Niveau_c = ? , Fichier_c = ? , Description_c = ? ,  where Id_c = ?";
+            String req = "UPDATE cours SET Titre_c = ? , Sous_categorie = ? , Niveau_c = ? , Fichier_c = ? , Description_c = ?, prix = ? ,  where Id_c = ?";
             PreparedStatement  pst;
             try {
                     pst = cnx.prepareStatement(req); 
@@ -81,7 +82,8 @@ public class CoursServices implements InterfaceCours {
                     pst.setInt(3, cours.getNiveau_c());
                     pst.setBytes(4, cours.getFichier_c());
                     pst.setString(5, cours.getDescription_c());
-                    pst.setInt(6, cours.getId_c());
+                    pst.setFloat(6, cours.getPrix());
+                    pst.setInt(7, cours.getId_c());
                     pst.executeUpdate(); 
                     System.out.println(" cours modifié !");
             } catch (SQLException e) {
@@ -122,6 +124,7 @@ public class CoursServices implements InterfaceCours {
                 c.setFichier_c(rs.getBytes("Fichier_c"));
                 c.setDescription_c(rs.getString("Description_c"));
                 c.setDate_c(rs.getDate(7));
+                c.setPrix(rs.getFloat(8));
                 myList.add(c);
             }
         } catch (SQLException ex) {
@@ -131,6 +134,54 @@ public class CoursServices implements InterfaceCours {
 
     }
 
+    public Cours get_cours_by_id(int id) {
+        Cours c=new Cours();
+        try {
+
+            String requete3 = "SELECT * FROM cours where Id_c = "+id;
+            Statement ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(requete3);
+            while (rs.next()) {
+                c.setId_c(rs.getInt(1));
+                c.setTitre_c(rs.getString("Titre_c"));
+                c.setSous_categorie( new Sous_categorieServices().get_sous_categorie_by_id(rs.getInt("Sous_categorie"))); // obeject search 
+                c.setNiveau_c(rs.getInt("Niveau_c"));
+                c.setFichier_c(rs.getBytes("Fichier_c"));
+                c.setDescription_c(rs.getString("Description_c"));
+                c.setDate_c(rs.getDate(7));
+                c.setPrix(rs.getFloat(8));
+            }
+        } catch (SQLException ex) {
+            System.out.println("liste n'est pas affichée");
+        }
+        return c;
+
+    }
+    
+    public List<Cours> get_cours_by_categorie(int id) {
+        List<Cours> myList = new ArrayList<>();
+        try {
+            String requete3 = "SELECT c.* FROM cours c join sous_categorie sc ON c.Sous_categorie=sc.ID_sc join categorie_cours cc ON sc.id_categorie=cc.Id_cat where cc.Id_cat = "+id;
+            Statement ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(requete3);
+            while (rs.next()) {
+                Cours c = new Cours();
+                c.setId_c(rs.getInt(1));
+                c.setTitre_c(rs.getString("Titre_c"));
+                c.setSous_categorie( new Sous_categorieServices().get_sous_categorie_by_id(rs.getInt("Sous_categorie"))); // obeject search 
+                c.setNiveau_c(rs.getInt("Niveau_c"));
+                c.setFichier_c(rs.getBytes("Fichier_c"));
+                c.setDescription_c(rs.getString("Description_c"));
+                c.setDate_c(rs.getDate(7));
+                c.setPrix(rs.getFloat(8));
+                myList.add(c);
+            }
+        } catch (SQLException ex) {
+            System.out.println("liste n'est pas affichée");
+        }
+        return myList;
+
+    }
     public void supprimerCours(int Id_c) {
         try {
             String req = "DELETE FROM cours WHERE Id_c = " + Id_c;
@@ -142,50 +193,37 @@ public class CoursServices implements InterfaceCours {
         }
     }
     
-    public Cours rechercheCoursbyidt(int id){
-        String req="SELECT * FROM cours WHERE Id_c=?";
-        PreparedStatement ps ;
-        ResultSet rs ;
-        Cours c = null ;
-        try{
-            ps=cnx.prepareStatement(req);
-            ps.setInt(1, id);
-            rs=ps.executeQuery();
-            if(rs.next()){
-                c = new Cours(rs.getInt("Id_c"),rs.getString("Titre_c"),new Sous_categorieServices().get_sous_categorie_by_id(rs.getInt("Sous_categorie")),rs.getInt("Niveau_c"),rs.getBytes("Fichier_c"),rs.getString("Description_c"),rs.getDate("date_c"));
-            } /// obejct sous categorie
+    
+    
+    
+    
+    public List<Cours> rechercheCoursbyNOM(String name ){
+        List<Cours> myList = new ArrayList<>();
+        PreparedStatement  pst;
+        int i=0; 
+        try {
             
+            String req ="select * from cours where Titre_c LIKE('%"+name+"%')";
+            pst = cnx.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) { 
+                Cours c=new Cours();  
+                c.setId_c(rs.getInt(1));
+                c.setTitre_c(rs.getString("Titre_c"));
+                c.setSous_categorie( new Sous_categorieServices().get_sous_categorie_by_id(rs.getInt("Sous_categorie"))); // obeject search 
+                c.setNiveau_c(rs.getInt("Niveau_c"));
+                c.setFichier_c(rs.getBytes("Fichier_c"));
+                c.setDescription_c(rs.getString("Description_c"));
+                c.setDate_c(rs.getDate(7));
+                c.setPrix(rs.getFloat(8));
+                myList.add(c);
+            }           
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
-       catch(SQLException ex) {
-            System.out.println("cours n'est pas trouvé");
-           
-       } 
-        return c ;
+        return myList;
     }
     
-    
-    
-    public Cours rechercheCoursbyNOM(String name ){
-        String req="SELECT * FROM cours WHERE Titre_c=?";
-        PreparedStatement ps ;
-        ResultSet rs ;
-        Cours c = null ;
-        try{
-            ps=cnx.prepareStatement(req);
-            ps.setString(1, name);
-            rs=ps.executeQuery();
-            if(rs.next()){
-                c = new Cours(rs.getInt("Id_c"),rs.getString("Titre_c"),new Sous_categorieServices().get_sous_categorie_by_id(rs.getInt("Sous_categorie")),rs.getInt("Niveau_c"),rs.getBytes("Fichier_c"),rs.getString("Description_c"),rs.getDate("date_c"));
-            }
-            /// obejct sous categorie
-            
-        }
-       catch(SQLException ex) {
-            System.out.println("cours n'est pas trouvé");
-           
-       } 
-        return c ;
-    }
  public List<Cours> afficherNomCours() {
         List<Cours> myList = new ArrayList<>();
         try {

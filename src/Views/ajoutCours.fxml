@@ -13,81 +13,88 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" cache="true" prefHeight="435.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjoutCoursController">
-  <ListView layoutX="-6.0" prefHeight="33.0" prefWidth="870.0" />
-   <Text fill="#eb9e05" layoutX="23.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
-      <font>
-         <Font name="System Bold" size="13.0" />
-      </font>
-   </Text>
+<AnchorPane id="AnchorPane" cache="true" prefHeight="435.0" prefWidth="861.0" style="-fx-background-color: F8F5E4;" stylesheets="@../Assets/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjoutCoursController">
    <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="716.0" layoutY="3.0">
       <image>
          <Image url="@../images/327064585_3412782662295061_2792793093980053014_n-removebg-preview%20(1).png" />
       </image>
    </ImageView>
-   <Text fill="#e1ad2a" layoutX="105.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouveau cours !" wrappingWidth="233.0810546875" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="336.0">
+   <Text fill="#e1ad2a" layoutX="91.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouveau cours !" wrappingWidth="140.0810546875" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="633.0">
       <font>
-         <Font size="18.0" />
+         <Font name="Corbel Bold" size="18.0" />
       </font>
    </Text>
-   <Label layoutX="26.0" layoutY="88.0" text="Titre" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="610.0">
+   <Label layoutX="26.0" layoutY="105.0" prefHeight="17.0" prefWidth="65.0" text="Titre" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="773.0">
       <font>
          <Font name="System Bold" size="12.0" />
       </font>
    </Label>
-   <Label layoutX="23.0" layoutY="124.0" text="Sous categorie" AnchorPane.leftAnchor="23.0">
+   <Label layoutX="23.0" layoutY="141.0" text="Sous categorie" AnchorPane.leftAnchor="23.0">
       <font>
          <Font name="System Bold" size="12.0" />
       </font>
    </Label>
-   <Label layoutX="25.0" layoutY="156.0" text="Niveau" AnchorPane.leftAnchor="25.0">
+   <Label layoutX="25.0" layoutY="173.0" text="Niveau" AnchorPane.leftAnchor="25.0">
       <font>
          <Font name="System Bold" size="12.0" />
       </font>
    </Label>
-   <Label layoutX="32.0" layoutY="237.0" text="Description" AnchorPane.leftAnchor="32.0">
+   <Label layoutX="27.0" layoutY="254.0" text="Description" AnchorPane.leftAnchor="27.0">
       <font>
          <Font name="System Bold" size="12.0" />
       </font>
    </Label>
-   <Label layoutX="26.0" layoutY="192.0" text="Fichier" AnchorPane.leftAnchor="26.0">
+   <Label layoutX="26.0" layoutY="209.0" text="Fichier" AnchorPane.leftAnchor="26.0">
       <font>
          <Font name="System Bold" size="12.0" />
       </font>
    </Label>
-   <TextField fx:id="title" layoutX="114.0" layoutY="84.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.rightAnchor="600.0" />
-   <TextField fx:id="fichierc" layoutX="115.0" layoutY="188.0" prefHeight="17.0" prefWidth="80.0" />
-   <TextField fx:id="desc" layoutX="114.0" layoutY="219.0" prefHeight="53.0" prefWidth="150.0" />
-   <Text fill="#f82710" layoutX="728.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
-      <font>
-         <Font name="System Bold" size="12.0" />
-      </font>
-   </Text>
+   <TextField fx:id="title" layoutX="102.0" layoutY="101.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.rightAnchor="612.0810546875" />
+   <TextField fx:id="fichierc" layoutX="115.0" layoutY="205.0" prefHeight="25.0" prefWidth="71.0" />
+   <TextField fx:id="desc" layoutX="114.0" layoutY="236.0" prefHeight="53.0" prefWidth="150.0" />
    <Text fill="#282727" layoutX="315.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    <Text fill="#282727" layoutX="317.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-   <Button fx:id="evenement11" layoutX="168.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
-   <Button fx:id="evenement1" layoutX="232.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
-   <Button fx:id="evenement" layoutX="328.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
-   <Button fx:id="evenement12" layoutX="408.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
-   <Button fx:id="evenement13" layoutX="463.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
-   <Button fx:id="evenement131" layoutX="540.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
-   <Button fx:id="evenement1311" layoutX="602.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
-   <TextField fx:id="levelc" layoutX="114.0" layoutY="152.0" prefHeight="25.0" prefWidth="150.0" />
-   <Button fx:id="selectFileButton" layoutX="193.0" layoutY="188.0" mnemonicParsing="false" onAction="#selectFile" prefHeight="25.0" prefWidth="71.0" text="Selectionner ficher" />
-   <Button fx:id="deposer" layoutX="185.0" layoutY="281.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Enregistrer" textFill="#3260dd" />
-   <Button cancelButton="true" layoutX="788.0" layoutY="365.0" mnemonicParsing="false" onAction="#afficherCours" prefHeight="27.0" prefWidth="65.0" text="Afficher" textFill="#b57816" />
-   <TableView fx:id="tablecours" layoutX="273.0" layoutY="78.0" prefHeight="287.0" prefWidth="581.0">
+   <Button id="details_button" fx:id="selectFileButton" layoutX="184.0" layoutY="205.0" mnemonicParsing="false" onAction="#selectFile" prefHeight="25.0" prefWidth="80.0" text="Selectionner ficher" />
+   <Button id="details_button" fx:id="deposer" layoutX="185.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Enregistrer" textFill="#3260dd" />
+   <Button id="details_button" cancelButton="true" layoutX="507.0" layoutY="396.0" mnemonicParsing="false" onAction="#afficherCours" prefHeight="27.0" prefWidth="96.0" text="Afficher" textFill="#b57816" />
+   <TableView fx:id="tablecours" layoutX="273.0" layoutY="95.0" prefHeight="287.0" prefWidth="581.0">
      <columns>
-       <TableColumn fx:id="titre" prefWidth="61.0" text="Titre" />
-         <TableColumn fx:id="sous_c" prefWidth="96.0" text="Sous_categorie" />
-         <TableColumn fx:id="niveau" prefWidth="65.0" text="Niveau" />
-         <TableColumn fx:id="fichier" text="photo" />
-         <TableColumn fx:id="description" prefWidth="81.0" text="Description" />
-         <TableColumn fx:id="date" prefWidth="78.0" text="Date" />
-         <TableColumn fx:id="editcol" prefWidth="119.0" text="Action" />
+       <TableColumn fx:id="titre" prefWidth="50.0" text="Titre" />
+         <TableColumn fx:id="sous_c" prefWidth="89.0" text="Sous_categorie" />
+         <TableColumn fx:id="niveau" prefWidth="45.0" text="Niveau" />
+         <TableColumn fx:id="fichier" prefWidth="65.0" text="photo" />
+         <TableColumn fx:id="description" minWidth="4.0" prefWidth="74.0" text="Description" />
+         <TableColumn fx:id="date" prefWidth="55.0" text="Date" />
+         <TableColumn fx:id="prix" minWidth="0.0" prefWidth="72.0" text="Prix" />
+         <TableColumn fx:id="editcol" prefWidth="130.0" text="Action" />
      </columns>
    </TableView>
-   <Label fx:id="labelcours" layoutX="344.0" layoutY="375.0" prefHeight="33.0" prefWidth="262.0" />
-   <ChoiceBox fx:id="sccours" layoutX="114.0" layoutY="120.0" prefWidth="150.0" />
-   <Button fx:id="vider" layoutX="114.0" layoutY="281.0" mnemonicParsing="false" onAction="#vider_button" prefHeight="25.0" prefWidth="65.0" text="Vider" textFill="#3260dd" />   
+   <ChoiceBox fx:id="sccours" layoutX="114.0" layoutY="137.0" prefWidth="150.0" />
+   <Button id="details_button" fx:id="vider" layoutX="114.0" layoutY="338.0" mnemonicParsing="false" onAction="#vider_button" prefHeight="25.0" prefWidth="65.0" text="Vider" textFill="#3260dd" />
+   <Label layoutX="28.0" layoutY="307.0" text="Prix ">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <TextField fx:id="prix_field" layoutX="114.0" layoutY="301.0" prefHeight="25.0" prefWidth="150.0" />
+   <ChoiceBox fx:id="level_field" layoutX="114.0" layoutY="171.0" prefWidth="150.0" />
+   <ListView layoutY="1.0" prefHeight="42.0" prefWidth="864.0" />
+   <Text fill="#eb9e05" layoutX="30.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
+      <font>
+         <Font name="System Bold" size="13.0" />
+      </font>
+   </Text>
+   <Button fx:id="evenement" layoutX="300.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
+   <Button fx:id="fillAct" layoutX="211.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
+   <Button fx:id="btnAcc" layoutX="138.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
+   <Button fx:id="cours" layoutX="384.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
+   <Button fx:id="prod" layoutX="515.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
+   <Button fx:id="quiz" layoutX="576.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
+   <Button fx:id="ass" layoutX="622.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
+   <Text fill="#f82710" layoutX="756.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Text>
+   <Button fx:id="abonnements" layoutX="427.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Abonnements" textFill="#0b315b" />   
 </AnchorPane>

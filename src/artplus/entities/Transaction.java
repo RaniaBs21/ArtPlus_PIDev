@@ -9,7 +9,7 @@ import java.sql.*;
 
 /**
  *
- * @author alaaz
+ * @author Admin
  */
 public class Transaction { 
     private int id; 
