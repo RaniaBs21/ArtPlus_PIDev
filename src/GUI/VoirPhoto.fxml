@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="Controller.VoirPhotoController">
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="Controllers.VoirPhotoController">
    <children>
       <ImageView fx:id="image_view" fitHeight="245.0" fitWidth="349.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
    </children>

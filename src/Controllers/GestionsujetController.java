@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Controllers;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -48,7 +48,7 @@ import javafx.util.Callback;
 import services.ServiceCommentaireIMP;
 import services.ServiceSujetIMP;
 import services.ServiceTopicIMP;
-import Controller.VoirPhotoController;
+import Controllers.VoirPhotoController;
 import services.ServiceImageIMP;
 
 

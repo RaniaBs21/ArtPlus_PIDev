@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Controllers;
 
-import static controller.GestionsujetController.idtopic;
+import static Controllers.GestionsujetController.idtopic;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entities.Commentaire;
@@ -45,7 +45,7 @@ import services.ServiceTopicIMP;
  *
  * @author rania
  */
-public class GestioncommentaireController implements Initializable {
+public class GestioncommentaireController_1 implements Initializable {
     ServiceCommentaireIMP scom=new ServiceCommentaireIMP();
     ServiceSujetIMP ssuj=new ServiceSujetIMP();
     @FXML
@@ -186,7 +186,7 @@ else{
                             try {
                                 loader.load();
                             } catch (IOException ex) {
-                                Logger.getLogger(GestioncommentaireController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(GestioncommentaireController_1.class.getName()).log(Level.SEVERE, null, ex);
                             }
                             
                             UpdatecommentaireController updatecommentaireController = loader.getController();

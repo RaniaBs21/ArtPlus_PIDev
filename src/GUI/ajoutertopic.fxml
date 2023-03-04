@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AjoutertopicController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjoutertopicController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="-2.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="402.0" style="-fx-background-color: #ffd230;" styleClass="btn" stylesheets="@../../../../Downloads/operations-of-table-master/operations-of-table-master/src/tableView/tableview.css">
          <children>

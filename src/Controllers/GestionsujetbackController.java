@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Controllers;
 
-import static controller.GestionsujetController.idtopic;
+import static Controllers.GestionsujetController.idtopic;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entities.Sujet;
@@ -169,7 +169,7 @@ GestiontopicController  gestiontopicController=new GestiontopicController();
                                                 Scene scene = new Scene(root); 
                                                 Stage stage = new Stage();
                                                 stage.setScene(scene);
-                                                Controller.VoirPhotoController voir_photo_controller=loader.getController();
+                                                Controllers.VoirPhotoController voir_photo_controller=loader.getController();
                                                 voir_photo_controller.setSujet(sujet);
                                                 voir_photo_controller.setStage(stage);
                                                 voir_photo_controller.setImage_view();

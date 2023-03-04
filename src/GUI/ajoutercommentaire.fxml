@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="315.0" prefWidth="503.0" style="-fx-background-color: #ffd230;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AjoutercommentaireController">
+<AnchorPane id="AnchorPane" prefHeight="315.0" prefWidth="503.0" style="-fx-background-color: #ffd230;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjoutercommentaireController">
     <stylesheets>
         <URL value="@ajoutercommentaire.css" />
     </stylesheets>
