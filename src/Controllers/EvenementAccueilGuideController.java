@@ -6,6 +6,7 @@
 package Controllers;
 
 import artplus.entities.Evenement;
+import artplus.services.EvenementService;
 import artplus.utils.MyConnection;
 import java.io.ByteArrayInputStream;
 import java.net.URL;
@@ -15,9 +16,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -173,6 +177,7 @@ public class EvenementAccueilGuideController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         afficherEvenements();
+        RechEV();
     }
 
     @FXML
@@ -180,7 +185,64 @@ public class EvenementAccueilGuideController implements Initializable {
     }
 
     @FXML
-    private void RechEV() {
+    private void RechEV() {/*
+        utilisateurs = us.getAll();
+        ObservableList<Utilisateur> listuser = FXCollections.observableArrayList(utilisateurs);
+        FilteredList<Utilisateur> filteredList = new FilteredList<>(listuser);
+        // Configurer le prédicat en fonction de la saisie de l'utilisateur
+        recherche.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(Utilisateur -> {
+                // Si le champ de texte est vide, afficher tous les éléments
+                if (newValue == null || newValue.isEmpty()) {
+                    
+                    return true;
+                }
+                
+                // Vérifier si le texte de recherche correspond à l'un des champs de l'utilisateur
+                String lowerCaseFilter = newValue.toLowerCase();
+                
+                // Correspondance trouvée dans le champ utilisateur
+                
+                
+                if (Utilisateur.getNom().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; 
+                } else if (Utilisateur.getPrenom().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; 
+                }
+                return false; // Pas de correspondance trouvée
+            });
+        });*/
+       
+        EvenementService evS= new EvenementService();
+        List<Evenement> evenements = new ArrayList<>();
+        evenements = evS.afficherEvenements();
+        ObservableList<Evenement> listEv = FXCollections.observableArrayList(evenements);
+        FilteredList<Evenement> filteredList = new FilteredList<>(listEv);
+        // Configurer le prédicat en fonction de la saisie de l'utilisateur
+        rechercher.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(Evenement -> {
+                // Si le champ de texte est vide, afficher tous les éléments
+                if (newValue == null || newValue.isEmpty()) {
+                    
+                    return true;
+                }
+                
+                // Vérifier si le texte de recherche correspond à l'un des champs de l'evenement
+                String lowerCaseFilter = newValue.toLowerCase();
+                
+                // Correspondance trouvée dans le champ evenement
+                
+                
+                if (Evenement.getTitre_ev().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; 
+                } else if (Evenement.getCategorie().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; 
+                }
+                return false; // Pas de correspondance trouvée
+            });
+        });
+               
+            
     }
 
 }

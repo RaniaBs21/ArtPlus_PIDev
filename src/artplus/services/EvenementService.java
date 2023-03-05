@@ -15,6 +15,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -72,6 +74,7 @@ public class EvenementService implements InterfaceEvenement<Evenement> {
             System.out.println(ex.getMessage());
         }
         return listEvenement;
+
     }
 
     @Override
@@ -116,7 +119,6 @@ public class EvenementService implements InterfaceEvenement<Evenement> {
                 ev.setNbre_place(rs.getInt("nbre_places"));
                 GuideService gS = new GuideService();
                 gS.findOneById(rs.getInt("id_g")).getId_guide();
-                
 
             }
         } catch (SQLException ex) {
@@ -124,16 +126,17 @@ public class EvenementService implements InterfaceEvenement<Evenement> {
         }
         return ev;
     }
-    public Evenement searchEvenementbyCategorie(String cat ){
-        String req="SELECT * FROM evenement WHERE categorie_ev=?";
-        PreparedStatement ps ;
-        ResultSet rs ;
-        Evenement e = null ;
-        try{
-            ps=cnx.prepareStatement(req);
-            ps.setString(1, cat );
-            rs=ps.executeQuery();
-            if(rs.next()){
+
+    public Evenement searchEvenementbyCategorie(String cat) {
+        String req = "SELECT * FROM evenement WHERE categorie_ev=?";
+        PreparedStatement ps;
+        ResultSet rs;
+        Evenement e = null;
+        try {
+            ps = cnx.prepareStatement(req);
+            ps.setString(1, cat);
+            rs = ps.executeQuery();
+            if (rs.next()) {
                 e = new Evenement();
                 e.setId_ev(rs.getInt(1));
                 e.setTitre_ev(rs.getString("titre_ev"));
@@ -141,15 +144,40 @@ public class EvenementService implements InterfaceEvenement<Evenement> {
                 e.setImage_ev(rs.getString("image_ev"));
                 e.setAdresse_ev(rs.getString("adresse_ev"));
                 e.setDateTime_ev(rs.getTimestamp("date_ev"));
-                e.setNbre_place(rs.getInt("nbre_places"));                        
+                e.setNbre_place(rs.getInt("nbre_places"));
             }
-            
-        }
-       catch(SQLException ex) {
+
+        } catch (SQLException ex) {
             System.out.println("Evenement n'est pas trouvé");
-           
-       } 
-        return e ;
+
+        }
+        return e;
+    }
+
+    @Override
+    public List<Evenement> rechercheEvenementNOM(String name) {
+        List<Evenement> myList = new ArrayList<>();
+        PreparedStatement pst;
+        try {
+
+            String req = "SELECT * from evenement WHERE titre_ev LIKE('%" + name + "%')";
+            pst = cnx.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Evenement ev = new Evenement();
+                ev.setId_ev(rs.getInt(1));
+                ev.setTitre_ev(rs.getString("titre_ev"));
+                ev.setCategorie(rs.getString("categorie_ev"));
+                ev.setDescription_ev(rs.getString("description_ev"));
+                ev.setAdresse_ev(rs.getString("adresse_ev"));
+                ev.setDateTime_ev(rs.getTimestamp("date_ev"));
+                ev.setNbre_place(rs.getInt("nbre_places"));
+                myList.add(ev);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
     }
 
 }

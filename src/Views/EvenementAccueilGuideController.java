@@ -8,6 +8,7 @@ package Views;
 import artplus.entities.Evenement;
 import artplus.services.EvenementService;
 import artplus.utils.MyConnection;
+import java.awt.event.KeyEvent;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,10 +24,13 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -106,6 +110,9 @@ public class EvenementAccueilGuideController implements Initializable {
     private ImageView iconRech;
     Connection cnx;
 
+    EvenementService evS = new EvenementService();
+    Evenement e = new Evenement();
+
     public EvenementAccueilGuideController() {
         cnx = MyConnection.getInstance().getCnx();
     }
@@ -133,17 +140,123 @@ public class EvenementAccueilGuideController implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory<>("date_ev"));
         nbplaces.setCellValueFactory(new PropertyValueFactory<>("nbre_places"));
         tableEv.setItems(listEv);
+/*
+        List<Evenement> evenements = evS.afficherEvenements();
+
+        //ObservableList<Evenement> list = FXCollections.observableArrayList(evenements);
+        titre.setCellValueFactory(new PropertyValueFactory<>("titre_ev"));
+        categorie.setCellValueFactory(new PropertyValueFactory<>("categorie_ev"));
+        description.setCellValueFactory(new PropertyValueFactory<>("description_ev"));
+        adresse.setCellValueFactory(new PropertyValueFactory<>("adresse_ev"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date_ev"));
+        nbplaces.setCellValueFactory(new PropertyValueFactory<>("nbre_places"));
+
+        tableEv.setItems(list);*/
+
+    }
+
+    @FXML
+    private void RechEV(javafx.scene.input.KeyEvent event) {
+
+        /*String categorie = String.valueOf(rechercher.getText());
+        EvenementService evS = new EvenementService();
+        Evenement ev = evS.searchEvenementbyCategorie(categorie);
+        if (ev != null) {
+            titre.setCellValueFactory(new PropertyValueFactory<Evenement, String>("titre_ev"));
+            cat.setCellValueFactory(new PropertyValueFactory<Evenement, String>("categorie_ev"));
+            description.setCellValueFactory(new PropertyValueFactory<Evenement, String>("description_ev"));
+            adresse.setCellValueFactory(new PropertyValueFactory<Evenement, String>("adresse_ev"));
+            date.setCellValueFactory(new PropertyValueFactory<Evenement, Timestamp>("date_ev"));
+            nbplaces.setCellValueFactory(new PropertyValueFactory<Evenement, Integer>("nbre_places"));
+            tableEv.setItems(listEv);
+        } else {
+            .setText(("commentaire n'a pas trouvé"));
+        }*/
+        ///////////
+        /*
+        
+        
+     Evenement ev = new Evenement();
+        ev.setNom(rechercher.getText().toString().toLowerCase());
+        if (!control.ControleNOM(ev)) {
+            alertRechere.setText("Nom invalide");
+        }
+        users.clear();
+        List<USER> listemps = control.getUnEmployenom(u);
+        if (listemps != null) {
+            if (!listemps.isEmpty()) {
+                for (int i = 0; i < listemps.size(); i++) {
+                    users.add(listemps.get(i));
+                }
+            }
+            Tableau.setItems(users);
+        }
+/////may
+        EvenementService evS= new EvenementService();
+        List<Evenement> evenements = evS.afficherEvenements();
+        ObservableList<Evenement> listEv = FXCollections.observableArrayList(evenements);
+        FilteredList<Evenement> filteredList = new FilteredList<>(listEv);
+        // Configurer le prédicat en fonction de la saisie de l'utilisateur
+        rechercher.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(Evenement -> {
+                // Si le champ de texte est vide, afficher tous les éléments
+                if (newValue == null || newValue.isEmpty()) {
+                    
+                    return true;
+                }
+                
+                // Vérifier si le texte de recherche correspond à l'un des champs de l'evenement
+                String lowerCaseFilter = newValue.toLowerCase();
+                
+                // Correspondance trouvée dans le champ evenement
+                
+                
+                if (Evenement.getTitre_ev().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; 
+                } else if (Evenement.getCategorie().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; 
+                }
+                return false; // Pas de correspondance trouvée
+            });
+        });*/
+        EvenementService evS = new EvenementService();
+        List<Evenement> evenements = evS.afficherEvenements();
+        //ObservableList<Evenement> listEv = FXCollections.observableArrayList(evenements);
+        FilteredList<Evenement> filteredList = new FilteredList<>(listEv, p -> true);
+        // Configurer le prédicat en fonction de la saisie de l'utilisateur
+        rechercher.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(even -> {
+                // Si le champ de texte est vide, afficher tous les éléments
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Vérifier si le texte de recherche correspond à l'un des champs de l'evenement
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                // Correspondance trouvée dans le champ evenement
+                if (even.getTitre_ev().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else if (even.getCategorie().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                }
+                return false; // Pas de correspondance trouvée
+            });
+            SortedList<Evenement> sortedList = new SortedList<>(filteredList);
+            sortedList.comparatorProperty().bind(tableEv.comparatorProperty());
+            tableEv.setItems(sortedList);
+        });
 
     }
 
     public void showEv() {
-        Evenement ev = tableEv.getSelectionModel().getSelectedItem();
+        /*Evenement ev = tableEv.getSelectionModel().getSelectedItem();
         String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement ";
         //        String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement WHERE titre_ev= '" + titre + "'" ;
 
         try {
             PreparedStatement st = cnx.prepareStatement(req2);
-            st.setString(1, ev.getTitre_ev());
+            st.setString(2, ev.getTitre_ev());
             ResultSet rs = st.executeQuery();
             String categ;
             String desc;
@@ -176,7 +289,7 @@ public class EvenementAccueilGuideController implements Initializable {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-        }
+        }*/
     }
 
     /**
@@ -196,47 +309,14 @@ public class EvenementAccueilGuideController implements Initializable {
         }
     }
 
-    @FXML
-    private void RechEV() {
-        /*
-        String categorie = String.valueOf(rechercher.getText());
-        EvenementService evS = new EvenementService();
-        Evenement ev = evS.searchEvenementbyCategorie(categorie);
-        if (ev != null) {
-            titre.setCellValueFactory(new PropertyValueFactory<Evenement, String>("titre_ev"));
-            categorie.setCellValueFactory(new PropertyValueFactory<Evenement, String>("categorie_ev"));
-            description.setCellValueFactory(new PropertyValueFactory<Evenement, String>("description_ev"));
-            adresse.setCellValueFactory(new PropertyValueFactory<Evenement, String>("adresse_ev"));
-            date.setCellValueFactory(new PropertyValueFactory<Evenement, Timestamp>("date_ev"));
-            nbplaces.setCellValueFactory(new PropertyValueFactory<Evenement, Integer>("nbre_places"));
-            tableEv.setItems(listEv);
-        } else {
-            labelpost.setText(("commentaire n'a pas trouvé"));
-        }
-         *//*
-        Evenement ev = new Evenement();
-        ev.setNom(rechercher.getText().toString().toLowerCase());
-        if (!control.ControleNOM(ev)) {
-            alertRechere.setText("Nom invalide");
-        }
-        users.clear();
-        List<USER> listemps = control.getUnEmployenom(u);
-        if (listemps != null) {
-            if (!listemps.isEmpty()) {
-                for (int i = 0; i < listemps.size(); i++) {
-                    users.add(listemps.get(i));
-                }
-            }
-            Tableau.setItems(users);
-        }*/
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         afficherEvenements();
+        showEv();
 
         //showEv();
     }
+
     private FileInputStream fs;
 
     @FXML
@@ -344,5 +424,43 @@ public class EvenementAccueilGuideController implements Initializable {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    }
+    }/*
+     public void get_Evenement(List<Evenement> evenements_list){
+        grid_pane.getChildren().clear();
+        int  col = 0;
+        int row = 1;
+        for (Cours c:courses_list){
+            try {
+                AnchorPane cours_card = new AnchorPane();
+                cours_card.setStyle("-fx-background-color: white; -fx-border-color: red;");
+                //anchorPane.setPrefSize(300, 300);
+                FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("/Views/Cours_card.fxml"));
+                cours_card = fxmlloader.load();
+                CoursCardController cours_card_controller = fxmlloader.getController();
+                cours_card_controller.setCours(c);
+                cours_card_controller.initialize_data();
+                BorderStroke borderStroke = new BorderStroke(
+                Color.BLUE,
+                BorderStrokeStyle.SOLID,
+                null,
+                BorderStroke.THIN,
+                new Insets(5)
+                );
+                Border border = new Border(borderStroke);
+                cours_card.setBorder(border); 
+                if(col == 3){
+                    col = 0;
+                    row++;
+                }
+                GridPane.setHgrow(cours_card, Priority.ALWAYS);
+                GridPane.setVgrow(cours_card, Priority.ALWAYS);
+                grid_pane.add(cours_card, col++, row );
+                
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }*/
+
+
 }

@@ -17,4 +17,5 @@ public interface InterfaceEvenement <Evenement>{
     public void supprimerEvenement(int id); 
     public List<Evenement> afficherEvenements();
     public Evenement findOneById(int id);
+    List<Evenement> rechercheEvenementNOM(String name);
 }
