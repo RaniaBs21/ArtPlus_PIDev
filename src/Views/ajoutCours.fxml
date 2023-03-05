@@ -56,7 +56,6 @@
    <Text fill="#282727" layoutX="317.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    <Button id="details_button" fx:id="selectFileButton" layoutX="184.0" layoutY="205.0" mnemonicParsing="false" onAction="#selectFile" prefHeight="25.0" prefWidth="80.0" text="Selectionner ficher" />
    <Button id="details_button" fx:id="deposer" layoutX="185.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Enregistrer" textFill="#3260dd" />
-   <Button id="details_button" cancelButton="true" layoutX="507.0" layoutY="396.0" mnemonicParsing="false" onAction="#afficherCours" prefHeight="27.0" prefWidth="96.0" text="Afficher" textFill="#b57816" />
    <TableView fx:id="tablecours" layoutX="273.0" layoutY="95.0" prefHeight="287.0" prefWidth="581.0">
      <columns>
        <TableColumn fx:id="titre" prefWidth="50.0" text="Titre" />
