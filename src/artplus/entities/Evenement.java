@@ -25,6 +25,8 @@ public class Evenement {
 
     public Evenement() {
     }
+    
+    
 
     public Evenement(int id_ev, String titre_ev, String categorie, String description_ev, String image_ev, String adresse_ev, Timestamp dateTime_ev, int nbre_place, Guide guide) {
         this.id_ev = id_ev;
@@ -66,6 +68,14 @@ public class Evenement {
         this.dateTime_ev = dateTime_ev;
         this.nbre_place = nbre_place;
         this.guide = guide;
+    }
+    public Evenement( String titre_ev, String categorie, String description_ev, String adresse_ev, int nbre_place) {
+        this.titre_ev = titre_ev;
+        this.categorie = categorie;
+        this.description_ev = description_ev; 
+        this.adresse_ev = adresse_ev;
+        
+        this.nbre_place = nbre_place;
     }
 
     public Evenement(String titre_ev, String categorie, String description_ev, String image_ev, String adresse_ev, Timestamp dateTime_ev, int nbre_place) {

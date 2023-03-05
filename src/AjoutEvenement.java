@@ -1,4 +1,5 @@
 import artplus.entities.Evenement;
+import java.sql.Timestamp;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -42,12 +43,7 @@ public class AjoutEvenement extends Application {
         TextField descInput = new TextField();
         GridPane.setConstraints(descInput, 1, 1);
 
-        // Date
-        Label dateLabel = new Label("Date:");
-        GridPane.setConstraints(dateLabel, 0, 2);
-        DatePicker dateInput = new DatePicker();
-        GridPane.setConstraints(dateInput, 1, 2);
-
+        
         // Catégorie
         Label catLabel = new Label("Catégorie:");
         GridPane.setConstraints(catLabel, 0, 3);
@@ -56,37 +52,36 @@ public class AjoutEvenement extends Application {
         
         // adresse
         Label adresseLab = new Label("Adresse:");
-        GridPane.setConstraints(adresseLab, 0, 3);
+        GridPane.setConstraints(adresseLab, 0, 4);
         TextField adresseInput = new TextField();
-        GridPane.setConstraints(catInput, 1, 3);
+        GridPane.setConstraints(catInput, 1, 4);
 
         // Nombre de places
         Label placesLabel = new Label("Nombre de places:");
-        GridPane.setConstraints(placesLabel, 0, 4);
+        GridPane.setConstraints(placesLabel, 0, 5);
         TextField placesInput = new TextField();
-        GridPane.setConstraints(placesInput, 1, 4);
+        GridPane.setConstraints(placesInput, 1, 5);
 
         Button ajouterButton = new Button("Ajouter");
-        GridPane.setConstraints(ajouterButton, 1, 5);
+        GridPane.setConstraints(ajouterButton, 1, 6);
 
         ajouterButton.setOnAction(e -> {
             String titre = titreInput.getText();
             String desc = descInput.getText();
-            LocalDate date = dateInput.getValue();
-            String cat = catInput.getText();
+                        String cat = catInput.getText();
             String adresse = adresseInput.getText();
             int places = Integer.parseInt(placesInput.getText());
 
             if (evenementExiste(titre)) {
                 System.out.println("Cet événement existe déjà.");
             } else {
-                Evenement evenement = new Evenement(titre,cat , desc, date, places);
+                Evenement evenement = new Evenement(titre,cat , desc,adresse, places);
                 evenements.add(evenement);
                 System.out.println("Événement ajouté avec succès.");
             }
         });
 
-        grid.getChildren().addAll(titreLabel, titreInput, descLabel, descInput, dateLabel, dateInput,
+        grid.getChildren().addAll(titreLabel, titreInput, descLabel, descInput, 
                 catLabel, catInput, placesLabel, placesInput, ajouterButton);
 
         Scene scene = new Scene(grid, 400, 250);

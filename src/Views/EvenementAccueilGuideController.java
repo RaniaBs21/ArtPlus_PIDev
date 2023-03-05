@@ -25,8 +25,10 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -34,6 +36,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -140,7 +143,7 @@ public class EvenementAccueilGuideController implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory<>("date_ev"));
         nbplaces.setCellValueFactory(new PropertyValueFactory<>("nbre_places"));
         tableEv.setItems(listEv);
-/*
+        /*
         List<Evenement> evenements = evS.afficherEvenements();
 
         //ObservableList<Evenement> list = FXCollections.observableArrayList(evenements);
@@ -158,67 +161,6 @@ public class EvenementAccueilGuideController implements Initializable {
     @FXML
     private void RechEV(javafx.scene.input.KeyEvent event) {
 
-        /*String categorie = String.valueOf(rechercher.getText());
-        EvenementService evS = new EvenementService();
-        Evenement ev = evS.searchEvenementbyCategorie(categorie);
-        if (ev != null) {
-            titre.setCellValueFactory(new PropertyValueFactory<Evenement, String>("titre_ev"));
-            cat.setCellValueFactory(new PropertyValueFactory<Evenement, String>("categorie_ev"));
-            description.setCellValueFactory(new PropertyValueFactory<Evenement, String>("description_ev"));
-            adresse.setCellValueFactory(new PropertyValueFactory<Evenement, String>("adresse_ev"));
-            date.setCellValueFactory(new PropertyValueFactory<Evenement, Timestamp>("date_ev"));
-            nbplaces.setCellValueFactory(new PropertyValueFactory<Evenement, Integer>("nbre_places"));
-            tableEv.setItems(listEv);
-        } else {
-            .setText(("commentaire n'a pas trouvé"));
-        }*/
-        ///////////
-        /*
-        
-        
-     Evenement ev = new Evenement();
-        ev.setNom(rechercher.getText().toString().toLowerCase());
-        if (!control.ControleNOM(ev)) {
-            alertRechere.setText("Nom invalide");
-        }
-        users.clear();
-        List<USER> listemps = control.getUnEmployenom(u);
-        if (listemps != null) {
-            if (!listemps.isEmpty()) {
-                for (int i = 0; i < listemps.size(); i++) {
-                    users.add(listemps.get(i));
-                }
-            }
-            Tableau.setItems(users);
-        }
-/////may
-        EvenementService evS= new EvenementService();
-        List<Evenement> evenements = evS.afficherEvenements();
-        ObservableList<Evenement> listEv = FXCollections.observableArrayList(evenements);
-        FilteredList<Evenement> filteredList = new FilteredList<>(listEv);
-        // Configurer le prédicat en fonction de la saisie de l'utilisateur
-        rechercher.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredList.setPredicate(Evenement -> {
-                // Si le champ de texte est vide, afficher tous les éléments
-                if (newValue == null || newValue.isEmpty()) {
-                    
-                    return true;
-                }
-                
-                // Vérifier si le texte de recherche correspond à l'un des champs de l'evenement
-                String lowerCaseFilter = newValue.toLowerCase();
-                
-                // Correspondance trouvée dans le champ evenement
-                
-                
-                if (Evenement.getTitre_ev().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; 
-                } else if (Evenement.getCategorie().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; 
-                }
-                return false; // Pas de correspondance trouvée
-            });
-        });*/
         EvenementService evS = new EvenementService();
         List<Evenement> evenements = evS.afficherEvenements();
         //ObservableList<Evenement> listEv = FXCollections.observableArrayList(evenements);
@@ -317,10 +259,39 @@ public class EvenementAccueilGuideController implements Initializable {
         //showEv();
     }
 
+    private List<Evenement> evenementsAjoutes = new ArrayList<>();
+
+    private boolean controleSaisieEvenement(String titre, String categorie, String description, String adresse, Timestamp date, int nombrePlaces) {
+        for (Evenement evenement : evenementsAjoutes) {
+            if (evenement.getTitre_ev().equals(titre)
+                    && evenement.getCategorie().equals(categorie)
+                    && evenement.getDescription_ev().equals(description)
+                    && evenement.getAdresse_ev().equals(adresse)
+                    && evenement.getDateTime_ev().equals(date)
+                    && evenement.getNbre_place() == nombrePlaces) {
+                System.out.println("L'événement existe déjà.");
+                Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("NOT OK");
+            alert.setHeaderText("L'événement existe déjà.");
+            alert.setContentText("Click cancel to exit.");
+            alert.showAndWait();
+                return false;
+            }
+        }
+
+        // Si l'événement n'existe pas, l'ajouter à la liste
+        Evenement nouvelEvenement = new Evenement(titre, categorie, date, nbPlaces);
+        evenementsAjoutes.add(nouvelEvenement);
+        System.out.println("L'événement a été ajouté.");
+        return true;
+    }
+
     private FileInputStream fs;
 
     @FXML
     private void ajouter() throws FileNotFoundException, ParseException {
+
+        /*
         String titre = txt_titre.getText();
         String cat = txt_categorie.getText();
         String desc = txt_description.getText();
@@ -359,7 +330,7 @@ public class EvenementAccueilGuideController implements Initializable {
             alert.showAndWait();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-        }
+        }*/
     }
 
     @FXML
