@@ -108,6 +108,15 @@ public class AccueilController implements Initializable {
         get_courses();
         get_categories();
         
+        
+        ColumnConstraints col1 = new ColumnConstraints();
+        ColumnConstraints col2 = new ColumnConstraints();
+        ColumnConstraints col3 = new ColumnConstraints();
+        col1.setPercentWidth(33.33);
+        col2.setPercentWidth(33.33);
+        col3.setPercentWidth(33.33);
+        grid_pane.getColumnConstraints().addAll(col1, col2,col3);
+        
         btnAcc.setOnAction(event->{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Accueil.fxml"));
@@ -177,32 +186,16 @@ public class AccueilController implements Initializable {
             try {
                 AnchorPane cours_card = new AnchorPane();
                 cours_card.setStyle("-fx-background-color: white; -fx-border-color: red;");
-                cours_card.setPrefSize(300, 300);
+                //cours_card.setPrefSize(300, 300);
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("/Views/Cours_card.fxml"));
                 cours_card = fxmlloader.load();
                 CoursCardController cours_card_controller = fxmlloader.getController();
                 cours_card_controller.setCours(c);
                 cours_card_controller.initialize_data();
-                BorderStroke borderStroke = new BorderStroke(
-                    Color.BLUE,
-                    BorderStrokeStyle.SOLID,
-                    null,
-                    BorderStroke.THIN,
-                    new Insets(5)
-                );
-                Border border = new Border(borderStroke);
-                cours_card.setBorder(border); 
                 
                 
-                ColumnConstraints col1 = new ColumnConstraints();
-                ColumnConstraints col2 = new ColumnConstraints();
-                ColumnConstraints col3 = new ColumnConstraints();
-                col1.setPercentWidth(33.33);
-                col2.setPercentWidth(33.33);
-                col3.setPercentWidth(33.33);
-                // Add the constraints to the GridPane
-                grid_pane.getColumnConstraints().addAll(col1, col2, col3);
+                
                 if(col == 3){
                     col = 0;
                     row++;

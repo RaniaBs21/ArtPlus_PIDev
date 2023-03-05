@@ -8,12 +8,14 @@ package Controllers;
 import artplus.entities.Cours;
 import java.io.ByteArrayInputStream;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -54,9 +56,12 @@ public class VoirCoursController implements Initializable {
 
     
     
-    public void initialize_data(){ 
-        course_description_area.getStyleClass().add("text-area-disabled");
-        System.out.println("data cours"+cours );
+    public void initialize_data(){
+        //course_description_area.getStyleClass().add("text-area-disabled");
+        course_description_area.setEditable(false);
+        course_description_area.setWrapText(true);
+        
+      
         Image image = new Image(new ByteArrayInputStream(cours.getFichier_c()));
         cours_image.setPreserveRatio(false);
         this.cours_image.setImage(image);
@@ -68,7 +73,6 @@ public class VoirCoursController implements Initializable {
         course_level_label.setText(cours.getNiveau_c()+"");
         course_prix_label.setText(cours.getPrix()+" DT");
         course_description_area.setText(cours.getDescription_c()); 
-        course_description_area.setDisable(true);
         stage.setResizable(false);       
     }
 

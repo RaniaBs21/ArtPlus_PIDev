@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="259.0" prefWidth="267.0" style="-fx-background-color: d5dcfe;" stylesheets="@../Assets/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CoursCardController">
+<AnchorPane id="AnchorPane" fx:id="container" prefHeight="259.0" prefWidth="267.0" style="-fx-background-color: d5dcfe;" stylesheets="@../Assets/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CoursCardController">
    <children>
       <ImageView fx:id="cours_image" fitHeight="184.0" fitWidth="267.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="cous_name_label" layoutX="20.0" layoutY="188.0" prefHeight="17.0" prefWidth="231.0" text="Label" textAlignment="CENTER">

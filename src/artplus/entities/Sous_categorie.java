@@ -16,8 +16,9 @@ public class Sous_categorie {
         this.categorie=categorie;
     }
 
-    public Sous_categorie(String Nom_sc) {
+    public Sous_categorie(String Nom_sc,Categorie_cours categorie) {
         this.Nom_sc = Nom_sc;
+        this.categorie=categorie;
     }
 
     public Sous_categorie() {

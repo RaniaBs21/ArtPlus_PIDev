@@ -56,6 +56,7 @@ import javafx.scene.control.TextFormatter;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -142,6 +143,10 @@ public class AjoutCoursController implements Initializable {
     private TableColumn<Cours, Float> prix;
     @FXML
     private Button abonnements;
+    @FXML
+    private AnchorPane souscate;
+    @FXML
+    private Button sous;
     
     
     
@@ -183,7 +188,23 @@ public class AjoutCoursController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }); 
+        });
+        
+        
+            sous.setOnAction(event->{
+            try {
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ajoutSousCategorie.fxml"));
+                Parent root = loader.load();
+                Scene scene2 = new Scene(root);
+                stage=(Stage) sous.getScene().getWindow();
+                stage.setScene(scene2);
+               
+
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         //--navbar
         
         //controle de saisie
@@ -293,7 +314,6 @@ public class AjoutCoursController implements Initializable {
     }
     
     
-    @FXML
     private void afficherCours(ActionEvent event) {
         get_cours(); 
         loadData();

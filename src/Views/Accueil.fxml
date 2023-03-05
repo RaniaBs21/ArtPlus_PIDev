@@ -63,7 +63,7 @@
    <Button id="details_button" fx:id="course_search_button" layoutX="160.0" layoutY="72.0" mnemonicParsing="false" onAction="#search_course" prefHeight="17.0" prefWidth="80.0" text="Rechercher" />
    <TextField fx:id="course_search_field" layoutX="25.0" layoutY="72.0" prefHeight="25.0" prefWidth="139.0" promptText="Rechercher un cours" />
    <ScrollPane fx:id="scroll_pane" layoutX="-1.0" layoutY="189.0" prefHeight="266.0" prefWidth="811.0">
-      <content>
+       <content>
          <GridPane fx:id="grid_pane" prefWidth="810.0">
             <rowConstraints>
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />

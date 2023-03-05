@@ -85,8 +85,11 @@ public class ListAbonnementController implements Initializable {
     private Button ass;
     @FXML
     private Button abonnements;
+    @FXML
+    private Button sous_categories;
     
     private Stage stage;
+    
 
 
     /**
@@ -116,6 +119,20 @@ public class ListAbonnementController implements Initializable {
                 Parent root = loader.load();
                 Scene scene2 = new Scene(root);
                 stage=(Stage) abonnements.getScene().getWindow();
+                stage.setScene(scene2);
+               
+
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        sous_categories.setOnAction(event->{
+            try {
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ajoutSousCategorie.fxml"));
+                Parent root = loader.load();
+                Scene scene2 = new Scene(root);
+                stage=(Stage) sous_categories.getScene().getWindow();
                 stage.setScene(scene2);
                
 

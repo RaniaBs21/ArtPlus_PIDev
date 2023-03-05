@@ -49,6 +49,8 @@ public class CoursCardController implements Initializable {
     private Cours cours; 
     @FXML
     private Button subscribe_button;
+    @FXML
+    private AnchorPane container;
     
     
 
@@ -58,6 +60,15 @@ public class CoursCardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        /*BorderStroke borderStroke = new BorderStroke(
+                    Color.BLUE,
+                    BorderStrokeStyle.SOLID,
+                    null,
+                    BorderStroke.THIN
+                );
+                Border border = new Border(borderStroke);*/
+                //container.setBorder(border);
+                
     }    
 
     @FXML

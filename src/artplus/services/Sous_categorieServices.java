@@ -45,10 +45,11 @@ public class Sous_categorieServices implements InterfaceSous_categorie {
      public void ajouterSous_categorie2(Sous_categorie scat){
     try {
        
-            String requete2 = "INSERT INTO Sous_categorie(Nom_sc)"
-                    +" VALUES (?)";
+            String requete2 = "INSERT INTO Sous_categorie(Nom_sc,id_categorie)"
+                    +" VALUES (?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1,scat.getNom_sc());
+            pst.setInt(2,scat.getCategorie().getId_cat());
             pst.executeUpdate();
             System.out.println(" la sous_categorie est ajoutée");
             
@@ -58,7 +59,7 @@ public class Sous_categorieServices implements InterfaceSous_categorie {
 }
      public void modifierSous_categorie(Sous_categorie scat) {
         try {
-            String req = "UPDATE sous_categorie SET Nom_sc= '" + scat.getNom_sc() + "' WHERE Id_sc = " + scat.getId_sc();
+            String req = "UPDATE sous_categorie SET Nom_sc= '" + scat.getNom_sc() + "' , id_categorie= '"+scat.getCategorie().getId_cat()+"' WHERE Id_sc = " + scat.getId_sc();
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("Sous_categorie est modifiée !");
