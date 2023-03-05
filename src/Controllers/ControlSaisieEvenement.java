@@ -81,22 +81,7 @@ public class ControlSaisieEvenement {
         }
         return true;
     }
-    /*
-    public static boolean ControleCategorie(Evenement e) {
-        String str = (e.getCategorie()).toLowerCase();
-        if (str.length() == 0) {
-            return false;
-        }
-        char[] charArray = str.toCharArray();
-        for (int i = 0; i < charArray.length; i++) {
-            char ch = charArray[i];
-            if (!((ch >= 'a' && ch <= 'z') || (String.valueOf(ch)).equals(" "))) {
-                return false;
-            }
-        }
-        return true;
-    }*/
-
+    
     public static boolean ControleDescription(Evenement e) {
         String str = (e.getDescription_ev()).toLowerCase();
         if (str.length() == 0) {
@@ -131,53 +116,5 @@ public class ControlSaisieEvenement {
             return true;
         }
     }
-/*
-    public String AjouterEvenement(Evenement e) {
-        String retourstr = "";
-        if ((verif(getE(u)))) {
 
-            if (GestionEmployerService.AjoutUnEmploye(u) == 0) {
-                retourstr += "Une erreur est survenue ! ";
-            }
-
-        } else {
-            retourstr += "Employé existant. ";
-        }
-
-        return retourstr;
-    }
-
-    
-
-    
-    public String ModificationUnEmploye(USER u) {
-        String retourstr = "";
-        USER user = getUnEmployeCIN(u);
-        if (!verif(user)) {
-            u.setId(user.getId());
-            if (GestionEmployerService.ModificationUnEmploye(u) == 0) {
-                retourstr += "Une erreur est survenue ! ";
-            }
-        }
-
-        return retourstr;
-
-    }
-
-    public boolean SupprimerUnEmploye(USER u) {
-        if (u.getId() != null) {
-            return GestionEmployerService.SupprimerUnEmploye(u);
-        }
-        return false;
-    }
-
-    public List AfficheToutEmploye() {
-        List liste = GestionEmployerService.AfficheToutEmploye();
-        return liste;
-    }
-
-    public boolean SupprimerToutEmploye() {
-        return GestionEmployerService.SupprimerToutEmploye();
-    }
-*/
 }

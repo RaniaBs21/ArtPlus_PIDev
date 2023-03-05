@@ -12,6 +12,9 @@ import java.io.*;
 import java.net.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -20,12 +23,33 @@ import java.util.logging.Logger;
  */
 public class Page2Controller implements Initializable {
 
+    @FXML
+    private Text accueil;
+    @FXML
+    private Text filactualite;
+    @FXML
+    private Text ev;
+    @FXML
+    private Text cours;
+    @FXML
+    private Text shop;
+    @FXML
+    private Text quiz;
+    @FXML
+    private Text reclam;
+    @FXML
+    private TextArea textArea1;
+    @FXML
+    private TextArea textArea11;
+    @FXML
+    private TextArea textArea111;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
+        /*try {
             URL obj = new URL("https://api.harvardartmuseums.org/object?apikey=21fd108b-a528-4da8-be40-76cf10cd183c");
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");
@@ -49,9 +73,20 @@ public class Page2Controller implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(Page2Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
+         try {
+            URL obj = new URL("https://api.harvardartmuseums.org/object?apikey=21fd108b-a528-4da8-be40-76cf10cd183c");
+            ObjectMapper objectMapper = new ObjectMapper();
+            ObjectModel objectModel = objectMapper.readValue(obj, ObjectModel.class);
+            List<ObjectData> objectDataList = objectModel.getObjectDataList();
+            textArea1.setText(objectDataList.get(0).toString());
+            textArea11.setText(objectDataList.get(1).toString());
+            textArea3.setText(objectDataList.get(2).toString());
+        } catch (Exception ex) {
+            Logger.getLogger(Page2Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
 
 
         /*
