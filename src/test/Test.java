@@ -23,8 +23,8 @@ public class Test extends Application {
     public void start(Stage stage) throws Exception {
         try {
 
-           Parent root = FXMLLoader.load(getClass().getResource("/view/AddReponseFXML.fxml"));
-          // Parent root = FXMLLoader.load(getClass().getResource("/view/Home.fxml"));
+           //Parent root = FXMLLoader.load(getClass().getResource("/view/AddQuizFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/Home.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

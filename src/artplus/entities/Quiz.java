@@ -52,6 +52,15 @@ public class Quiz {
        
     }
 
+    public Quiz(int id_quiz, String titre, String question, String option1, String option2, String option3, String option4, String reponse_correcte) {
+    }
+
+    public Quiz(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
+
     public int getId_quiz() {
         return id_quiz;
     }

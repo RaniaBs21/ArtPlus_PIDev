@@ -89,4 +89,10 @@
          <Image url="@../Values/question-mark.png" />
       </image>
    </ImageView>
+   <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="420.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Values/images-removebg-preview%20(1).png" />
+      </image>
+   </ImageView>
+   <Button fx:id="btnjeu" layoutX="413.0" layoutY="495.0" mnemonicParsing="false" onMouseClicked="#btnjeu" opacity="0.0" text="Button" />
 </AnchorPane>

@@ -26,7 +26,7 @@ public class QuizCRUD {
         cnx = MyConnection.getInstance().getCnx();
         try {
 
-            String requete1 = "INSERT INTO quiz  (titre,option1,option2,option3,option4,question,reponse_corrcte) VALUES ('" + q.getTitre() + "','" + q.getOption1()+ "','" + q.getOption2()+ "','" + q.getOption3()+ "','" + q.getOption4()+ "','" + q.getQuestion()+ "','" + q.getReponse_correcte()+ "'); ";
+            String requete1 = "INSERT INTO quiz  (titre,option1,option2,option3,option4,question,reponse_correcte) VALUES ('" + q.getTitre() + "','" + q.getOption1()+ "','" + q.getOption2()+ "','" + q.getOption3()+ "','" + q.getOption4()+ "','" + q.getQuestion()+ "','" + q.getReponse_correcte()+ "'); ";
             Statement st = cnx.createStatement();
 
             st.executeUpdate(requete1);
@@ -42,23 +42,24 @@ public class QuizCRUD {
 
 
 
-    public void modifierQuiz (Quiz q) {
+    public boolean modifierQuiz (Quiz q) {
         cnx = MyConnection.getInstance().getCnx();
         try {
 
-            String requete7 = " update quiz set titre,option1,option2,option3,option4,question,reponse_correcte = ? WHERE id_quest =?; " ;
+            String requete7 = " update quiz set titre = ?,option1 = ?,option2 = ?,option3 = ?,option4 = ?,question = ?,reponse_correcte = ? WHERE id_quiz =?; " ;
 
             PreparedStatement preparedStmt =cnx.prepareStatement(requete7);
 
 
             preparedStmt.setString(1, q.getTitre());
-            preparedStmt.setInt(2, q.getId_quiz());
-            preparedStmt.setString(3, q.getOption1());
-            preparedStmt.setString(4, q.getOption2());
-            preparedStmt.setString(5, q.getOption3());
-            preparedStmt.setString(6, q.getOption4());
-            preparedStmt.setString(7, q.getQuestion());
-            preparedStmt.setString(8, q.getReponse_correcte());
+          
+            preparedStmt.setString(2, q.getOption1());
+            preparedStmt.setString(3, q.getOption2());
+            preparedStmt.setString(4, q.getOption3());
+            preparedStmt.setString(5, q.getOption4());
+            preparedStmt.setString(6, q.getQuestion());
+            preparedStmt.setString(7, q.getReponse_correcte());
+              preparedStmt.setInt(8, q.getId_quiz());
             preparedStmt.execute();
 
             {
@@ -69,6 +70,7 @@ public class QuizCRUD {
             System.err.println(ex.getMessage());
 
         }
+           return true;
     }
    
     public List<Quiz> afficherQuiz() {
@@ -116,12 +118,12 @@ public class QuizCRUD {
         return listQuiz;
     }
 
-    public void supprimerQuiz(int id_quiz ) {
+    public void supprimerQuiz(Quiz q) {
+        String requete5 = "DELETE FROM quiz where  titre=?";
 
         try {
-
-            String requete5 = "DELETE FROM quiz where  id_quiz = ? ; ";
             PreparedStatement ps = cnx.prepareStatement(requete5);
+            ps.setString(1, q.getTitre());
             ps.executeUpdate();
             {
                 System.out.println("Quiz supprimé avec scuccés!");
