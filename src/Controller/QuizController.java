@@ -60,11 +60,7 @@ public class QuizController implements Initializable {
     private Button opt4;
     @FXML
     private Button opt2;
-    @FXML
-    private Button nextbtn;
     Button btn;
-    @FXML
-    private Button boutton;
     int id_quiz;
     String reponse;
     @FXML
@@ -387,13 +383,6 @@ public class QuizController implements Initializable {
     }
     
 
-    @FXML
-    private void Nextbtn(ActionEvent event) {
-    }
-
-    @FXML
-    private void bouttonValider(ActionEvent event) {
-    }
      private void startTimer() {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
            

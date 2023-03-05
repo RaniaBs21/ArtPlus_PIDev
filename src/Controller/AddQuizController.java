@@ -9,6 +9,7 @@ import artplus.entities.Question;
 import artplus.entities.Quiz;
 import artplus.services.QuizCRUD;
 import artplus.utils.MyConnection;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import java.net.URL;
@@ -30,6 +31,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
@@ -39,7 +41,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import test.Test;
+import javax.swing.JOptionPane;
+
 
 /**
  * FXML Controller class
@@ -201,25 +204,37 @@ public class AddQuizController implements Initializable {
     }
 
     @FXML
-    private void delete(ActionEvent event) {
+    private void delete(ActionEvent event) throws SQLException {
+        cnx = MyConnection.getInstance().getCnx();
 
-        QuizCRUD rec = new QuizCRUD();
-        Quiz quiz = new Quiz();
-        if (txt_quiz.getText().trim().length() > 0 || questiontxt.getText().trim().length() > 0 || option1txt.getText().trim().length() > 0 || option2txt.getText().trim().length() > 0 || option3txt.getText().trim().length() > 0 || option4txt.getText().trim().length() > 0 || reponse_correctecase.getText().trim().length() > 0) {
-            rec.supprimerQuiz(quiz);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Quiz");
-            alert.setHeaderText(null);
-            alert.setContentText("Quiz supprimé avec succés!");
-            alert.show();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("erreur");
-            alert.setHeaderText(null);
-            alert.setContentText("champ vide");
-            alert.show();
+        // obtenir l'objet sélectionné dans le TableView
+        Quiz selectedQuiz = tabView.getSelectionModel().getSelectedItem();
+
+        // demander une confirmation avant de supprimer le quiz
+        Alert confirmDialog = new Alert(AlertType.CONFIRMATION);
+        confirmDialog.setTitle("Confirmer la suppression");
+        confirmDialog.setHeaderText(null);
+        confirmDialog.setContentText("Êtes-vous sûr de vouloir supprimer le quiz '" + selectedQuiz.getTitre() + "' ?");
+        Optional<ButtonType> dz = confirmDialog.showAndWait();
+
+        if (dz.get() == ButtonType.OK) {
+
+            String req = "DELETE FROM quiz WHERE id_quiz = " + id_quiz;
+            Statement pst2 = cnx.createStatement();
+            pst2.executeUpdate(req);
+            QuizCRUD quizDAO = new QuizCRUD();
+            quizDAO.supprimerQuiz(selectedQuiz.getId_quiz());
+            
+            tabView.getItems().remove(selectedQuiz);
+
+            // afficher un message de succès
+            Alert successDialog = new Alert(AlertType.INFORMATION);
+            successDialog.setTitle("Quiz supprimé");
+            successDialog.setHeaderText(null);
+            successDialog.setContentText("Le quiz a été supprimé avec succès.");
+            successDialog.showAndWait();
         }
-        afficherQuiz();
+        Quizclearbtn();
     }
 
     public void Quizclearbtn() {
@@ -236,42 +251,46 @@ public class AddQuizController implements Initializable {
     @FXML
     private void update(ActionEvent event) throws SQLException {
 
-        String req= "update quiz set titre = ? , question = ? , option1 = ? , option2 = ? , option3 = ? , option4 = ? , reponse_correcte = ?  where id_quiz= ?";
-        PreparedStatement ps=cnx.prepareStatement(req);
+        // Récupérer la ligne sélectionnée dans le TableView
+        Quiz qui = tabView.getSelectionModel().getSelectedItem();
+
+        // Récupérer les valeurs des champs de texte modifiés
         String titre = txt_quiz.getText();
         String question = questiontxt.getText();
         String option1 = option1txt.getText();
         String option2 = option2txt.getText();
         String option3 = option3txt.getText();
         String option4 = option4txt.getText();
+
         String reponse_correcte = reponse_correctecase.getText();
-        
-        if (titre.isEmpty() || question.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Please Fill All DATA");
-            alert.showAndWait();
-            
+
+        // Mettre à jour l'objet Quiz avec les nouvelles valeurs
+        qui.setTitre(titre);
+        qui.setOption1(option1);
+        qui.setOption2(option2);
+        qui.setOption3(option3);
+        qui.setOption4(option4);
+        qui.setQuestion(question);
+        qui.setReponse_correcte(reponse_correcte);
+
+        // Exécuter la requête SQL pour mettre à jour la base de données
+        Connection conn = MyConnection.getInstance().getCnx();
+        String query = "UPDATE quiz SET titre=?, option1=?, option2=?, option3=?, option4=?, question=?, reponse_correcte=? WHERE id_quiz=?";
+        PreparedStatement stmt = conn.prepareStatement(query);
+        stmt.setString(1, titre);
+        stmt.setString(2, option1);
+        stmt.setString(3, option2);
+        stmt.setString(4, option3);
+        stmt.setString(5, option4);
+        stmt.setString(6, question);
+        stmt.setString(7, reponse_correcte);
+        stmt.setInt(8, qui.getId_quiz());
+        int rowsAffected = stmt.executeUpdate();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Le quiz a été modifié avec succès !");
         } else {
-            Quiz s = new Quiz();
-            s.setTitre(titre);
-            s.setQuestion(question);
-            s.setOption1(option1);
-            s.setOption2(option2);
-            s.setOption3(option3);
-            s.setOption4(option4);
-            s.setReponse_correcte(reponse_correcte);
-            
-            
-            QuizCRUD sp = new QuizCRUD();
-            if (sp.modifierQuiz(s)) {
-              Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("sujet modifie avec succes!");
-                alert.show();
-                Quizclearbtn();
-             
-          
-            }
+            JOptionPane.showMessageDialog(null, "Une erreur est survenue lors de la modification du quiz.");
         }
     }
 
@@ -318,5 +337,4 @@ public class AddQuizController implements Initializable {
         }
 
     }
-
 }

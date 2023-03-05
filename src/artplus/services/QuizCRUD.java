@@ -42,55 +42,44 @@ public class QuizCRUD {
 
 
 
-    public boolean modifierQuiz (Quiz q) {
-        cnx = MyConnection.getInstance().getCnx();
+    public void modifierQuiz (Quiz q) {
+         cnx = MyConnection.getInstance().getCnx();
+         String requete7 = " update quiz set titre =?,question=?,option1 = ?,option2 = ?,option3 = ?,option4 = ?,reponse_correcte = ? WHERE id_quiz =?";
+
         try {
 
-            String requete7 = " update quiz set titre = ?,option1 = ?,option2 = ?,option3 = ?,option4 = ?,question = ?,reponse_correcte = ? WHERE id_quiz =?; " ;
 
-            PreparedStatement preparedStmt =cnx.prepareStatement(requete7);
+            PreparedStatement preparedStmt = cnx.prepareStatement(requete7);
+            preparedStmt.setInt(1, q.getId_quiz());
+            preparedStmt.setString(2, q.getTitre());
+            preparedStmt.setString(3, q.getQuestion());
+            
+            preparedStmt.setString(4, q.getOption1());
+            preparedStmt.setString(5, q.getOption2());
+            preparedStmt.setString(6, q.getOption3());
+            preparedStmt.setString(7, q.getOption4());
+            preparedStmt.setString(8, q.getReponse_correcte());
 
-
-            preparedStmt.setString(1, q.getTitre());
-          
-            preparedStmt.setString(2, q.getOption1());
-            preparedStmt.setString(3, q.getOption2());
-            preparedStmt.setString(4, q.getOption3());
-            preparedStmt.setString(5, q.getOption4());
-            preparedStmt.setString(6, q.getQuestion());
-            preparedStmt.setString(7, q.getReponse_correcte());
-              preparedStmt.setInt(8, q.getId_quiz());
-            preparedStmt.execute();
+           
+            preparedStmt.executeUpdate();
 
             {
-                System.out.println("Quiz Modifié avec succés !");
+                System.out.println("Quiz Modifiée avec succées !");
 
             }
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
 
         }
-           return true;
+        
+
     }
    
     public List<Quiz> afficherQuiz() {
         List<Quiz> listQuiz = new ArrayList<>();
 
         try {
-            /*String req2 = "SELECT * FROM participation ";
-            Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery(req2);
-            while (rs.next()) {
-                Participation part = new Participation();
-                part.setId_part(rs.getInt(1));
-                UtilisateurService uS = new UtilisateurService();
-                uS.findOneById(rs.getInt("Id_Ut")).getId_ut();
-                //part.uS(rs.getInt("Id_Ut")));
-                EvenementService evS = new EvenementService();
-                evS.findOneById(rs.getInt("Id_ev")).getId_ev();
-                //part.setId_ev(rs.getInt("id_ev"));
-                part.setDate_participation(java.sql.Timestamp.from(java.time.Instant.now()));
-             */
+           
 
             String req2 = "SELECT * FROM quiz ;";
            
@@ -118,18 +107,22 @@ public class QuizCRUD {
         return listQuiz;
     }
 
-    public void supprimerQuiz(Quiz q) {
-        String requete5 = "DELETE FROM quiz where  titre=?";
-
+    public void supprimerQuiz(int id_quiz ) {
+        
+         cnx = MyConnection.getInstance().getCnx();
         try {
-            PreparedStatement ps = cnx.prepareStatement(requete5);
-            ps.setString(1, q.getTitre());
-            ps.executeUpdate();
-            {
-                System.out.println("Quiz supprimé avec scuccés!");
-            }
-        } catch (SQLException ex) {
-        }}
+
+            String req = "DELETE FROM quiz WHERE id_quiz = " + id_quiz;
+         
+
+             Statement pst2 = cnx.createStatement();
+        pst2.executeUpdate(req);
+        System.out.println("Quiz est supprimé !");
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+}
+    
     
 
 

@@ -24,6 +24,11 @@ public class Quiz {
     public Quiz(int parseInt, String text, String text0, String text1, String text2, String text3) {
     }
 
+    public Quiz(int id_quiz) {
+        this.id_quiz = id_quiz;
+    }
+    
+
 
   
     public Quiz() {

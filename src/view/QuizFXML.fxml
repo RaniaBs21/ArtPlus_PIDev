@@ -32,22 +32,22 @@
             <Font name="Open Sans Semibold" size="19.0" />
          </font>
       </Label>
-      <Button fx:id="opt1" layoutX="224.0" layoutY="131.0" mnemonicParsing="false" onAction="#opt1clicked" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: ht; -fx-background-color: #ffff; -fx-background-radius: 10px; -fx-border-radius: 10px;" text=" Léonard de Vinci" textFill="#202090">
+      <Button fx:id="opt1" layoutX="224.0" layoutY="131.0" mnemonicParsing="false" onAction="#opt1clicked" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: ht; -fx-background-color: #ffff; -fx-background-radius: 10px; -fx-border-radius: 10px;" text=" Léonard de Vinci" textFill="#f81e1e">
          <font>
             <Font name="Open Sans Semibold" size="17.0" />
          </font>
       </Button>
-      <Button id="opt3" fx:id="opt3" layoutX="222.0" layoutY="261.0" mnemonicParsing="false" onAction="#opt3clicked" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Raphaël" textFill="#2d208d">
+      <Button id="opt3" fx:id="opt3" layoutX="222.0" layoutY="261.0" mnemonicParsing="false" onAction="#opt3clicked" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Raphaël" textFill="#fc0000">
          <font>
             <Font name="Open Sans Semibold" size="17.0" />
          </font>
       </Button>
-      <Button id="opt4" fx:id="opt4" layoutX="226.0" layoutY="321.0" mnemonicParsing="false" onAction="#opt4clicked" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Leonardo da Vinci" textFill="#3e328f">
+      <Button id="opt4" fx:id="opt4" layoutX="226.0" layoutY="321.0" mnemonicParsing="false" onAction="#opt4clicked" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Leonardo da Vinci" textFill="RED">
          <font>
             <Font name="Open Sans Semibold" size="17.0" />
          </font>
       </Button>
-      <Button id="opt2" fx:id="opt2" layoutX="224.0" layoutY="192.0" mnemonicParsing="false" onAction="#opt2clicked" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px; -fx-border-radius: 10px;" text=" Eric Cantona" textFill="#37208a">
+      <Button id="opt2" fx:id="opt2" layoutX="224.0" layoutY="192.0" mnemonicParsing="false" onAction="#opt2clicked" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px; -fx-border-radius: 10px;" text=" Eric Cantona" textFill="#ff1919">
          <font>
             <Font name="Open Sans Semibold" size="17.0" />
          </font>
@@ -83,24 +83,15 @@
                <Image url="@../Values/splash.png" />
             </image>
          </ImageView>
-         <Label fx:id="timerLabel" layoutX="483.0" layoutY="358.0" prefHeight="36.0" prefWidth="128.0" textFill="#f50101">
+         <Label fx:id="timerLabel" contentDisplay="CENTER" layoutX="525.0" layoutY="358.0" prefHeight="36.0" prefWidth="86.0" style="-fx-background-radius: 15; -fx-border-color: #fcde1b;" textFill="#2e2c40" textOverrun="CENTER_ELLIPSIS">
             <font>
-               <Font name="System Bold" size="17.0" />
+               <Font name="System Bold" size="14.0" />
             </font>
          </Label>
+         
    </children>
 </AnchorPane>
    <CubicCurve controlX1="-19.0" controlX2="250.0" controlY1="-126.0" controlY2="39.0" endX="150.0" fill="#d7b9f8" layoutX="163.0" layoutY="582.0" startX="-154.0" startY="19.0" stroke="#9695e1" />
    <CubicCurve controlX1="-61.0" controlX2="-142.2066650390625" controlY1="30.0" controlY2="-101.0" endX="185.972900390625" endY="30.0" fill="#9f8ab9" layoutX="659.0" layoutY="558.0" startX="-644.0" startY="39.17852783203125" stroke="#9695e1" />
-   <Button fx:id="nextbtn" layoutX="5.0" layoutY="529.0" mnemonicParsing="false" onAction="#Nextbtn" prefHeight="36.0" prefWidth="204.0" style="-fx-background-color: #ffd256; -fx-background-radius: 10px; -fx-border-radius: 10px;" text=" Question suivante &gt;&gt;" textFill="WHITE">
-      <font>
-         <Font name="Open Sans Semibold" size="17.0" />
-      </font>
-   </Button>
-   <Button fx:id="boutton" layoutX="319.0" layoutY="514.0" mnemonicParsing="false" onAction="#bouttonValider" prefHeight="25.0" prefWidth="177.0" style="-fx-background-radius: 45; -fx-background-color: #ED4c67;" styleClass="mainFxmlClass" stylesheets="@quizfxml2.css" text="valider" textFill="#fff7f7">
-      <font>
-         <Font name="System Bold" size="14.0" />
-      </font>
-   </Button>
 
 </AnchorPane>

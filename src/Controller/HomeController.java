@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import javafx.concurrent.Task;
 import javafx.scene.input.MouseEvent;
 
 import javafx.stage.Stage;
@@ -48,7 +51,7 @@ public class HomeController implements Initializable {
     @FXML
     private Button playquizbtn;
     @FXML
-    private Button btnjeu;
+    private ProgressBar progressBar;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -56,20 +59,53 @@ public class HomeController implements Initializable {
 
     @FXML
     private void Playquizbtn(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/QuizFXML.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
 
-        }
-    }
- 
+     // Définir la progression de la barre à 0 au début
+     progressBar.setProgress(0);
 
-    @FXML
-    private void btnjeu(MouseEvent event) throws IOException {
-   
-    }
+     // Créer une tâche pour simuler le chargement
+     Task<Void> task = new Task<Void>() {
+         @Override
+         protected Void call() throws Exception {
+             // Simuler le chargement en bouclant de 0 à 100
+             for (int i = 0; i <= 100; i++) {
+                 Thread.sleep(25);
+                 updateProgress(i, 100);
+             }
+             return null;
+         }
+     };
+
+     // Définir la barre de progression à observer la progression de la tâche
+     progressBar.progressProperty().bind(task.progressProperty());
+
+     // Créer une tâche secondaire pour charger le quiz en arrière-plan
+     Task<Void> loadTask = new Task<Void>() {
+         @Override
+         protected Void call() throws Exception {
+             // Charger le fichier FXML du quiz
+             Parent quizRoot = FXMLLoader.load(getClass().getResource("/view/QuizFXML.fxml"));
+
+             // Créer une nouvelle scène pour le quiz
+             Scene quizScene = new Scene(quizRoot);
+
+             // Récupérer la fenêtre actuelle
+             Stage currentStage = (Stage) playquizbtn.getScene().getWindow();
+
+             // Mettre à jour la fenêtre avec la nouvelle scène
+             Platform.runLater(() -> {
+                 currentStage.setScene(quizScene);
+             });
+
+             return null;
+         }
+     };
+
+     // Lancer la tâche de chargement du quiz après la tâche de progression
+     task.setOnSucceeded(e -> new Thread(loadTask).start());
+
+     // Lancer la tâche de progression
+     new Thread(task).start();
 }
+    }
+

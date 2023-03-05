@@ -2,7 +2,7 @@
 package artplus.services;
 
 import artplus.entities.Question;
-import artplus.entities.Quiz;
+
 import artplus.utils.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

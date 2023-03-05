@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="550.0" prefWidth="821.0" style="-fx-background-color: #f5f5f0; -fx-background-radius: 32px; -fx-border-radius: 32px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
+<AnchorPane prefHeight="589.0" prefWidth="882.0" style="-fx-background-color: #f5f5f0; -fx-background-radius: 32px; -fx-border-radius: 32px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
    <ListView layoutX="-6.0" prefHeight="63.0" prefWidth="875.0" />
       <Text fill="#eb9e05" layoutX="17.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus" />
    <ImageView fitHeight="48.0" fitWidth="54.0" layoutX="9.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
@@ -94,5 +95,5 @@
          <Image url="@../Values/images-removebg-preview%20(1).png" />
       </image>
    </ImageView>
-   <Button fx:id="btnjeu" layoutX="413.0" layoutY="495.0" mnemonicParsing="false" onMouseClicked="#btnjeu" opacity="0.0" text="Button" />
+   <ProgressBar fx:id="progressBar" layoutX="295.0" layoutY="529.0" prefHeight="18.0" prefWidth="288.0" progress="0.0" />
 </AnchorPane>

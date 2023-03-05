@@ -6,8 +6,10 @@ package artplus.utils;
 //
 
 import artplus.entities.Question;
+import artplus.entities.Quiz;
 import artplus.entities.Reponse;
 import artplus.services.Question_QuizCRUD;
+import artplus.services.QuizCRUD;
 import artplus.services.Reponse_QuizCRUD;
 import java.sql.SQLException;
 //
@@ -33,9 +35,9 @@ public class MainClass {
 //       
 ////*****************AJOUTER QUESTION******************
 //        
-Reponse_QuizCRUD ques_quiz2 = new Reponse_QuizCRUD();
-Reponse ques_quiz = new Reponse(1, 11, 10, "er", "fv", "fv", "fvd");
-ques_quiz2.modifierReponse(ques_quiz);
+QuizCRUD ques_quiz2 = new QuizCRUD();
+Quiz ques_quiz = new Quiz();
+ques_quiz2.supprimerQuiz(47);
 ////
 ////*************************************************************
 ////**********************ModifierQuestion***********************
