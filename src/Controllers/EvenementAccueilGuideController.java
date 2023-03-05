@@ -37,8 +37,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -51,6 +53,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -146,18 +149,7 @@ public class EvenementAccueilGuideController implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory<>("date_ev"));
         nbplaces.setCellValueFactory(new PropertyValueFactory<>("nbre_places"));
         tableEv.setItems(listEv);
-        /*
-        List<Evenement> evenements = evS.afficherEvenements();
-
-        //ObservableList<Evenement> list = FXCollections.observableArrayList(evenements);
-        titre.setCellValueFactory(new PropertyValueFactory<>("titre_ev"));
-        categorie.setCellValueFactory(new PropertyValueFactory<>("categorie_ev"));
-        description.setCellValueFactory(new PropertyValueFactory<>("description_ev"));
-        adresse.setCellValueFactory(new PropertyValueFactory<>("adresse_ev"));
-        date.setCellValueFactory(new PropertyValueFactory<>("date_ev"));
-        nbplaces.setCellValueFactory(new PropertyValueFactory<>("nbre_places"));
-
-        tableEv.setItems(list);*/
+        
 
     }
 
@@ -194,49 +186,6 @@ public class EvenementAccueilGuideController implements Initializable {
 
     }
 
-    /*
-    public void showEv() {
-        Evenement ev = tableEv.getSelectionModel().getSelectedItem();
-        //String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement ";
-        String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement WHERE titre_ev= '" + titre + "'" ;
-
-        try {
-            PreparedStatement st = cnx.prepareStatement(req2);
-            st.setString(2, ev.getTitre_ev());
-            ResultSet rs = st.executeQuery();
-            String categ;
-            String desc;
-            String adresse;
-            Timestamp date;
-            int nbrP;
-            Blob imag_Ev;
-            byte byte_Img[];
-            while (rs.next()) {
-                String titre = rs.getString("titre_ev");
-                rechercher.setText(String.valueOf(titre));
-
-                txt_titre.setText(rs.getString(titre));
-                categ = rs.getString("categorie_ev");
-                txt_categorie.setText(String.valueOf(categ));
-                desc = rs.getString("description_ev");
-                txt_description.setText(String.valueOf(desc));
-                adresse = rs.getString("adresse_ev");
-                txt_addresse.setText(String.valueOf(adresse));
-                date = rs.getTimestamp("date_ev");
-                txt_date.setText(String.valueOf(date));
-                nbrP = rs.getInt("nbre_places");
-                txt_nbplaces.setText(String.valueOf(nbrP));
-                imag_Ev = rs.getBlob("image_ev");
-                byte_Img = imag_Ev.getBytes(1, (int) imag_Ev.length());
-                Image img = new Image(new ByteArrayInputStream(byte_Img), imgEv.getFitWidth(), imgEv.getFitHeight(), true, true);
-                //Image img = new Image(new ByteArrayInputStream(byte_Img), (int) imgEv.getFitWidth(), (int) imgEv.getFitHeight()));
-                imgEv.setImage(img);
-
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }*/
     /**
      * Initializes the controller class.
      */
@@ -264,22 +213,7 @@ public class EvenementAccueilGuideController implements Initializable {
     private List<Evenement> evenementsAjoutes = new ArrayList<>();
 
     private boolean controleSaisieEvenement(String titre, String categorie, String description, String adresse, Timestamp date, int nombrePlaces) {
-        /*for (Evenement evenement : evenementsAjoutes) {
-            if (evenement.getTitre_ev().equals(titre)
-                    && evenement.getCategorie().equals(categorie)
-                    && evenement.getDescription_ev().equals(description)
-                    && evenement.getAdresse_ev().equals(adresse)
-                    && evenement.getDateTime_ev().equals(date)
-                    && evenement.getNbre_place() == nombrePlaces) {
-                System.out.println("L'événement existe déjà.");
-                Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("NOT OK");
-            alert.setHeaderText("L'événement existe déjà.");
-            alert.setContentText("Click cancel to exit.");
-            alert.showAndWait();
-                return false;
-            }
-        }*/
+       
         try {
 
             Statement st = cnx.createStatement();
@@ -298,74 +232,14 @@ public class EvenementAccueilGuideController implements Initializable {
             return false;
         }
 
-        /*// Si l'événement n'existe pas, l'ajouter à la liste
-        Evenement nouvelEvenement = new Evenement(titre, categorie, date, nbPlaces);
-        evenementsAjoutes.add(nouvelEvenement);
-        System.out.println("L'événement a été ajouté.");*/
-        //return true;
+        
     }
 
     private FileInputStream fs;
 
     @FXML
     private void ajouter() throws FileNotFoundException, ParseException {
-        /*
-        
-        String titre = txt_titre.getText();
-        String cat = txt_categorie.getText();
-        String desc = txt_description.getText();
-        String dat = txt_date.getText();
-        //Timestamp date = Timestamp.valueOf(txt_date.getText());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        //Date date = dateFormat.parse(dateString);
-        java.util.Date date = dateFormat.parse(dat);
-        Timestamp timestamp = new Timestamp(date.getTime());
-
-        String adress = txt_addresse.getText();
-        int nbreP = Integer.parseInt(txt_nbplaces.getText());
-        File img = new File(txt_img.getText());
-        
-    // Appeler la méthode de contrôle de saisie
-    boolean ajoutPossible = controleSaisieEvenement(titre, cat, desc, adress, timestamp, nbreP);
-
-    // Vérifier si l'ajout est possible et effectuer l'action appropriée
-    if (ajoutPossible) {
-        // Ajouter l'événement à la base de données ou effectuer toute autre action appropriée
-        String sql = "insert into evenement(titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places) VALUES(?,?,?,?,?,?,?)";
-        try {
-            PreparedStatement st = cnx.prepareStatement(sql);
-            st.setString(1, titre);
-            st.setString(2, cat);
-            st.setString(3, desc);
-            st.setString(4, adress);
-            fs = new FileInputStream(img);
-            st.setBinaryStream(5, fs, img.length());
-            st.setTimestamp(6, timestamp);
-            st.setInt(7, nbreP);
-            st.executeUpdate();
-            afficherEvenements();
-
-            txt_titre.setText("");
-            txt_categorie.setText("");
-            txt_description.setText("");
-            txt_addresse.setText("");
-            txt_date.setText("");
-            txt_nbplaces.setText("");
-            imgEv.setImage(null);
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement ajouté avec succées", javafx.scene.control.ButtonType.OK);
-            alert.showAndWait();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    } else {
-        // Afficher un message d'erreur à l'utilisateur
-        Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("NOT OK");
-            alert.setHeaderText("Evenement existe déjà");
-            alert.setContentText("Click cancel to exit.");
-            alert.showAndWait();
-    }
-         */ ControlSaisieEvenement control = new ControlSaisieEvenement();
+        ControlSaisieEvenement control = new ControlSaisieEvenement();
         String titre = txt_titre.getText();
         String cat = txt_categorie.getText();
         String desc = txt_description.getText();
@@ -451,8 +325,14 @@ public class EvenementAccueilGuideController implements Initializable {
                 txt_date.setText("");
                 txt_nbplaces.setText("");
                 imgEv.setImage(null);
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement ajouté avec succées", javafx.scene.control.ButtonType.OK);
-                alert.showAndWait();
+                //Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement ajouté avec succées", javafx.scene.control.ButtonType.OK);
+                //alert.showAndWait();
+                Notifications notificationBuilder = Notifications.create().title("Alert").text("Evenement ajouté avec succès").graphic(null).hideAfter(javafx.util.Duration.seconds(8)).position(Pos.TOP_CENTER).onAction((ActionEvent event) -> {
+                    System.out.println("Clicked ON");
+                });
+                notificationBuilder.darkStyle();
+                notificationBuilder.show();
+                
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -531,26 +411,7 @@ public class EvenementAccueilGuideController implements Initializable {
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
-        }/*
-        EvenementService evs = new EvenementService();
-        if (tableEv.getSelectionModel().getSelectedItem() != null) {
-            evs.supprimerEvenement(tableEv.getSelectionModel().getSelectedItem().getId_ev());
-            tableEv.refresh();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("succes");
-            alert.setHeaderText("!!! Suppression effectuer avec suucces !!!");
-            alert.setContentText("succes");
-            listEv.clear();
-            
-            //List<Evenement> evenements = evS.afficherEvenements();
-            listEv = FXCollections.observableList(evS.afficherEvenements());
-            //listEv = evS.afficherEvenements();
-            tableEv.setItems(listEv);
-            alert.showAndWait();
-            tableEv.refresh();
         }
-         */
-        //showEv();
     }
 
     @FXML

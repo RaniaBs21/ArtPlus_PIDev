@@ -56,8 +56,6 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <TextArea fx:id="textArea1" layoutX="25.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextArea fx:id="textArea11" layoutX="238.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextArea fx:id="textArea111" layoutX="452.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextArea fx:id="resultTextArea" layoutX="68.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

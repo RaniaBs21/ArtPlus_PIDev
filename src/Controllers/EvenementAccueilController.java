@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+
 import artplus.entities.Participation;
 import artplus.utils.MyConnection;
 import java.io.ByteArrayInputStream;
@@ -109,19 +110,7 @@ public class EvenementAccueilController implements Initializable {
     }
 
     public void afficherEvenements() {
-        /*
-        String req10 = "select count(*) as nbr from evenement";
-        int nbr = 0;
-        try {
-            PreparedStatement st = cnx.prepareStatement(req10);
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                nbr = rs.getInt("nbr");
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }*/
-
+        
         String req = "select * FROM evenement";
         String nom_Ev;
         Timestamp Date_EV;
@@ -161,6 +150,7 @@ public class EvenementAccueilController implements Initializable {
         AfficherMusees();
        
     }
+    
 
     @FXML
     private void participer() {
@@ -302,7 +292,7 @@ public class EvenementAccueilController implements Initializable {
                 Scene scene = LienMusee.getScene();
                 scene.setRoot(parent2);
             } catch (IOException ex) {
-                Logger.getLogger(EvenementGuideController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EvenementAccueilGuideController.class.getName()).log(Level.SEVERE, null, ex);
 
             }
         }

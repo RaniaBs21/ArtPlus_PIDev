@@ -38,11 +38,7 @@ public class Page2Controller implements Initializable {
     @FXML
     private Text reclam;
     @FXML
-    private TextArea textArea1;
-    @FXML
-    private TextArea textArea11;
-    @FXML
-    private TextArea textArea111;
+    private TextArea resultTextArea;
 
     /**
      * Initializes the controller class.
@@ -74,14 +70,25 @@ public class Page2Controller implements Initializable {
             Logger.getLogger(Page2Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
-         try {
+        try {
             URL obj = new URL("https://api.harvardartmuseums.org/object?apikey=21fd108b-a528-4da8-be40-76cf10cd183c");
-            ObjectMapper objectMapper = new ObjectMapper();
-            ObjectModel objectModel = objectMapper.readValue(obj, ObjectModel.class);
-            List<ObjectData> objectDataList = objectModel.getObjectDataList();
-            textArea1.setText(objectDataList.get(0).toString());
-            textArea11.setText(objectDataList.get(1).toString());
-            textArea3.setText(objectDataList.get(2).toString());
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            con.setRequestMethod("GET");
+            int responseCode = con.getResponseCode();
+            System.out.println("GET Response Code :: " + responseCode);
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                StringBuffer response;
+                try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+                    String inputLine;
+                    response = new StringBuffer();
+                    while ((inputLine = in.readLine()) != null) {
+                        response.append(inputLine);
+                    }
+                }
+                resultTextArea.setText(response.toString());
+            } else {
+                System.out.println("GET request di");
+            }
         } catch (Exception ex) {
             Logger.getLogger(Page2Controller.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -22,19 +22,18 @@ import javafx.stage.Stage;
  * @author rahma
  */
 public class JavaFXMain extends Application {
-    
+
     private Stage stage;
     private Parent parent;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.stage = new Stage();
-        
+
         parent = FXMLLoader.load(getClass().getResource("/Views/EvenementAccueil.fxml"));
-       //parent = FXMLLoader.load(getClass().getResource("/Views/EvenementAccueilGuide.fxml"));
+       // parent = FXMLLoader.load(getClass().getResource("/Views/EvenementAccueilGuide.fxml"));
         Scene scene = new Scene(parent);
-        
-        
+
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -44,5 +43,5 @@ public class JavaFXMain extends Application {
         launch(args);
 
     }
-    
+
 }
