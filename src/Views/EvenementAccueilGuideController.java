@@ -262,7 +262,7 @@ public class EvenementAccueilGuideController implements Initializable {
     private List<Evenement> evenementsAjoutes = new ArrayList<>();
 
     private boolean controleSaisieEvenement(String titre, String categorie, String description, String adresse, Timestamp date, int nombrePlaces) {
-        for (Evenement evenement : evenementsAjoutes) {
+        /*for (Evenement evenement : evenementsAjoutes) {
             if (evenement.getTitre_ev().equals(titre)
                     && evenement.getCategorie().equals(categorie)
                     && evenement.getDescription_ev().equals(description)
@@ -277,13 +277,30 @@ public class EvenementAccueilGuideController implements Initializable {
             alert.showAndWait();
                 return false;
             }
+        }*/
+        try {
+            
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM evenement WHERE titre_Ev = '"
+                    + titre + "' AND categorie_ev = '" + categorie + "' AND description_ev = '"+ description + "' AND adresse_ev = '"+ adresse +"' AND date_ev = '"
+                    + date + "' AND nbres_places = " + nombrePlaces);
+
+            // Si un événement avec ces attributs existe déjà, renvoyer false
+            if (rs.next()) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur : " + e.getMessage());
+            return false;
         }
 
-        // Si l'événement n'existe pas, l'ajouter à la liste
+        /*// Si l'événement n'existe pas, l'ajouter à la liste
         Evenement nouvelEvenement = new Evenement(titre, categorie, date, nbPlaces);
         evenementsAjoutes.add(nouvelEvenement);
-        System.out.println("L'événement a été ajouté.");
-        return true;
+        System.out.println("L'événement a été ajouté.");*/
+        //return true;
     }
 
     private FileInputStream fs;
@@ -291,7 +308,7 @@ public class EvenementAccueilGuideController implements Initializable {
     @FXML
     private void ajouter() throws FileNotFoundException, ParseException {
 
-        /*
+        
         String titre = txt_titre.getText();
         String cat = txt_categorie.getText();
         String desc = txt_description.getText();
@@ -305,6 +322,13 @@ public class EvenementAccueilGuideController implements Initializable {
         String adress = txt_addresse.getText();
         int nbreP = Integer.parseInt(txt_nbplaces.getText());
         File img = new File(txt_img.getText());
+        
+    // Appeler la méthode de contrôle de saisie
+    boolean ajoutPossible = controleSaisieEvenement(titre, cat, desc, adress, timestamp, nbreP);
+
+    // Vérifier si l'ajout est possible et effectuer l'action appropriée
+    if (ajoutPossible) {
+        // Ajouter l'événement à la base de données ou effectuer toute autre action appropriée
         String sql = "insert into evenement(titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places) VALUES(?,?,?,?,?,?,?)";
         try {
             PreparedStatement st = cnx.prepareStatement(sql);
@@ -330,7 +354,16 @@ public class EvenementAccueilGuideController implements Initializable {
             alert.showAndWait();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-        }*/
+        }
+    } else {
+        // Afficher un message d'erreur à l'utilisateur
+        Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("NOT OK");
+            alert.setHeaderText("Evenement existe déjà");
+            alert.setContentText("Click cancel to exit.");
+            alert.showAndWait();
+    }
+        
     }
 
     @FXML
