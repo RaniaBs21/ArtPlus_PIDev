@@ -6,56 +6,56 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="299.0" prefWidth="574.0" style="-fx-background-color: F8F5E4;" stylesheets="@../Assets/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.VoirCoursController">
+<AnchorPane id="AnchorPane" prefHeight="346.0" prefWidth="594.0" style="-fx-background-color: F8F5E4;" stylesheets="@../Assets/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.VoirCoursController">
     <children>
-      <ImageView fx:id="cours_image" fitHeight="299.0" fitWidth="232.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="249.0" layoutY="55.0" prefHeight="17.0" prefWidth="53.0" text="Libellé : " textFill="#889cf5">
+      <ImageView fx:id="cours_image" fitHeight="243.0" fitWidth="260.0" layoutX="14.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="292.0" layoutY="55.0" prefHeight="17.0" prefWidth="53.0" text="Titre" textFill="#889cf5">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="362.0" layoutY="19.0" text="Cours">
+      <Label layoutX="342.0" layoutY="14.0" prefHeight="28.0" prefWidth="96.0" text="Cours">
          <font>
             <Font name="Consolas Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="course_name_label" layoutX="301.0" layoutY="55.0" prefHeight="17.0" prefWidth="260.0" text="Cours du jours francais anglais espagnol ">
+      <Label fx:id="course_name_label" layoutX="352.0" layoutY="55.0" prefHeight="17.0" prefWidth="260.0" text="Cours du jours francais anglais espagnol ">
          <font>
             <Font name="System Italic" size="12.0" />
          </font></Label>
-      <Label layoutX="250.0" layoutY="85.0" prefHeight="17.0" prefWidth="68.0" text="Catégorie :" textFill="#889cf5">
+      <Label layoutX="292.0" layoutY="85.0" prefHeight="17.0" prefWidth="68.0" text="Catégorie :" textFill="#889cf5">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="250.0" layoutY="112.0" prefHeight="17.0" prefWidth="102.0" text="Sous catégorie :" textFill="#889cf5">
+      <Label layoutX="291.0" layoutY="112.0" prefHeight="17.0" prefWidth="102.0" text="Sous catégorie :" textFill="#889cf5">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="251.0" layoutY="139.0" prefHeight="17.0" prefWidth="53.0" text="Niveau :" textFill="#889cf5">
+      <Label layoutX="292.0" layoutY="140.0" prefHeight="17.0" prefWidth="53.0" text="Niveau :" textFill="#889cf5">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="252.0" layoutY="187.0" prefHeight="17.0" prefWidth="90.0" text="Description :" textFill="#889cf5">
+      <Label layoutX="289.0" layoutY="192.0" prefHeight="17.0" prefWidth="90.0" text="Description :" textFill="#889cf5">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TextArea fx:id="course_description_area" layoutX="254.0" layoutY="205.0" prefHeight="82.0" prefWidth="308.0" />
-      <Label fx:id="course_categorie_label" layoutX="317.0" layoutY="86.0" prefHeight="17.0" prefWidth="232.0" text="Culture">
+      <TextArea fx:id="course_description_area" layoutX="286.0" layoutY="226.0" prefHeight="82.0" prefWidth="293.0" />
+      <Label fx:id="course_categorie_label" layoutX="379.0" layoutY="85.0" prefHeight="17.0" prefWidth="232.0" text="Culture">
          <font>
             <Font name="System Italic" size="12.0" />
          </font></Label>
-      <Label fx:id="course_sub_categorie_label" layoutX="355.0" layoutY="112.0" prefHeight="17.0" prefWidth="223.0" text="litérature">
+      <Label fx:id="course_sub_categorie_label" layoutX="393.0" layoutY="112.0" prefHeight="17.0" prefWidth="223.0" text="litérature">
          <font>
             <Font name="System Italic" size="12.0" />
          </font></Label>
-      <Label fx:id="course_level_label" layoutX="304.0" layoutY="140.0" prefHeight="17.0" prefWidth="53.0" text="3">
+      <Label fx:id="course_level_label" layoutX="384.0" layoutY="139.0" prefHeight="17.0" prefWidth="53.0" text="3">
          <font>
             <Font name="System Italic" size="12.0" />
          </font></Label>
-      <Label layoutX="252.0" layoutY="163.0" prefHeight="17.0" prefWidth="38.0" text="Prix :" textFill="#889cf5">
+      <Label layoutX="289.0" layoutY="165.0" prefHeight="17.0" prefWidth="38.0" text="Prix :" textFill="#889cf5">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="course_prix_label" layoutX="287.0" layoutY="164.0" prefHeight="17.0" prefWidth="53.0" text="3">
+      <Label fx:id="course_prix_label" layoutX="364.0" layoutY="165.0" prefHeight="17.0" prefWidth="53.0" text="3">
          <font>
             <Font name="System Italic" size="12.0" />
          </font></Label>

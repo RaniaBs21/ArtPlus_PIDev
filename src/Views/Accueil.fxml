@@ -16,23 +16,23 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="401.0" prefWidth="811.0" style="-fx-background-color: F8F5E4;" stylesheets="@../Assets/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AccueilController">
-    <ListView layoutX="-6.0" prefHeight="48.0" prefWidth="817.0" />
+    <ListView layoutX="-6.0" prefHeight="53.0" prefWidth="817.0" />
     <Text fill="#0b315b" layoutX="461.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-    <Text cache="true" cacheHint="SCALE_AND_ROTATE" fill="#e1ad2a" fontSmoothingType="LCD" layoutX="297.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La formation est l'escence de tout succès" textAlignment="CENTER" wrappingWidth="253.7236328125">
+    <Text cache="true" cacheHint="SCALE_AND_ROTATE" fill="#da9d0d" fontSmoothingType="LCD" layoutX="311.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La formation est l'escence de tout succès" textAlignment="CENTER" wrappingWidth="253.7236328125">
         <font>
-            <Font name="Ink Free" size="18.0" />
+            <Font name="Ink Free" size="25.0" />
         </font>
     </Text>
-    <Text fill="#eb9e05" layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
+    <Text fill="#eb9e05" layoutX="50.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
         <font>
             <Font name="System Bold" size="13.0" />
         </font>
     </Text>
     <Accordion layoutX="161.0" layoutY="200.0" />
     <Accordion layoutX="127.0" layoutY="192.0" />
-    <Text fill="#464543" layoutX="28.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Une large sélection de cours">
+    <Text fill="#101011" layoutX="23.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Une large sélection de cours">
         <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Arial Rounded MT Bold" size="15.0" />
         </font>
     </Text>
     <Text layoutX="90.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -51,18 +51,18 @@
             <Image url="@../images/327064585_3412782662295061_2792793093980053014_n-removebg-preview%20(1).png" />
         </image>
     </ImageView>
-    <Button fx:id="evenement" layoutX="354.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
-    <Button fx:id="fillAct" layoutX="265.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
-    <Button fx:id="btnAcc" layoutX="192.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
-    <Button fx:id="cours" layoutX="438.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
-    <Button fx:id="prod" layoutX="487.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
-    <Button fx:id="quiz" layoutX="548.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
-    <Button fx:id="ass" layoutX="594.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
-    <ComboBox id="confirmer_button" fx:id="cat_choice" layoutX="648.0" layoutY="57.0" prefWidth="150.0" promptText="Nos categories" />
-   <Separator layoutX="50.0" layoutY="145.0" prefHeight="0.0" prefWidth="381.0" />
-   <Button id="details_button" fx:id="course_search_button" layoutX="160.0" layoutY="57.0" mnemonicParsing="false" onAction="#search_course" prefHeight="25.0" prefWidth="80.0" text="Rechercher" />
-   <TextField fx:id="course_search_field" layoutX="23.0" layoutY="57.0" prefHeight="25.0" prefWidth="139.0" promptText="Rechercher un cours" />
-   <ScrollPane fx:id="scroll_pane" layoutX="-1.0" layoutY="148.0" prefHeight="253.0" prefWidth="811.0">
+    <Button fx:id="evenement" layoutX="323.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
+    <Button fx:id="fillAct" layoutX="218.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
+    <Button fx:id="btnAcc" layoutX="137.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
+    <Button fx:id="cours" layoutX="414.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
+    <Button fx:id="prod" layoutX="476.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
+    <Button fx:id="quiz" layoutX="537.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
+    <Button fx:id="ass" layoutX="592.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
+    <ComboBox id="confirmer_button" fx:id="cat_choice" layoutX="643.0" layoutY="71.0" prefWidth="150.0" promptText="Nos categories" />
+   <Separator layoutX="23.0" layoutY="179.0" prefHeight="0.0" prefWidth="229.0" />
+   <Button id="details_button" fx:id="course_search_button" layoutX="160.0" layoutY="72.0" mnemonicParsing="false" onAction="#search_course" prefHeight="17.0" prefWidth="80.0" text="Rechercher" />
+   <TextField fx:id="course_search_field" layoutX="25.0" layoutY="72.0" prefHeight="25.0" prefWidth="139.0" promptText="Rechercher un cours" />
+   <ScrollPane fx:id="scroll_pane" layoutX="-1.0" layoutY="189.0" prefHeight="266.0" prefWidth="811.0">
       <content>
          <GridPane fx:id="grid_pane" prefWidth="810.0">
             <rowConstraints>
@@ -71,5 +71,10 @@
          </GridPane>
       </content>
    </ScrollPane>
+   <ImageView fitHeight="48.0" fitWidth="47.0" layoutX="49.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Media/331797442_499253822422302_4013332237400074576_n%20(1).png" />
+      </image>
+   </ImageView>
     
 </AnchorPane>

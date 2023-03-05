@@ -19,7 +19,7 @@
    <Text fill="#282727" layoutX="315.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    <Text fill="#282727" layoutX="317.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    <Button id="details_button" cancelButton="true" layoutX="400.0" layoutY="397.0" mnemonicParsing="false" onAction="#afficherAbonnemnts" prefHeight="27.0" prefWidth="65.0" stylesheets="@../Assets/Styles.css" text="Afficher" textFill="#b57816" />
-   <TableView fx:id="tablecours" layoutX="90.0" layoutY="97.0" prefHeight="287.0" prefWidth="712.0">
+   <TableView fx:id="tablecours" layoutX="77.0" layoutY="102.0" prefHeight="287.0" prefWidth="712.0">
      <columns>
        <TableColumn fx:id="date" prefWidth="119.0" text="Date" />
          <TableColumn fx:id="user" prefWidth="153.0" text="user" />
@@ -28,28 +28,33 @@
          <TableColumn fx:id="prix" minWidth="0.0" prefWidth="111.0" text="Paye" />
      </columns>
    </TableView>
-   <ListView layoutY="1.0" prefHeight="42.0" prefWidth="874.0" />
-   <Text fill="#eb9e05" layoutX="40.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
+   <ListView layoutY="1.0" prefHeight="52.0" prefWidth="874.0" />
+   <Text fill="#eb9e05" layoutX="55.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artplus">
       <font>
          <Font name="System Bold" size="13.0" />
       </font>
    </Text>
-   <Button fx:id="evenement" layoutX="310.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
-   <Button fx:id="fillAct" layoutX="221.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
-   <Button fx:id="btnAcc" layoutX="148.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
-   <Button fx:id="cours_bt" layoutX="394.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
-   <Button fx:id="prod" layoutX="525.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
-   <Button fx:id="quiz" layoutX="586.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
-   <Button fx:id="ass" layoutX="632.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
+   <Button fx:id="evenement" layoutX="277.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
+   <Button fx:id="fillAct" layoutX="190.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
+   <Button fx:id="btnAcc" layoutX="127.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
+   <Button fx:id="cours_bt" layoutX="368.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
+   <Button fx:id="prod" layoutX="535.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
+   <Button fx:id="quiz" layoutX="609.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
+   <Button fx:id="ass" layoutX="668.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
    <Text fill="#f82710" layoutX="766.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
       <font>
          <Font name="System Bold" size="12.0" />
       </font>
    </Text>
-   <Button fx:id="abonnements" layoutX="437.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Abonnements" textFill="#0b315b" />
-   <Text fill="#e1ad2a" layoutX="90.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des abonnements" wrappingWidth="209.0810546875">
+   <Button fx:id="abonnements" layoutX="426.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Abonnements" textFill="#0b315b" />
+   <Text fill="#e1ad2a" layoutX="85.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des abonnements" wrappingWidth="209.0810546875">
       <font>
          <Font name="Corbel Bold" size="18.0" />
       </font>
-   </Text>   
+   </Text>
+   <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="58.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Media/331797442_499253822422302_4013332237400074576_n%20(1).png" />
+      </image>
+   </ImageView>   
 </AnchorPane>

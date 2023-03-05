@@ -36,7 +36,7 @@ public class JavaFXMain extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
        this.stage1=new Stage();
-      //parent=FXMLLoader.load(getClass().getResource("/Views/Accueil.fxml"));
+     // parent=FXMLLoader.load(getClass().getResource("/Views/Accueil.fxml"));
     
       parent=FXMLLoader.load(getClass().getResource("/Views/ajoutCours.fxml"));
         
