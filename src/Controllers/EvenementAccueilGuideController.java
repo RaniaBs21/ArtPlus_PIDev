@@ -10,10 +10,13 @@ import artplus.entities.Evenement;
 import artplus.services.EvenementService;
 import artplus.utils.MyConnection;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Blob;
 import java.sql.Connection;
@@ -465,46 +468,6 @@ public class EvenementAccueilGuideController implements Initializable {
 
     @FXML
     void showEv(MouseEvent event) {
-        /*Evenement ev = tableEv.getSelectionModel().getSelectedItem();
-        //String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement ";
-        String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement WHERE titre_ev= '" + titre + "'";
-
-        try {
-            PreparedStatement st = cnx.prepareStatement(req2);
-            st.setString(2, ev.getTitre_ev());
-            ResultSet rs = st.executeQuery();
-            String categ;
-            String desc;
-            String adresse;
-            Timestamp date;
-            int nbrP;
-            Blob imag_Ev;
-            byte byte_Img[];
-            while (rs.next()) {
-                String titre = rs.getString("titre_ev");
-                rechercher.setText(String.valueOf(titre));
-
-                txt_titre.setText(rs.getString(titre));
-                categ = rs.getString("categorie_ev");
-                txt_categorie.setText(String.valueOf(categ));
-                desc = rs.getString("description_ev");
-                txt_description.setText(String.valueOf(desc));
-                adresse = rs.getString("adresse_ev");
-                txt_addresse.setText(String.valueOf(adresse));
-                date = rs.getTimestamp("date_ev");
-                txt_date.setText(String.valueOf(date));
-                nbrP = rs.getInt("nbre_places");
-                txt_nbplaces.setText(String.valueOf(nbrP));
-                imag_Ev = rs.getBlob("image_ev");
-                byte_Img = imag_Ev.getBytes(1, (int) imag_Ev.length());
-                Image img = new Image(new ByteArrayInputStream(byte_Img), imgEv.getFitWidth(), imgEv.getFitHeight(), true, true);
-                //Image img = new Image(new ByteArrayInputStream(byte_Img), (int) imgEv.getFitWidth(), (int) imgEv.getFitHeight()));
-                imgEv.setImage(img);
-
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }*/
         Evenement ev = tableEv.getSelectionModel().getSelectedItem();
         //String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement ";
         String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement WHERE titre_ev=? ";
@@ -513,7 +476,7 @@ public class EvenementAccueilGuideController implements Initializable {
             PreparedStatement st = cnx.prepareStatement(req2);
             st.setString(1, ev.getTitre_ev());
             ResultSet rs = st.executeQuery();
-           
+
             String categ;
             String desc;
             String adresse;
@@ -550,32 +513,56 @@ public class EvenementAccueilGuideController implements Initializable {
 
     @FXML
     private void supprimer() {
-        Evenement ev = tableEv.getSelectionModel().getSelectedItem();
-        //showEv();
-        int idE = ev.getId_ev();
-        try {
-            String req = "DELETE FROM `evenement` WHERE id_ev = " + idE;
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
-            System.out.println("Evenement supprimé avec succès!");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+        if (tableEv.getSelectionModel().getSelectedItem() != null) {
+            String req = "DELETE FROM `evenement` WHERE titre_ev = '" + txt_titre.getText() + "'";
+            try {
+                PreparedStatement st = cnx.prepareStatement(req);
+                st.executeUpdate();
+                afficherEvenements();
+                txt_titre.setText("");
+                txt_categorie.setText("");
+                txt_description.setText("");
+                txt_addresse.setText("");
+                txt_date.setText("");
+                txt_nbplaces.setText("");
+                imgEv.setImage(null);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement supprimé avec succées", javafx.scene.control.ButtonType.OK);
+                alert.showAndWait();
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }/*
+        EvenementService evs = new EvenementService();
+        if (tableEv.getSelectionModel().getSelectedItem() != null) {
+            evs.supprimerEvenement(tableEv.getSelectionModel().getSelectedItem().getId_ev());
+            tableEv.refresh();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("succes");
+            alert.setHeaderText("!!! Suppression effectuer avec suucces !!!");
+            alert.setContentText("succes");
+            listEv.clear();
+            
+            //List<Evenement> evenements = evS.afficherEvenements();
+            listEv = FXCollections.observableList(evS.afficherEvenements());
+            //listEv = evS.afficherEvenements();
+            tableEv.setItems(listEv);
+            alert.showAndWait();
+            tableEv.refresh();
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement supprimé avec succées", javafx.scene.control.ButtonType.OK);
-        alert.showAndWait();
+         */
         //showEv();
-
     }
 
     @FXML
-    private void modifier() throws ParseException, FileNotFoundException {
-        Evenement ev = tableEv.getSelectionModel().getSelectedItem();
-        int idE = ev.getId_ev();
+    private void modifier() throws ParseException, FileNotFoundException, IOException {
+
+        //Evenement ev = tableEv.getSelectionModel().getSelectedItem();
+        //int idE = ev.getId_ev();
         String titre = txt_titre.getText();
         String cat = txt_categorie.getText();
         String desc = txt_description.getText();
         String dat = txt_date.getText();
-        //Timestamp date = Timestamp.valueOf(txt_date.getText());
+        //Timestamp date = Timestamp.valueOf(txt_date.getText()); 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         //Date date = dateFormat.parse(dateString);
         java.util.Date date = dateFormat.parse(dat);
@@ -585,8 +572,10 @@ public class EvenementAccueilGuideController implements Initializable {
         int nbreP = Integer.parseInt(txt_nbplaces.getText());
         File img = new File(txt_img.getText());
         //String sql = "update evenement titre_ev =?,categorie_ev=?,description_ev=?,adresse_ev=?,image_ev=?,date_ev=?,nbre_places=? WHERE titre_ev= '" + rechercher.getText() + "'";
-        String sql = "UPDATE `evenement` SET `titre_ev`=?,`categorie_ev`=?',`description_ev`=?,`image_ev`=?,`adresse_ev`=?,`date_ev`=?,`nbre_places`=? WHERE id_ev = " + idE;
+
         try {
+            String sql = "UPDATE `evenement` SET `titre_ev`=?,`categorie_ev`=?,`description_ev`=?,`image_ev`=?,`adresse_ev`=?,`date_ev`=?,`nbre_places`=? WHERE `titre_ev` = '" + txt_titre.getText() + "'";
+
             PreparedStatement st = cnx.prepareStatement(sql);
             st.setString(1, titre);
             st.setString(2, cat);
@@ -597,9 +586,12 @@ public class EvenementAccueilGuideController implements Initializable {
             st.setTimestamp(6, timestamp);
             st.setInt(7, nbreP);
             st.executeUpdate();
+
             afficherEvenements();
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement Modifié avec succées", javafx.scene.control.ButtonType.OK);
             alert.showAndWait();
+
             txt_titre.setText("");
             txt_categorie.setText("");
             txt_description.setText("");
@@ -611,43 +603,6 @@ public class EvenementAccueilGuideController implements Initializable {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    }/*
-     public void get_Evenement(List<Evenement> evenements_list){
-        grid_pane.getChildren().clear();
-        int  col = 0;
-        int row = 1;
-        for (Cours c:courses_list){
-            try {
-                AnchorPane cours_card = new AnchorPane();
-                cours_card.setStyle("-fx-background-color: white; -fx-border-color: red;");
-                //anchorPane.setPrefSize(300, 300);
-                FXMLLoader fxmlloader = new FXMLLoader();
-                fxmlloader.setLocation(getClass().getResource("/Views/Cours_card.fxml"));
-                cours_card = fxmlloader.load();
-                CoursCardController cours_card_controller = fxmlloader.getController();
-                cours_card_controller.setCours(c);
-                cours_card_controller.initialize_data();
-                BorderStroke borderStroke = new BorderStroke(
-                Color.BLUE,
-                BorderStrokeStyle.SOLID,
-                null,
-                BorderStroke.THIN,
-                new Insets(5)
-                );
-                Border border = new Border(borderStroke);
-                cours_card.setBorder(border); 
-                if(col == 3){
-                    col = 0;
-                    row++;
-                }
-                GridPane.setHgrow(cours_card, Priority.ALWAYS);
-                GridPane.setVgrow(cours_card, Priority.ALWAYS);
-                grid_pane.add(cours_card, col++, row );
-                
-            } catch (IOException ex) {
-                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }*/
-
+    }
 
 }

@@ -92,13 +92,14 @@ public class EvenementService implements InterfaceEvenement<Evenement> {
     @Override
     public void supprimerEvenement(int id) {
         try {
-            String req = "DELETE FROM `evenement` WHERE id_ev = " + id;
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
+            String req = "DELETE FROM `evenement` WHERE id_ev = '" + id + "'";
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.executeUpdate();
             System.out.println("Evenement supprimé avec succès!");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        
     }
 
     @Override
