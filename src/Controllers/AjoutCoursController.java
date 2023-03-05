@@ -307,7 +307,7 @@ public class AjoutCoursController implements Initializable {
         fileChooser.setInitialDirectory(initialDirectory);
         // Add file filters (optional)
         fileChooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg","*.jpeg", "*.gif")
         );
         Stage stage = (Stage) fichierc.getScene().getWindow();
         selectedFile = fileChooser.showOpenDialog(stage);
