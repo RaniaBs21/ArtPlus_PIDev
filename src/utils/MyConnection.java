@@ -13,14 +13,14 @@ import java.sql.SQLException;
  *
  * @author rania
  */
-public class MyDB {
-     private String url="jdbc:mysql://localhost/tfarhida";
+public class MyConnection {
+     private String url="jdbc:mysql://localhost/artplus";
     private String user="root";
     private String pass="";
     private Connection connection; 
-    static MyDB instance;
+    static MyConnection instance;
     
-    private MyDB(){
+    private MyConnection(){
         try {
             connection =  DriverManager.getConnection(url, user, pass);
             System.out.println("connection etablie");
@@ -29,11 +29,11 @@ public class MyDB {
         }
     
     }
-    public static MyDB getInstance(){
+    public static MyConnection getInstance(){
         
         if(instance ==null)
         {
-            instance= new MyDB();
+            instance= new MyConnection();
         }
         return instance;
     }

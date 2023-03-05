@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import services.ServiceCommentaireIMP;
 import services.ServiceSujetIMP;
-import utils.MyDB;
+import utils.MyConnection;
 import java.util.Scanner;
 import services.ServiceTopicIMP;
 /**
@@ -23,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner rep = new Scanner(System.in);   
         int choix,boucle=1;
-        MyDB.getInstance();
+        MyConnection.getInstance();
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 //        System.out.println("Today's date is: "+dateFormat.format(date));

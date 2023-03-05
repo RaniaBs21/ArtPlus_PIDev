@@ -10,8 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="830.0" prefWidth="1311.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GestiontopicbackController">
+<AnchorPane id="AnchorPane" prefHeight="830.0" prefWidth="1311.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GestiontopicbackController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd230" height="58.0" layoutX="-1.0" layoutY="142.0" stroke="BLACK" strokeType="INSIDE" width="1321.0" />
       <TableView fx:id="tvtopics" layoutX="63.0" layoutY="243.0" prefHeight="559.0" prefWidth="1226.0" style="-fx-background-color: #ffd230;" stylesheets="@gestiontopic.css">
@@ -28,7 +29,7 @@
             <Font name="Comic Sans MS Bold" size="40.0" />
          </font>
       </Label>
-      <ListView layoutY="14.0" prefHeight="58.0" prefWidth="1321.0" />
+      <ListView layoutY="14.0" prefHeight="67.0" prefWidth="1322.0" />
       <Button fx:id="Acc" layoutX="349.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
       <Button fx:id="FAcc" layoutX="432.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
       <Button fx:id="Ev" layoutX="534.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
@@ -36,10 +37,15 @@
       <Button fx:id="Prod" layoutX="736.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
       <Button fx:id="Qz" layoutX="824.0" layoutY="30.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
       <Button fx:id="Ass" layoutX="886.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
-      <ImageView fitHeight="68.0" fitWidth="83.0" layoutX="22.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="58.0" fitWidth="86.0" layoutX="22.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@lo.png" />
          </image>
       </ImageView>
+      <Text fill="#ffd230" layoutX="36.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

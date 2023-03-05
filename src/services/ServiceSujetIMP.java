@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package services;
-import utils.MyDB;
+import utils.MyConnection;
 import entities.Sujet;
 import entities.Topic;
 import java.sql.Connection;
@@ -27,7 +27,7 @@ public class ServiceSujetIMP implements IForum<Sujet>{
     Connection cnx;
 
     public ServiceSujetIMP() {
-        cnx= MyDB.getInstance().getConnection();
+        cnx= MyConnection.getInstance().getConnection();
     }
 
     @Override

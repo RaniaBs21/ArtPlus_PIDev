@@ -112,5 +112,6 @@
             <Font name="Comic Sans MS Bold" size="40.0" />
          </font>
       </Label>
+      
    </children>
 </AnchorPane>

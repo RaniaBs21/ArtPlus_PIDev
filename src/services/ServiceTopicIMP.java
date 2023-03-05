@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import utils.MyDB;
+import utils.MyConnection;
 
 /**
  *
@@ -28,7 +28,7 @@ public class ServiceTopicIMP implements IForum<Topic>{
     Connection cnx;
 
     public ServiceTopicIMP() {
-        cnx= MyDB.getInstance().getConnection();
+        cnx= MyConnection.getInstance().getConnection();
     }
 
     @Override

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package services;
-import utils.MyDB;
+import utils.MyConnection;
 import entities.Commentaire;
 import entities.Utilisateur;
 import java.sql.Connection;
@@ -27,7 +27,7 @@ public class ServiceCommentaireIMP implements IForum<Commentaire>{
     Connection cnx;
 
     public ServiceCommentaireIMP() {
-        cnx= MyDB.getInstance().getConnection();
+        cnx= MyConnection.getInstance().getConnection();
 
     }
 
