@@ -283,7 +283,7 @@ public class EvenementAccueilGuideController implements Initializable {
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM evenement WHERE titre_Ev = '"
                     + titre + "' AND categorie_ev = '" + categorie + "' AND description_ev = '"+ description + "' AND adresse_ev = '"+ adresse +"' AND date_ev = '"
-                    + date + "' AND nbres_places = " + nombrePlaces);
+                    + date + "' AND nbre_places = " + nombrePlaces);
 
             // Si un événement avec ces attributs existe déjà, renvoyer false
             if (rs.next()) {
