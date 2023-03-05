@@ -67,6 +67,20 @@ public class ControlSaisieEvenement {
         }
         return true;
     }
+     public static boolean ControleAdresse(Evenement e) {
+        String str = (e.getAdresse_ev()).toLowerCase();
+        if (str.length() == 0) {
+            return false;
+        }
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char ch = charArray[i];
+            if (!((ch >= 'a' && ch <= 'z') || (String.valueOf(ch)).equals(" "))) {
+                return false;
+            }
+        }
+        return true;
+    }
     /*
     public static boolean ControleCategorie(Evenement e) {
         String str = (e.getCategorie()).toLowerCase();
