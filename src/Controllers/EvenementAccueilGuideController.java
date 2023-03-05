@@ -125,19 +125,18 @@ public class EvenementAccueilGuideController implements Initializable {
 
     public void afficherEvenements() {
         tableEv.getItems().clear();
-        String req = "select titre_ev,categorie_ev,description_ev,adresse_ev,date_ev,nbre_places FROM evenement";
-
+        String req = "SELECT `titre_ev`, `categorie_ev`, `description_ev`, `adresse_ev`, `date_ev`, `nbre_places` FROM `evenement`";
         try {
             PreparedStatement st = cnx.prepareStatement(req);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                listEv.add(new Evenement(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getTimestamp(5), rs.getInt(6)));
-
+                listEv.add(new Evenement(rs.getString("titre_ev"), rs.getString("categorie_ev"), rs.getString("description_ev"), rs.getString("adresse_ev"), rs.getTimestamp("date_ev"), rs.getInt("nbre_places")));
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         titre.setCellValueFactory(new PropertyValueFactory<>("titre_ev"));
+        //categorie.setCellValueFactory(new PropertyValueFactory<>("categorie_ev"));
         categorie.setCellValueFactory(new PropertyValueFactory<>("categorie_ev"));
         description.setCellValueFactory(new PropertyValueFactory<>("description_ev"));
         adresse.setCellValueFactory(new PropertyValueFactory<>("adresse_ev"));
@@ -280,10 +279,10 @@ public class EvenementAccueilGuideController implements Initializable {
             }
         }*/
         try {
-            
+
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM evenement WHERE titre_Ev = '"
-                    + titre + "' AND categorie_ev = '" + categorie + "' AND description_ev = '"+ description + "' AND adresse_ev = '"+ adresse +"' AND date_ev = '"
+                    + titre + "' AND categorie_ev = '" + categorie + "' AND description_ev = '" + description + "' AND adresse_ev = '" + adresse + "' AND date_ev = '"
                     + date + "' AND nbre_places = " + nombrePlaces);
 
             // Si un événement avec ces attributs existe déjà, renvoyer false
@@ -308,7 +307,7 @@ public class EvenementAccueilGuideController implements Initializable {
 
     @FXML
     private void ajouter() throws FileNotFoundException, ParseException {
-/*
+        /*
         
         String titre = txt_titre.getText();
         String cat = txt_categorie.getText();
@@ -364,7 +363,7 @@ public class EvenementAccueilGuideController implements Initializable {
             alert.setContentText("Click cancel to exit.");
             alert.showAndWait();
     }
- */  ControlSaisieEvenement control = new ControlSaisieEvenement();
+         */ ControlSaisieEvenement control = new ControlSaisieEvenement();
         String titre = txt_titre.getText();
         String cat = txt_categorie.getText();
         String desc = txt_description.getText();
@@ -378,91 +377,91 @@ public class EvenementAccueilGuideController implements Initializable {
         String adress = txt_addresse.getText();
         int nbreP = Integer.parseInt(txt_nbplaces.getText());
         File img = new File(txt_img.getText());
-        Boolean retourstr= true;
-        Evenement ev= new Evenement(titre, cat, desc, adress, adress, timestamp, nbreP);
-        if (txt_titre.getText().isEmpty() || !control.ControleTitre(ev)){
+        Boolean retourstr = true;
+        Evenement ev = new Evenement(titre, cat, desc, adress, adress, timestamp, nbreP);
+        if (txt_titre.getText().isEmpty() || !control.ControleTitre(ev)) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("NOT OK");
             alert.setHeaderText("veuillez saisir le Titre");
             alert.setContentText("Click cancel to exit.");
             alert.showAndWait();
-            retourstr=false;
+            retourstr = false;
         }
-        if (cat.isEmpty() || !control.ControleCategorie(ev)){
+        if (cat.isEmpty() || !control.ControleCategorie(ev)) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("NOT OK");
             alert.setHeaderText("veuillez saisir la categorie");
             alert.setContentText("Click cancel to exit.");
             alert.showAndWait();
-            retourstr=false;
+            retourstr = false;
         }
-        if (desc.isEmpty() || !control.ControleDescription(ev)){
+        if (desc.isEmpty() || !control.ControleDescription(ev)) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("NOT OK");
             alert.setHeaderText("veuillez saisir description");
             alert.setContentText("Click cancel to exit.");
             alert.showAndWait();
-            retourstr=false;
+            retourstr = false;
         }
-        if (adress.isEmpty() || !control.ControleAdresse(ev)){
+        if (adress.isEmpty() || !control.ControleAdresse(ev)) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("NOT OK");
             alert.setHeaderText("veuillez saisir l'emplacement");
             alert.setContentText("Click cancel to exit.");
             alert.showAndWait();
-            retourstr=false;
+            retourstr = false;
         }
-        if (dat.isEmpty() || !control.ControleDate(ev)){
+        if (dat.isEmpty() || !control.ControleDate(ev)) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("NOT OK");
             alert.setHeaderText("veuillez saisir La date sous la forme AAAA-MM-JJ HH:MM:SS");
             alert.setContentText("Click cancel to exit.");
             alert.showAndWait();
-            retourstr=false;
-                        
+            retourstr = false;
+
         }
-       
-    // Appeler la méthode de contrôle de saisie
-    boolean ajoutPossible = controleSaisieEvenement(titre, cat, desc, adress, timestamp, nbreP);
 
-    // Vérifier si l'ajout est possible et effectuer l'action appropriée
-    if (ajoutPossible && retourstr==true) {
-        // Ajouter l'événement à la base de données ou effectuer toute autre action appropriée
-        String sql = "insert into evenement(titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places) VALUES(?,?,?,?,?,?,?)";
-        try {
+        // Appeler la méthode de contrôle de saisie
+        boolean ajoutPossible = controleSaisieEvenement(titre, cat, desc, adress, timestamp, nbreP);
 
-            PreparedStatement st = cnx.prepareStatement(sql);
-            st.setString(1, titre);
-            st.setString(2, cat);
-            st.setString(3, desc);
-            st.setString(4, adress);
-            fs = new FileInputStream(img);
-            st.setBinaryStream(5, fs, img.length());
-            st.setTimestamp(6, timestamp);
-            st.setInt(7, nbreP);
-            st.executeUpdate();
-            afficherEvenements();
+        // Vérifier si l'ajout est possible et effectuer l'action appropriée
+        if (ajoutPossible && retourstr == true) {
+            // Ajouter l'événement à la base de données ou effectuer toute autre action appropriée
+            String sql = "insert into evenement(titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places) VALUES(?,?,?,?,?,?,?)";
+            try {
 
-            txt_titre.setText("");
-            txt_categorie.setText("");
-            txt_description.setText("");
-            txt_addresse.setText("");
-            txt_date.setText("");
-            txt_nbplaces.setText("");
-            imgEv.setImage(null);
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement ajouté avec succées", javafx.scene.control.ButtonType.OK);
-            alert.showAndWait();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    } else {
-        // Afficher un message d'erreur à l'utilisateur
-        Alert alert = new Alert(AlertType.ERROR);
+                PreparedStatement st = cnx.prepareStatement(sql);
+                st.setString(1, titre);
+                st.setString(2, cat);
+                st.setString(3, desc);
+                st.setString(4, adress);
+                fs = new FileInputStream(img);
+                st.setBinaryStream(5, fs, img.length());
+                st.setTimestamp(6, timestamp);
+                st.setInt(7, nbreP);
+                st.executeUpdate();
+                afficherEvenements();
+
+                txt_titre.setText("");
+                txt_categorie.setText("");
+                txt_description.setText("");
+                txt_addresse.setText("");
+                txt_date.setText("");
+                txt_nbplaces.setText("");
+                imgEv.setImage(null);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement ajouté avec succées", javafx.scene.control.ButtonType.OK);
+                alert.showAndWait();
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            // Afficher un message d'erreur à l'utilisateur
+            Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("NOT OK");
             alert.setHeaderText("Evenement existe déjà");
             alert.setContentText("Click cancel to exit.");
             alert.showAndWait();
-    }
+        }
     }
 
     @FXML
