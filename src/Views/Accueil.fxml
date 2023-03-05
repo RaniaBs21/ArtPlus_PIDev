@@ -18,7 +18,7 @@
 <AnchorPane id="AnchorPane" prefHeight="401.0" prefWidth="811.0" style="-fx-background-color: F8F5E4;" stylesheets="@../Assets/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AccueilController">
     <ListView layoutX="-6.0" prefHeight="53.0" prefWidth="817.0" />
     <Text fill="#0b315b" layoutX="461.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-    <Text cache="true" cacheHint="SCALE_AND_ROTATE" fill="#da9d0d" fontSmoothingType="LCD" layoutX="311.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La formation est l'escence de tout succès" textAlignment="CENTER" wrappingWidth="253.7236328125">
+    <Text cache="true" cacheHint="SCALE_AND_ROTATE" fill="#da9d0d" fontSmoothingType="LCD" layoutX="311.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La formation est l'escence de tout succès" textAlignment="CENTER" wrappingWidth="253.7236328125">
         <font>
             <Font name="Ink Free" size="25.0" />
         </font>
