@@ -115,10 +115,10 @@
             </Label>
             <TextField fx:id="txt_addresse" layoutX="307.0" layoutY="153.0" prefHeight="25.0" prefWidth="177.0" promptText="L'emplacement de l'évenement" />
             <TextField fx:id="txt_date" layoutX="73.0" layoutY="189.0" prefHeight="25.0" prefWidth="177.0" promptText="Date" />
-            <TableView fx:id="tableEv" layoutX="6.0" layoutY="235.0" prefHeight="225.0" prefWidth="756.0" style="-fx-background-color: transparent;">
+            <TableView fx:id="tableEv" layoutX="6.0" layoutY="235.0" onMouseClicked="#showEv" prefHeight="225.0" prefWidth="756.0" style="-fx-background-color: transparent;">
               <columns>
                 <TableColumn fx:id="titre" prefWidth="109.0" text="Titre" />
-                <TableColumn fx:id="categorie" prefWidth="113.0" text="Catégorie" />
+                <TableColumn fx:id="catego" prefWidth="113.0" text="Catégorie" />
                   <TableColumn fx:id="description" prefWidth="154.0" text="Description" />
                   <TableColumn fx:id="adresse" prefWidth="141.0" text="Adresse" />
                   <TableColumn fx:id="date" prefWidth="128.0" text="Date" />

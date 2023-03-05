@@ -89,7 +89,7 @@ public class EvenementAccueilGuideController implements Initializable {
     @FXML
     private TableColumn<Evenement, String> titre;
     @FXML
-    private TableColumn<Evenement, String> categorie;
+    private TableColumn<Evenement, String> catego;
     @FXML
     private TableColumn<Evenement, String> description;
     @FXML
@@ -137,7 +137,7 @@ public class EvenementAccueilGuideController implements Initializable {
         }
         titre.setCellValueFactory(new PropertyValueFactory<>("titre_ev"));
         //categorie.setCellValueFactory(new PropertyValueFactory<>("categorie_ev"));
-        categorie.setCellValueFactory(new PropertyValueFactory<>("categorie_ev"));
+        catego.setCellValueFactory(new PropertyValueFactory<>("categorie_ev"));
         description.setCellValueFactory(new PropertyValueFactory<>("description_ev"));
         adresse.setCellValueFactory(new PropertyValueFactory<>("adresse_ev"));
         date.setCellValueFactory(new PropertyValueFactory<>("date_ev"));
@@ -191,10 +191,11 @@ public class EvenementAccueilGuideController implements Initializable {
 
     }
 
+    /*
     public void showEv() {
-        /*Evenement ev = tableEv.getSelectionModel().getSelectedItem();
-        String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement ";
-        //        String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement WHERE titre_ev= '" + titre + "'" ;
+        Evenement ev = tableEv.getSelectionModel().getSelectedItem();
+        //String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement ";
+        String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement WHERE titre_ev= '" + titre + "'" ;
 
         try {
             PreparedStatement st = cnx.prepareStatement(req2);
@@ -231,9 +232,8 @@ public class EvenementAccueilGuideController implements Initializable {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-        }*/
-    }
-
+        }
+    }*/
     /**
      * Initializes the controller class.
      */
@@ -254,7 +254,6 @@ public class EvenementAccueilGuideController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         afficherEvenements();
-        showEv();
 
         //showEv();
     }
@@ -465,8 +464,94 @@ public class EvenementAccueilGuideController implements Initializable {
     }
 
     @FXML
+    void showEv(MouseEvent event) {
+        /*Evenement ev = tableEv.getSelectionModel().getSelectedItem();
+        //String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement ";
+        String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement WHERE titre_ev= '" + titre + "'";
+
+        try {
+            PreparedStatement st = cnx.prepareStatement(req2);
+            st.setString(2, ev.getTitre_ev());
+            ResultSet rs = st.executeQuery();
+            String categ;
+            String desc;
+            String adresse;
+            Timestamp date;
+            int nbrP;
+            Blob imag_Ev;
+            byte byte_Img[];
+            while (rs.next()) {
+                String titre = rs.getString("titre_ev");
+                rechercher.setText(String.valueOf(titre));
+
+                txt_titre.setText(rs.getString(titre));
+                categ = rs.getString("categorie_ev");
+                txt_categorie.setText(String.valueOf(categ));
+                desc = rs.getString("description_ev");
+                txt_description.setText(String.valueOf(desc));
+                adresse = rs.getString("adresse_ev");
+                txt_addresse.setText(String.valueOf(adresse));
+                date = rs.getTimestamp("date_ev");
+                txt_date.setText(String.valueOf(date));
+                nbrP = rs.getInt("nbre_places");
+                txt_nbplaces.setText(String.valueOf(nbrP));
+                imag_Ev = rs.getBlob("image_ev");
+                byte_Img = imag_Ev.getBytes(1, (int) imag_Ev.length());
+                Image img = new Image(new ByteArrayInputStream(byte_Img), imgEv.getFitWidth(), imgEv.getFitHeight(), true, true);
+                //Image img = new Image(new ByteArrayInputStream(byte_Img), (int) imgEv.getFitWidth(), (int) imgEv.getFitHeight()));
+                imgEv.setImage(img);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }*/
+        Evenement ev = tableEv.getSelectionModel().getSelectedItem();
+        //String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement ";
+        String req2 = "select titre_ev,categorie_ev,description_ev,adresse_ev,image_ev,date_ev,nbre_places FROM evenement WHERE titre_ev=? ";
+
+        try {
+            PreparedStatement st = cnx.prepareStatement(req2);
+            st.setString(1, ev.getTitre_ev());
+            ResultSet rs = st.executeQuery();
+           
+            String categ;
+            String desc;
+            String adresse;
+            Timestamp date;
+            int nbrP;
+            Blob imag_Ev;
+            byte byte_Img[];
+            while (rs.next()) {
+                String titre = rs.getString("titre_ev");
+                //rechercher.setText(String.valueOf(titre));
+
+                txt_titre.setText(String.valueOf(titre));
+                categ = rs.getString("categorie_ev");
+                txt_categorie.setText(String.valueOf(categ));
+                desc = rs.getString("description_ev");
+                txt_description.setText(String.valueOf(desc));
+                adresse = rs.getString("adresse_ev");
+                txt_addresse.setText(String.valueOf(adresse));
+                date = rs.getTimestamp("date_ev");
+                txt_date.setText(String.valueOf(date));
+                nbrP = rs.getInt("nbre_places");
+                txt_nbplaces.setText(String.valueOf(nbrP));
+                imag_Ev = rs.getBlob("image_ev");
+                byte_Img = imag_Ev.getBytes(1, (int) imag_Ev.length());
+                Image img = new Image(new ByteArrayInputStream(byte_Img), imgEv.getFitWidth(), imgEv.getFitHeight(), true, true);
+                //Image img = new Image(new ByteArrayInputStream(byte_Img), (int) imgEv.getFitWidth(), (int) imgEv.getFitHeight()));
+                imgEv.setImage(img);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
     private void supprimer() {
         Evenement ev = tableEv.getSelectionModel().getSelectedItem();
+        //showEv();
         int idE = ev.getId_ev();
         try {
             String req = "DELETE FROM `evenement` WHERE id_ev = " + idE;
@@ -478,7 +563,7 @@ public class EvenementAccueilGuideController implements Initializable {
         }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Evenement supprimé avec succées", javafx.scene.control.ButtonType.OK);
         alert.showAndWait();
-        showEv();
+        //showEv();
 
     }
 
