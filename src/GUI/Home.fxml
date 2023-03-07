@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="589.0" prefWidth="882.0" style="-fx-background-color: #f5f5f0; -fx-background-radius: 32px; -fx-border-radius: 32px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
+   <ListView layoutX="-6.0" prefHeight="63.0" prefWidth="875.0" />
+      <Text fill="#eb9e05" layoutX="17.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus" />
+   <ImageView fitHeight="48.0" fitWidth="54.0" layoutX="9.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Values/logo.png" />
+      </image>
+   </ImageView> 
+    <Button fx:id="evenement11" layoutX="93.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
+   <Button fx:id="evenement1" layoutX="159.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
+   <Button fx:id="evenement" layoutX="254.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
+   <Button fx:id="evenement12" layoutX="337.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
+   <Button fx:id="evenement13" layoutX="391.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
+   <Button fx:id="evenement131" layoutX="462.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: #ffd256;" text="Quiz" textFill="#0b315b" />
+   <Button fx:id="evenement1311" layoutX="519.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
+   <Button fx:id="playquizbtn" layoutX="332.0" layoutY="440.0" mnemonicParsing="false" onAction="#Playquizbtn" prefHeight="34.0" prefWidth="205.0" style="-fx-background-color: #2bd0ff; -fx-background-radius: 32px; -fx-border-radius: 32px;" text="Start Quiz!" textFill="WHITE">
+    <font>
+      <Font name="Open Sans Semibold" size="20.0" />
+      </font>
+    </Button>
+   <Circle disable="true" fill="WHITE" layoutX="213.0" layoutY="290.0" radius="66.0" stroke="#e1dada" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="INSIDE"> 
+   </Circle>
+   <Circle fill="#ffc92b" layoutX="214.0" layoutY="290.0" radius="58.0" stroke="WHITE" strokeType="OUTSIDE" />
+   <Circle disable="true" fill="WHITE" layoutX="421.0" layoutY="298.0" radius="69.0" stroke="#d0cece" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="INSIDE">
+      
+   </Circle>
+   <Circle fill="#eaeee9" layoutX="421.0" layoutY="298.0" nodeOrientation="LEFT_TO_RIGHT" radius="60.0" rotate="-166.3" stroke="#f5f5f0" strokeType="OUTSIDE" />
+   <ImageView fitHeight="90.0" fitWidth="95.0" layoutX="162.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Values/Art%20(2).png" />
+      </image>
+   </ImageView>
+   <Circle disable="true" fill="WHITE" layoutX="643.0" layoutY="293.0" radius="69.0" stroke="#d7d6d6" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="INSIDE">
+      
+   </Circle>
+   <Circle fill="#2bd0ff" layoutX="643.0" layoutY="293.0" nodeOrientation="LEFT_TO_RIGHT" radius="60.0" stroke="WHITE" strokeType="OUTSIDE" />
+   <ImageView fitHeight="83.0" fitWidth="86.0" layoutX="380.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Values/masques-de-theatre-removebg-preview.png" />
+      </image>
+   </ImageView>
+   <ImageView fitHeight="122.0" fitWidth="86.0" layoutX="600.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Values/clapperboard.png" />
+      </image>
+   </ImageView>
+   <Text layoutX="185.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PEINTURE">
+      <font>
+         <Font name="System Italic" size="13.0" />
+      </font>
+   </Text>
+   <Text layoutX="402.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="    ART">
+      <font>
+         <Font name="System Italic" size="13.0" />
+      </font>
+   </Text>
+   <Text layoutX="628.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CINEMA">
+      <font>
+         <Font name="System Italic" size="13.0" />
+      </font>
+   </Text>
+   <CubicCurve controlX1="-19.0" controlX2="250.0" controlY1="-126.0" controlY2="39.0" endX="150.0" fill="#ffd256" layoutX="153.0" layoutY="572.0" startX="-154.0" startY="19.0" stroke="#f5f5f0" />
+   <CubicCurve controlX1="-61.0" controlX2="-142.2066650390625" controlY1="30.0" controlY2="-101.0" endX="185.972900390625" endY="30.0" fill="#ffe089" layoutX="649.0" layoutY="548.0" startX="-644.0" startY="39.17852783203125" stroke="#f5f5f0" />
+   <Text fill="#060054" layoutX="359.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUIZ " wrappingWidth="184.0">
+      <font>
+         <Font name="System Italic" size="30.0" />
+      </font>
+   </Text>
+   <Circle fill="#ffc92b" layoutX="403.0" layoutY="110.0" radius="4.0" stroke="WHITE" strokeType="INSIDE" />
+   <Text fill="#443259" layoutX="400.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIME" wrappingWidth="165.0">
+      <font>
+         <Font name="System Italic" size="30.0" />
+      </font>
+   </Text>
+   <ImageView fitHeight="30.0" fitWidth="47.0" layoutX="456.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" rotate="15.9">
+      <image>
+         <Image url="@../Values/question-mark.png" />
+      </image>
+   </ImageView>
+   <ProgressBar fx:id="progressBar" layoutX="295.0" layoutY="529.0" prefHeight="18.0" prefWidth="288.0" progress="0.0" />
+   <Button fx:id="btndelete1" layoutX="360.0" layoutY="495.0" mnemonicParsing="false" onAction="#cont" prefHeight="26.0" prefWidth="57.0" />
+   <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="417.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Values/images-removebg-preview%20(1).png" />
+      </image>
+   </ImageView>
+   <Button fx:id="btndelete11" layoutX="450.0" layoutY="495.0" mnemonicParsing="false" onAction="#cont1" prefHeight="26.0" prefWidth="57.0" />
+</AnchorPane>

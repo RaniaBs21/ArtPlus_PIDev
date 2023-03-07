@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="850.0" prefWidth="1800.0" style="-fx-background-color: #d5dcfe;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLReponseController">
+   <children>
+      <Pane layoutX="702.0" layoutY="198.0" prefHeight="627.0" prefWidth="426.0" style="-fx-background-color: #eb9e05;">
+         <children>
+            <Label layoutX="4.0" layoutY="30.0" prefHeight="47.0" prefWidth="138.0" text="Question &#10;correspondante :" />
+            <Label layoutX="4.0" layoutY="113.0" text="Type de reponse :" />
+            <Label layoutX="4.0" layoutY="158.0" text="Description de reponse :" />
+            <TextField fx:id="txtQue_Rep_Ass" layoutX="146.0" layoutY="39.0" prefHeight="75.0" prefWidth="267.0" />
+            <TextField fx:id="txtType_Rep_Ass" layoutX="146.0" layoutY="121.0" prefHeight="25.0" prefWidth="267.0" />
+            <TextField fx:id="txtDescription_Rep_Ass" alignment="TOP_LEFT" layoutX="11.0" layoutY="182.0" prefHeight="381.0" prefWidth="405.0" />
+            <Button fx:id="btnmodifierR" layoutX="161.0" layoutY="579.0" mnemonicParsing="false" onAction="#modifierReponse" prefHeight="25.0" prefWidth="106.0" text="Modifier" />
+            <Button fx:id="repbtn" layoutX="9.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleSendEmail" prefHeight="25.0" prefWidth="117.0" text="envoyer mail" />
+            <Button fx:id="btnsupprimerR" layoutX="317.0" layoutY="579.0" mnemonicParsing="false" onAction="#deleter" prefHeight="25.0" prefWidth="94.0" text="Supprimer" />
+         </children>
+      </Pane>
+      <Label layoutX="986.0" layoutY="96.0" text="Gestion des reponses" textFill="#eb9e05">
+         <font>
+            <Font name="Franklin Gothic Medium Cond" size="48.0" />
+         </font>
+      </Label>
+      <ListView layoutY="-7.0" prefHeight="74.0" prefWidth="2169.0" />
+      <ListView blendMode="SCREEN" layoutY="66.0" prefHeight="1027.0" prefWidth="259.0" />
+      <ImageView fitHeight="42.0" fitWidth="47.0" layoutX="45.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Documents/NetBeansProjects/ArtPlus_PIDev/src/Media/logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="Acc" layoutX="122.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Acceuil" textFill="#0b315b" />
+      <Button fx:id="FAcc" layoutX="197.0" layoutY="30.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Fil d'actualité" textFill="#0b315b" />
+      <Button fx:id="Ev" layoutX="302.0" layoutY="30.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Evenements" textFill="#0b315b" />
+      <Button fx:id="Crs" layoutX="393.0" layoutY="30.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Cours" textFill="#0b315b" />
+      <Button fx:id="Prod" layoutX="457.0" layoutY="30.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Produits" textFill="#0b315b" />
+      <Button fx:id="Qz" layoutX="547.0" layoutY="30.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Quiz" textFill="#0b315b" />
+      <Button fx:id="btn_ass" layoutX="608.0" layoutY="30.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Assistance" textFill="#0b315b" />
+      <Button fx:id="btnback" layoutX="39.0" layoutY="98.0" mnemonicParsing="false" onAction="#goBack" text="go back" />
+      <Button fx:id="btn_querep" layoutX="1.0" layoutY="210.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="242.0" style="-fx-background-color: white;" text="Gestion des Question/Reponse" textFill="#0b315b" />
+      <Button fx:id="btn_recuser" layoutX="7.0" layoutY="130.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="188.0" style="-fx-background-color: white;" text="Gestion des reclamations" textFill="#0b315b" />
+      <TableView fx:id="tablereponse" layoutX="1195.0" layoutY="200.0" prefHeight="546.0" prefWidth="520.0" style="-fx-background-color: #eb9e05;">
+        <columns>
+          <TableColumn fx:id="idcolomn" prefWidth="180.0" text="Question" />
+          <TableColumn fx:id="typecolomn" prefWidth="76.7999267578125" text="Type" />
+            <TableColumn fx:id="Descriptioncolomn" prefWidth="263.2000732421875" text="Description" />
+        </columns>
+      </TableView>
+      <TextField fx:id="searchtxt" layoutX="1195.0" layoutY="767.0" prefHeight="26.0" prefWidth="360.0" />
+      <Button fx:id="searchbtn" layoutX="1586.0" layoutY="767.0" onAction="#searchReclamation" prefHeight="26.0" prefWidth="129.0" text="Search" />
+   </children>
+</AnchorPane>

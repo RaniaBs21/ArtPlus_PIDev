@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ProduitAdmin3Controller">
+   <children>
+      <ImageView fitHeight="282.0" fitWidth="828.0" layoutX="112.0" layoutY="-105.0" opacity="0.32" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/360_F_301714556_aXSmQy6VgFPKnrM3WYD5lUxZrnbYN10o.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="282.0" fitWidth="828.0" layoutX="113.0" layoutY="177.0" opacity="0.32" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/360_F_301714556_aXSmQy6VgFPKnrM3WYD5lUxZrnbYN10o.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane id="AnchorPane" layoutX="-14.0" layoutY="-25.0" prefHeight="486.0" prefWidth="808.0">
+         <children>
+            <VBox layoutX="181.0" layoutY="64.0" prefHeight="178.0" prefWidth="188.0">
+               <children>
+                  <Label text="Point de reduction" textFill="#2404ef" />
+                  <TextField fx:id="txtptredcmd" prefHeight="6.0" prefWidth="188.0" />
+                  <Label layoutX="10.0" layoutY="10.0" text="Date commande" textFill="#2404ef" />
+                  <DatePicker fx:id="datecmd" />
+                  <Label layoutX="10.0" layoutY="53.0" text="Date de livraison" textFill="#2404ef" />
+                  <DatePicker fx:id="dateliv" layoutX="10.0" layoutY="71.0" />
+                  <Label layoutX="10.0" layoutY="96.0" text="ID utilisateur" textFill="#2404ef" />
+                  <TextField fx:id="txtideutcmd" layoutX="10.0" layoutY="114.0" prefHeight="9.0" prefWidth="188.0" />
+               </children>
+            </VBox>
+            <Button fx:id="btnmodifiercmd" layoutX="244.0" layoutY="389.0" mnemonicParsing="false" onAction="#modifiercmd" text="Modifier" textFill="#f48c05" />
+            <Button fx:id="btnsupprimercmd" layoutX="144.0" layoutY="389.0" mnemonicParsing="false" onAction="#supprimercmd" text="Supprimer" textFill="#f48c05" />
+            <VBox layoutX="144.0" layoutY="324.0" prefHeight="55.0" prefWidth="162.0">
+               <children>
+                  <Label text="ID commande" textFill="#2404ef" />
+                  <TextField fx:id="txtidcmd" prefHeight="14.0" prefWidth="162.0" />
+               </children>
+            </VBox>
+            <TableView fx:id="tvcmd" layoutX="401.0" layoutY="91.0" prefHeight="326.0" prefWidth="483.0">
+               <columns>
+                  <TableColumn fx:id="idcmd" prefWidth="42.39990234375" text="ID commande" />
+                  <TableColumn fx:id="ptredcmd" prefWidth="68.0" text="Point de reduction" />
+                  <TableColumn fx:id="dateducmd" prefWidth="153.60006713867188" text="Date commande" />
+                  <TableColumn fx:id="datedeliv" prefWidth="122.4000244140625" text="Date de livraison" />
+                  <TableColumn fx:id="idutcmd" prefWidth="97.60003662109375" text="ID utilisateur" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnaffichercmd" layoutX="704.0" layoutY="431.0" mnemonicParsing="false" onAction="#affichercmd" text="Afficher " textFill="#f48c05" />
+            <Button fx:id="btnajoutercmd" layoutX="306.0" layoutY="283.0" mnemonicParsing="false" onAction="#ajoutercmd" text="Ajouter" textFill="#f48c05" />
+         </children>
+         <effect>
+            <Blend />
+         </effect>
+      </AnchorPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff9021" height="461.0" layoutX="3.0" layoutY="-1.0" nodeOrientation="RIGHT_TO_LEFT" stroke="BLACK" strokeWidth="0.0" width="118.0">
+         <cursor>
+            <Cursor fx:constant="E_RESIZE" />
+         </cursor>
+         <effect>
+            <DropShadow height="0.0" radius="7.09" spread="0.11" width="30.36" />
+         </effect>
+      </Rectangle>
+      <Button fx:id="prodi" layoutX="-1.0" layoutY="177.0" mnemonicParsing="false" onAction="#gotoproduit" prefHeight="26.0" prefWidth="126.0" text="Produit" textFill="#e17705" />
+      <Button fx:id="cati" contentDisplay="TEXT_ONLY" layoutY="131.0" mnemonicParsing="false" onAction="#gotoproduit2" prefHeight="26.0" prefWidth="125.0" text="Categorie" textFill="#e17705" textOverrun="CLIP" AnchorPane.rightAnchor="757.8" />
+      <ImageView fitHeight="145.0" fitWidth="175.0" layoutX="-25.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/download.png" />
+         </image>
+      </ImageView>
+      <Text fill="#122cd4" layoutX="7.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ARTplus admin" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="17.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnuser" layoutX="-1.0" layoutY="230.0" mnemonicParsing="false" onAction="#gotousermode" prefHeight="26.0" prefWidth="126.0" text="Mode utilisateur" textFill="#e17705" />
+      <Button fx:id="btnuser1" layoutX="-1.0" layoutY="287.0" mnemonicParsing="false" onAction="#gotopanier" prefHeight="26.0" prefWidth="126.0" text="Panier" textFill="#e17705" />
+   </children>
+</AnchorPane>

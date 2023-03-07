@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Page2Controller">
+   <children>
+      <Text fx:id="accueil" fill="#2e4ac6" layoutX="152.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accueil">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="filactualite" fill="#2e4ac6" layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fil d'actualité">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="ev" fill="#2e4ac6" layoutX="349.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenements">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="cours" fill="#2e4ac6" layoutX="445.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cours">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="shop" fill="#2e4ac6" layoutX="504.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shop">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="quiz" fill="#2e4ac6" layoutX="558.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quiz">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="reclam" fill="#2e4ac6" layoutX="609.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réclamation">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Separator layoutX="-4.0" layoutY="48.0" prefHeight="14.0" prefWidth="715.0" />
+      <ImageView fitHeight="54.0" fitWidth="117.0" layoutX="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+      <Text fill="#fd8f52" layoutX="43.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="resultTextArea" layoutX="68.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

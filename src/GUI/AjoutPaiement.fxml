@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="395.0" style="-fx-background-color: F8F5E4;" stylesheets="@Paiement.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjoutPaiementController"> 
+    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutY="47.0" stroke="#f4b707" strokeType="INSIDE" width="395.0" />
+      <Text fill="#2f3459" layoutX="141.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paiement">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Label layoutX="87.0" layoutY="139.0" text="Numéro de carte" textFill="#737ca4">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="card_number" layoutX="86.0" layoutY="172.0" prefHeight="25.0" prefWidth="234.0" />
+      <Label layoutX="90.0" layoutY="213.0" text="Date d'éxpiration" textFill="#737ca4">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="exipration_date" layoutX="86.0" layoutY="242.0" prefHeight="25.0" prefWidth="234.0" />
+      <Label layoutX="91.0" layoutY="286.0" text="CVC" textFill="#737ca4">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cvc" layoutX="88.0" layoutY="315.0" prefHeight="25.0" prefWidth="234.0" />
+      <Button id="details_button" fx:id="pay_button" layoutX="135.0" layoutY="368.0" mnemonicParsing="false" onAction="#pay_subscription" prefHeight="25.0" prefWidth="144.0" stylesheets="@../Assets/Styles.css" text="Payer " />
+   </children>
+    
+</AnchorPane>

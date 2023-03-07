@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package artplus.tests;
+package services;
+
+import entities.Guide;
 
 /**
  *
- * @author DELL
+ * @author rahma
  */
-public class ArtPlus {
-    
+public interface InterfaceGuide {
+    public Guide findOneById(int id);
 }

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EvenementAccueilGuideController">
+   <children>
+      <ListView layoutX="4.0" layoutY="-8.0" prefHeight="62.0" prefWidth="766.0" style="-fx-background-color: #ebebeb;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom threshold="1.0" />
+         </effect>
+      </ListView>
+      <Text fx:id="accueil" fill="#2e4ac6" layoutX="157.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accueil">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="filactualite" fill="#2e4ac6" layoutX="234.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fil d'actualité">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="ev" fill="#2e4ac6" layoutX="343.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenements">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="cours" fill="#2e4ac6" layoutX="435.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cours">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="shop" fill="#2e4ac6" layoutX="494.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shop">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="quiz" fill="#2e4ac6" layoutX="548.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quiz">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="reclam" fill="#2e4ac6" layoutX="599.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réclamation">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Separator layoutX="-14.0" layoutY="44.0" prefHeight="14.0" prefWidth="784.0" />
+      <ImageView fitHeight="54.0" fitWidth="117.0" layoutX="32.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+      <Text fill="#fd8f52" layoutX="50.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="2.0" layoutY="56.0" prefHeight="595.0" prefWidth="766.0">
+         <children>
+            <Text fill="#fd8f52" layoutX="50.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechercher" wrappingWidth="116.376953125">
+               <font>
+                  <Font name="Arial Unicode MS" size="18.0" />
+               </font>
+            </Text>
+            <Label layoutX="23.0" layoutY="196.0" text="Date">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="62.0" text="Titre">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_nbplaces" layoutX="257.0" layoutY="189.0" prefHeight="25.0" prefWidth="228.0" promptText="Nombre de places disponibles" />
+            <TextField fx:id="txt_titre" layoutX="67.0" layoutY="58.0" prefHeight="25.0" prefWidth="177.0" promptText="Nom de l'évenement" />
+            <Label layoutX="252.0" layoutY="61.0" text="Catégorie">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_categorie" layoutX="313.0" layoutY="57.0" prefHeight="25.0" prefWidth="170.0" promptText="Catégorie" />
+            <TextField fx:id="txt_description" layoutX="74.0" layoutY="92.0" prefHeight="53.0" prefWidth="410.0" promptText="Déscription" />
+            <Label layoutX="5.0" layoutY="105.0" text="Description">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="157.0" text="Image">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_img" layoutX="73.0" layoutY="153.0" prefHeight="25.0" prefWidth="177.0" promptText="Aucune Image a été sélectionnée" />
+            <Label layoutX="257.0" layoutY="157.0" text="Adresse">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_addresse" layoutX="307.0" layoutY="153.0" prefHeight="25.0" prefWidth="177.0" promptText="L'emplacement de l'évenement" />
+            <TextField fx:id="txt_date" layoutX="73.0" layoutY="189.0" prefHeight="25.0" prefWidth="177.0" promptText="Date" />
+            <TableView fx:id="tableEv" layoutX="6.0" layoutY="235.0" onMouseClicked="#showEv" prefHeight="225.0" prefWidth="756.0" style="-fx-background-color: transparent;">
+              <columns>
+                <TableColumn fx:id="titre" prefWidth="109.0" text="Titre" />
+                <TableColumn fx:id="catego" prefWidth="113.0" text="Catégorie" />
+                  <TableColumn fx:id="description" prefWidth="154.0" text="Description" />
+                  <TableColumn fx:id="adresse" prefWidth="141.0" text="Adresse" />
+                  <TableColumn fx:id="date" prefWidth="128.0" text="Date" />
+                  <TableColumn fx:id="nbplaces" prefWidth="120.0" text="Nombre places" />
+              </columns>
+            </TableView>
+            <ImageView fx:id="imgEv" fitHeight="150.0" fitWidth="248.0" layoutX="489.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="ajouter" layoutX="263.0" layoutY="515.0" mnemonicParsing="false" onMouseClicked="#ajouter" style="-fx-background-color: #4d80ff;" text="Ajouter" textFill="#ffb04f" />
+            <Button fx:id="supprimer" layoutX="333.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#supprimer" style="-fx-background-color: #4d80ff;" text="Supprimer" textFill="#ffb04f" />
+            <Button fx:id="modifier" layoutX="418.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#modifier" style="-fx-background-color: #4d80ff;" text="Modifier" textFill="#ffb04f" />
+            <ImageView fx:id="iconImport" fitHeight="17.0" fitWidth="26.0" layoutX="228.0" layoutY="157.0" onMouseClicked="#ImporterImg" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/import.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="rechercher" layoutX="160.0" layoutY="74.0" onKeyTyped="#RechEV" prefHeight="25.0" prefWidth="177.0" promptText="Nom de l'évenement" />
+      <ImageView fx:id="iconRech" fitHeight="17.0" fitWidth="26.0" layoutX="315.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rechercher.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
