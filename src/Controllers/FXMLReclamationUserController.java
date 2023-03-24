@@ -56,6 +56,8 @@ import javax.swing.JOptionPane;
 public class FXMLReclamationUserController implements Initializable {
 
     
+    @FXML
+    private TextField txtid_user;
 
     
     @FXML
@@ -219,8 +221,11 @@ private void searchReclamation(ActionEvent event) {
 
     try {
         
-        ReclamationCRUD rec = new ReclamationCRUD();
-        rec.ajouterreclamation2(new Reclamation(txtType_Rec.getText(),txtDescription_Rec.getText() ));
+       ReclamationCRUD rec = new ReclamationCRUD();
+    String description = txtDescription_Rec.getText();
+    String type = txtType_Rec.getText();
+    int id_user = Integer.parseInt(txtid_user.getText());
+    rec.ajouterreclamation2(new Reclamation(id_user, type, description));
         // Create a PdfWriter object to write the document to a file or stream
         PdfWriter.getInstance(document, new FileOutputStream("reclamation.pdf"));
 
@@ -252,7 +257,7 @@ private void searchReclamation(ActionEvent event) {
     private void update(ActionEvent event) {
             ReclamationCRUD rec = new ReclamationCRUD();
         if (txtDescription_Rec.getText().trim().length() > 0 || txtType_Rec.getText().trim().length() > 0 ) {
-        rec.modifierreclamation(new Reclamation(txtType_Rec.getText(),txtDescription_Rec.getText() ));
+        rec.modifierreclamation(new Reclamation(Integer.parseInt(txtid_user.getText()),txtType_Rec.getText(),txtDescription_Rec.getText() ));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Reclamation");
             alert.setHeaderText(null);

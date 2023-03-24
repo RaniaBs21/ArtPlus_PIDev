@@ -3,35 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Views/Interface_utilisateur.fxml</file>
+            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/FXMLReclamationAdminController.java</file>
+            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/services/InterfaceReponse_ass.java</file>
+            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/services/Reponse_assCRUD.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/entities/Reclamation.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/services/InterfaceQuestion_ass.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/FXMLQuestionController.java</file>
+            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/page1Controller.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/test/JavaFXMain.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/entities/Question_ass.java</file>
+            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/FXMLReclamationUserController.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/services/Question_assCRUD.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/PDF/ItextPDF.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Views/FXMLQuestion.fxml</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/InterfaceAdminController.java</file>
+            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/tests/ArtPlus.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/services/ReclamationCRUD.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/entities/Reponse_ass.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/AccueilController.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/mail/emailreponse.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/InterfaceUserController.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Views/FXMLReclamationAdmin.fxml</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Views/FXMLReclamationUser.fxml</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/mail/emailreclamation.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Views/page1.fxml</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/FXMLReclamationAdminController.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/services/InterfaceReponse_ass.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/services/Reponse_assCRUD.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/page1Controller.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Views/Accueil.fxml</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Views/Interface_admin.fxml</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/FXMLReclamationUserController.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/tests/ArtPlus.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/FXMLReponseController.java</file>
-            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Views/FXMLReponse.fxml</file>
+            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/Controllers/InterfaceUserController.java</file>
+            <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/mail/emailreclamation.java</file>
             <file>file:/C:/Users/akrem/OneDrive/Documents/NetBeansProjects/ArtPlus_PIDev/src/artplus/services/InterfaceReclamation.java</file>
         </group>
     </open-files>

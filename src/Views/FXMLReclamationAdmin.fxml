@@ -19,15 +19,17 @@
             <Font name="Franklin Gothic Medium Cond" size="48.0" />
          </font>
       </Label>
-      <Pane layoutX="615.0" layoutY="223.0" prefHeight="558.0" prefWidth="431.0" style="-fx-background-color: #eb9e05;">
+      <Pane layoutX="607.0" layoutY="221.0" prefHeight="558.0" prefWidth="431.0" style="-fx-background-color: #eb9e05;">
          <children>
             <Label layoutX="14.0" layoutY="45.0" text="Type de reclamation :" />
             <Label layoutX="14.0" layoutY="105.0" text="Description de reclamation :" />
-            <TextField fx:id="txtType_Rec" layoutX="159.0" layoutY="41.0" prefHeight="25.0" prefWidth="259.0" />
-            <TextField fx:id="txtDescription_Rec" alignment="TOP_LEFT" layoutX="14.0" layoutY="135.0" prefHeight="300.0" prefWidth="403.0" />
-            <Button fx:id="btnmodifier" layoutX="159.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleModifierButtonClick" prefHeight="26.0" prefWidth="104.0" text="Modifier" />
+            <TextField fx:id="txtType_Rec" layoutX="159.0" layoutY="41.0" prefHeight="25.0" prefWidth="259.0" promptText="Type de reclamation" />
+            <TextField fx:id="txtDescription_Rec" alignment="TOP_LEFT" layoutX="14.0" layoutY="135.0" prefHeight="300.0" prefWidth="403.0" promptText="Description de reclamation" />
+            <Button fx:id="btnmodifier" layoutX="159.0" layoutY="464.0" mnemonicParsing="false" onAction="#modifier" prefHeight="26.0" prefWidth="104.0" text="Modifier" />
             <Button fx:id="btnsupprimer" layoutX="303.0" layoutY="463.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="113.0" text="Supprimer" />
             <Button fx:id="recenv" layoutX="29.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleSendEmailButtonAction" prefHeight="25.0" prefWidth="113.0" text="Envoyer mail" />
+            <TextField fx:id="txtid_user" layoutX="159.0" layoutY="2.0" promptText="ID_User" />
+            <Label layoutX="14.0" layoutY="6.0" text="ID_User :" />
          </children>
       </Pane>
       <TextField fx:id="searchtxt" layoutX="1089.0" layoutY="629.0" prefHeight="26.0" prefWidth="217.0" />
@@ -49,11 +51,13 @@
       <Button fx:id="btn_querep" layoutX="9.0" layoutY="200.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="254.0" style="-fx-background-color: white;" text="Gestion des Question/Reponse" textFill="#0b315b" />
       <Button fx:id="btn_recuser" layoutX="18.0" layoutY="120.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="188.0" style="-fx-background-color: white;" text="Gestion des reclamations" textFill="#0b315b" />
       <TableView fx:id="tablereclamation" layoutX="1089.0" layoutY="253.0" prefHeight="360.0" prefWidth="437.0">
-        <columns>
-          <TableColumn fx:id="typecolomn" prefWidth="75.0" text="type" />
-          <TableColumn fx:id="descriptioncolomn" prefWidth="361.6" text="description" />
-        </columns>
+         <columns>
+            <TableColumn fx:id="idusercolomn" prefWidth="55.199951171875" text="id_user" visible="false" />
+            <TableColumn fx:id="idreccolomn" prefWidth="79.199951171875" text="id_rec" visible="false" />
+            <TableColumn fx:id="typecolomn" prefWidth="121.60009765625" text="type" />
+            <TableColumn fx:id="descriptioncolomn" prefWidth="314.400048828125" text="description" />
+         </columns>
       </TableView>
-      <Button fx:id="searchbtn" layoutX="1333.0" layoutY="629.0" onAction="#searchReclamation" text="Search" />
+      <Button fx:id="searchbtn" layoutX="1333.0" layoutY="629.0" text="Search" />
    </children>
 </AnchorPane>

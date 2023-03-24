@@ -13,18 +13,23 @@ public class Reclamation {
 
     
     private int Id_Rec;
+    private int id_user;
     private String Type_Rec,Description_Rec;
 
-    public Reclamation(int Id_Rec,String Type_Rec, String Description_Rec) {
+    public Reclamation(int Id_Rec,int id_user,String Type_Rec, String Description_Rec) {
         this.Id_Rec = Id_Rec;
+        this.id_user= id_user;
         this.Type_Rec = Type_Rec;
         this.Description_Rec = Description_Rec;
     }
 
-    public Reclamation(String Type_Rec, String Description_Rec) {
+    public Reclamation(int id_user, String Type_Rec, String Description_Rec) {
+        this.id_user = id_user;
         this.Type_Rec = Type_Rec;
         this.Description_Rec = Description_Rec;
     }
+
+ 
 
  
 
@@ -34,6 +39,14 @@ public class Reclamation {
 
     public Reclamation(int i) { 
         this.Id_Rec = i;
+    }
+
+    public int getid_user() {
+        return id_user;
+    }
+
+    public void setid_user(int id_user) {
+        this.id_user = id_user;
     }
 
     public Reclamation(String Type_Rec) {
@@ -67,9 +80,10 @@ public class Reclamation {
 
     @Override
     public String toString() {
-        return "Reclamation{" + "Id_Rec=" + Id_Rec + ", Type_Rec=" + Type_Rec + ", Description_Rec=" + Description_Rec + '}';
+        return "Reclamation{" + "Id_Rec=" + Id_Rec + ", id_user=" + id_user + ", Type_Rec=" + Type_Rec + ", Description_Rec=" + Description_Rec + '}';
     }
 
+  
 
     
     }

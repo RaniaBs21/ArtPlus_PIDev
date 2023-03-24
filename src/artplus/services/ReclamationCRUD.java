@@ -24,8 +24,8 @@ public class ReclamationCRUD implements InterfaceReclamation {
     
     public void ajouterreclamation(){
         try {
-            String requete = "INSERT INTO reclamation(Type_Rec,Description_Rec)"
-                    + "VALUES ('type produit','reclamation d'un produit')";
+            String requete = "INSERT INTO reclamation(id_user,type_Rec,Description_Rec)"
+                    + "VALUES (1,'type produit','reclamation d'un produit')";
             
             Statement ste = cnx.createStatement();
             ste.executeUpdate(requete);
@@ -39,12 +39,12 @@ public class ReclamationCRUD implements InterfaceReclamation {
      public void ajouterreclamation2(Reclamation r){
     try {
        
-            String requete2 = "INSERT INTO reclamation (Type_Rec,Description_Rec)"
-                    +" VALUES (?,?)";
+            String requete2 = "INSERT INTO reclamation (id_user,Type_Rec,Description_Rec)"
+                    +" VALUES (?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
-            pst.setString(1,r.getType_Rec());
+            pst.setString(3,r.getType_Rec());
             pst.setString(2,r.getDescription_Rec());
-
+            pst.setInt(1,r.getid_user()); 
          
             pst.executeUpdate();
             System.out.println("votre reclamation est ajoutée");
@@ -55,10 +55,10 @@ public class ReclamationCRUD implements InterfaceReclamation {
 }
          
     public void modifierreclamation(Reclamation r) {
-        String req = "UPDATE  reclamation SET Type_Rec=?, Description_Rec=? WHERE Id_Rec=?";
+        String req = "UPDATE  reclamation SET Type_Rec=?, Description_Rec=? WHERE id_user=?";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(3, r.getId_Rec());
+            pst.setInt(3, r.getid_user());
             pst.setString(1, r.getType_Rec());
             pst.setString(2, r.getDescription_Rec());
             pst.executeUpdate();
@@ -89,7 +89,7 @@ public class ReclamationCRUD implements InterfaceReclamation {
             PreparedStatement pst = cnx.prepareStatement(req);
             ResultSet result = pst.executeQuery();
             while(result.next()) {
-                list.add(new Reclamation(result.getInt("Id_Rec"), result.getString("Type_Rec"), result.getString("Description_Rec")));
+                list.add(new Reclamation(result.getInt("Id_Rec"),result.getInt("id_user"), result.getString("Type_Rec"), result.getString("Description_Rec")));
             }
             System.out.println("Reclamation récupéré");
         } catch (SQLException ex) {
@@ -111,7 +111,7 @@ public class ReclamationCRUD implements InterfaceReclamation {
         pst.setString(1, key + "%");
         ResultSet result = pst.executeQuery();
         while (result.next()) {
-            list.add(new Reclamation(result.getInt("Id_Rec"), result.getString("Type_Rec"), result.getString("Description_Rec")));
+            list.add(new Reclamation(result.getInt("Id_Rec"),result.getInt("id_user"), result.getString("Type_Rec"), result.getString("Description_Rec")));
         }
         System.out.println("reclamation recherche récupérées !");
     } catch (SQLException ex) {
