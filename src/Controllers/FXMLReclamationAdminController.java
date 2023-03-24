@@ -166,6 +166,36 @@ private ObservableList<Reclamation> reclamationList;
             txtDescription_Rec.setText(newSelection.getDescription_Rec());
         }
     });
+    
+    
+        // Initialize the reclamationList with the data from the database
+    reclamationList = FXCollections.observableArrayList();
+    try {
+        pst = cnx.prepareStatement("SELECT * FROM reclamation");
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            int id_user = rs.getInt("id_user");
+            String Type_Rec = rs.getString("Type_Rec");
+            String Description_Rec = rs.getString("Description_Rec");
+            reclamationList.add(new Reclamation(id_user, Type_Rec, Description_Rec));
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+
+    // Set the table view to display the reclamationList
+    tablereclamation.setItems(reclamationList);
+
+    // Add a listener to the table view to detect when a row is selected
+    tablereclamation.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        if (newSelection != null) {
+            // Populate the text fields with data from the selected row
+            txtid_user.setText(String.valueOf(newSelection.getid_user()));
+            txtType_Rec.setText(newSelection.getType_Rec());
+            txtDescription_Rec.setText(newSelection.getDescription_Rec());
+        }
+    });
+    
     }    
 
 public void modifierreclamation(Reclamation r) {
@@ -240,7 +270,7 @@ private void add(ActionEvent event) {
            alert.setContentText("champ vide");
            alert.show();
               }
-
+affichertable();
     }
     
    
@@ -276,7 +306,7 @@ public void affichertable(){
         tablereclamation.getColumns().addAll(typecolomn, descriptioncolomn);
         tablereclamation.setItems(FXCollections.observableList(rec));
     }
-    @FXML
+@FXML
 private void searchReclamation(ActionEvent event) {
     // Get the search text and convert it to lowercase
     String searchText = searchtxt.getText().toLowerCase();
@@ -284,24 +314,21 @@ private void searchReclamation(ActionEvent event) {
     // Create a filtered list for the search results
     FilteredList<Reclamation> filteredList = new FilteredList<>(reclamationList);
 
-    // Loop through each item in the table view and add it to the filtered list if it matches the search text
+    // Set the predicate of the filtered list to filter the data based on the search text
     filteredList.setPredicate(reclamation -> {
+        if (searchText == null || searchText.isEmpty()) {
+            // If the search text is empty or null, show all the data
+            return true;
+        }
+
         String typeRec = reclamation.getType_Rec().toLowerCase();
         String descriptionRec = reclamation.getDescription_Rec().toLowerCase();
+
         return typeRec.contains(searchText) || descriptionRec.contains(searchText);
     });
 
-    // Create a new table view to display the filtered data
-    TableView<Reclamation> filteredTableView = new TableView<>();
-    TableColumn<Reclamation, String> filteredTypeColumn = new TableColumn<>("Type");
-    filteredTypeColumn.setCellValueFactory(new PropertyValueFactory<>("Type_Rec"));
-    TableColumn<Reclamation, String> filteredDescriptionColumn = new TableColumn<>("Description");
-    filteredDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("Description_Rec"));
-    filteredTableView.getColumns().addAll(filteredTypeColumn, filteredDescriptionColumn);
-    filteredTableView.setItems(filteredList);
-
     // Set the table view to display the filtered data
     tablereclamation.setItems(filteredList);
-    tablereclamation.refresh();}
-
+    tablereclamation.refresh();
+}
     }
